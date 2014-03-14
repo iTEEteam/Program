@@ -14,7 +14,7 @@
 
 public class Field extends Cell {
 	/**
-	 * A mezõn lévõ, torony interfészû változó referenciája.
+	 * A mezï¿½n lï¿½vï¿½, torony interfï¿½szï¿½ vï¿½ltozï¿½ referenciï¿½ja.
 	**/
 	private ITower itower;
 	
@@ -30,7 +30,7 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * Törli a paraméterként kapott IFieldPlaceable interfészû változót a mezõrõl. 
+	 * Tï¿½rli a paramï¿½terkï¿½nt kapott IFieldPlaceable interfï¿½szï¿½ vï¿½ltozï¿½t a mezï¿½rï¿½l. 
 	 *
 	 * @param    ifp
 	**/
@@ -39,7 +39,7 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * Beregisztrálja a kapott IFieldPlaceable interfészû változót a mezõn.
+	 * Beregisztrï¿½lja a kapott IFieldPlaceable interfï¿½szï¿½ vï¿½ltozï¿½t a mezï¿½n.
 	 *
 	 * @param    ifp
 	**/
@@ -48,11 +48,15 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * Beregisztrálja a torony interfészû változót a mezõn.
+	 * Beregisztrï¿½lja a torony interfï¿½szï¿½ vï¿½ltozï¿½t a mezï¿½n.
 	 *
 	 * @param    it
 	**/
 	public void registerITower(ITower it) {
 	
+	}
+	
+	public boolean isPath(){
+	  return false;
 	}
 }
