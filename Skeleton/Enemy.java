@@ -21,7 +21,7 @@ public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az Enemy norm�l sebess�ge.
 	**/
-	private static final int speed;
+	private static final int speed = 10;
 	
 	/**
 	 * Az Enemy m�dos�tott sebess�ge, vagyis a lass�t�s m�rt�k�vel megv�ltoztatott �rt�k.
@@ -72,7 +72,9 @@ public abstract class Enemy implements IPathPlaceable {
 	
 	}
 	
-	public void eliminate(Path p);
+	public void eliminate(Path p) {
+	}
 	
-	public void registerPath(Path p);
+	public void registerPath(Path p) {
+	}
 }

@@ -18,6 +18,8 @@ package Program.Skeleton;
  * Dwarf t�pus� Enemy
 **/
 public class Dwarf extends Enemy {
-	public void eliminate(Path p);
-	public void registerPath(Path p);
+	public void eliminate(Path p) {
+	}
+	public void registerPath(Path p) {
+	}
 }

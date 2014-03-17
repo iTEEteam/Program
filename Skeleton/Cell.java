@@ -1,4 +1,5 @@
 package Program.Skeleton;
+import java.util.ArrayList;
 
 //
 //
@@ -18,9 +19,10 @@ public abstract class Cell {
 	/**
 	 * A cella 4 szomsz�dja.
 	**/
-	private Array<Cell> neighbours;
+	private ArrayList<Cell> neighbours;
 	
-	private Cell neighbours;
+	// ez miert került ide?
+	//private Cell neighbours;
 	
 	private Map grid;
 	
@@ -29,14 +31,12 @@ public abstract class Cell {
 	 *
 	 * @param    cells
 	**/
-	public void Cell(Array<Cell> cells) {
+	public void Cell(ArrayList<Cell> cells) {
 	
 	}
 	
 	/**
 	 * Visszat�r egy bool �rt�kkel, ami megmondja, hogy az adott mez� Pathy-e vagy sem.
 	**/
-	public boolean isPath() {
-	
-	}
+	public abstract boolean isPath();
 }

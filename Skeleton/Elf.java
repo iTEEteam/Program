@@ -18,6 +18,8 @@ package Program.Skeleton;
  * Elf t�pus� Enemy
 **/
 public class Elf extends Enemy {
-	public void eliminate(Path p);
-	public void registerPath(Path p);
+	public void eliminate(Path p) {
+	}
+	public void registerPath(Path p) {
+	}
 }

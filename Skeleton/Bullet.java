@@ -41,6 +41,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
+		return damage;
 	
 	}
 	
@@ -48,6 +49,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
+		return damage;
 	
 	}
 	
@@ -55,6 +57,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
+		return damage;
 	
 	}
 	
@@ -62,6 +65,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
+		return damage;
 	
 	}
 	

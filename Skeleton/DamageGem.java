@@ -11,16 +11,17 @@ package Program.Skeleton;
 //
 //
 
-
-
-
 public class DamageGem extends Gem implements ITGem {
 	private int damage;
 	public void DamageGem() {
 	
 	}
 	
-	public void upgradeTower(Tower t);
+	public void upgradeTower(Tower t) {
 	
-	public int getValue();
+	}
+	
+	public int getValue() {
+		return 0;
+	}
 }
