@@ -94,11 +94,11 @@ public class Tower implements ITower, IFieldPlaceable {
 
 		Enemy target = chooseEnemy();
 		if(target==null){
-			SkeletonTester.safePrint("<-- Tower return", false);
+			SkeletonTester.safePrint("<-- Tower shoot return", false);
 			return;
 		}
 		target.hurt(bullet);
-		SkeletonTester.safePrint("<-- Tower return", false);
+		SkeletonTester.safePrint("<-- Tower shoot return", false);
 	}
 	
 	// ez a fv csak teszteleshez kell
@@ -109,14 +109,14 @@ public class Tower implements ITower, IFieldPlaceable {
 	public void setPaths() {
 		SkeletonTester.safePrint("--> Tower setPaths", true);
 		
-		SkeletonTester.safePrint("<-- Tower return", false);
+		SkeletonTester.safePrint("<-- Tower setPaths return", false);
 	}
 	
 	public void addITGem(ITGem g) {
 		SkeletonTester.safePrint("--> Tower addITGem", true);
 		gems.add(g);
 		
-		SkeletonTester.safePrint("<-- Tower return", false);
+		SkeletonTester.safePrint("<-- Tower addITgem return", false);
 	}
 	
 	public void registerField(Field field) {
@@ -125,7 +125,7 @@ public class Tower implements ITower, IFieldPlaceable {
 			myField = field;
 			field.registerITower(this);
 		}
-		SkeletonTester.safePrint("<-- Tower return", false);
+		SkeletonTester.safePrint("<-- Tower  registerField return", false);
 	}
 	
 	public void sell() {
@@ -143,6 +143,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		
 		myField.deleteIFieldPlaceable(this);
 		
-		SkeletonTester.safePrint("<-- Tower return", false);
+		SkeletonTester.safePrint("<-- Tower sell return", false);
 	}
 }

@@ -24,10 +24,10 @@ public class Hobbit extends Enemy {
 	}
 	@Override
 	public void hurt(Bullet b) {
-		System.out.println("--> Hobbit hurt");
+		SkeletonTester.safePrint("--> Hobbit hurt", true);
 		
 		b.getDamageHobbit();
 
-		System.out.println("<-- Hobbit return");		
+		SkeletonTester.safePrint("<-- Hobbit hurt return", false);		
 	}
 }

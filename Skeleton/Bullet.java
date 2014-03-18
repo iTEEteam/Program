@@ -42,9 +42,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
-		System.out.println("--> Bullet getDamageElf");
+		SkeletonTester.safePrint("--> Bullet getDamageElf", true);
 
-		System.out.println("<-- Bullet return");
+		SkeletonTester.safePrint("<-- Bullet getDamageElf return", false);
 		return damage;
 	
 	}
@@ -53,9 +53,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
-		System.out.println("--> Bullet getDamageHobbit");
+		SkeletonTester.safePrint("--> Bullet getDamageHobbit", true);
 
-		System.out.println("<-- Bullet return");
+		SkeletonTester.safePrint("<-- Bullet getDamageHobbit return", false);
 		return damage;
 	
 	}
@@ -64,9 +64,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
-		System.out.println("--> Bullet getDamageDwarf");
+		SkeletonTester.safePrint("--> Bullet getDamageDwarf", true);
 
-		System.out.println("<-- Bullet return");
+		SkeletonTester.safePrint("<-- Bullet getDamageDwarf return", false);
 		return damage;
 	
 	}
@@ -75,9 +75,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
-		System.out.println("--> Bullet getDamageHuman");
+		SkeletonTester.safePrint("--> Bullet getDamageHuman", true);
 
-		System.out.println("<-- Bullet return");
+		SkeletonTester.safePrint("<-- Bullet getDamageHuman return", false);
 		return damage;
 	
 	}
