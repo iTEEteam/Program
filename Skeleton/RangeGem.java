@@ -24,6 +24,8 @@ public class RangeGem extends Gem implements ITGem {
 	}
 	
 	public int getValue() {
+		System.out.println("--> RangeGem getValue");
+		System.out.println("<-- RangeGem return");
 		return 0;
 	}
 }

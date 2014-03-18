@@ -22,4 +22,12 @@ public class Hobbit extends Enemy {
 	}
 	public void registerPath(Path p) {
 	}
+	@Override
+	public void hurt(Bullet b) {
+		System.out.println("--> Hobbit hurt");
+		
+		b.getDamageHobbit();
+
+		System.out.println("<-- Hobbit return");		
+	}
 }

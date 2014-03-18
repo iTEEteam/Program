@@ -54,9 +54,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 *
 	 * @param    b
 	**/
-	public void hurt(Bullet b) {
-	
-	}
+	public abstract void hurt(Bullet b);
 	
 	/**
 	 * Az Enemy mozg�s�t v�grehajt� met�dus.

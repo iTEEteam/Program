@@ -57,12 +57,15 @@ public class Tower implements ITower, IFieldPlaceable {
 	public Tower(IGame game, Field field) {
 		igame = game;
 		myField = field;
+		gems = new ArrayList<ITGem>();
+		paths = new ArrayList<Path>();
+		bullet = new Bullet();
 //		System.out.println("--> Tower konstruktor");
 //		System.out.println("<-- Tower return");
 	}
 	
 	public void upgradeSpeed(int sp) {
-	
+		
 	}
 	
 	public void upgradeRange(int rng) {
@@ -79,19 +82,26 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	public Enemy chooseEnemy() {
 		System.out.println("--> Tower choose enemy");
-		
+
 		System.out.println("<-- Tower return");		
-		return null;
+		return paths.get(0).getEnemies().get(0);
 	}
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
 		System.out.println("--> Tower shoot");
 
+		System.out.print('\t');
 		Enemy target = chooseEnemy();
 		
+		System.out.print('\t');
 		target.hurt(bullet);
 		System.out.println("<-- Tower return");
+	}
+	
+	// ez a fv csak teszteleshez kell
+	public void addPath(Path path){
+		paths.add(path);		
 	}
 	
 	public void setPaths() {
@@ -101,7 +111,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void addITGem(ITGem g) {
-		System.out.println("--> Tower");
+		System.out.println("--> Tower addITGem");
 		gems.add(g);
 		System.out.println("<-- Tower return");
 	}

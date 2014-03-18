@@ -22,4 +22,12 @@ public class Elf extends Enemy {
 	}
 	public void registerPath(Path p) {
 	}
+	@Override
+	public void hurt(Bullet b) {
+		System.out.println("--> Elf hurt");
+		
+		b.getDamageElf();
+
+		System.out.println("<-- Elf return");		
+	}
 }

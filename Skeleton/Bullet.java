@@ -25,6 +25,7 @@ public class Bullet {
 	**/
 	private Enemy enemyType;
 	
+	// WTF??
 	private Tower bullet;
 	
 	/**
@@ -41,6 +42,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
+		System.out.println("--> Bullet getDamageElf");
+
+		System.out.println("<-- Bullet return");
 		return damage;
 	
 	}
@@ -49,6 +53,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
+		System.out.println("--> Bullet getDamageHobbit");
+
+		System.out.println("<-- Bullet return");
 		return damage;
 	
 	}
@@ -57,6 +64,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
+		System.out.println("--> Bullet getDamageDwarf");
+
+		System.out.println("<-- Bullet return");
 		return damage;
 	
 	}
@@ -65,6 +75,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
+		System.out.println("--> Bullet getDamageHuman");
+
+		System.out.println("<-- Bullet return");
 		return damage;
 	
 	}

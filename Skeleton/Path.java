@@ -43,15 +43,15 @@ public class Path extends Cell {
 	/**
 	 * Konstruktor
 	**/
-	public void Path() {
-	
+	public Path() {
+		enemies = new ArrayList<Enemy>();
 	}
 	
 	/**
 	 * A bool t�pus� visszat�r�si �rt�kben megmondja, hogy van-e ellens�g a Path-en. 
 	**/
 	public boolean hasEnemy() {
-		return false;
+		return !enemies.isEmpty();
 	
 	}
 	
@@ -94,7 +94,7 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public void registerEnemy(Enemy e) {
-	
+		enemies.add(e);
 	}
 	
 	/**

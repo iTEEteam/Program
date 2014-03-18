@@ -21,6 +21,10 @@ public class SkeletonTester {
 					tester.testSequence();
 				} else if(str.equals("TowerSellNonUpgraded")){
 					tester.TowerSellNonUpgraded();
+				} else if(str.equals("TowerSellUpgraded")){
+					tester.TowerSellUpgraded();
+				} else if(str.equals("TowerShootEnemy")){
+					tester.TowerShootEnemy();
 				}
 			}
 		} catch (IOException e) {
@@ -35,12 +39,33 @@ public class SkeletonTester {
 		System.out.println("<-- testSequence return");
 	}
 	
+	public void TowerSellUpgraded(){
+		Game game = new Game();
+		Field field = new Field(game);
+		Tower tower = new Tower(game, field);
+		tower.addITGem(new RangeGem());
+		tower.addITGem(new DamageGem());
+		
+		tower.sell();
+	}
+	
 	public void TowerSellNonUpgraded(){
 		Game game = new Game();
 		Field field = new Field(game);
 		Tower tower = new Tower(game, field);
 		
 		tower.sell();
+	}
+	
+	public void TowerShootEnemy(){
+		Game game = new Game();
+		Field field = new Field(game);
+		Path path = new Path();
+		path.registerEnemy(new Hobbit());
+		Tower tower = new Tower(game, field);
+		tower.addPath(path);
+		
+		tower.shoot();
 	}
 
 }
