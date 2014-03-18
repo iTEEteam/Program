@@ -17,7 +17,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	/**
 	 * A torony �ra. Az az �rt�k, amit a man�b�l le kell vonni ahhoz, hogy a j�t�kos megvehesse a tornyot. Statikus, mert minden toronyra ugyanaz.
 	**/
-	private static final int price = 10;
+	public static final int price = 10;
 	
 	/**
 	 * A torony hat�sugara, hogy h�ny cell�t �r el a szomsz�dos cell�k k�z�l.
@@ -55,12 +55,12 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    pr
 	**/
 	public Tower(IGame game) {
+		SkeletonTester.safePrint("--> Tower konstruktor", true);
 		igame = game;
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();
 		bullet = new Bullet();
-//		System.out.println("--> Tower konstruktor");
-//		System.out.println("<-- Tower return");
+		SkeletonTester.safePrint("<-- Tower konstruktor return", false);
 	}
 	
 	public void upgradeSpeed(int sp) {

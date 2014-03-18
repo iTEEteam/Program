@@ -38,7 +38,7 @@ public class Field extends Cell {
 	**/
 	public boolean deleteIFieldPlaceable(IFieldPlaceable ifp) {
 		SkeletonTester.safePrint("--> Field deleteIFieldPlaceable", true);
-		SkeletonTester.safePrint("<-- Field return", false);
+		SkeletonTester.safePrint("<-- Field deleteIFieldPlaceable return", false);
 		return false;
 	
 	}
@@ -49,7 +49,11 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public void registerIFieldPlaceable(IFieldPlaceable ifp) {
-	
+		SkeletonTester.safePrint("--> Field registerIFieldPlaceable", true);
+		
+		ifp.registerField(this);
+
+		SkeletonTester.safePrint("<-- Field registerIFieldPlaceable", false);
 	}
 	
 	/**
@@ -63,7 +67,7 @@ public class Field extends Cell {
 			itower = it;
 		}
 		
-		SkeletonTester.safePrint("<-- Field return", false);
+		SkeletonTester.safePrint("<-- Field registerITower return", false);
 	}
 	
 	public boolean isPath(){
@@ -72,7 +76,7 @@ public class Field extends Cell {
 
 	public boolean hasTower() {
 		SkeletonTester.safePrint("<-- Field hasTower", true);
-		SkeletonTester.safePrint("<-- Field return", false);
+		SkeletonTester.safePrint("<-- Field hasTower return", false);
 		return (itower!=null);
 		
 	}

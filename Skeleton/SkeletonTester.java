@@ -3,6 +3,7 @@ package Program.Skeleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.rmi.server.Skeleton;
 
 
 public class SkeletonTester {
@@ -43,8 +44,8 @@ public class SkeletonTester {
 		
 		try {
 			while(!(str = reader.readLine()).equals("0")){
-				if(str.equals("TowerPutOnOccupiedField")){
-					tester.TowerPutOnOccupiedField();
+				if(str.equals("TowerBuyOnField")){
+					tester.TowerBuyOnField();
 				} else if(str.equals("TowerSellNonUpgraded")){
 					tester.TowerSellNonUpgraded();
 				} else if(str.equals("TowerSellUpgraded")){
@@ -53,6 +54,14 @@ public class SkeletonTester {
 					tester.TowerShootEnemy();
 				} else if(str.equals("TowerShootNoEnemy")){
 					tester.TowerShootNoEnemy();
+				} else if(str.equals("ObstacleBuyOnEnemy")){
+					tester.ObstacleBuyOnEnemy();
+				} else if(str.equals("ObstacleBuyOnObstacle")){
+					tester.ObstacleBuyOnObstacle();
+				} else if(str.equals("ObstacleBuy")){
+					tester.ObstacleBuy();
+				} else if(str.equals("TowerBuy")){
+					tester.TowerBuy();
 				}
 			}
 		} catch (IOException e) {
@@ -109,18 +118,77 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
-	public void TowerPutOnOccupiedField(){
+	public void TowerBuyOnField(){
 		Game game = new Game();
 		Field field = new Field(game);
-		Tower tower1 = new Tower(game);
-		Tower tower2 = new Tower(game);
-		
-		tower1.registerField(field);
+		Tower tower = new Tower(game);
+		Controller controller = new Controller(game);
+		controller.setField(field);
+		tower.registerField(field);
 		
 		SkeletonTester.isPrinting = true;
-		tower2.registerField(field);
+		controller.buyTower();
 		SkeletonTester.isPrinting = false;
 
 	}
+	
+	/* szekvenciadiagramja hibas?? */
+	public void ObstacleBuyOnEnemy(){
+		Game game = new Game();
+		Controller controller = new Controller(game);
+		Path path = new Path();
+		controller.setPath(path);
+		path.registerEnemy(new Hobbit());
+		
+		SkeletonTester.isPrinting = true;
+		controller.buyObstacle();
+		SkeletonTester.isPrinting = false;
+	}
+	
+	/* szekvenciadiagramja hibas?? */
+	public void ObstacleBuyOnObstacle(){
+		Game game = new Game();
+		Controller controller = new Controller(game);
+		Path path = new Path();
+		controller.setPath(path);
+		Obstacle obstacle1 = new Obstacle();
+		path.registerIObstacle(obstacle1);
+		
+		SkeletonTester.isPrinting = true;
+		controller.buyObstacle();
+		SkeletonTester.isPrinting = false;
+	}
+	
+	/* mi a fasz van ezekkel?  */
+	public void ObstacleBuy(){
+		Game game = new Game();
+		Controller controller = new Controller(game);
+		controller.setPath(new Path());
+		game.changeMana(100);
+		
+		//TODO lsd Path.registerIObstacle()
+		SkeletonTester.isPrinting = true;
+		controller.buyObstacle();
+		SkeletonTester.isPrinting = false;
+	}
+	
+	public void TowerBuy(){
+		Game game = new Game();
+		Controller controller = new Controller(game);
+		controller.setField(new Field(game));
+		game.changeMana(100);
+		
+		SkeletonTester.isPrinting = true;
+		controller.buyTower();
+		SkeletonTester.isPrinting = false;
+	}
 
 }
+
+/* VALTOZTATASOK:
+ * 
+ * Controller osztaly - letezik
+ * Tower.price - publikus
+ * Obstacle.price - publikus
+ * Obstacle konstruktoranak kivettem a parametereit
+ */

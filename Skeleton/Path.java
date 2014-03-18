@@ -13,9 +13,6 @@ import java.util.ArrayList;
 //
 //
 
-
-
-
 public class Path extends Cell {
 	/**
 	 * Az egy l�p�sben k�vetkez� Path cell�k c�mei.
@@ -51,9 +48,17 @@ public class Path extends Cell {
 	 * A bool t�pus� visszat�r�si �rt�kben megmondja, hogy van-e ellens�g a Path-en. 
 	**/
 	public boolean hasEnemy() {
+		SkeletonTester.safePrint("--> Path hasEnemy", true);
+		SkeletonTester.safePrint("<-- Path hasEnemy return", false);
 		return !enemies.isEmpty();
-	
 	}
+	
+	public boolean hasObstacle() {
+		SkeletonTester.safePrint("--> Path hasObstacle", true);
+		SkeletonTester.safePrint("<-- Path hasObstacle return", false);
+		return !(myIObstacle==null);
+	}
+	
 	
 	/**
 	 * T�rli a param�terben kapott IPathPlaceable interf�sz� v�ltoz�t a Path-r�l. 
@@ -76,7 +81,11 @@ public class Path extends Cell {
 	 * @param    ipp
 	**/
 	public void registerIPathPlaceable(IPathPlaceable ipp) {
-	
+		SkeletonTester.safePrint("--> Path registerIPathPlaceable", true);
+		
+		ipp.registerPath(this);
+		
+		SkeletonTester.safePrint("<-- Path registerIPathPlaceable return", false);
 	}
 	
 	/**
@@ -85,7 +94,21 @@ public class Path extends Cell {
 	 * @param    io
 	**/
 	public void registerIObstacle(IObstacle io) {
-	
+		SkeletonTester.safePrint("--> Path registerIObstacle", true);
+		
+		if(hasObstacle()){
+			SkeletonTester.safePrint("<-- Path registerIObstacle return", false);
+			return;
+		}
+		if(hasEnemy()){
+			SkeletonTester.safePrint("<-- Path registerIObstacle return", false);
+			return;
+		}
+		
+		// TODO kell a pathnak  igame interfesz, hogy a manat valtoztatni tudjuk
+		myIObstacle = io;
+		
+		SkeletonTester.safePrint("<-- Path registerIObstacle return ", false);
 	}
 	
 	/**

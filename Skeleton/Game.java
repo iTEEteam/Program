@@ -41,8 +41,10 @@ public class Game implements IGame {
 	/**
 	 * Konstruktor
 	**/
-	public void Game() {
-	
+	public Game() {
+		enemiesIn = new ArrayList<Enemy>();
+		enemiesOut = new ArrayList<Enemy>();
+		towers = new ArrayList<Tower>();
 	}
 	
 	/**
@@ -64,25 +66,39 @@ public class Game implements IGame {
 	 * A man�t cs�kkent�/j�v��r� f�ggv�ny.
 	**/
 	public void changeMana(int value) {
-		SkeletonTester.safePrint("--> Game change mana", true);
-		
-		SkeletonTester.safePrint("<-- Game return", false);
+		SkeletonTester.safePrint("--> Game changeMana", true);
+		mana += value;
+		SkeletonTester.safePrint("<-- Game changeMana return", false);
 	}
 	
 	public void incSucceeded() {
 	}
 	
 	public void addTower(Tower t) {
+		SkeletonTester.safePrint("--> Game addTower", true);
+		
+		if(towers != null){
+			towers.add(t);
+		}
+		
+		SkeletonTester.safePrint("<-- Game addTower return", false);
 	}
 	
 	public void removeTower(Tower t) {
 		SkeletonTester.safePrint("--> Game remove tower", true);
 		
-
 		SkeletonTester.safePrint("<-- Game return", false);
 	}
 	
 	public void removeEnemy(Enemy e) {
+	}
+
+	@Override
+	public int getMana() {
+		SkeletonTester.safePrint("--> Game getMana", true);
+		
+		SkeletonTester.safePrint("<-- Game getMana return", false);
+		return mana;
 	}
 
 }

@@ -20,6 +20,8 @@ public interface IGame {
 	**/
 	public void changeMana(int value);
 	
+	public int getMana();
+	
 	public void incSucceeded();
 	
 	public void addTower(Tower t);

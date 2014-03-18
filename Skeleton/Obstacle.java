@@ -20,7 +20,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	/**
 	 * Az akad�ly �ra. Statikus, mert minden akad�lyra ugyanannyi.
 	**/
-	private static final int price = 10;
+	public static final int price = 10;
 	
 	/**
 	 * A lass�t�s m�rt�ke.
@@ -48,7 +48,10 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	 * @param    p
 	 * @param    up
 	**/
-	public void Obstacle(int price, int intens, int am, Path p, boolean up) {
+	public Obstacle() {
+		SkeletonTester.safePrint("--> Obstacle konstruktor", true);
+		
+		SkeletonTester.safePrint("<-- Obstacle konstruktor return", false);
 	
 	}
 	
@@ -71,5 +74,12 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	}
 	
 	public void registerPath(Path p) {
+		SkeletonTester.safePrint("--> Obstacle registerPath", true);
+		myPath = p;
+		
+		p.registerIObstacle(this);
+		
+		SkeletonTester.safePrint("<-- Obstacle registerPath return", false);
+	
 	}
 }
