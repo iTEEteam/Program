@@ -12,10 +12,6 @@ package Program.Skeleton;
 //
 
 
-
-
 public class Application {
-	public static void Main(String[] args) {
-	
-	}
+
 }

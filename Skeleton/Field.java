@@ -27,8 +27,8 @@ public class Field extends Cell {
 	/**
 	 * Konstruktor
 	**/
-	public void Field() {
-	
+	public Field(IGame game) {
+		igame = game;
 	}
 	
 	/**

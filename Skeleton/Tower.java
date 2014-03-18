@@ -1,5 +1,4 @@
 package Program.Skeleton;
-
 import java.util.ArrayList;
 
 //
@@ -14,8 +13,6 @@ import java.util.ArrayList;
 //
 
 
-
-
 public class Tower implements ITower, IFieldPlaceable {
 	/**
 	 * A torony �ra. Az az �rt�k, amit a man�b�l le kell vonni ahhoz, hogy a j�t�kos megvehesse a tornyot. Statikus, mert minden toronyra ugyanaz.
@@ -26,11 +23,8 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * A torony hat�sugara, hogy h�ny cell�t �r el a szomsz�dos cell�k k�z�l.
 	**/
 	private int range;
-	
 	private int speedCtr;
-	
 	private int speed;
-	
 	/**
 	 * A l�ved�k amit a torony kil�.
 	**/
@@ -50,11 +44,8 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * Azon cell�k list�ja, amelyek beleesnek a l�t�vba (range).
 	**/
 	private ArrayList<Path> paths;
-	
 	private IGame igame;
-	
 	private Field itower;
-	
 	public Game towers;
 	
 	/**
@@ -63,8 +54,10 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    rang
 	 * @param    pr
 	**/
-	public void Tower(int rang, int pr) {
-	
+	public Tower(IGame game) {
+		igame = game;
+		System.out.println("--> Tower konstruktor");
+		System.out.println("<-- Tower return");
 	}
 	
 	public void upgradeSpeed(int sp) {
@@ -84,21 +77,40 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public Enemy chooseEnemy() {
+		System.out.println("--> Tower choose enemy");
+		
+		System.out.println("<-- Tower return");		
 		return null;
 	}
 	
+	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
+		System.out.println("--> Tower shoot");
+
+		Enemy target = chooseEnemy();
+		
+		target.hurt(bullet);
+		System.out.println("<-- Tower return");
 	}
 	
 	public void setPaths() {
+		System.out.println("--> Tower setPaths");
+		
+		System.out.println("<-- Tower return");
 	}
 	
 	public void addITGem(ITGem g) {
+		System.out.println("--> Tower");
+		gems.add(g);
+		System.out.println("<-- Tower return");
 	}
 	
 	public void registerField(Field field) {
+		myField = field;
 	}
 	
 	public void sell() {
+		System.out.println("--> Tower sell");
+		System.out.println("<-- Tower return");
 	}
 }

@@ -11,9 +11,6 @@ package Program.Skeleton;
 //
 //
 
-
-
-
 /**
  * A k�l�nb�z� ellens�gek (Hobbit, Dwarf, Elf, Human) absztrakt �soszt�lya.
 **/

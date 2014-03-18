@@ -1,5 +1,4 @@
 package Program.Skeleton;
-
 import java.util.ArrayList;
 
 //
@@ -12,9 +11,6 @@ import java.util.ArrayList;
 //  @ Author : itee_team
 //
 //
-
-
-
 
 public class Game implements IGame {
 	/**
