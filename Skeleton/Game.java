@@ -63,7 +63,9 @@ public class Game implements IGame {
 	/**
 	 * A man�t cs�kkent�/j�v��r� f�ggv�ny.
 	**/
-	public void changeMana() {
+	public void changeMana(int value) {
+		System.out.println("--> Game change mana");
+		System.out.println("<-- Game return");
 	}
 	
 	public void incSucceeded() {
@@ -73,8 +75,11 @@ public class Game implements IGame {
 	}
 	
 	public void removeTower(Tower t) {
+		System.out.println("--> Game remove tower");
+		System.out.println("<-- Game return");
 	}
 	
 	public void removeEnemy(Enemy e) {
 	}
+
 }

@@ -18,7 +18,7 @@ public interface IGame {
 	/**
 	 * A man�t cs�kkent�/j�v��r� f�ggv�ny.
 	**/
-	public void changeMana();
+	public void changeMana(int value);
 	
 	public void incSucceeded();
 	

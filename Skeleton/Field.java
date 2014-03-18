@@ -37,6 +37,8 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public boolean deleteIFieldPlaceable(IFieldPlaceable ifp) {
+		System.out.println("--> Field deleteIFieldPlaceable");
+		System.out.println("<-- Field return");
 		return false;
 	
 	}

@@ -54,10 +54,11 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    rang
 	 * @param    pr
 	**/
-	public Tower(IGame game) {
+	public Tower(IGame game, Field field) {
 		igame = game;
-		System.out.println("--> Tower konstruktor");
-		System.out.println("<-- Tower return");
+		myField = field;
+//		System.out.println("--> Tower konstruktor");
+//		System.out.println("<-- Tower return");
 	}
 	
 	public void upgradeSpeed(int sp) {
@@ -111,6 +112,19 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	public void sell() {
 		System.out.println("--> Tower sell");
+		int value = price/2;
+		
+		
+		for(ITGem g:gems){
+			value = g.getValue();
+		}
+		
+		System.out.print('\t');
+		igame.changeMana(value);
+		System.out.print('\t');
+		igame.removeTower(this);
+		System.out.print('\t');
+		myField.deleteIFieldPlaceable(this);
 		System.out.println("<-- Tower return");
 	}
 }
