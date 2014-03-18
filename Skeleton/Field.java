@@ -37,8 +37,8 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public boolean deleteIFieldPlaceable(IFieldPlaceable ifp) {
-		System.out.println("--> Field deleteIFieldPlaceable");
-		System.out.println("<-- Field return");
+		SkeletonTester.safePrint("--> Field deleteIFieldPlaceable", true);
+		SkeletonTester.safePrint("<-- Field return", false);
 		return false;
 	
 	}
@@ -58,10 +58,22 @@ public class Field extends Cell {
 	 * @param    it
 	**/
 	public void registerITower(ITower it) {
-	
+		SkeletonTester.safePrint("--> Field registerITower", true);
+		if(!hasTower()){
+			itower = it;
+		}
+		
+		SkeletonTester.safePrint("<-- Field return", false);
 	}
 	
 	public boolean isPath(){
 	  return false;
+	}
+
+	public boolean hasTower() {
+		SkeletonTester.safePrint("<-- Field hasTower", true);
+		SkeletonTester.safePrint("<-- Field return", false);
+		return (itower!=null);
+		
 	}
 }

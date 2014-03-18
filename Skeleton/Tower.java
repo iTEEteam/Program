@@ -54,9 +54,8 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    rang
 	 * @param    pr
 	**/
-	public Tower(IGame game, Field field) {
+	public Tower(IGame game) {
 		igame = game;
-		myField = field;
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();
 		bullet = new Bullet();
@@ -81,22 +80,25 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public Enemy chooseEnemy() {
-		System.out.println("--> Tower choose enemy");
-
-		System.out.println("<-- Tower return");		
-		return paths.get(0).getEnemies().get(0);
+		SkeletonTester.safePrint("--> Tower choose enemy", true);
+		Path path = paths.get(0);
+		
+		SkeletonTester.safePrint("<-- Tower return", false);	
+		if(!path.hasEnemy()) return null;
+		return path.getEnemies().get(0);
 	}
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-		System.out.println("--> Tower shoot");
+		SkeletonTester.safePrint("--> Tower shoot", true);
 
-		System.out.print('\t');
 		Enemy target = chooseEnemy();
-		
-		System.out.print('\t');
+		if(target==null){
+			SkeletonTester.safePrint("<-- Tower return", false);
+			return;
+		}
 		target.hurt(bullet);
-		System.out.println("<-- Tower return");
+		SkeletonTester.safePrint("<-- Tower return", false);
 	}
 	
 	// ez a fv csak teszteleshez kell
@@ -105,23 +107,29 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void setPaths() {
-		System.out.println("--> Tower setPaths");
+		SkeletonTester.safePrint("--> Tower setPaths", true);
 		
-		System.out.println("<-- Tower return");
+		SkeletonTester.safePrint("<-- Tower return", false);
 	}
 	
 	public void addITGem(ITGem g) {
-		System.out.println("--> Tower addITGem");
+		SkeletonTester.safePrint("--> Tower addITGem", true);
 		gems.add(g);
-		System.out.println("<-- Tower return");
+		
+		SkeletonTester.safePrint("<-- Tower return", false);
 	}
 	
 	public void registerField(Field field) {
-		myField = field;
+		SkeletonTester.safePrint("--> Tower registerField", true);
+		if(!field.hasTower()){
+			myField = field;
+			field.registerITower(this);
+		}
+		SkeletonTester.safePrint("<-- Tower return", false);
 	}
 	
 	public void sell() {
-		System.out.println("--> Tower sell");
+		SkeletonTester.safePrint("--> Tower sell", true);
 		int value = price/2;
 		
 		
@@ -129,12 +137,12 @@ public class Tower implements ITower, IFieldPlaceable {
 			value = g.getValue();
 		}
 		
-		System.out.print('\t');
 		igame.changeMana(value);
-		System.out.print('\t');
+		
 		igame.removeTower(this);
-		System.out.print('\t');
+		
 		myField.deleteIFieldPlaceable(this);
-		System.out.println("<-- Tower return");
+		
+		SkeletonTester.safePrint("<-- Tower return", false);
 	}
 }

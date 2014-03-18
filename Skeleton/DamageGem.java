@@ -22,8 +22,9 @@ public class DamageGem extends Gem implements ITGem {
 	}
 	
 	public int getValue() {
-		System.out.println("--> DamageGem getValue");
-		System.out.println("<-- DamegeGem return");
+		SkeletonTester.safePrint("--> DamageGem getValue", true);
+		
+		SkeletonTester.safePrint("<-- DamegeGem return", false);
 		return 0;
 	}
 }
