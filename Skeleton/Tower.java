@@ -91,10 +91,11 @@ public class Tower implements ITower, IFieldPlaceable {
 	public Enemy chooseEnemy() {
 		SkeletonTester.safePrint("--> Tower choose enemy", true);
 		Path path = paths.get(0);
-		
-		SkeletonTester.safePrint("<-- Tower return", false);	
+		ArrayList<Enemy> enemies;
 		if(!path.hasEnemy()) return null;
-		return path.getEnemies().get(0);
+		enemies = path.getEnemies();
+		SkeletonTester.safePrint("<-- Tower choose enemy return", false);	
+		return enemies.get(0);
 	}
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel

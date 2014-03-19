@@ -58,9 +58,21 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	}
 	
 	public void slow(Enemy e) {
+		SkeletonTester.safePrint("--> Obstacle slow", true);
+		e.setModSpeed(slowIntens);
+		
+		amortization();
+		
+		if(amort <= 0){
+			eliminate(myPath);
+		}
+		SkeletonTester.safePrint("<-- Obstacle slow return", false);
 	}
 	
 	public void amortization() {
+		SkeletonTester.safePrint("--> Obstacle amortization", true);
+		
+		SkeletonTester.safePrint("<-- Obstacle amortization return", false);
 	}
 	
 	public void increaseIntensity(int intens) {
@@ -84,6 +96,9 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	}
 	
 	public void eliminate(Path p) {
+		SkeletonTester.safePrint("<-- Obstacle eliminate", true);
+		myPath.deleteIObstacle(this);
+		SkeletonTester.safePrint("<-- Obstacle eliminate return", false);
 	}
 	
 	public void registerPath(Path p) {

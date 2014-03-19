@@ -30,7 +30,7 @@ public class Path extends Cell {
 	private ArrayList<Enemy> enemies;
 	
 	// WTF?
-	private Obstacle myPath;
+	private Obstacle myObstacle;
 	
 	// ez is WTF?
 	//private Enemy myPath;
@@ -87,7 +87,6 @@ public class Path extends Cell {
 	public void registerIPathPlaceable(IPathPlaceable ipp) {
 		SkeletonTester.safePrint("--> Path registerIPathPlaceable", true);
 		
-		ipp.registerPath(this);
 		
 		SkeletonTester.safePrint("<-- Path registerIPathPlaceable return", false);
 	}
@@ -121,7 +120,13 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public void registerEnemy(Enemy e) {
+		SkeletonTester.safePrint("--> Path registerEnemy", true);
+		
+		if(myObstacle != null){
+			myObstacle.slow(e);
+		}
 		enemies.add(e);
+		SkeletonTester.safePrint("<-- Path registerEnemy return", false);
 	}
 	
 	/**
@@ -146,7 +151,10 @@ public class Path extends Cell {
 	 * Visszat�r a nextPaths lista egy elem�vel, ahova az enemy majd l�phet.
 	**/
 	public Path getNext() {
-		return null;
+		SkeletonTester.safePrint("--> Path getNext", true);
+		
+		SkeletonTester.safePrint("<-- Path getNext return", false);
+		return new Path();
 	
 	}
 

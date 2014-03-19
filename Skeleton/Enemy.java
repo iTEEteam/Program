@@ -35,6 +35,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 * A Path c�me, amin az Enemy �ppen tart�zkodik.
 	**/
 	protected Path myPath;
+	private Path nextPath;
 	
 	protected IGame igame;
 	
@@ -63,7 +64,19 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az Enemy mozg�s�t v�grehajt� met�dus.
 	**/
 	public void move() {
-	
+		SkeletonTester.safePrint("--> Enemy move", true);
+		
+		nextPath = myPath.getNext();
+		nextPath = null;
+		if(nextPath== null){
+			System.out.println("if(nextPath==null) <-- tuti? ill. ez nem field");
+			igame.incSucceeded();
+			eliminate(myPath);
+		}
+		
+		nextPath.registerIPathPlaceable(this);
+		
+		SkeletonTester.safePrint("<-- Enemy move return", false);	
 	}
 	
 	public void setModSpeed(int msp) {
@@ -74,6 +87,13 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	public void registerPath(Path p) {
+		SkeletonTester.safePrint("--> Enemy registerPath", true);
+		
+		myPath.deleteEnemy(this);
+		
+		nextPath.registerEnemy(this);
+		
+		SkeletonTester.safePrint("--> Enemy registerPath return", false);
 	}
 	
 	public void setHealth(int hp){

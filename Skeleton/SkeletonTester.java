@@ -41,6 +41,8 @@ public class SkeletonTester {
 		
 		System.out.println("M E N U");
 		
+		/* szamozas kiir */
+		
 		try {
 			while(!(str = reader.readLine()).equals("0")){
 				if(str.equals("TowerBuyOnField")){
@@ -64,7 +66,7 @@ public class SkeletonTester {
 				} else if(str.equals("ObstacleBuyGems")){
 					tester.ObstacleBuyGems();
 				} else if(str.equals("EnemyMove")){
-					
+					tester.EnemyMove();
 				} else if(str.equals("Initialize")){
 					
 				} else if(str.equals("TowerBuyGems")){
@@ -235,6 +237,16 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 
+	private void EnemyMove(){
+		Game game = new Game();
+		Path path = new Path();
+		Enemy enemy = new Hobbit(game, path);
+		
+		SkeletonTester.isPrinting = true;
+		enemy.move();
+		SkeletonTester.isPrinting = false;
+	}
+	
 }
 
 /* VALTOZTATASOK:
@@ -248,4 +260,6 @@ public class SkeletonTester {
  * Enemy - health, myPath, igame lathatosaga protected
  * Enemy - private static final int maxHP
  * Enemy - setHealth(int) csak teszteles celjabol
+ * Enemy - uj private Path nextPath valtozo
+ * Path - Obstacle myPath valtozo nevet atirtam myObstacle-re
  */
