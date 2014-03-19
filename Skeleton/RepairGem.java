@@ -15,10 +15,17 @@ package Program.Skeleton;
 
 
 public class RepairGem extends Gem implements IOGem {
-	public void RepairGem() {
+	public static final int price = 20;
+
+	public  RepairGem() {
 	
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
+		SkeletonTester.safePrint("--> RepairGem upgradeObstacle", true);
+		
+		o.repair();
+		
+		SkeletonTester.safePrint("<-- RepairGem upgradeObstacle return", false);
 	}
 }

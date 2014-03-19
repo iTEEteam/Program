@@ -12,15 +12,20 @@ package Program.Skeleton;
 //
 
 
-
-
 public class EnemyTypeGem extends Gem implements ITGem {
+	public static final int price = 20;
+
 	private Enemy eType;
-	public void EnemyTypeGem() {
-	
+	public EnemyTypeGem() {
+		SkeletonTester.safePrint("--> EnemyType konstruktor", true);
+		
+		SkeletonTester.safePrint("<-- EnemyType konstruktor return", false);
 	}
 	
 	public void upgradeTower(Tower t) {
+		SkeletonTester.safePrint("--> EnemyTypeGem upgradeTower", true);
+		t.upgradeEnemy(eType);
+		SkeletonTester.safePrint("<-- EnemyTypeGem upgradeTower return",false);
 	}
 	
 	public int getValue() {

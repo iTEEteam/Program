@@ -19,7 +19,8 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az Enemy norm�l sebess�ge.
 	**/
 	private static final int speed = 10;
-	
+	private static final int maxHP = 100;
+
 	/**
 	 * Az Enemy m�dos�tott sebess�ge, vagyis a lass�t�s m�rt�k�vel megv�ltoztatott �rt�k.
 	**/
@@ -28,14 +29,14 @@ public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az Enemy �letereje.
 	**/
-	private int health;
+	protected int health;
 	
 	/**
 	 * A Path c�me, amin az Enemy �ppen tart�zkodik.
 	**/
-	private Path myPath;
+	protected Path myPath;
 	
-	private IGame igame;
+	protected IGame igame;
 	
 	/**
 	 * Konstruktor.
@@ -45,8 +46,10 @@ public abstract class Enemy implements IPathPlaceable {
 	 * @param    h
 	 * @param    ig
 	**/
-	public void Enemy(int sp, int msp, int h, IGame ig) {
-	
+	public Enemy(IGame game, Path p) {
+		igame = game;
+		health = maxHP;
+		myPath = p;
 	}
 	
 	/**
@@ -71,5 +74,9 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	public void registerPath(Path p) {
+	}
+	
+	public void setHealth(int hp){
+		health = hp;		
 	}
 }

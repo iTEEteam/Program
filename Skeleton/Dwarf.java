@@ -18,6 +18,10 @@ package Program.Skeleton;
  * Dwarf t�pus� Enemy
 **/
 public class Dwarf extends Enemy {
+	public Dwarf(IGame game, Path p) {
+		super(game, p);
+		// TODO Auto-generated constructor stub
+	}
 	public void eliminate(Path p) {
 	}
 	public void registerPath(Path p) {

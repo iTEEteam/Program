@@ -18,6 +18,10 @@ package Program.Skeleton;
  * Human t�pus� Enemy.
 **/
 public class Human extends Enemy {
+	public Human(IGame game, Path p) {
+		super(game, p);
+		// TODO Auto-generated constructor stub
+	}
 	public void eliminate(Path p) {
 	}
 	public void registerPath(Path p) {

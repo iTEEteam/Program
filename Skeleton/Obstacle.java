@@ -51,6 +51,8 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	public Obstacle() {
 		SkeletonTester.safePrint("--> Obstacle konstruktor", true);
 		
+		gems = new ArrayList<IOGem>();
+		
 		SkeletonTester.safePrint("<-- Obstacle konstruktor return", false);
 	
 	}
@@ -65,9 +67,20 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	}
 	
 	public void addIOGem(IOGem g) {
+		SkeletonTester.safePrint("--> Obstacle addIOGem", true);
+		
+		g.upgradeObstacle(this);
+		gems.add(g);
+		
+		SkeletonTester.safePrint("<-- Obstacle addIOGem return", false);
 	}
 	
 	public void repair() {
+		SkeletonTester.safePrint("--> Obstacle repair", true);
+		
+		amort = 0;
+		
+		SkeletonTester.safePrint("<-- Obstacle repair return", false);
 	}
 	
 	public void eliminate(Path p) {

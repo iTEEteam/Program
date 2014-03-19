@@ -91,6 +91,9 @@ public class Game implements IGame {
 	}
 	
 	public void removeEnemy(Enemy e) {
+		SkeletonTester.safePrint("--> Game removeEnemy", true);
+		
+		SkeletonTester.safePrint("<-- Game removeEnemy return", false);
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class Bullet {
 	/**
 	 * Megadja, hogy mennyivel kell cs�kkenteni sebz�skor az Enemy health v�ltoz�j�t.
 	**/
-	private int damage;
+	private int damage = 10;
 	
 	/**
 	 * Megadja annak az ellens�gnek a t�pus�t, amire nagyobb a sebz�s, fejlesztett�k a bulletet. 
@@ -34,8 +34,8 @@ public class Bullet {
 	 * @param    dmg
 	 * @param    et
 	**/
-	public void Bullet(int dmg, Enemy et) {
-	
+	public void Bullet() {
+
 	}
 	
 	/**

@@ -12,13 +12,23 @@ package Program.Skeleton;
 //
 
 public class DamageGem extends Gem implements ITGem {
+	public static final int price = 20;
+
 	private int damage;
-	public void DamageGem() {
-	
+	public DamageGem() {
+		SkeletonTester.safePrint("--> DamageGem konstruktor", true);
+
+		SkeletonTester.safePrint("<-- DamageGem konstruktor return", false);
+
 	}
 	
 	public void upgradeTower(Tower t) {
-	
+		SkeletonTester.safePrint("--> DamageGem upgradeTower", true);
+		t.upgradeDamage(damage);
+		
+		// TODO hello
+		
+		SkeletonTester.safePrint("<-- Damagegem upgradeTower return", false);
 	}
 	
 	public int getValue() {

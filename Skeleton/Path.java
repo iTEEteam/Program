@@ -66,6 +66,10 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public boolean deleteEnemy(Enemy e) {
+		SkeletonTester.safePrint("--> Path deleteEnemy", true);
+		
+		SkeletonTester.safePrint("<-- Path deleteEnemy return", false);
+		
 		return false;
 	
 	}
@@ -124,8 +128,18 @@ public class Path extends Cell {
 	 * Visszat�r a Path-en l�v� ellens�g(ek)el.
 	**/
 	public ArrayList<Enemy> getEnemies() {
+		SkeletonTester.safePrint("--> Path getEnemies", true);
+		
+		SkeletonTester.safePrint("<-- Path getEnemies return", false);
 		return enemies;
 	
+	}
+	
+	public IObstacle getIObstacle(){
+		SkeletonTester.safePrint("--> Path getIObstacle", true);
+		
+		SkeletonTester.safePrint("<-- Path getIObstacle return", false);
+		return myIObstacle;
 	}
 	
 	/**

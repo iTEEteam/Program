@@ -18,6 +18,10 @@ package Program.Skeleton;
  * Elf t�pus� Enemy
 **/
 public class Elf extends Enemy {
+	public Elf(IGame game, Path p) {
+		super(game, p);
+		// TODO Auto-generated constructor stub
+	}
 	public void eliminate(Path p) {
 	}
 	public void registerPath(Path p) {

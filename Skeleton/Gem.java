@@ -18,14 +18,14 @@ public abstract class Gem {
 	/**
 	 * A krist�ly �ra. Statikus, mert minden krist�ly ugyanannyiba ker�l.
 	**/
-	private int price;
+	public static int price = 10;
 	
 	/**
 	 * Konstruktor
 	 *
 	 * @param    price
 	**/
-	public void Gem(int price) {
+	public Gem() {
 	
 	}
 }

@@ -15,12 +15,18 @@ package Program.Skeleton;
 
 
 public class RangeGem extends Gem implements ITGem {
+	public static final int price = 20;
+
 	private int range;
-	public void RangeGem() {
-	
+	public RangeGem() {
+		SkeletonTester.safePrint("--> RangeGem konstruktor", true);
+
+		SkeletonTester.safePrint("<-- RangeGem konstruktor return", false);
 	}
-	
 	public void upgradeTower(Tower t) {
+		SkeletonTester.safePrint("--> RangeGem upgradeTower", true);
+		t.upgradeRange(range);
+		SkeletonTester.safePrint("<-- RangeGem upgradeTower return", false);
 	}
 	
 	public int getValue() {

@@ -15,11 +15,23 @@ package Program.Skeleton;
 
 
 public class IntensityGem extends Gem implements IOGem {
-	private int intestity;
-	public void IntensityGem() {
+
+	public static final int price = 20;
+
+	private int intensity;
 	
+	public IntensityGem() {
+		SkeletonTester.safePrint("--> IntensityGem konstruktor", true);
+
+		SkeletonTester.safePrint("<-- IntensityGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
+		SkeletonTester.safePrint("--> IntensityGem upgradeObstacle", true);
+		
+		// sd_akadaly_fejlesztese szekvenciadiagrammon el van irva
+		o.increaseIntensity(intensity);
+		
+		SkeletonTester.safePrint("<-- IntensityGem upgradeObstacle", false);
 	}
 }

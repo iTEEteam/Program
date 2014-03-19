@@ -11,23 +11,41 @@ package Program.Skeleton;
 //
 //
 
-
-
-
 /**
  * Hobbit t�pus� Enemy
 **/
 public class Hobbit extends Enemy {
+	private static final int maxHP = 50;
+
+	public Hobbit(IGame game, Path p) {
+		super(game, p);
+
+	}
+	
+	// TODO minek a Path p amikor ugyis a sajatjarol veszi le? IPP miatt?
 	public void eliminate(Path p) {
+		SkeletonTester.safePrint("--> Hobbit eliminate", true);
+		
+		igame.changeMana(maxHP);
+		igame.removeEnemy(this);
+		myPath.deleteEnemy(this);
+		
+		SkeletonTester.safePrint("<-- Hobbit eliminate return", false);
 	}
 	public void registerPath(Path p) {
+		
 	}
 	@Override
 	public void hurt(Bullet b) {
 		SkeletonTester.safePrint("--> Hobbit hurt", true);
 		
-		b.getDamageHobbit();
-
+		int damage = b.getDamageHobbit();
+		
+		health -= damage;
+		if(health <= 0){
+			eliminate(myPath);
+		}
+		
 		SkeletonTester.safePrint("<-- Hobbit hurt return", false);		
 	}
 }

@@ -15,12 +15,20 @@ package Program.Skeleton;
 
 
 public class SpeedGem extends Gem implements ITGem {
+	public static final int price = 20;
+
 	private int speed;
-	public void SpeedGem() {
 	
+	public SpeedGem() {
+		SkeletonTester.safePrint("--> SpeedGem konstruktor", true);
+		
+		SkeletonTester.safePrint("<-- SpeedGem konstruktor return", false);
 	}
 	
 	public void upgradeTower(Tower t) {
+		SkeletonTester.safePrint("--> SpeedGem upgradeTower", true);
+		t.upgradeSpeed(speed);
+		SkeletonTester.safePrint("<-- SpeedGem upgradeTower return", false);
 	}
 	
 	public int getValue() {

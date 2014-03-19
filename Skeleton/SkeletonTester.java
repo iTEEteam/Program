@@ -3,7 +3,6 @@ package Program.Skeleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.rmi.server.Skeleton;
 
 
 public class SkeletonTester {
@@ -62,6 +61,16 @@ public class SkeletonTester {
 					tester.ObstacleBuy();
 				} else if(str.equals("TowerBuy")){
 					tester.TowerBuy();
+				} else if(str.equals("ObstacleBuyGems")){
+					tester.ObstacleBuyGems();
+				} else if(str.equals("EnemyMove")){
+					
+				} else if(str.equals("Initialize")){
+					
+				} else if(str.equals("TowerBuyGems")){
+					tester.TowerBuyGems();
+				} else if(str.equals("TowerKillEnemy")){
+					tester.TowerKillEnemy();
 				}
 			}
 		} catch (IOException e) {
@@ -70,7 +79,7 @@ public class SkeletonTester {
 		System.out.println("VEGE");		
 	}
 	
-	public void TowerSellUpgraded(){
+	private void TowerSellUpgraded(){
 		Game game = new Game();
 		Field field = new Field(game);
 		Tower tower = new Tower(game);
@@ -83,7 +92,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;		
 	}
 	
-	public void TowerSellNonUpgraded(){
+	private void TowerSellNonUpgraded(){
 		Game game = new Game();
 		Field field = new Field(game);
 		Tower tower = new Tower(game);
@@ -95,10 +104,10 @@ public class SkeletonTester {
 
 	}
 	
-	public void TowerShootEnemy(){
+	private void TowerShootEnemy(){
 		Game game = new Game();
 		Path path = new Path();
-		path.registerEnemy(new Hobbit());
+		path.registerEnemy(new Hobbit(game, path));
 		Tower tower = new Tower(game);
 		tower.addPath(path);
 		
@@ -107,7 +116,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
-	public void TowerShootNoEnemy(){
+	private void TowerShootNoEnemy(){
 		Game game = new Game();
 		Path path = new Path();
 		Tower tower = new Tower(game);
@@ -118,7 +127,22 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
-	public void TowerBuyOnField(){
+	private void TowerKillEnemy(){
+		Game game = new Game();
+		Path path = new Path();
+		Enemy hobbit = new Hobbit(game, path);
+		hobbit.setHealth(5);
+		path.registerEnemy(hobbit);
+		Tower tower = new Tower(game);
+		tower.addPath(path);
+		
+		SkeletonTester.isPrinting = true;
+		tower.shoot();
+		SkeletonTester.isPrinting = false;
+		
+	}
+	
+	private void TowerBuyOnField(){
 		Game game = new Game();
 		Field field = new Field(game);
 		Tower tower = new Tower(game);
@@ -132,21 +156,38 @@ public class SkeletonTester {
 
 	}
 	
+	private void TowerBuyGems(){
+		Game game = new Game();
+		Field field = new Field(game);
+		Controller controller = new Controller(game);
+		controller.setField(field);
+		game.changeMana(1000);
+		controller.buyTower();
+		
+		SkeletonTester.isPrinting = true;
+		controller.buySpeedGem();
+		controller.buyRangeGem();
+		controller.buyDamageGem();
+		// TODO ez meg nem jo
+		//controller.buyEnemyTypeGem();
+		SkeletonTester.isPrinting = false;
+		
+	}
+	
 	/* szekvenciadiagramja hibas?? */
-	public void ObstacleBuyOnEnemy(){
+	private void ObstacleBuyOnEnemy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
 		Path path = new Path();
 		controller.setPath(path);
-		path.registerEnemy(new Hobbit());
+		path.registerEnemy(new Hobbit(game, path));
 		
 		SkeletonTester.isPrinting = true;
 		controller.buyObstacle();
 		SkeletonTester.isPrinting = false;
 	}
 	
-	/* szekvenciadiagramja hibas?? */
-	public void ObstacleBuyOnObstacle(){
+	private void ObstacleBuyOnObstacle(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
 		Path path = new Path();
@@ -159,27 +200,38 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
-	/* mi a fasz van ezekkel?  */
-	public void ObstacleBuy(){
+	private void ObstacleBuy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
 		controller.setPath(new Path());
 		game.changeMana(100);
 		
-		//TODO lsd Path.registerIObstacle()
 		SkeletonTester.isPrinting = true;
 		controller.buyObstacle();
 		SkeletonTester.isPrinting = false;
 	}
 	
-	public void TowerBuy(){
+	private void TowerBuy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
 		controller.setField(new Field(game));
 		game.changeMana(100);
 		
 		SkeletonTester.isPrinting = true;
-		controller.buyTower();
+		controller.buyTower();		
+		SkeletonTester.isPrinting = false;
+	}
+	
+	private void ObstacleBuyGems() {
+		Game game = new Game();
+		Controller controller = new Controller(game);
+		controller.setPath(new Path());
+		game.changeMana(100);	
+		controller.buyObstacle();
+		
+		SkeletonTester.isPrinting = true;
+		controller.buyIntensityGem();
+		controller.buyRepairGem();
 		SkeletonTester.isPrinting = false;
 	}
 
@@ -191,4 +243,9 @@ public class SkeletonTester {
  * Tower.price - publikus
  * Obstacle.price - publikus
  * Obstacle konstruktoranak kivettem a parametereit
+ * Path - uj metodus: public IObstacle getIObstacle
+ * Field - uj metodus: public ITower getITower
+ * Enemy - health, myPath, igame lathatosaga protected
+ * Enemy - private static final int maxHP
+ * Enemy - setHealth(int) csak teszteles celjabol
  */
