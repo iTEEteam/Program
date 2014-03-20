@@ -15,10 +15,10 @@ package Program.Skeleton;
 public class EnemyTypeGem extends Gem implements ITGem {
 	public static final int price = 20;
 
-	private Enemy eType;
-	public EnemyTypeGem() {
+	private String eType;
+	public EnemyTypeGem(String enemyType) {
 		SkeletonTester.safePrint("--> EnemyType konstruktor", true);
-		
+		eType = enemyType;
 		SkeletonTester.safePrint("<-- EnemyType konstruktor return", false);
 	}
 	

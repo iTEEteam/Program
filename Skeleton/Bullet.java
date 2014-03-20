@@ -23,7 +23,7 @@ public class Bullet {
 	/**
 	 * Megadja annak az ellens�gnek a t�pus�t, amire nagyobb a sebz�s, fejlesztett�k a bulletet. 
 	**/
-	private Enemy enemyType;
+	private String enemyType;
 	
 	// WTF??
 	private Tower bullet;
@@ -34,7 +34,7 @@ public class Bullet {
 	 * @param    dmg
 	 * @param    et
 	**/
-	public void Bullet() {
+	public Bullet() {
 
 	}
 	
@@ -82,11 +82,15 @@ public class Bullet {
 	
 	}
 	
-	public void setEnemy(Enemy e) {
-	
+	public void setEnemy(String e) {
+		SkeletonTester.safePrint("--> Bullet setEnemy", true);
+
+		SkeletonTester.safePrint("<-- Bullet setEnemy return", false);
 	}
 	
 	public void setDamage(int dmg) {
-	
+		SkeletonTester.safePrint("--> Bullet setDamage", true);
+
+		SkeletonTester.safePrint("<-- Bullet setDamage return", false);
 	}
 }

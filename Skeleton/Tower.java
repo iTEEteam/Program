@@ -76,7 +76,7 @@ public class Tower implements ITower, IFieldPlaceable {
 		SkeletonTester.safePrint("--> Tower upgradeRange return", false);
 	}
 	
-	public void upgradeEnemy(Enemy e) {
+	public void upgradeEnemy(String e) {
 		SkeletonTester.safePrint("--> Tower upgradeEnemy", true);
 		bullet.setEnemy(e);
 		SkeletonTester.safePrint("--> Tower upgradeEnemy return", false);

@@ -4,7 +4,7 @@ public class Controller {
 	private IGame igame;
 	private Field choosenField;
 	private Path choosenPath;
-	private ITGem choosenEnemy;
+	private String choosenEnemy;
 
 	public Controller(IGame game){
 		igame = game;
@@ -18,7 +18,7 @@ public class Controller {
 		choosenPath = path;
 	}
 	
-	public void setEnemy(ITGem e){
+	public void setEnemy(String e){
 		choosenEnemy = e;
 	}
 	
@@ -148,8 +148,9 @@ public class Controller {
 				igame.changeMana(-value);
 								
 				ITower itower = choosenField.getITower();
+						
 				
-				itower.addITGem(choosenEnemy);
+				itower.addITGem(new EnemyTypeGem(choosenEnemy));
 			}
 		}
 		SkeletonTester.safePrint("<-- Controller buyEnemyGem return", false);

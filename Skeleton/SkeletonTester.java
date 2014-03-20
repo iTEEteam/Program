@@ -171,7 +171,7 @@ public class SkeletonTester {
 		controller.buyRangeGem();
 		controller.buyDamageGem();
 		// TODO ez meg nem jo
-		//controller.buyEnemyTypeGem();
+		controller.buyEnemyTypeGem();
 		SkeletonTester.isPrinting = false;
 		
 	}
@@ -272,4 +272,5 @@ public class SkeletonTester {
  * Path - Obstacle myPath valtozo nevet atirtam myObstacle-re
  * Application - kapott egy void Initialize() fuggvenyt
  * Map konstruktoraban nem stringet hanem mapot kap
+ * EnemyTypeGem, Tower, Bullet, Controller - Stringre atirtam a tarolt type-ot, fv parametereket 
  */
