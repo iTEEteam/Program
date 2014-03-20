@@ -41,7 +41,10 @@ public class Path extends Cell {
 	 * Konstruktor
 	**/
 	public Path() {
+		SkeletonTester.safePrint("--> Path konstruktor", true);
 		enemies = new ArrayList<Enemy>();
+		SkeletonTester.safePrint("<-- Path konstruktor return", false);
+
 	}
 	
 	/**

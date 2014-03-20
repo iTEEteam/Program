@@ -28,7 +28,10 @@ public class Field extends Cell {
 	 * Konstruktor
 	**/
 	public Field(IGame game) {
+		SkeletonTester.safePrint("--> Field konstruktor", true);
 		igame = game;
+		SkeletonTester.safePrint("<-- Field konstruktor return", false);
+
 	}
 	
 	/**

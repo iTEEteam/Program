@@ -13,5 +13,14 @@ package Program.Skeleton;
 
 
 public class Application {
+	
+	
+	public void Initialize(){
+		SkeletonTester.safePrint("--> Application Initialize", true);
+		Game game = new Game();
+		game.initialize("MapName");
+		
+		SkeletonTester.safePrint("<-- Application Initialize return", false);
+	}
 
 }

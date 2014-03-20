@@ -68,7 +68,7 @@ public class SkeletonTester {
 				} else if(str.equals("EnemyMove")){
 					tester.EnemyMove();
 				} else if(str.equals("Initialize")){
-					
+					tester.Initialize();
 				} else if(str.equals("TowerBuyGems")){
 					tester.TowerBuyGems();
 				} else if(str.equals("TowerKillEnemy")){
@@ -246,6 +246,14 @@ public class SkeletonTester {
 		enemy.move();
 		SkeletonTester.isPrinting = false;
 	}
+
+	private void Initialize(){
+		Application app = new Application();
+		
+		SkeletonTester.isPrinting = true;
+		app.Initialize();
+		SkeletonTester.isPrinting = false;
+	}
 	
 }
 
@@ -262,4 +270,6 @@ public class SkeletonTester {
  * Enemy - setHealth(int) csak teszteles celjabol
  * Enemy - uj private Path nextPath valtozo
  * Path - Obstacle myPath valtozo nevet atirtam myObstacle-re
+ * Application - kapott egy void Initialize() fuggvenyt
+ * Map konstruktoraban nem stringet hanem mapot kap
  */

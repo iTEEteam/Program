@@ -32,15 +32,18 @@ public class Map {
 	**/
 	private ArrayList<ArrayList<Cell>> grid;
 	
-	private Game map;
+	private Game game;
 	
 	/**
 	 * Konstruktor
 	 *
 	 * @param    name
 	**/
-	public void Map(String name) {
-	
+	public Map(Game game) {
+		SkeletonTester.safePrint("--> Map konstruktor", true);
+		Field f = new Field(game);
+		Path p = new Path();
+		SkeletonTester.safePrint("<-- Map konstruktor return", false);
 	}
 	
 	/**
@@ -49,7 +52,11 @@ public class Map {
 	 * @param    name
 	**/
 	public void load(String name) {
-	
+		SkeletonTester.safePrint("--> Map load", true);
+		
+		
+		
+		SkeletonTester.safePrint("<-- Map load return", false);
 	}
 	
 	public int getLevel() {

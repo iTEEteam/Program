@@ -42,9 +42,15 @@ public class Game implements IGame {
 	 * Konstruktor
 	**/
 	public Game() {
+		SkeletonTester.safePrint("--> Game konstruktor", true);
+		
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();
+		
+		map = new Map(null);
+		
+		SkeletonTester.safePrint("<-- Game konstruktor return", false);
 	}
 	
 	/**
@@ -59,7 +65,9 @@ public class Game implements IGame {
 	}
 	
 	public void initialize(String name) {
-	
+		SkeletonTester.safePrint("--> Game initialize", true);
+
+		SkeletonTester.safePrint("<-- Game initialize return", false);	
 	}
 	
 	/**
