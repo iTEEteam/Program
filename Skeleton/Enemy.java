@@ -67,14 +67,13 @@ public abstract class Enemy implements IPathPlaceable {
 		SkeletonTester.safePrint("--> Enemy move", true);
 		
 		nextPath = myPath.getNext();
-		nextPath = null;
+		
 		if(nextPath== null){
-			System.out.println("if(nextPath==null) <-- tuti? ill. ez nem field");
 			igame.incSucceeded();
 			eliminate(myPath);
+		}else{		
+			nextPath.registerIPathPlaceable(this);
 		}
-		
-		nextPath.registerIPathPlaceable(this);
 		
 		SkeletonTester.safePrint("<-- Enemy move return", false);	
 	}
@@ -88,6 +87,7 @@ public abstract class Enemy implements IPathPlaceable {
 	
 	public void registerPath(Path p) {
 		SkeletonTester.safePrint("--> Enemy registerPath", true);
+		
 		
 		myPath.deleteEnemy(this);
 		

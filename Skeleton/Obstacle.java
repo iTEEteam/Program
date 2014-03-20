@@ -59,6 +59,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	
 	public void slow(Enemy e) {
 		SkeletonTester.safePrint("--> Obstacle slow", true);
+		
 		e.setModSpeed(slowIntens);
 		
 		amortization();

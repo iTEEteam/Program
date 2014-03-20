@@ -87,6 +87,7 @@ public class Path extends Cell {
 	public void registerIPathPlaceable(IPathPlaceable ipp) {
 		SkeletonTester.safePrint("--> Path registerIPathPlaceable", true);
 		
+		ipp.registerPath(this);
 		
 		SkeletonTester.safePrint("<-- Path registerIPathPlaceable return", false);
 	}

@@ -72,6 +72,9 @@ public class Game implements IGame {
 	}
 	
 	public void incSucceeded() {
+		SkeletonTester.safePrint("--> Game incSucceeded", true);
+		
+		SkeletonTester.safePrint("<-- Game incSucceeded", false);
 	}
 	
 	public void addTower(Tower t) {

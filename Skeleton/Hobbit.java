@@ -32,9 +32,7 @@ public class Hobbit extends Enemy {
 		
 		SkeletonTester.safePrint("<-- Hobbit eliminate return", false);
 	}
-	public void registerPath(Path p) {
-		
-	}
+
 	@Override
 	public void hurt(Bullet b) {
 		SkeletonTester.safePrint("--> Hobbit hurt", true);
