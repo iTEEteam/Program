@@ -33,58 +33,71 @@ public class SkeletonTester {
 			System.out.println(str);
 		}
 	}
-	
-	public static void main(String[] args) {
-		SkeletonTester tester = new SkeletonTester();
-		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		String str;
-		
-		System.out.println("M E N U");
-		
-		/* szamozast ide ird kiir */
-		
-		// beolvasott ertek alapjan itt valasztja ki, hogy melyik tesztesetet futtassa
-		// a nevek onmagukert beszelnek
-		try {
-			while(!(str = reader.readLine()).equals("0")){
-				if(str.equals("TowerBuyOnField")){
-					tester.TowerBuyOnField();
-				} else if(str.equals("TowerSellNonUpgraded")){
-					tester.TowerSellNonUpgraded();
-				} else if(str.equals("TowerSellUpgraded")){
-					tester.TowerSellUpgraded();
-				} else if(str.equals("TowerShootEnemy")){
-					tester.TowerShootEnemy();
-				} else if(str.equals("TowerShootNoEnemy")){
-					tester.TowerShootNoEnemy();
-				} else if(str.equals("ObstacleBuyOnEnemy")){
-					tester.ObstacleBuyOnEnemy();
-				} else if(str.equals("ObstacleBuyOnObstacle")){
-					tester.ObstacleBuyOnObstacle();
-				} else if(str.equals("ObstacleBuy")){
-					tester.ObstacleBuy();
-				} else if(str.equals("TowerBuy")){
-					tester.TowerBuy();
-				} else if(str.equals("ObstacleBuyGems")){
-					tester.ObstacleBuyGems();
-				} else if(str.equals("EnemyMove")){
-					tester.EnemyMove();
-				} else if(str.equals("EnemySucceeded")){
-					tester.EnemySucceeded();
-				} else if(str.equals("Initialize")){
-					tester.Initialize();
-				} else if(str.equals("TowerBuyGems")){
-					tester.TowerBuyGems();
-				} else if(str.equals("TowerKillEnemy")){
-					tester.TowerKillEnemy();
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println("VEGE");		
-	}
+
+    public static void main(String[] args) {
+        SkeletonTester tester = new SkeletonTester();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String str;
+
+        System.out.println("M E N U");
+        System.out.println();
+        System.out.println("0 Exit (Kilépés.)");
+        System.out.println("1 ObstacleBuyOnEnemy (Akadály elhelyezése ellenség által foglalt útra.)");
+        System.out.println("2 ObstacleBuyOnObstacle (Akadály elhelyezése másik akadály által foglalt útra.)");
+        System.out.println("3 ObstacleBuy (Akadály elhelyezése üres útra.)");
+        System.out.println("4 ObstacleBuyGems (Akadály feljesztése.)");
+        System.out.println("5 EnemyMove (Ellenfél mozgása.)");
+        System.out.println("6 TowerSellNonUpgraded (Fejlesztetlen torony eladása.)");
+        System.out.println("7 TowerSellUpgraded (Fejlesztett torony eladása.)");
+        System.out.println("8 Initialize (Inicializálás.)");
+        System.out.println("9 TowerBuyOnField (Torony elhelyezése foglalt mezőre.)");
+        System.out.println("10 TowerBuy (Torony elhelyezése üres mezőre.)");
+        System.out.println("11 TowerBuyGems (Torony feljesztése minden gemből eggyel.)");
+        System.out.println("12 TowerShootNoEnemy (Torony hatókörében nincs ellenség tüzeléskor.)");
+        System.out.println("13 TowerKillEnemy (Torony lelő egy ellenséget fejlesztetlenül.)");
+        System.out.println("14 TowerShootEnemy (Torony tüzel egy ellenségre fejlesztetlenül.)");
+        System.out.println("15 EnemySucceeded (Ellenség bejut a végzet hegyéhez.)");
+        System.out.println();
+
+        try {
+            while(!(str = reader.readLine()).equals("0")){
+                if(str.equals("ObstacleBuyOnEnemy") || str.equals("1")){
+                    tester.ObstacleBuyOnEnemy();
+                } else if(str.equals("ObstacleBuyOnObstacle") || str.equals("2")){
+                    tester.ObstacleBuyOnObstacle();
+                } else if(str.equals("ObstacleBuy") || str.equals("3")){
+                    tester.ObstacleBuy();
+                } else if(str.equals("ObstacleBuyGems") || str.equals("4")){
+                    tester.ObstacleBuyGems();
+                } else if(str.equals("EnemyMove") || str.equals("5")){
+                    tester.EnemyMove();
+                } else if(str.equals("TowerSellNonUpgraded") || str.equals("6")){
+                    tester.TowerSellNonUpgraded();
+                } else if(str.equals("TowerSellUpgraded") || str.equals("7")){
+                    tester.TowerSellUpgraded();
+                } else if(str.equals("Initialize") || str.equals("8")){
+                    tester.Initialize();
+                } else if(str.equals("TowerBuyOnField") || str.equals("9")){
+                    tester.TowerBuyOnField();
+                } else if(str.equals("TowerBuy") || str.equals("10")){
+                    tester.TowerBuy();
+                } else if(str.equals("TowerBuyGems") || str.equals("11")){
+                    tester.TowerBuyGems();
+                } else if(str.equals("TowerShootNoEnemy") || str.equals("12")){
+                    tester.TowerShootNoEnemy();
+                } else if(str.equals("TowerKillEnemy") || str.equals("13")){
+                    tester.TowerKillEnemy();
+                } else if(str.equals("TowerShootEnemy") || str.equals("14")){
+                    tester.TowerShootEnemy();
+                } else if(str.equals("EnemySucceeded") || str.equals("15")){
+                    tester.EnemySucceeded();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("VEGE");
+    }
 	
 	// Fejlesztett torony eladása.	
 	private void TowerSellUpgraded(){
