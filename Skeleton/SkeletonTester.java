@@ -17,13 +17,14 @@ public class SkeletonTester {
 	 *  	param b: printtabsnak adja at
 	 *  	param str: kiirando szoveg  
 	 */
+	
 	private static int nrOfTabs = -1;
 	public static boolean isPrinting = false;
 	private static void printTabs(boolean b){
 		if(b==true) ++nrOfTabs;
 		for(int i=0; i<nrOfTabs; ++i){
 			System.out.print('\t');
-		}
+		}		
 		if(b==false) --nrOfTabs;
 	}
 	public static void safePrint(String str, boolean b){
@@ -41,8 +42,10 @@ public class SkeletonTester {
 		
 		System.out.println("M E N U");
 		
-		/* szamozas kiir */
+		/* szamozast ide ird kiir */
 		
+		// beolvasott ertek alapjan itt valasztja ki, hogy melyik tesztesetet futtassa
+		// a nevek onmagukert beszelnek
 		try {
 			while(!(str = reader.readLine()).equals("0")){
 				if(str.equals("TowerBuyOnField")){
@@ -67,6 +70,8 @@ public class SkeletonTester {
 					tester.ObstacleBuyGems();
 				} else if(str.equals("EnemyMove")){
 					tester.EnemyMove();
+				} else if(str.equals("EnemySucceeded")){
+					tester.EnemySucceeded();
 				} else if(str.equals("Initialize")){
 					tester.Initialize();
 				} else if(str.equals("TowerBuyGems")){
@@ -81,6 +86,7 @@ public class SkeletonTester {
 		System.out.println("VEGE");		
 	}
 	
+	// Fejlesztett torony eladása.	
 	private void TowerSellUpgraded(){
 		Game game = new Game();
 		Field field = new Field(game);
@@ -94,6 +100,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;		
 	}
 	
+	// Fejlesztetlen torony eladása.
 	private void TowerSellNonUpgraded(){
 		Game game = new Game();
 		Field field = new Field(game);
@@ -106,6 +113,7 @@ public class SkeletonTester {
 
 	}
 	
+	// Fejlesztetlen torony, hatósugarában egy ellenség van.
 	private void TowerShootEnemy(){
 		Game game = new Game();
 		Path path = new Path();
@@ -118,6 +126,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
+	// Torony hatókörében nincs ellenség tüzeléskor
 	private void TowerShootNoEnemy(){
 		Game game = new Game();
 		Path path = new Path();
@@ -129,6 +138,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
+	// Torony megöl egy ellenséget.
 	private void TowerKillEnemy(){
 		Game game = new Game();
 		Path path = new Path();
@@ -144,6 +154,7 @@ public class SkeletonTester {
 		
 	}
 	
+	// Egy torony elhelyezése a pályán, ami masik torony altal el van foglalva
 	private void TowerBuyOnField(){
 		Game game = new Game();
 		Field field = new Field(game);
@@ -170,13 +181,12 @@ public class SkeletonTester {
 		controller.buySpeedGem();
 		controller.buyRangeGem();
 		controller.buyDamageGem();
-		// TODO ez meg nem jo
 		controller.buyEnemyTypeGem();
 		SkeletonTester.isPrinting = false;
 		
 	}
 	
-	/* szekvenciadiagramja hibas?? */
+	// Akadály elhelyezése olyan mezőre amin ellenség van.
 	private void ObstacleBuyOnEnemy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
@@ -188,6 +198,7 @@ public class SkeletonTester {
 		controller.buyObstacle();
 		SkeletonTester.isPrinting = false;
 	}
+	
 	
 	private void ObstacleBuyOnObstacle(){
 		Game game = new Game();
@@ -202,6 +213,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
+	// Akadály elhelyezése üres útra.	
 	private void ObstacleBuy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
@@ -213,6 +225,7 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 	
+	// Egy torony elhelyezése a pályán.
 	private void TowerBuy(){
 		Game game = new Game();
 		Controller controller = new Controller(game);
@@ -237,16 +250,31 @@ public class SkeletonTester {
 		SkeletonTester.isPrinting = false;
 	}
 
+	// Ellenség léptetése.
 	private void EnemyMove(){
 		Game game = new Game();
 		Path path = new Path();
 		Enemy enemy = new Hobbit(game, path);
+		path.addNext(new Path());
 		
 		SkeletonTester.isPrinting = true;
 		enemy.move();
 		SkeletonTester.isPrinting = false;
 	}
-
+	
+	// Annak tesztelése, hogy ha bejut egy ellenség a végzet hegyéhez.
+	private void EnemySucceeded(){
+		Game game = new Game();
+		Path path = new Path();
+		Enemy enemy = new Hobbit(game, path);
+		path.addNext(null);
+		
+		SkeletonTester.isPrinting = true;
+		enemy.move();
+		SkeletonTester.isPrinting = false;
+	}
+	
+	// A játék kezdeti betöltésének lefuttatása.
 	private void Initialize(){
 		Application app = new Application();
 		

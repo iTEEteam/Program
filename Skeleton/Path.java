@@ -29,7 +29,6 @@ public class Path extends Cell {
 	**/
 	private ArrayList<Enemy> enemies;
 	
-	// WTF?
 	private Obstacle myObstacle;
 	
 	// ez is WTF?
@@ -43,6 +42,7 @@ public class Path extends Cell {
 	public Path() {
 		SkeletonTester.safePrint("--> Path konstruktor", true);
 		enemies = new ArrayList<Enemy>();
+		nextPaths = new ArrayList<Path>();
 		SkeletonTester.safePrint("<-- Path konstruktor return", false);
 
 	}
@@ -158,12 +158,16 @@ public class Path extends Cell {
 		SkeletonTester.safePrint("--> Path getNext", true);
 		
 		SkeletonTester.safePrint("<-- Path getNext return", false);
-		return new Path();
+		return nextPaths.get(0);
 	
 	}
 
 	@Override
 	public boolean isPath() {
 		return true;
+	}
+	
+	public void addNext(Path p){
+		nextPaths.add(p);
 	}
 }
