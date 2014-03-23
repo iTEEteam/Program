@@ -66,26 +66,26 @@ public class Tower implements ITower, IFieldPlaceable {
 	public void upgradeSpeed(int sp) {
 		SkeletonTester.safePrint("--> Tower upgradeSpeed", true);
 		speed += sp;
-		SkeletonTester.safePrint("--> Tower upgradeSpeed return", false);
+		SkeletonTester.safePrint("<-- Tower upgradeSpeed return", false);
 	}
 	
 	public void upgradeRange(int rng) {
 		SkeletonTester.safePrint("--> Tower upgradeRange", true);
 		range += rng;
 		setPaths();
-		SkeletonTester.safePrint("--> Tower upgradeRange return", false);
+		SkeletonTester.safePrint("<-- Tower upgradeRange return", false);
 	}
 	
 	public void upgradeEnemy(String e) {
 		SkeletonTester.safePrint("--> Tower upgradeEnemy", true);
 		bullet.setEnemy(e);
-		SkeletonTester.safePrint("--> Tower upgradeEnemy return", false);
+		SkeletonTester.safePrint("<-- Tower upgradeEnemy return", false);
 	}
 	
 	public void upgradeDamage(int dmg) {
 		SkeletonTester.safePrint("--> Tower upgradeDamage", true);
 		bullet.setDamage(dmg);
-		SkeletonTester.safePrint("--> Tower upgradeDamage return", false);
+		SkeletonTester.safePrint("<-- Tower upgradeDamage return", false);
 	}
 	
 	public Enemy chooseEnemy() {

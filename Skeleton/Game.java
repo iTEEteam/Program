@@ -96,9 +96,9 @@ public class Game implements IGame {
 	}
 	
 	public void removeTower(Tower t) {
-		SkeletonTester.safePrint("--> Game remove tower", true);
+		SkeletonTester.safePrint("--> Game removeTower", true);
 		
-		SkeletonTester.safePrint("<-- Game return", false);
+		SkeletonTester.safePrint("<-- Game removeTower return", false);
 	}
 	
 	public void removeEnemy(Enemy e) {

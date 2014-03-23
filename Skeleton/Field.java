@@ -78,7 +78,7 @@ public class Field extends Cell {
 	}
 
 	public boolean hasTower() {
-		SkeletonTester.safePrint("<-- Field hasTower", true);
+		SkeletonTester.safePrint("--> Field hasTower", true);
 		SkeletonTester.safePrint("<-- Field hasTower return", false);
 		return (itower!=null);	
 	}

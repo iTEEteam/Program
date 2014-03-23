@@ -77,6 +77,9 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	}
 	
 	public void increaseIntensity(int intens) {
+		SkeletonTester.safePrint("--> Obstacle increaseIntensity", true);
+		
+		SkeletonTester.safePrint("<-- Obstacle increaseIntensity return", false);
 	}
 	
 	public void addIOGem(IOGem g) {

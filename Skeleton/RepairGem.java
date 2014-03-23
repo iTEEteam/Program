@@ -18,7 +18,9 @@ public class RepairGem extends Gem implements IOGem {
 	public static final int price = 20;
 
 	public  RepairGem() {
-	
+		SkeletonTester.safePrint("--> RepairGem konstruktor", true);
+
+		SkeletonTester.safePrint("<-- RepairGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
