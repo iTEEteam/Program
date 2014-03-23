@@ -1,4 +1,4 @@
-package Skeleton;
+package Program.Skeleton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
