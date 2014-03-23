@@ -66,7 +66,7 @@ public class Game implements IGame {
 	
 	public void initialize(String name) {
 		SkeletonTester.safePrint("--> Game initialize", true);
-
+		map.load(name);
 		SkeletonTester.safePrint("<-- Game initialize return", false);	
 	}
 	

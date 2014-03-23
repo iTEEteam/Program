@@ -41,8 +41,7 @@ public class Map {
 	**/
 	public Map(Game game) {
 		SkeletonTester.safePrint("--> Map konstruktor", true);
-		Field f = new Field(game);
-		Path p = new Path();
+
 		SkeletonTester.safePrint("<-- Map konstruktor return", false);
 	}
 	
@@ -53,9 +52,8 @@ public class Map {
 	**/
 	public void load(String name) {
 		SkeletonTester.safePrint("--> Map load", true);
-		
-		
-		
+		Field f = new Field(game);
+		Path p = new Path();				
 		SkeletonTester.safePrint("<-- Map load return", false);
 	}
 	
