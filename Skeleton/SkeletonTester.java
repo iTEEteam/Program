@@ -1,4 +1,4 @@
-package Program.Skeleton;
+package Skeleton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,13 +33,13 @@ public class SkeletonTester {
 			System.out.println(str);
 		}
 	}
-
-    public static void main(String[] args) {
-        SkeletonTester tester = new SkeletonTester();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	
+	public static void main(String[] args) {
+		SkeletonTester tester = new SkeletonTester();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
-
-        System.out.println("M E N U");
+		
+		System.out.println("M E N U");
         System.out.println();
         System.out.println("0 Exit (Kilépés.)");
         System.out.println("1 ObstacleBuyOnEnemy (Akadály elhelyezése ellenség által foglalt útra.)");
@@ -56,11 +56,10 @@ public class SkeletonTester {
         System.out.println("12 TowerShootNoEnemy (Torony hatókörében nincs ellenség tüzeléskor.)");
         System.out.println("13 TowerKillEnemy (Torony lelő egy ellenséget fejlesztetlenül.)");
         System.out.println("14 TowerShootEnemy (Torony tüzel egy ellenségre fejlesztetlenül.)");
-        System.out.println("15 EnemySucceeded (Ellenség bejut a végzet hegyéhez.)");
         System.out.println();
 
         try {
-            while(!(str = reader.readLine()).equals("0")){
+			while(!(str = reader.readLine()).equals("0")){
                 if(str.equals("ObstacleBuyOnEnemy") || str.equals("1")){
                     tester.ObstacleBuyOnEnemy();
                 } else if(str.equals("ObstacleBuyOnObstacle") || str.equals("2")){
@@ -78,7 +77,7 @@ public class SkeletonTester {
                 } else if(str.equals("Initialize") || str.equals("8")){
                     tester.Initialize();
                 } else if(str.equals("TowerBuyOnField") || str.equals("9")){
-                    tester.TowerBuyOnField();
+					tester.TowerBuyOnField();
                 } else if(str.equals("TowerBuy") || str.equals("10")){
                     tester.TowerBuy();
                 } else if(str.equals("TowerBuyGems") || str.equals("11")){
@@ -87,17 +86,15 @@ public class SkeletonTester {
                     tester.TowerShootNoEnemy();
                 } else if(str.equals("TowerKillEnemy") || str.equals("13")){
                     tester.TowerKillEnemy();
-                } else if(str.equals("TowerShootEnemy") || str.equals("14")){
-                    tester.TowerShootEnemy();
-                } else if(str.equals("EnemySucceeded") || str.equals("15")){
-                    tester.EnemySucceeded();
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("VEGE");
-    }
+				} else if(str.equals("TowerShootEnemy") || str.equals("14")){
+					tester.TowerShootEnemy();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("VEGE");		
+	}
 	
 	// Fejlesztett torony eladása.	
 	private void TowerSellUpgraded(){
