@@ -46,7 +46,8 @@ public class SkeletonTester {
         System.out.println("2 ObstacleBuyOnObstacle (Akadály elhelyezése másik akadály által foglalt útra.)");
         System.out.println("3 ObstacleBuy (Akadály elhelyezése üres útra.)");
         System.out.println("4 ObstacleBuyGems (Akadály feljesztése.)");
-        System.out.println("5 EnemyMove (Ellenfél mozgása.)");
+        System.out.println("5a EnemyMove (Ellenfél mozgása.)");
+        System.out.println("5b EnemySucceeded (Ellenfél bejut a végzet hegyéhez");
         System.out.println("6 TowerSellNonUpgraded (Fejlesztetlen torony eladása.)");
         System.out.println("7 TowerSellUpgraded (Fejlesztett torony eladása.)");
         System.out.println("8 Initialize (Inicializálás.)");
