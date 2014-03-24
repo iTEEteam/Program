@@ -68,9 +68,11 @@ public class SkeletonTester {
                     tester.ObstacleBuy();
                 } else if(str.equals("ObstacleBuyGems") || str.equals("4")){
                     tester.ObstacleBuyGems();
-                } else if(str.equals("EnemyMove") || str.equals("5")){
+                } else if(str.equals("EnemyMove") || str.equals("5a")){
                     tester.EnemyMove();
-                } else if(str.equals("TowerSellNonUpgraded") || str.equals("6")){
+                } else if(str.equals("EnemySucceeded") || str.equals("5b")){ 
+                	tester.EnemySucceeded();
+				} else if(str.equals("TowerSellNonUpgraded") || str.equals("6")){
                     tester.TowerSellNonUpgraded();
                 } else if(str.equals("TowerSellUpgraded") || str.equals("7")){
                     tester.TowerSellUpgraded();
