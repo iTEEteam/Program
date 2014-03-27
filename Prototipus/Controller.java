@@ -10,10 +10,7 @@ public class Controller {
 		igame = game;
 	}
 	
-	// ha rakattint a felhasznalo egy Fieldre, ez beallitja
 	public void setField(Field field){
-		choosenPath = null;
-		choosenEnemy = null;
 		choosenField = field;
 	}
 	
