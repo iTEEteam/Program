@@ -1,4 +1,4 @@
-package Program.Skeleton;
+package skeleton;
 
 //
 //

@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -19,20 +19,20 @@ public class RangeGem extends Gem implements ITGem {
 
 	private int range;
 	public RangeGem() {
-		SkeletonTester.safePrint("--> RangeGem konstruktor", true);
+		ProtoTester.safePrint("--> RangeGem konstruktor", true);
 
-		SkeletonTester.safePrint("<-- RangeGem konstruktor return", false);
+		ProtoTester.safePrint("<-- RangeGem konstruktor return", false);
 	}
 	public void upgradeTower(Tower t) {
-		SkeletonTester.safePrint("--> RangeGem upgradeTower", true);
+		ProtoTester.safePrint("--> RangeGem upgradeTower", true);
 		t.upgradeRange(range);
-		SkeletonTester.safePrint("<-- RangeGem upgradeTower return", false);
+		ProtoTester.safePrint("<-- RangeGem upgradeTower return", false);
 	}
 	
 	public int getValue() {
-		SkeletonTester.safePrint("--> RangeGem getValue", true);
+		ProtoTester.safePrint("--> RangeGem getValue", true);
 		
-		SkeletonTester.safePrint("<-- RangeGem return", false);
+		ProtoTester.safePrint("<-- RangeGem return", false);
 		return 0;
 	}
 }

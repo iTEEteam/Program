@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 import java.util.ArrayList;
 
 //
@@ -55,60 +55,60 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    pr
 	**/
 	public Tower(IGame game) {
-		SkeletonTester.safePrint("--> Tower konstruktor", true);
+		ProtoTester.safePrint("--> Tower konstruktor", true);
 		igame = game;
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();
 		bullet = new Bullet();
-		SkeletonTester.safePrint("<-- Tower konstruktor return", false);
+		ProtoTester.safePrint("<-- Tower konstruktor return", false);
 	}
 	
 	public void upgradeSpeed(int sp) {
-		SkeletonTester.safePrint("--> Tower upgradeSpeed", true);
+		ProtoTester.safePrint("--> Tower upgradeSpeed", true);
 		speed += sp;
-		SkeletonTester.safePrint("<-- Tower upgradeSpeed return", false);
+		ProtoTester.safePrint("<-- Tower upgradeSpeed return", false);
 	}
 	
 	public void upgradeRange(int rng) {
-		SkeletonTester.safePrint("--> Tower upgradeRange", true);
+		ProtoTester.safePrint("--> Tower upgradeRange", true);
 		range += rng;
 		setPaths();
-		SkeletonTester.safePrint("<-- Tower upgradeRange return", false);
+		ProtoTester.safePrint("<-- Tower upgradeRange return", false);
 	}
 	
 	public void upgradeEnemy(String e) {
-		SkeletonTester.safePrint("--> Tower upgradeEnemy", true);
+		ProtoTester.safePrint("--> Tower upgradeEnemy", true);
 		bullet.setEnemy(e);
-		SkeletonTester.safePrint("<-- Tower upgradeEnemy return", false);
+		ProtoTester.safePrint("<-- Tower upgradeEnemy return", false);
 	}
 	
 	public void upgradeDamage(int dmg) {
-		SkeletonTester.safePrint("--> Tower upgradeDamage", true);
+		ProtoTester.safePrint("--> Tower upgradeDamage", true);
 		bullet.setDamage(dmg);
-		SkeletonTester.safePrint("<-- Tower upgradeDamage return", false);
+		ProtoTester.safePrint("<-- Tower upgradeDamage return", false);
 	}
 	
 	public Enemy chooseEnemy() {
-		SkeletonTester.safePrint("--> Tower choose enemy", true);
+		ProtoTester.safePrint("--> Tower choose enemy", true);
 		Path path = paths.get(0);
 		ArrayList<Enemy> enemies;
 		if(!path.hasEnemy()) return null;
 		enemies = path.getEnemies();
-		SkeletonTester.safePrint("<-- Tower choose enemy return", false);	
+		ProtoTester.safePrint("<-- Tower choose enemy return", false);	
 		return enemies.get(0);
 	}
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-		SkeletonTester.safePrint("--> Tower shoot", true);
+		ProtoTester.safePrint("--> Tower shoot", true);
 
 		Enemy target = chooseEnemy();
 		if(target==null){
-			SkeletonTester.safePrint("<-- Tower shoot return", false);
+			ProtoTester.safePrint("<-- Tower shoot return", false);
 			return;
 		}
 		target.hurt(bullet);
-		SkeletonTester.safePrint("<-- Tower shoot return", false);
+		ProtoTester.safePrint("<-- Tower shoot return", false);
 	}
 	
 	// ez a fv csak teszteleshez kell
@@ -117,30 +117,30 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void setPaths() {
-		SkeletonTester.safePrint("--> Tower setPaths", true);
+		ProtoTester.safePrint("--> Tower setPaths", true);
 		
-		SkeletonTester.safePrint("<-- Tower setPaths return", false);
+		ProtoTester.safePrint("<-- Tower setPaths return", false);
 	}
 	
 	public void addITGem(ITGem g) {
-		SkeletonTester.safePrint("--> Tower addITGem", true);
+		ProtoTester.safePrint("--> Tower addITGem", true);
 		g.upgradeTower(this);
 		gems.add(g);
 		
-		SkeletonTester.safePrint("<-- Tower addITgem return", false);
+		ProtoTester.safePrint("<-- Tower addITgem return", false);
 	}
 	
 	public void registerField(Field field) {
-		SkeletonTester.safePrint("--> Tower registerField", true);
+		ProtoTester.safePrint("--> Tower registerField", true);
 		if(!field.hasTower()){
 			myField = field;
 			field.registerITower(this);
 		}
-		SkeletonTester.safePrint("<-- Tower  registerField return", false);
+		ProtoTester.safePrint("<-- Tower  registerField return", false);
 	}
 	
 	public void sell() {
-		SkeletonTester.safePrint("--> Tower sell", true);
+		ProtoTester.safePrint("--> Tower sell", true);
 		int value = price/2;
 		
 		
@@ -154,6 +154,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		
 		myField.deleteIFieldPlaceable(this);
 		
-		SkeletonTester.safePrint("<-- Tower sell return", false);
+		ProtoTester.safePrint("<-- Tower sell return", false);
 	}
 }

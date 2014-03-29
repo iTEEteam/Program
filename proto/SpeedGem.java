@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -20,15 +20,15 @@ public class SpeedGem extends Gem implements ITGem {
 	private int speed;
 	
 	public SpeedGem() {
-		SkeletonTester.safePrint("--> SpeedGem konstruktor", true);
+		ProtoTester.safePrint("--> SpeedGem konstruktor", true);
 		
-		SkeletonTester.safePrint("<-- SpeedGem konstruktor return", false);
+		ProtoTester.safePrint("<-- SpeedGem konstruktor return", false);
 	}
 	
 	public void upgradeTower(Tower t) {
-		SkeletonTester.safePrint("--> SpeedGem upgradeTower", true);
+		ProtoTester.safePrint("--> SpeedGem upgradeTower", true);
 		t.upgradeSpeed(speed);
-		SkeletonTester.safePrint("<-- SpeedGem upgradeTower return", false);
+		ProtoTester.safePrint("<-- SpeedGem upgradeTower return", false);
 	}
 	
 	public int getValue() {

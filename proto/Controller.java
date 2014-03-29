@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 public class Controller {
 	private IGame igame;
@@ -10,10 +10,7 @@ public class Controller {
 		igame = game;
 	}
 	
-	// ha rakattint a felhasznalo egy Fieldre, ez beallitja
 	public void setField(Field field){
-		choosenPath = null;
-		choosenEnemy = null;
 		choosenField = field;
 	}
 	
@@ -26,11 +23,11 @@ public class Controller {
 	}
 	
 	public void buyTower(){
-		SkeletonTester.safePrint("--> Controller buyTower", true);
+		ProtoTester.safePrint("--> Controller buyTower", true);
 		int value;
 		
 		if(choosenField.hasTower()){
-			SkeletonTester.safePrint("<-- Controller buyTower return", false);
+			ProtoTester.safePrint("<-- Controller buyTower return", false);
 			return;
 		}
 		
@@ -48,20 +45,20 @@ public class Controller {
 		}
 		
 
-		SkeletonTester.safePrint("<-- Controller buyTower return", false);
+		ProtoTester.safePrint("<-- Controller buyTower return", false);
 	}
 	
 	public void buyObstacle(){
-		SkeletonTester.safePrint("--> Controller buyObstacle", true);
+		ProtoTester.safePrint("--> Controller buyObstacle", true);
 		int value;
 		
 		if(choosenPath.hasObstacle()){
-			SkeletonTester.safePrint("<-- Controller buyObstacle return", false);
+			ProtoTester.safePrint("<-- Controller buyObstacle return", false);
 			return;
 		}
 		
 		if(choosenPath.hasEnemy()){
-			SkeletonTester.safePrint("<-- Controller buyObstacle return", false);
+			ProtoTester.safePrint("<-- Controller buyObstacle return", false);
 			return;
 		}
 		
@@ -75,11 +72,11 @@ public class Controller {
 		}
 		
 		
-		SkeletonTester.safePrint("<-- Controller buyObstacle return", false);
+		ProtoTester.safePrint("<-- Controller buyObstacle return", false);
 	}
 	
 	public void buySpeedGem(){
-		SkeletonTester.safePrint("--> Controller buySpeedGem", true);
+		ProtoTester.safePrint("--> Controller buySpeedGem", true);
 		int value;
 
 		if(choosenField.hasTower()){
@@ -96,11 +93,11 @@ public class Controller {
 
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buySpeedGem return", false);
+		ProtoTester.safePrint("<-- Controller buySpeedGem return", false);
 	}
 		
 	public void buyRangeGem(){
-		SkeletonTester.safePrint("--> Controller buyRangeGem", true);
+		ProtoTester.safePrint("--> Controller buyRangeGem", true);
 		int value;
 
 		if(choosenField.hasTower()){
@@ -117,10 +114,10 @@ public class Controller {
 
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buyRangeGem return", false);
+		ProtoTester.safePrint("<-- Controller buyRangeGem return", false);
 	}
 	public void buyDamageGem(){
-		SkeletonTester.safePrint("--> Controller buyDamageGem", true);
+		ProtoTester.safePrint("--> Controller buyDamageGem", true);
 		int value;
 
 		if(choosenField.hasTower()){
@@ -136,12 +133,12 @@ public class Controller {
 				itower.addITGem(damageGem);
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buyDamageGem return", false);
+		ProtoTester.safePrint("<-- Controller buyDamageGem return", false);
 
 	}
 	
 	public void buyEnemyTypeGem(){
-		SkeletonTester.safePrint("--> Controller buyEnemyGem", true);
+		ProtoTester.safePrint("--> Controller buyEnemyGem", true);
 		int value;
 
 		if(choosenField.hasTower()){
@@ -156,11 +153,11 @@ public class Controller {
 				itower.addITGem(new EnemyTypeGem(choosenEnemy));
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buyEnemyGem return", false);
+		ProtoTester.safePrint("<-- Controller buyEnemyGem return", false);
 	}
 	
 	public void buyIntensityGem(){
-		SkeletonTester.safePrint("--> Controller buyIntensityGem", true);
+		ProtoTester.safePrint("--> Controller buyIntensityGem", true);
 		int value;
 				
 		// ez nem kene?
@@ -183,11 +180,11 @@ public class Controller {
 
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buyIntensityGem return", false);
+		ProtoTester.safePrint("<-- Controller buyIntensityGem return", false);
 	}
 	
 	public void buyRepairGem(){
-		SkeletonTester.safePrint("--> Controller buyRepairGem", true);
+		ProtoTester.safePrint("--> Controller buyRepairGem", true);
 		int value;
 
 		if(choosenPath.hasObstacle()){
@@ -204,6 +201,6 @@ public class Controller {
 
 			}
 		}
-		SkeletonTester.safePrint("<-- Controller buyRepairGem return", false);
+		ProtoTester.safePrint("<-- Controller buyRepairGem return", false);
 	}
 }

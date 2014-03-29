@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -16,25 +16,25 @@ public class DamageGem extends Gem implements ITGem {
 
 	private int damage;
 	public DamageGem() {
-		SkeletonTester.safePrint("--> DamageGem konstruktor", true);
+		ProtoTester.safePrint("--> DamageGem konstruktor", true);
 
-		SkeletonTester.safePrint("<-- DamageGem konstruktor return", false);
+		ProtoTester.safePrint("<-- DamageGem konstruktor return", false);
 
 	}
 	
 	public void upgradeTower(Tower t) {
-		SkeletonTester.safePrint("--> DamageGem upgradeTower", true);
+		ProtoTester.safePrint("--> DamageGem upgradeTower", true);
 		t.upgradeDamage(damage);
 		
 		// TODO hello
 		
-		SkeletonTester.safePrint("<-- Damagegem upgradeTower return", false);
+		ProtoTester.safePrint("<-- Damagegem upgradeTower return", false);
 	}
 	
 	public int getValue() {
-		SkeletonTester.safePrint("--> DamageGem getValue", true);
+		ProtoTester.safePrint("--> DamageGem getValue", true);
 		
-		SkeletonTester.safePrint("<-- DamegeGem return", false);
+		ProtoTester.safePrint("<-- DamegeGem return", false);
 		return 0;
 	}
 }

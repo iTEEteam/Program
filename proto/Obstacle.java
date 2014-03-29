@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.util.ArrayList;
 
@@ -49,16 +49,16 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	 * @param    up
 	**/
 	public Obstacle() {
-		SkeletonTester.safePrint("--> Obstacle konstruktor", true);
+		ProtoTester.safePrint("--> Obstacle konstruktor", true);
 		
 		gems = new ArrayList<IOGem>();
 		
-		SkeletonTester.safePrint("<-- Obstacle konstruktor return", false);
+		ProtoTester.safePrint("<-- Obstacle konstruktor return", false);
 	
 	}
 	
 	public void slow(Enemy e) {
-		SkeletonTester.safePrint("--> Obstacle slow", true);
+		ProtoTester.safePrint("--> Obstacle slow", true);
 		
 		e.setModSpeed(slowIntens);
 		
@@ -67,51 +67,51 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 		if(amort <= 0){
 			eliminate(myPath);
 		}
-		SkeletonTester.safePrint("<-- Obstacle slow return", false);
+		ProtoTester.safePrint("<-- Obstacle slow return", false);
 	}
 	
 	public void amortization() {
-		SkeletonTester.safePrint("--> Obstacle amortization", true);
+		ProtoTester.safePrint("--> Obstacle amortization", true);
 		
-		SkeletonTester.safePrint("<-- Obstacle amortization return", false);
+		ProtoTester.safePrint("<-- Obstacle amortization return", false);
 	}
 	
 	public void increaseIntensity(int intens) {
-		SkeletonTester.safePrint("--> Obstacle increaseIntensity", true);
+		ProtoTester.safePrint("--> Obstacle increaseIntensity", true);
 		
-		SkeletonTester.safePrint("<-- Obstacle increaseIntensity return", false);
+		ProtoTester.safePrint("<-- Obstacle increaseIntensity return", false);
 	}
 	
 	public void addIOGem(IOGem g) {
-		SkeletonTester.safePrint("--> Obstacle addIOGem", true);
+		ProtoTester.safePrint("--> Obstacle addIOGem", true);
 		
 		g.upgradeObstacle(this);
 		gems.add(g);
 		
-		SkeletonTester.safePrint("<-- Obstacle addIOGem return", false);
+		ProtoTester.safePrint("<-- Obstacle addIOGem return", false);
 	}
 	
 	public void repair() {
-		SkeletonTester.safePrint("--> Obstacle repair", true);
+		ProtoTester.safePrint("--> Obstacle repair", true);
 		
 		amort = 0;
 		
-		SkeletonTester.safePrint("<-- Obstacle repair return", false);
+		ProtoTester.safePrint("<-- Obstacle repair return", false);
 	}
 	
 	public void eliminate(Path p) {
-		SkeletonTester.safePrint("<-- Obstacle eliminate", true);
+		ProtoTester.safePrint("<-- Obstacle eliminate", true);
 		myPath.deleteIObstacle(this);
-		SkeletonTester.safePrint("<-- Obstacle eliminate return", false);
+		ProtoTester.safePrint("<-- Obstacle eliminate return", false);
 	}
 	
 	public void registerPath(Path p) {
-		SkeletonTester.safePrint("--> Obstacle registerPath", true);
+		ProtoTester.safePrint("--> Obstacle registerPath", true);
 		myPath = p;
 		
 		p.registerIObstacle(this);
 		
-		SkeletonTester.safePrint("<-- Obstacle registerPath return", false);
+		ProtoTester.safePrint("<-- Obstacle registerPath return", false);
 	
 	}
 }

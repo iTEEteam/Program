@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -17,15 +17,15 @@ public class EnemyTypeGem extends Gem implements ITGem {
 
 	private String eType;
 	public EnemyTypeGem(String enemyType) {
-		SkeletonTester.safePrint("--> EnemyType konstruktor", true);
+		ProtoTester.safePrint("--> EnemyType konstruktor", true);
 		eType = enemyType;
-		SkeletonTester.safePrint("<-- EnemyType konstruktor return", false);
+		ProtoTester.safePrint("<-- EnemyType konstruktor return", false);
 	}
 	
 	public void upgradeTower(Tower t) {
-		SkeletonTester.safePrint("--> EnemyTypeGem upgradeTower", true);
+		ProtoTester.safePrint("--> EnemyTypeGem upgradeTower", true);
 		t.upgradeEnemy(eType);
-		SkeletonTester.safePrint("<-- EnemyTypeGem upgradeTower return",false);
+		ProtoTester.safePrint("<-- EnemyTypeGem upgradeTower return",false);
 	}
 	
 	public int getValue() {

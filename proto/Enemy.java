@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -64,7 +64,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az Enemy mozg�s�t v�grehajt� met�dus.
 	**/
 	public void move() {
-		SkeletonTester.safePrint("--> Enemy move", true);
+		ProtoTester.safePrint("--> Enemy move", true);
 		
 		nextPath = myPath.getNext();
 		
@@ -75,7 +75,7 @@ public abstract class Enemy implements IPathPlaceable {
 			nextPath.registerIPathPlaceable(this);
 		}
 		
-		SkeletonTester.safePrint("<-- Enemy move return", false);	
+		ProtoTester.safePrint("<-- Enemy move return", false);	
 	}
 	
 	public void setModSpeed(int msp) {
@@ -86,14 +86,14 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	public void registerPath(Path p) {
-		SkeletonTester.safePrint("--> Enemy registerPath", true);
+		ProtoTester.safePrint("--> Enemy registerPath", true);
 		
 		
 		myPath.deleteEnemy(this);
 		
 		nextPath.registerEnemy(this);
 		
-		SkeletonTester.safePrint("--> Enemy registerPath return", false);
+		ProtoTester.safePrint("--> Enemy registerPath return", false);
 	}
 	
 	public void setHealth(int hp){

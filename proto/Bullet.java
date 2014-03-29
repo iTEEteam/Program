@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -42,9 +42,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
-		SkeletonTester.safePrint("--> Bullet getDamageElf", true);
+		ProtoTester.safePrint("--> Bullet getDamageElf", true);
 
-		SkeletonTester.safePrint("<-- Bullet getDamageElf return", false);
+		ProtoTester.safePrint("<-- Bullet getDamageElf return", false);
 		return damage;
 	
 	}
@@ -53,9 +53,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
-		SkeletonTester.safePrint("--> Bullet getDamageHobbit", true);
+		ProtoTester.safePrint("--> Bullet getDamageHobbit", true);
 
-		SkeletonTester.safePrint("<-- Bullet getDamageHobbit return", false);
+		ProtoTester.safePrint("<-- Bullet getDamageHobbit return", false);
 		return damage;
 	
 	}
@@ -64,9 +64,9 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
-		SkeletonTester.safePrint("--> Bullet getDamageDwarf", true);
+		ProtoTester.safePrint("--> Bullet getDamageDwarf", true);
 
-		SkeletonTester.safePrint("<-- Bullet getDamageDwarf return", false);
+		ProtoTester.safePrint("<-- Bullet getDamageDwarf return", false);
 		return damage;
 	
 	}
@@ -75,22 +75,22 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
-		SkeletonTester.safePrint("--> Bullet getDamageHuman", true);
+		ProtoTester.safePrint("--> Bullet getDamageHuman", true);
 
-		SkeletonTester.safePrint("<-- Bullet getDamageHuman return", false);
+		ProtoTester.safePrint("<-- Bullet getDamageHuman return", false);
 		return damage;
 	
 	}
 	
 	public void setEnemy(String e) {
-		SkeletonTester.safePrint("--> Bullet setEnemy", true);
+		ProtoTester.safePrint("--> Bullet setEnemy", true);
 
-		SkeletonTester.safePrint("<-- Bullet setEnemy return", false);
+		ProtoTester.safePrint("<-- Bullet setEnemy return", false);
 	}
 	
 	public void setDamage(int dmg) {
-		SkeletonTester.safePrint("--> Bullet setDamage", true);
+		ProtoTester.safePrint("--> Bullet setDamage", true);
 
-		SkeletonTester.safePrint("<-- Bullet setDamage return", false);
+		ProtoTester.safePrint("<-- Bullet setDamage return", false);
 	}
 }

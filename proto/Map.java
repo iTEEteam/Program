@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.util.ArrayList;
 
@@ -40,9 +40,9 @@ public class Map {
 	 * @param    name
 	**/
 	public Map(Game game) {
-		SkeletonTester.safePrint("--> Map konstruktor", true);
+		ProtoTester.safePrint("--> Map konstruktor", true);
 
-		SkeletonTester.safePrint("<-- Map konstruktor return", false);
+		ProtoTester.safePrint("<-- Map konstruktor return", false);
 	}
 	
 	/**
@@ -51,10 +51,10 @@ public class Map {
 	 * @param    name
 	**/
 	public void load(String name) {
-		SkeletonTester.safePrint("--> Map load", true);
+		ProtoTester.safePrint("--> Map load", true);
 		Field f = new Field(game);
 		Path p = new Path();				
-		SkeletonTester.safePrint("<-- Map load return", false);
+		ProtoTester.safePrint("<-- Map load return", false);
 	}
 	
 	public int getLevel() {

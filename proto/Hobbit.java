@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -24,18 +24,18 @@ public class Hobbit extends Enemy {
 	
 	// TODO minek a Path p amikor ugyis a sajatjarol veszi le? IPP miatt?
 	public void eliminate(Path p) {
-		SkeletonTester.safePrint("--> Hobbit eliminate", true);
+		ProtoTester.safePrint("--> Hobbit eliminate", true);
 		
 		igame.changeMana(maxHP);
 		igame.removeEnemy(this);
 		myPath.deleteEnemy(this);
 		
-		SkeletonTester.safePrint("<-- Hobbit eliminate return", false);
+		ProtoTester.safePrint("<-- Hobbit eliminate return", false);
 	}
 
 	@Override
 	public void hurt(Bullet b) {
-		SkeletonTester.safePrint("--> Hobbit hurt", true);
+		ProtoTester.safePrint("--> Hobbit hurt", true);
 		
 		int damage = b.getDamageHobbit();
 		
@@ -44,6 +44,6 @@ public class Hobbit extends Enemy {
 			eliminate(myPath);
 		}
 		
-		SkeletonTester.safePrint("<-- Hobbit hurt return", false);		
+		ProtoTester.safePrint("<-- Hobbit hurt return", false);		
 	}
 }

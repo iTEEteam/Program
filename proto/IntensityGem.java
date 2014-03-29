@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -21,17 +21,17 @@ public class IntensityGem extends Gem implements IOGem {
 	private int intensity;
 	
 	public IntensityGem() {
-		SkeletonTester.safePrint("--> IntensityGem konstruktor", true);
+		ProtoTester.safePrint("--> IntensityGem konstruktor", true);
 
-		SkeletonTester.safePrint("<-- IntensityGem konstruktor", false);
+		ProtoTester.safePrint("<-- IntensityGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
-		SkeletonTester.safePrint("--> IntensityGem upgradeObstacle", true);
+		ProtoTester.safePrint("--> IntensityGem upgradeObstacle", true);
 		
 		// sd_akadaly_fejlesztese szekvenciadiagrammon el van irva
 		o.increaseIntensity(intensity);
 		
-		SkeletonTester.safePrint("<-- IntensityGem upgradeObstacle", false);
+		ProtoTester.safePrint("<-- IntensityGem upgradeObstacle", false);
 	}
 }

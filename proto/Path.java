@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.util.ArrayList;
 
@@ -40,10 +40,10 @@ public class Path extends Cell {
 	 * Konstruktor
 	**/
 	public Path() {
-		SkeletonTester.safePrint("--> Path konstruktor", true);
+		ProtoTester.safePrint("--> Path konstruktor", true);
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();
-		SkeletonTester.safePrint("<-- Path konstruktor return", false);
+		ProtoTester.safePrint("<-- Path konstruktor return", false);
 
 	}
 	
@@ -51,14 +51,14 @@ public class Path extends Cell {
 	 * A bool t�pus� visszat�r�si �rt�kben megmondja, hogy van-e ellens�g a Path-en. 
 	**/
 	public boolean hasEnemy() {
-		SkeletonTester.safePrint("--> Path hasEnemy", true);
-		SkeletonTester.safePrint("<-- Path hasEnemy return", false);
+		ProtoTester.safePrint("--> Path hasEnemy", true);
+		ProtoTester.safePrint("<-- Path hasEnemy return", false);
 		return !enemies.isEmpty();
 	}
 	
 	public boolean hasObstacle() {
-		SkeletonTester.safePrint("--> Path hasObstacle", true);
-		SkeletonTester.safePrint("<-- Path hasObstacle return", false);
+		ProtoTester.safePrint("--> Path hasObstacle", true);
+		ProtoTester.safePrint("<-- Path hasObstacle return", false);
 		return !(myIObstacle==null);
 	}
 	
@@ -69,9 +69,9 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public boolean deleteEnemy(Enemy e) {
-		SkeletonTester.safePrint("--> Path deleteEnemy", true);
+		ProtoTester.safePrint("--> Path deleteEnemy", true);
 		
-		SkeletonTester.safePrint("<-- Path deleteEnemy return", false);
+		ProtoTester.safePrint("<-- Path deleteEnemy return", false);
 		
 		return false;
 	
@@ -88,11 +88,11 @@ public class Path extends Cell {
 	 * @param    ipp
 	**/
 	public void registerIPathPlaceable(IPathPlaceable ipp) {
-		SkeletonTester.safePrint("--> Path registerIPathPlaceable", true);
+		ProtoTester.safePrint("--> Path registerIPathPlaceable", true);
 		
 		ipp.registerPath(this);
 		
-		SkeletonTester.safePrint("<-- Path registerIPathPlaceable return", false);
+		ProtoTester.safePrint("<-- Path registerIPathPlaceable return", false);
 	}
 	
 	/**
@@ -101,21 +101,21 @@ public class Path extends Cell {
 	 * @param    io
 	**/
 	public void registerIObstacle(IObstacle io) {
-		SkeletonTester.safePrint("--> Path registerIObstacle", true);
+		ProtoTester.safePrint("--> Path registerIObstacle", true);
 		
 		if(hasObstacle()){
-			SkeletonTester.safePrint("<-- Path registerIObstacle return", false);
+			ProtoTester.safePrint("<-- Path registerIObstacle return", false);
 			return;
 		}
 		if(hasEnemy()){
-			SkeletonTester.safePrint("<-- Path registerIObstacle return", false);
+			ProtoTester.safePrint("<-- Path registerIObstacle return", false);
 			return;
 		}
 		
 		// TODO kell a pathnak  igame interfesz, hogy a manat valtoztatni tudjuk
 		myIObstacle = io;
 		
-		SkeletonTester.safePrint("<-- Path registerIObstacle return ", false);
+		ProtoTester.safePrint("<-- Path registerIObstacle return ", false);
 	}
 	
 	/**
@@ -124,30 +124,30 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public void registerEnemy(Enemy e) {
-		SkeletonTester.safePrint("--> Path registerEnemy", true);
+		ProtoTester.safePrint("--> Path registerEnemy", true);
 		
 		if(myObstacle != null){
 			myObstacle.slow(e);
 		}
 		enemies.add(e);
-		SkeletonTester.safePrint("<-- Path registerEnemy return", false);
+		ProtoTester.safePrint("<-- Path registerEnemy return", false);
 	}
 	
 	/**
 	 * Visszat�r a Path-en l�v� ellens�g(ek)el.
 	**/
 	public ArrayList<Enemy> getEnemies() {
-		SkeletonTester.safePrint("--> Path getEnemies", true);
+		ProtoTester.safePrint("--> Path getEnemies", true);
 		
-		SkeletonTester.safePrint("<-- Path getEnemies return", false);
+		ProtoTester.safePrint("<-- Path getEnemies return", false);
 		return enemies;
 	
 	}
 	
 	public IObstacle getIObstacle(){
-		SkeletonTester.safePrint("--> Path getIObstacle", true);
+		ProtoTester.safePrint("--> Path getIObstacle", true);
 		
-		SkeletonTester.safePrint("<-- Path getIObstacle return", false);
+		ProtoTester.safePrint("<-- Path getIObstacle return", false);
 		return myIObstacle;
 	}
 	
@@ -155,9 +155,9 @@ public class Path extends Cell {
 	 * Visszat�r a nextPaths lista egy elem�vel, ahova az enemy majd l�phet.
 	**/
 	public Path getNext() {
-		SkeletonTester.safePrint("--> Path getNext", true);
+		ProtoTester.safePrint("--> Path getNext", true);
 		
-		SkeletonTester.safePrint("<-- Path getNext return", false);
+		ProtoTester.safePrint("<-- Path getNext return", false);
 		return nextPaths.get(0);
 	
 	}

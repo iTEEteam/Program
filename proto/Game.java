@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 import java.util.ArrayList;
 
 //
@@ -42,7 +42,7 @@ public class Game implements IGame {
 	 * Konstruktor
 	**/
 	public Game() {
-		SkeletonTester.safePrint("--> Game konstruktor", true);
+		ProtoTester.safePrint("--> Game konstruktor", true);
 		
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
@@ -50,7 +50,7 @@ public class Game implements IGame {
 		
 		map = new Map(null);
 		
-		SkeletonTester.safePrint("<-- Game konstruktor return", false);
+		ProtoTester.safePrint("<-- Game konstruktor return", false);
 	}
 	
 	/**
@@ -65,53 +65,53 @@ public class Game implements IGame {
 	}
 	
 	public void initialize(String name) {
-		SkeletonTester.safePrint("--> Game initialize", true);
+		ProtoTester.safePrint("--> Game initialize", true);
 		map.load(name);
-		SkeletonTester.safePrint("<-- Game initialize return", false);	
+		ProtoTester.safePrint("<-- Game initialize return", false);	
 	}
 	
 	/**
 	 * A man�t cs�kkent�/j�v��r� f�ggv�ny.
 	**/
 	public void changeMana(int value) {
-		SkeletonTester.safePrint("--> Game changeMana", true);
+		ProtoTester.safePrint("--> Game changeMana", true);
 		mana += value;
-		SkeletonTester.safePrint("<-- Game changeMana return", false);
+		ProtoTester.safePrint("<-- Game changeMana return", false);
 	}
 	
 	public void incSucceeded() {
-		SkeletonTester.safePrint("--> Game incSucceeded", true);
+		ProtoTester.safePrint("--> Game incSucceeded", true);
 		
-		SkeletonTester.safePrint("<-- Game incSucceeded", false);
+		ProtoTester.safePrint("<-- Game incSucceeded", false);
 	}
 	
 	public void addTower(Tower t) {
-		SkeletonTester.safePrint("--> Game addTower", true);
+		ProtoTester.safePrint("--> Game addTower", true);
 		
 		if(towers != null){
 			towers.add(t);
 		}
 		
-		SkeletonTester.safePrint("<-- Game addTower return", false);
+		ProtoTester.safePrint("<-- Game addTower return", false);
 	}
 	
 	public void removeTower(Tower t) {
-		SkeletonTester.safePrint("--> Game removeTower", true);
+		ProtoTester.safePrint("--> Game removeTower", true);
 		
-		SkeletonTester.safePrint("<-- Game removeTower return", false);
+		ProtoTester.safePrint("<-- Game removeTower return", false);
 	}
 	
 	public void removeEnemy(Enemy e) {
-		SkeletonTester.safePrint("--> Game removeEnemy", true);
+		ProtoTester.safePrint("--> Game removeEnemy", true);
 		
-		SkeletonTester.safePrint("<-- Game removeEnemy return", false);
+		ProtoTester.safePrint("<-- Game removeEnemy return", false);
 	}
 
 	@Override
 	public int getMana() {
-		SkeletonTester.safePrint("--> Game getMana", true);
+		ProtoTester.safePrint("--> Game getMana", true);
 		
-		SkeletonTester.safePrint("<-- Game getMana return", false);
+		ProtoTester.safePrint("<-- Game getMana return", false);
 		return mana;
 	}
 

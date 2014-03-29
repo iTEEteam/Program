@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -28,9 +28,9 @@ public class Field extends Cell {
 	 * Konstruktor
 	**/
 	public Field(IGame game) {
-		SkeletonTester.safePrint("--> Field konstruktor", true);
+		ProtoTester.safePrint("--> Field konstruktor", true);
 		igame = game;
-		SkeletonTester.safePrint("<-- Field konstruktor return", false);
+		ProtoTester.safePrint("<-- Field konstruktor return", false);
 
 	}
 	
@@ -40,8 +40,8 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public boolean deleteIFieldPlaceable(IFieldPlaceable ifp) {
-		SkeletonTester.safePrint("--> Field deleteIFieldPlaceable", true);
-		SkeletonTester.safePrint("<-- Field deleteIFieldPlaceable return", false);
+		ProtoTester.safePrint("--> Field deleteIFieldPlaceable", true);
+		ProtoTester.safePrint("<-- Field deleteIFieldPlaceable return", false);
 		return false;
 	
 	}
@@ -52,11 +52,11 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public void registerIFieldPlaceable(IFieldPlaceable ifp) {
-		SkeletonTester.safePrint("--> Field registerIFieldPlaceable", true);
+		ProtoTester.safePrint("--> Field registerIFieldPlaceable", true);
 		
 		ifp.registerField(this);
 
-		SkeletonTester.safePrint("<-- Field registerIFieldPlaceable", false);
+		ProtoTester.safePrint("<-- Field registerIFieldPlaceable", false);
 	}
 	
 	/**
@@ -65,12 +65,12 @@ public class Field extends Cell {
 	 * @param    it
 	**/
 	public void registerITower(ITower it) {
-		SkeletonTester.safePrint("--> Field registerITower", true);
+		ProtoTester.safePrint("--> Field registerITower", true);
 		if(!hasTower()){
 			itower = it;
 		}
 		
-		SkeletonTester.safePrint("<-- Field registerITower return", false);
+		ProtoTester.safePrint("<-- Field registerITower return", false);
 	}
 	
 	public boolean isPath(){
@@ -78,15 +78,15 @@ public class Field extends Cell {
 	}
 
 	public boolean hasTower() {
-		SkeletonTester.safePrint("--> Field hasTower", true);
-		SkeletonTester.safePrint("<-- Field hasTower return", false);
+		ProtoTester.safePrint("--> Field hasTower", true);
+		ProtoTester.safePrint("<-- Field hasTower return", false);
 		return (itower!=null);	
 	}
 	
 	public ITower getITower(){
-		SkeletonTester.safePrint("--> Field getITower", true);
+		ProtoTester.safePrint("--> Field getITower", true);
 		
-		SkeletonTester.safePrint("<-- Field getITower return", false);
+		ProtoTester.safePrint("<-- Field getITower return", false);
 		return itower;
 	}
 }

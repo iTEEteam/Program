@@ -1,11 +1,11 @@
-package skeleton;
+package proto;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class SkeletonTester {
+public class ProtoTester {
 	/* FONTOS!!!
 	 *  nrOfTabs - kiirt tabok szama
 	 *  isPrinting - ki kell e a fvnek irnia az adatait
@@ -35,7 +35,7 @@ public class SkeletonTester {
 	}
 	
 	public static void main(String[] args) {
-		SkeletonTester tester = new SkeletonTester();
+		ProtoTester tester = new ProtoTester();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
 		
@@ -108,9 +108,9 @@ public class SkeletonTester {
 		tower.addITGem(new RangeGem());
 		tower.addITGem(new DamageGem());
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		tower.sell();
-		SkeletonTester.isPrinting = false;		
+		ProtoTester.isPrinting = false;		
 	}
 	
 	// Fejlesztetlen torony eladása.
@@ -120,9 +120,9 @@ public class SkeletonTester {
 		Tower tower = new Tower(game);
 		tower.registerField(field);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		tower.sell();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 
 	}
 	
@@ -134,9 +134,9 @@ public class SkeletonTester {
 		Tower tower = new Tower(game);
 		tower.addPath(path);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		tower.shoot();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// Torony hatókörében nincs ellenség tüzeléskor
@@ -146,9 +146,9 @@ public class SkeletonTester {
 		Tower tower = new Tower(game);
 		tower.addPath(path);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		tower.shoot();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// Torony megöl egy ellenséget.
@@ -161,9 +161,9 @@ public class SkeletonTester {
 		Tower tower = new Tower(game);
 		tower.addPath(path);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		tower.shoot();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 		
 	}
 	
@@ -176,9 +176,9 @@ public class SkeletonTester {
 		controller.setField(field);
 		tower.registerField(field);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyTower();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 
 	}
 	
@@ -190,12 +190,12 @@ public class SkeletonTester {
 		game.changeMana(1000);
 		controller.buyTower();
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buySpeedGem();
 		controller.buyRangeGem();
 		controller.buyDamageGem();
 		controller.buyEnemyTypeGem();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 		
 	}
 	
@@ -207,9 +207,9 @@ public class SkeletonTester {
 		controller.setPath(path);
 		path.registerEnemy(new Hobbit(game, path));
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyObstacle();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	
@@ -221,9 +221,9 @@ public class SkeletonTester {
 		Obstacle obstacle1 = new Obstacle();
 		path.registerIObstacle(obstacle1);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyObstacle();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// Akadály elhelyezése üres útra.	
@@ -233,9 +233,9 @@ public class SkeletonTester {
 		controller.setPath(new Path());
 		game.changeMana(100);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyObstacle();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// Egy torony elhelyezése a pályán.
@@ -245,9 +245,9 @@ public class SkeletonTester {
 		controller.setField(new Field(game));
 		game.changeMana(100);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyTower();		
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	private void ObstacleBuyGems() {
@@ -257,10 +257,10 @@ public class SkeletonTester {
 		game.changeMana(100);	
 		controller.buyObstacle();
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		controller.buyIntensityGem();
 		controller.buyRepairGem();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 
 	// Ellenség léptetése.
@@ -270,9 +270,9 @@ public class SkeletonTester {
 		Enemy enemy = new Hobbit(game, path);
 		path.addNext(new Path());
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		enemy.move();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// Annak tesztelése, hogy ha bejut egy ellenség a végzet hegyéhez.
@@ -282,18 +282,18 @@ public class SkeletonTester {
 		Enemy enemy = new Hobbit(game, path);
 		path.addNext(null);
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		enemy.move();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 	// A játék kezdeti betöltésének lefuttatása.
 	private void Initialize(){
 		Application app = new Application();
 		
-		SkeletonTester.isPrinting = true;
+		ProtoTester.isPrinting = true;
 		app.Initialize();
-		SkeletonTester.isPrinting = false;
+		ProtoTester.isPrinting = false;
 	}
 	
 }

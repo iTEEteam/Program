@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 //
 //
@@ -18,16 +18,16 @@ public class RepairGem extends Gem implements IOGem {
 	public static final int price = 20;
 
 	public  RepairGem() {
-		SkeletonTester.safePrint("--> RepairGem konstruktor", true);
+		ProtoTester.safePrint("--> RepairGem konstruktor", true);
 
-		SkeletonTester.safePrint("<-- RepairGem konstruktor", false);
+		ProtoTester.safePrint("<-- RepairGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
-		SkeletonTester.safePrint("--> RepairGem upgradeObstacle", true);
+		ProtoTester.safePrint("--> RepairGem upgradeObstacle", true);
 		
 		o.repair();
 		
-		SkeletonTester.safePrint("<-- RepairGem upgradeObstacle return", false);
+		ProtoTester.safePrint("<-- RepairGem upgradeObstacle return", false);
 	}
 }
