@@ -5,3 +5,11 @@ xxexex
 xxexex
 xxbbbp
 xxxxxx
+
+
+x	x	x	x	x	x
+en	r	rd	r	d	x
+x	x	d	x	d	x
+x	x	d	x	d	x
+x	x	r	r	r	ex
+x	x	x	x	x	x

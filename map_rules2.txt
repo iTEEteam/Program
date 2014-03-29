@@ -1,0 +1,25 @@
+szabályok:
+	pálya széle mindenhol "field", kivéve "entry point" és "exit point"
+x	field
+en	entry point
+r	right
+l	left
+u	up
+d	down
+ru	right, up
+rl 	right, left
+rd	right, down
+ul	up, left
+ud	up, down
+dr	down, right
+rul	right, up, left
+rud	right, up, down
+rdl	right, down, left
+dul	down, up, left
+ex	exit point	
+q	
+r	
+s	
+t	
+u	
+v	
