@@ -29,7 +29,8 @@ public class Path extends Cell {
 	**/
 	private ArrayList<Enemy> enemies;
 	
-	private Obstacle myObstacle;
+
+	
 	
 	// ez is WTF?
 	//private Enemy myPath;
@@ -126,8 +127,8 @@ public class Path extends Cell {
 	public void registerEnemy(Enemy e) {
 		SkeletonTester.safePrint("--> Path registerEnemy", true);
 		
-		if(myObstacle != null){
-			myObstacle.slow(e);
+		if(myIObstacle != null){
+			myIObstacle.slow(e);
 		}
 		enemies.add(e);
 		SkeletonTester.safePrint("<-- Path registerEnemy return", false);
