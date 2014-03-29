@@ -22,7 +22,7 @@ public class Field extends Cell {
 	
 	private IGame igame;
 	
-	private Tower myField;
+
 	
 	/**
 	 * Konstruktor
