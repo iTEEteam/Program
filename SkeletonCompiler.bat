@@ -2,7 +2,7 @@
 title Skeleton Compiler
 
 ECHO Compiling Skeleton
-javac Program/Skeleton/*.java
+javac skeleton/*.java
 ECHO Compiled Skeleton
 
 pause

@@ -2,7 +2,7 @@
 title Skeleton Run
 
 ECHO Running Skeleton
-java Program.Skeleton.SkeletonTester
+java skeleton.SkeletonTester
 
 
 pause
