@@ -69,6 +69,9 @@ public class Map {
 	
 	public Path getFirstPath() {
 		return null;
-	
 	}
+	
+	public Cell getCell(int i, int j){
+		return grid.get(i).get(j);
+	} 
 }

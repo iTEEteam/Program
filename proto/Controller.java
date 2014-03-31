@@ -11,14 +11,21 @@ public class Controller {
 	}
 	
 	public void setField(Field field){
+		choosenPath = null;
+		choosenEnemy = null;
 		choosenField = field;
 	}
 	
 	public void setPath(Path path){
+		choosenEnemy = null;
+		choosenField = null;
 		choosenPath = path;
+
 	}
 	
 	public void setEnemy(String e){
+		choosenPath = null;
+		choosenField = null;
 		choosenEnemy = e;
 	}
 	

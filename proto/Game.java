@@ -13,6 +13,7 @@ import java.util.ArrayList;
 //
 
 public class Game implements IGame {
+	public static boolean bRandom = false;
 	/**
 	 * A t�rk�p, amiben a cell�k t�rol�dnak.
 	**/
@@ -57,7 +58,9 @@ public class Game implements IGame {
 	 * Friss�ti a GUI-t.
 	**/
 	public void update() {
-	
+		ProtoTester.safePrint("update", true);
+		ProtoTester.safePrint("update return", false);
+
 	}
 	
 	public void makeEnemies() {
@@ -115,4 +118,7 @@ public class Game implements IGame {
 		return mana;
 	}
 
+	public Map getMap(){
+		return map;
+	}
 }
