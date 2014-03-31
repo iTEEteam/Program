@@ -24,18 +24,15 @@ public class Hobbit extends Enemy {
 	
 	// TODO minek a Path p amikor ugyis a sajatjarol veszi le? IPP miatt?
 	public void eliminate(Path p) {
-		ProtoTester.safePrint("--> Hobbit eliminate", true);
 		
 		igame.changeMana(maxHP);
 		igame.removeEnemy(this);
 		myPath.deleteEnemy(this);
 		
-		ProtoTester.safePrint("<-- Hobbit eliminate return", false);
 	}
 
 	@Override
 	public void hurt(Bullet b) {
-		ProtoTester.safePrint("--> Hobbit hurt", true);
 		
 		int damage = b.getDamageHobbit();
 		
@@ -44,6 +41,5 @@ public class Hobbit extends Enemy {
 			eliminate(myPath);
 		}
 		
-		ProtoTester.safePrint("<-- Hobbit hurt return", false);		
 	}
 }

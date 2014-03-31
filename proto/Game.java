@@ -42,16 +42,12 @@ public class Game implements IGame {
 	/**
 	 * Konstruktor
 	**/
-	public Game() {
-		ProtoTester.safePrint("--> Game konstruktor", true);
-		
+	public Game() {		
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();
 		
 		map = new Map(null);
-		
-		ProtoTester.safePrint("<-- Game konstruktor return", false);
 	}
 	
 	/**
@@ -59,8 +55,8 @@ public class Game implements IGame {
 	**/
 	public void update() {
 		ProtoTester.safePrint("update", true);
+		
 		ProtoTester.safePrint("update return", false);
-
 	}
 	
 	public void makeEnemies() {
@@ -68,53 +64,38 @@ public class Game implements IGame {
 	}
 	
 	public void initialize(String name) {
-		ProtoTester.safePrint("--> Game initialize", true);
 		map.load(name);
-		ProtoTester.safePrint("<-- Game initialize return", false);	
 	}
 	
 	/**
 	 * A man�t cs�kkent�/j�v��r� f�ggv�ny.
 	**/
 	public void changeMana(int value) {
-		ProtoTester.safePrint("--> Game changeMana", true);
 		mana += value;
-		ProtoTester.safePrint("<-- Game changeMana return", false);
 	}
 	
 	public void incSucceeded() {
-		ProtoTester.safePrint("--> Game incSucceeded", true);
-		
-		ProtoTester.safePrint("<-- Game incSucceeded", false);
 	}
 	
 	public void addTower(Tower t) {
-		ProtoTester.safePrint("--> Game addTower", true);
 		
 		if(towers != null){
 			towers.add(t);
 		}
 		
-		ProtoTester.safePrint("<-- Game addTower return", false);
 	}
 	
 	public void removeTower(Tower t) {
-		ProtoTester.safePrint("--> Game removeTower", true);
-		
-		ProtoTester.safePrint("<-- Game removeTower return", false);
+	
 	}
 	
 	public void removeEnemy(Enemy e) {
-		ProtoTester.safePrint("--> Game removeEnemy", true);
-		
-		ProtoTester.safePrint("<-- Game removeEnemy return", false);
+	
 	}
 
 	@Override
 	public int getMana() {
-		ProtoTester.safePrint("--> Game getMana", true);
 		
-		ProtoTester.safePrint("<-- Game getMana return", false);
 		return mana;
 	}
 

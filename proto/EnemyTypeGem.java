@@ -17,15 +17,11 @@ public class EnemyTypeGem extends Gem implements ITGem {
 
 	private String eType;
 	public EnemyTypeGem(String enemyType) {
-		ProtoTester.safePrint("--> EnemyType konstruktor", true);
 		eType = enemyType;
-		ProtoTester.safePrint("<-- EnemyType konstruktor return", false);
 	}
 	
 	public void upgradeTower(Tower t) {
-		ProtoTester.safePrint("--> EnemyTypeGem upgradeTower", true);
 		t.upgradeEnemy(eType);
-		ProtoTester.safePrint("<-- EnemyTypeGem upgradeTower return",false);
 	}
 	
 	public int getValue() {

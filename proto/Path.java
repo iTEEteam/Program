@@ -40,25 +40,19 @@ public class Path extends Cell {
 	 * Konstruktor
 	**/
 	public Path() {
-		ProtoTester.safePrint("--> Path konstruktor", true);
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();
-		ProtoTester.safePrint("<-- Path konstruktor return", false);
-
 	}
 	
 	/**
 	 * A bool t�pus� visszat�r�si �rt�kben megmondja, hogy van-e ellens�g a Path-en. 
 	**/
 	public boolean hasEnemy() {
-		ProtoTester.safePrint("--> Path hasEnemy", true);
-		ProtoTester.safePrint("<-- Path hasEnemy return", false);
 		return !enemies.isEmpty();
 	}
 	
 	public boolean hasObstacle() {
-		ProtoTester.safePrint("--> Path hasObstacle", true);
-		ProtoTester.safePrint("<-- Path hasObstacle return", false);
+
 		return !(myIObstacle==null);
 	}
 	
@@ -68,11 +62,7 @@ public class Path extends Cell {
 	 *
 	 * @param    e
 	**/
-	public boolean deleteEnemy(Enemy e) {
-		ProtoTester.safePrint("--> Path deleteEnemy", true);
-		
-		ProtoTester.safePrint("<-- Path deleteEnemy return", false);
-		
+	public boolean deleteEnemy(Enemy e) {		
 		return false;
 	
 	}
@@ -88,11 +78,8 @@ public class Path extends Cell {
 	 * @param    ipp
 	**/
 	public void registerIPathPlaceable(IPathPlaceable ipp) {
-		ProtoTester.safePrint("--> Path registerIPathPlaceable", true);
 		
 		ipp.registerPath(this);
-		
-		ProtoTester.safePrint("<-- Path registerIPathPlaceable return", false);
 	}
 	
 	/**
@@ -100,22 +87,17 @@ public class Path extends Cell {
 	 *
 	 * @param    io
 	**/
-	public void registerIObstacle(IObstacle io) {
-		ProtoTester.safePrint("--> Path registerIObstacle", true);
-		
+	public void registerIObstacle(IObstacle io) {		
 		if(hasObstacle()){
-			ProtoTester.safePrint("<-- Path registerIObstacle return", false);
 			return;
 		}
 		if(hasEnemy()){
-			ProtoTester.safePrint("<-- Path registerIObstacle return", false);
 			return;
 		}
 		
 		// TODO kell a pathnak  igame interfesz, hogy a manat valtoztatni tudjuk
 		myIObstacle = io;
 		
-		ProtoTester.safePrint("<-- Path registerIObstacle return ", false);
 	}
 	
 	/**
@@ -124,30 +106,22 @@ public class Path extends Cell {
 	 * @param    e
 	**/
 	public void registerEnemy(Enemy e) {
-		ProtoTester.safePrint("--> Path registerEnemy", true);
 		
 		if(myObstacle != null){
 			myObstacle.slow(e);
 		}
 		enemies.add(e);
-		ProtoTester.safePrint("<-- Path registerEnemy return", false);
 	}
 	
 	/**
 	 * Visszat�r a Path-en l�v� ellens�g(ek)el.
 	**/
 	public ArrayList<Enemy> getEnemies() {
-		ProtoTester.safePrint("--> Path getEnemies", true);
-		
-		ProtoTester.safePrint("<-- Path getEnemies return", false);
 		return enemies;
 	
 	}
 	
 	public IObstacle getIObstacle(){
-		ProtoTester.safePrint("--> Path getIObstacle", true);
-		
-		ProtoTester.safePrint("<-- Path getIObstacle return", false);
 		return myIObstacle;
 	}
 	
@@ -155,9 +129,7 @@ public class Path extends Cell {
 	 * Visszat�r a nextPaths lista egy elem�vel, ahova az enemy majd l�phet.
 	**/
 	public Path getNext() {
-		ProtoTester.safePrint("--> Path getNext", true);
-		
-		ProtoTester.safePrint("<-- Path getNext return", false);
+
 		return nextPaths.get(0);
 	
 	}

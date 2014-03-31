@@ -40,9 +40,7 @@ public class Map {
 	 * @param    name
 	**/
 	public Map(Game game) {
-		ProtoTester.safePrint("--> Map konstruktor", true);
 
-		ProtoTester.safePrint("<-- Map konstruktor return", false);
 	}
 	
 	/**
@@ -51,10 +49,8 @@ public class Map {
 	 * @param    name
 	**/
 	public void load(String name) {
-		ProtoTester.safePrint("--> Map load", true);
 		Field f = new Field(game);
 		Path p = new Path();				
-		ProtoTester.safePrint("<-- Map load return", false);
 	}
 	
 	public int getLevel() {

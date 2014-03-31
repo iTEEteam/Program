@@ -19,20 +19,14 @@ public class RangeGem extends Gem implements ITGem {
 
 	private int range;
 	public RangeGem() {
-		ProtoTester.safePrint("--> RangeGem konstruktor", true);
 
-		ProtoTester.safePrint("<-- RangeGem konstruktor return", false);
 	}
 	public void upgradeTower(Tower t) {
-		ProtoTester.safePrint("--> RangeGem upgradeTower", true);
 		t.upgradeRange(range);
-		ProtoTester.safePrint("<-- RangeGem upgradeTower return", false);
 	}
 	
 	public int getValue() {
-		ProtoTester.safePrint("--> RangeGem getValue", true);
-		
-		ProtoTester.safePrint("<-- RangeGem return", false);
+
 		return 0;
 	}
 }

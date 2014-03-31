@@ -16,25 +16,18 @@ public class DamageGem extends Gem implements ITGem {
 
 	private int damage;
 	public DamageGem() {
-		ProtoTester.safePrint("--> DamageGem konstruktor", true);
-
-		ProtoTester.safePrint("<-- DamageGem konstruktor return", false);
 
 	}
 	
 	public void upgradeTower(Tower t) {
-		ProtoTester.safePrint("--> DamageGem upgradeTower", true);
 		t.upgradeDamage(damage);
 		
 		// TODO hello
 		
-		ProtoTester.safePrint("<-- Damagegem upgradeTower return", false);
 	}
 	
 	public int getValue() {
-		ProtoTester.safePrint("--> DamageGem getValue", true);
-		
-		ProtoTester.safePrint("<-- DamegeGem return", false);
+
 		return 0;
 	}
 }

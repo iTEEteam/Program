@@ -28,10 +28,8 @@ public class Dwarf extends Enemy {
 	}
 	@Override
 	public void hurt(Bullet b) {
-		System.out.println("--> Dwarf hurt");
 			
 		b.getDamageDwarf();
 
-		System.out.println("<-- Dwarf return");
 	}
 }

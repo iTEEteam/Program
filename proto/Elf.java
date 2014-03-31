@@ -28,10 +28,8 @@ public class Elf extends Enemy {
 	}
 	@Override
 	public void hurt(Bullet b) {
-		System.out.println("--> Elf hurt");
 		
 		b.getDamageElf();
 
-		System.out.println("<-- Elf return");		
 	}
 }

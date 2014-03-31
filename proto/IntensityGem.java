@@ -21,17 +21,13 @@ public class IntensityGem extends Gem implements IOGem {
 	private int intensity;
 	
 	public IntensityGem() {
-		ProtoTester.safePrint("--> IntensityGem konstruktor", true);
 
-		ProtoTester.safePrint("<-- IntensityGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
-		ProtoTester.safePrint("--> IntensityGem upgradeObstacle", true);
 		
 		// sd_akadaly_fejlesztese szekvenciadiagrammon el van irva
 		o.increaseIntensity(intensity);
 		
-		ProtoTester.safePrint("<-- IntensityGem upgradeObstacle", false);
 	}
 }

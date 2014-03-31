@@ -16,11 +16,9 @@ public class Application {
 	
 	
 	public void Initialize(){
-		ProtoTester.safePrint("--> Application Initialize", true);
 		Game game = new Game();
 		game.initialize("MapName");
 		
-		ProtoTester.safePrint("<-- Application Initialize return", false);
 	}
 
 }

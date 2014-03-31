@@ -18,16 +18,12 @@ public class RepairGem extends Gem implements IOGem {
 	public static final int price = 20;
 
 	public  RepairGem() {
-		ProtoTester.safePrint("--> RepairGem konstruktor", true);
 
-		ProtoTester.safePrint("<-- RepairGem konstruktor", false);
 	}
 	
 	public void upgradeObstacle(Obstacle o) {
-		ProtoTester.safePrint("--> RepairGem upgradeObstacle", true);
 		
 		o.repair();
 		
-		ProtoTester.safePrint("<-- RepairGem upgradeObstacle return", false);
 	}
 }

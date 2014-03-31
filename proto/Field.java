@@ -28,10 +28,7 @@ public class Field extends Cell {
 	 * Konstruktor
 	**/
 	public Field(IGame game) {
-		ProtoTester.safePrint("--> Field konstruktor", true);
 		igame = game;
-		ProtoTester.safePrint("<-- Field konstruktor return", false);
-
 	}
 	
 	/**
@@ -40,8 +37,6 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public boolean deleteIFieldPlaceable(IFieldPlaceable ifp) {
-		ProtoTester.safePrint("--> Field deleteIFieldPlaceable", true);
-		ProtoTester.safePrint("<-- Field deleteIFieldPlaceable return", false);
 		return false;
 	
 	}
@@ -52,11 +47,8 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public void registerIFieldPlaceable(IFieldPlaceable ifp) {
-		ProtoTester.safePrint("--> Field registerIFieldPlaceable", true);
 		
 		ifp.registerField(this);
-
-		ProtoTester.safePrint("<-- Field registerIFieldPlaceable", false);
 	}
 	
 	/**
@@ -65,12 +57,10 @@ public class Field extends Cell {
 	 * @param    it
 	**/
 	public void registerITower(ITower it) {
-		ProtoTester.safePrint("--> Field registerITower", true);
 		if(!hasTower()){
 			itower = it;
 		}
 		
-		ProtoTester.safePrint("<-- Field registerITower return", false);
 	}
 	
 	public boolean isPath(){

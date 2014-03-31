@@ -20,15 +20,11 @@ public class SpeedGem extends Gem implements ITGem {
 	private int speed;
 	
 	public SpeedGem() {
-		ProtoTester.safePrint("--> SpeedGem konstruktor", true);
-		
-		ProtoTester.safePrint("<-- SpeedGem konstruktor return", false);
+
 	}
 	
 	public void upgradeTower(Tower t) {
-		ProtoTester.safePrint("--> SpeedGem upgradeTower", true);
 		t.upgradeSpeed(speed);
-		ProtoTester.safePrint("<-- SpeedGem upgradeTower return", false);
 	}
 	
 	public int getValue() {
