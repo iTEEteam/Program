@@ -20,6 +20,7 @@ package proto;
 public class Human extends Enemy {
 	public Human(IGame game, Path p) {
 		super(game, p);
+		ProtoTester.addToObjectCatalog(this);
 		// TODO Auto-generated constructor stub
 	}
 	public void eliminate(Path p) {

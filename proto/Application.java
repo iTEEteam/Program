@@ -13,6 +13,10 @@ package proto;
 
 
 public class Application {
+	//default constructor
+	public Application(){
+		ProtoTester.addToObjectCatalog(this);
+	}
 	
 	
 	public void Initialize(){

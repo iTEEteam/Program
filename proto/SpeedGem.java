@@ -20,7 +20,7 @@ public class SpeedGem extends Gem implements ITGem {
 	private int speed;
 	
 	public SpeedGem() {
-
+		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	public void upgradeTower(Tower t) {

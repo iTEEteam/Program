@@ -19,6 +19,7 @@ public class RangeGem extends Gem implements ITGem {
 
 	private int range;
 	public RangeGem() {
+		ProtoTester.addToObjectCatalog(this);
 
 	}
 	public void upgradeTower(Tower t) {

@@ -25,16 +25,17 @@ public abstract class Cell {
 	//private Cell neighbours;
 	
 	private Map grid;
-	
+
 	/**
 	 * Konstruktor.
 	 *
 	 * @param    cells
 	**/
+/*	
 	public void Cell(ArrayList<Cell> cells) {
 	
 	}
-	
+*/
 	/**
 	 * Visszat�r egy bool �rt�kkel, ami megmondja, hogy az adott mez� Pathy-e vagy sem.
 	**/

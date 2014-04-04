@@ -3,6 +3,12 @@ package proto;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.NoSuchElementException;
 
 
 public class ProtoTester {
@@ -17,7 +23,39 @@ public class ProtoTester {
 	 *  	param b: printtabsnak adja at
 	 *  	param str: kiirando szoveg  
 	 */
+	
+	public static HashMap<Object, String> objectCatalog = new HashMap<Object, String>();
+	public static void addToObjectCatalog(Object obj/*, String name*/){
+//		objectCatalog.put(obj, name);
+//		ProtoTester.addToObjectCatalog(this);
 
+		String type = obj.getClass().getName();
+		ArrayList<Integer> numbersIn = new ArrayList<Integer>();
+
+		for(Entry<Object, String> entry : objectCatalog.entrySet()) {
+		    String keyname = entry.getValue();    
+		    if(keyname.startsWith(type)){
+		    	String num_str = (String) keyname.subSequence(type.length(), keyname.length());
+		    	Integer num = Integer.parseInt(num_str);
+		    	numbersIn.add(num);
+		    }
+		}
+		int maxNumber;
+		try{
+			maxNumber = Collections.max(numbersIn);
+		}catch(NoSuchElementException e){
+			maxNumber = 0;
+		}
+		
+		objectCatalog.put(obj, type + (maxNumber+1));    
+		    
+			
+	}
+	
+	
+	
+	
+	
 	private static int nrOfTabs = -1;
 	public static boolean isPrinting = false;
 	private static void printTabs(boolean b){
@@ -97,7 +135,16 @@ public class ProtoTester {
 					} else{
 						System.out.println("Invalid input");
 					}
+				} else if(words[0].equals("catalog")){
+					for(Entry<Object, String> entry : objectCatalog.entrySet()) {
+					    Object key = entry.getKey();
+						String keyname = entry.getValue();    
+					    System.out.println(key + " " + keyname);					
+					}
 				}
+				
+				
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

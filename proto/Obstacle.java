@@ -49,6 +49,8 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	 * @param    up
 	**/
 	public Obstacle() {
+		ProtoTester.addToObjectCatalog(this);
+		
 		ProtoTester.safePrint("--> Obstacle konstruktor", true);
 		
 		gems = new ArrayList<IOGem>();

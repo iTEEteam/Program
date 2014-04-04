@@ -43,6 +43,8 @@ public class Game implements IGame {
 	 * Konstruktor
 	**/
 	public Game() {		
+		ProtoTester.addToObjectCatalog(this);
+
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();

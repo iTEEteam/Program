@@ -28,6 +28,7 @@ public class Field extends Cell {
 	 * Konstruktor
 	**/
 	public Field(IGame game) {
+		ProtoTester.addToObjectCatalog(this);
 		igame = game;
 	}
 	

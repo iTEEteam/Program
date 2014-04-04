@@ -19,6 +19,7 @@ public class Hobbit extends Enemy {
 
 	public Hobbit(IGame game, Path p) {
 		super(game, p);
+		ProtoTester.addToObjectCatalog(this);
 
 	}
 	

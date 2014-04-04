@@ -40,7 +40,7 @@ public class Map {
 	 * @param    name
 	**/
 	public Map(Game game) {
-
+		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**

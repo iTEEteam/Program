@@ -7,6 +7,7 @@ public class Controller {
 	private String choosenEnemy;
 
 	public Controller(IGame game){
+		ProtoTester.addToObjectCatalog(this);
 		igame = game;
 	}
 	

@@ -55,6 +55,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    pr
 	**/
 	public Tower(IGame game) {
+		ProtoTester.addToObjectCatalog(this);
 		igame = game;
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();

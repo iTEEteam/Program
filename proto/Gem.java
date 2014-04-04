@@ -25,7 +25,9 @@ public abstract class Gem {
 	 *
 	 * @param    price
 	**/
+/*
 	public Gem() {
 	
 	}
+*/
 }

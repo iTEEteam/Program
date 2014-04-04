@@ -40,6 +40,8 @@ public class Path extends Cell {
 	 * Konstruktor
 	**/
 	public Path() {
+		ProtoTester.addToObjectCatalog(this);
+		
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();
 	}

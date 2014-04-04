@@ -35,7 +35,7 @@ public class Bullet {
 	 * @param    et
 	**/
 	public Bullet() {
-
+		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**

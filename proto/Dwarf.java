@@ -20,6 +20,7 @@ package proto;
 public class Dwarf extends Enemy {
 	public Dwarf(IGame game, Path p) {
 		super(game, p);
+		ProtoTester.addToObjectCatalog(this);
 		// TODO Auto-generated constructor stub
 	}
 	public void eliminate(Path p) {

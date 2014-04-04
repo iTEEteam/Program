@@ -48,6 +48,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 * @param    ig
 	**/
 	public Enemy(IGame game, Path p) {
+		ProtoTester.addToObjectCatalog(this);
 		igame = game;
 		health = maxHP;
 		myPath = p;
