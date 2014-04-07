@@ -25,9 +25,6 @@ public class Bullet {
 	**/
 	private String enemyType;
 	
-	// WTF??
-	private Tower bullet;
-	
 	/**
 	 * Konstruktor
 	 *
@@ -75,10 +72,10 @@ public class Bullet {
 	}
 	
 	public void setEnemy(String e) {
-		
+		enemyType = e;
 	}
 	
 	public void setDamage(int dmg) {
-
+		damage = dmg;
 	}
 }

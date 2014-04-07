@@ -21,9 +21,7 @@ public class DamageGem extends Gem implements ITGem {
 	
 	public void upgradeTower(Tower t) {
 		t.upgradeDamage(damage);
-		
-		// TODO hello
-		
+				
 	}
 	
 	public int getValue() {

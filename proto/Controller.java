@@ -33,9 +33,7 @@ public class Controller {
 	
 	public void buyTower(){
 		int value;
-		
-		ProtoTester.safePrint("Buying tower", true);
-		
+				
 		if(choosenField.hasTower()){
 			ProtoTester.safePrint("Cell occupied", false);
 			return;
@@ -52,9 +50,8 @@ public class Controller {
 			
 			// ez a fv az sd_Torony_elhelyez_ures_mezore kepen rosszul van irva
 			choosenField.registerIFieldPlaceable(tower);
-		}
-		
-		ProtoTester.safePrint("TowerBought", false);
+		} else 
+			ProtoTester.safePrint("Not enough mana", false);
 	}
 	
 	public void buyObstacle(){

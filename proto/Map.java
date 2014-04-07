@@ -13,9 +13,6 @@ import java.util.ArrayList;
 //
 //
 
-
-
-
 public class Map {
 	/**
 	 * A p�lya neve.
@@ -49,8 +46,7 @@ public class Map {
 	 * @param    name
 	**/
 	public void load(String name) {
-		Field f = new Field(game);
-		Path p = new Path();				
+
 	}
 	
 	public int getLevel() {

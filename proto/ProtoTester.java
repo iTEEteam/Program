@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -49,9 +48,7 @@ public class ProtoTester {
 		}
 		
 		objectCatalog.put(obj, type + (maxNumber+1));    
-		System.out.println(type + (maxNumber));
-		    
-			
+		System.out.println(type + (maxNumber));		
 	}
 	
 	private static int nrOfTabs = -1;
@@ -91,11 +88,7 @@ public class ProtoTester {
 				} else if(words[0].equals("drawMap")){
 					// kirajzolja a palyat 
 				} else if(words[0].equals("info")){
-//					mennyi manája van a játékosnak
-//					egy torony mennyibe kerül
-//					egy akadály mennyibe kerül
-//					egy kristály mennyibe kerül
-					System.out.println("Mana: " + game.getMana());
+					System.out.println("My mana: " + game.getMana());
 					System.out.println("Tower price: "+ 100);
 					System.out.println("Obstacle price: "+ 100);
 					System.out.println("Gem price: "+ 100);
@@ -153,10 +146,7 @@ public class ProtoTester {
 						String keyname = entry.getValue();    
 					    System.out.println(key + " " + keyname);					
 					}
-				}
-				
-				
-				
+				}				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -164,7 +154,6 @@ public class ProtoTester {
 		System.out.println("VEGE");		
 	}
 }
-
 	/* VALTOZTATASOK:
 	 * Game-be proto teszteleshez public static boolean bRandom
 	 * Game-be getMap

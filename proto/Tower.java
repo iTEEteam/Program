@@ -17,7 +17,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	/**
 	 * A torony �ra. Az az �rt�k, amit a man�b�l le kell vonni ahhoz, hogy a j�t�kos megvehesse a tornyot. Statikus, mert minden toronyra ugyanaz.
 	**/
-	public static final int price = 10;
+	public static final int price = 100;
 	
 	/**
 	 * A torony hat�sugara, hogy h�ny cell�t �r el a szomsz�dos cell�k k�z�l.
@@ -45,7 +45,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	**/
 	private ArrayList<Path> paths;
 	private IGame igame;
-	private Field itower;
 	public Game towers;
 	
 	/**
@@ -132,6 +131,8 @@ public class Tower implements ITower, IFieldPlaceable {
 		igame.removeTower(this);
 		
 		myField.deleteIFieldPlaceable(this);
+		
+		System.out.println(ProtoTester.objectCatalog.get(this) + " sold for "+ value + " mana");
 		
 	}
 }

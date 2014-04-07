@@ -18,9 +18,7 @@ public class Field extends Cell {
 	private ITower itower;
 	
 	private IGame igame;
-	
-	private Tower myField;
-	
+		
 	/**
 	 * Konstruktor
 	**/
@@ -66,15 +64,10 @@ public class Field extends Cell {
 	}
 
 	public boolean hasTower() {
-		ProtoTester.safePrint("--> Field hasTower", true);
-		ProtoTester.safePrint("<-- Field hasTower return", false);
 		return (itower!=null);	
 	}
 	
 	public ITower getITower(){
-		ProtoTester.safePrint("--> Field getITower", true);
-		
-		ProtoTester.safePrint("<-- Field getITower return", false);
 		return itower;
 	}
 }
