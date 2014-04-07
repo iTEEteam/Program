@@ -11,9 +11,6 @@ package proto;
 //
 //
 
-
-
-
 public class Field extends Cell {
 	/**
 	 * A mez�n l�v�, torony interf�sz� v�ltoz� referenci�ja.

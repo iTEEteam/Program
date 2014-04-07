@@ -30,10 +30,14 @@ public class Controller {
 		choosenEnemy = e;
 	}
 	
+	
 	public void buyTower(){
 		int value;
 		
+		ProtoTester.safePrint("Buying tower", true);
+		
 		if(choosenField.hasTower()){
+			ProtoTester.safePrint("Cell occupied", false);
 			return;
 		}
 		
@@ -50,7 +54,7 @@ public class Controller {
 			choosenField.registerIFieldPlaceable(tower);
 		}
 		
-
+		ProtoTester.safePrint("TowerBought", false);
 	}
 	
 	public void buyObstacle(){

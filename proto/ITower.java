@@ -19,4 +19,5 @@ public interface ITower {
 	public void shoot();
 	public void setPaths();
 	public void addITGem(ITGem g);
+	public void sell();
 }

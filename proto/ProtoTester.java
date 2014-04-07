@@ -30,6 +30,7 @@ public class ProtoTester {
 //		ProtoTester.addToObjectCatalog(this);
 
 		String type = obj.getClass().getName();
+		
 		ArrayList<Integer> numbersIn = new ArrayList<Integer>();
 
 		for(Entry<Object, String> entry : objectCatalog.entrySet()) {
@@ -48,13 +49,10 @@ public class ProtoTester {
 		}
 		
 		objectCatalog.put(obj, type + (maxNumber+1));    
+		System.out.println(type + (maxNumber));
 		    
 			
 	}
-	
-	
-	
-	
 	
 	private static int nrOfTabs = -1;
 	public static boolean isPrinting = false;
@@ -77,24 +75,33 @@ public class ProtoTester {
 		String str;
 		Game game = new Game();
 		Controller controller = new Controller(game);
-
-
+		
 		try {
 			while(!(str = reader.readLine()).equals("exit")){
 				String[] words = str.split(" ");
 				if(words[0].equals("loadmap")){
 					game.initialize(words[1]);
+					System.out.println("map " + words[0] +" loaded");
 				} else if (words[0].equals("update")){
 					System.out.println(words[1]);
 					for(int i=0; i<Integer.parseInt(words[1]); ++i){
+						System.out.println("update");
 						game.update();
 					}
-				} else if(words[0].equals("draw")){
-					// kirajzolja a palyat es fontosabb dolgokat
+				} else if(words[0].equals("drawMap")){
+					// kirajzolja a palyat 
+				} else if(words[0].equals("info")){
+//					mennyi manája van a játékosnak
+//					egy torony mennyibe kerül
+//					egy akadály mennyibe kerül
+//					egy kristály mennyibe kerül
+					System.out.println("Mana: " + game.getMana());
+					System.out.println("Tower price: "+ 100);
+					System.out.println("Obstacle price: "+ 100);
+					System.out.println("Gem price: "+ 100);
 				} else if(words[0].equals("buy")){
 					String[] koords = words[2].split("-");
 					Cell temp = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
-
 					if(words[1].equals("tower")){
 						controller.setField((Field)temp);
 						controller.buyTower();
@@ -107,6 +114,7 @@ public class ProtoTester {
 						if(words[3].equals("speed")){
 							controller.setField((Field)temp);
 							controller.buySpeedGem();
+							new SpeedGem();
 						} else if(words[3].equals("damage")){
 							controller.setField((Field)temp);
 							controller.buyDamageGem();
@@ -127,6 +135,10 @@ public class ProtoTester {
 							controller.buyRepairGem();
 						}
 					}
+				} else if(words[0].equals("sell")){
+					String[] koords = words[2].split("-");
+					Cell temp = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
+					((Field)temp).getITower().sell();
 				} else if(words[0].equals("random")){
 					if(words[1].equals("true")){
 						Game.bRandom = true;
@@ -157,4 +169,5 @@ public class ProtoTester {
 	 * Game-be proto teszteleshez public static boolean bRandom
 	 * Game-be getMap
 	 * Map-ba getCell(int i, j)
+	 * ITower interfeszbe beraktam a public void sell() metodust
 	 */

@@ -42,9 +42,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
-		ProtoTester.safePrint("--> Bullet getDamageElf", true);
-
-		ProtoTester.safePrint("<-- Bullet getDamageElf return", false);
+	
 		return damage;
 	
 	}
@@ -53,9 +51,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
-		ProtoTester.safePrint("--> Bullet getDamageHobbit", true);
 
-		ProtoTester.safePrint("<-- Bullet getDamageHobbit return", false);
 		return damage;
 	
 	}
@@ -64,9 +60,7 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
-		ProtoTester.safePrint("--> Bullet getDamageDwarf", true);
-
-		ProtoTester.safePrint("<-- Bullet getDamageDwarf return", false);
+;
 		return damage;
 	
 	}
@@ -75,22 +69,16 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
-		ProtoTester.safePrint("--> Bullet getDamageHuman", true);
 
-		ProtoTester.safePrint("<-- Bullet getDamageHuman return", false);
 		return damage;
 	
 	}
 	
 	public void setEnemy(String e) {
-		ProtoTester.safePrint("--> Bullet setEnemy", true);
-
-		ProtoTester.safePrint("<-- Bullet setEnemy return", false);
+		
 	}
 	
 	public void setDamage(int dmg) {
-		ProtoTester.safePrint("--> Bullet setDamage", true);
 
-		ProtoTester.safePrint("<-- Bullet setDamage return", false);
 	}
 }
