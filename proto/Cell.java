@@ -6,6 +6,12 @@ public abstract class Cell {
 	/**
 	 * A cella 4 szomszedja.
 	**/
+	/*
+		 * 0.: up
+		 * 1.: right
+		 * 2.: down
+		 * 3.: left
+		 */
 	protected ArrayList<Cell> neighbours;
 	
 
@@ -20,12 +26,7 @@ public abstract class Cell {
 //	}
 //	
 	public void setNeighbours(ArrayList<Cell> neighbours_){
-		/*
-		 * 0.: up
-		 * 1.: right
-		 * 2.: down
-		 * 3.: left
-		 */
+		
 		neighbours = neighbours_;
 	}
 	
