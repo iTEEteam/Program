@@ -13,7 +13,7 @@ package proto;
 
 public class Field extends Cell {
 	/**
-	 * A mez�n l�v�, torony interf�sz� v�ltoz� referenci�ja.
+	 * A mezon levo, torony interfesze valtozo referenciaja.
 	**/
 	private ITower itower;
 	
@@ -28,7 +28,7 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * T�rli a param�terk�nt kapott IFieldPlaceable interf�sz� v�ltoz�t a mez�r�l. 
+	 * Torli a parameterkent kapott IFieldPlaceable interfeszu valtozot a mezorol. 
 	 *
 	 * @param    ifp
 	**/
@@ -38,7 +38,7 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * Beregisztr�lja a kapott IFieldPlaceable interf�sz� v�ltoz�t a mez�n.
+	 * Beregisztralja a kapott IFieldPlaceable interfeszu valtozot a mezon.
 	 *
 	 * @param    ifp
 	**/
@@ -48,7 +48,7 @@ public class Field extends Cell {
 	}
 	
 	/**
-	 * Beregisztr�lja a torony interf�sz� v�ltoz�t a mez�n.
+	 * Beregisztralja a torony interfeszu valtozot a mezon.
 	 *
 	 * @param    it
 	**/

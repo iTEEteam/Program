@@ -15,39 +15,48 @@ import java.util.ArrayList;
 
 public class Path extends Cell {
 	/**
-	 * Az egy l�p�sben k�vetkez� Path cell�k c�mei.
+	 * Az egy lepesben kovetkezo Path cellak cimei.
 	**/
 	private ArrayList<Path> nextPaths;
 	
 	/**
-	 * Az �ton l�v� akad�ly interf�sz� v�ltoz� c�me. Ha nincs akad�ly az �ton, null.
+	 * Az uton levo akadaly interfesze valtozo cime. Ha nincs akadaly az uton, null.
 	**/
 	private IObstacle myIObstacle;
 	
 	/**
-	 * Az �ppen a Path-en tart�zkod� ellens�g(ek) c�me(i).
+	 * Az eppen a Path-en tartozkodo ellenseg(ek) cime(i).
 	**/
 	private ArrayList<Enemy> enemies;
 	
-	private Obstacle myObstacle;
+	private IGame igame;
 	
 	// ez is WTF?
 	//private Enemy myPath;
 	
-	private Tower paths;
+	//private Tower paths;
 	
 	/**
 	 * Konstruktor
 	**/
-	public Path() {
+	public Path(IGame game) {
 		ProtoTester.addToObjectCatalog(this);
+		igame = game;
 		
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();
+		neighbours = new ArrayList<Cell>();
 	}
 	
+	public void setNextPaths(ArrayList<Path> nextPaths_){
+		nextPaths = nextPaths_;
+	}
+	
+	
+	
+	
 	/**
-	 * A bool t�pus� visszat�r�si �rt�kben megmondja, hogy van-e ellens�g a Path-en. 
+	 * A bool tipusu visszateresi ertekben megmondja, hogy van-e ellenseg a Path-en. 
 	**/
 	public boolean hasEnemy() {
 		return !enemies.isEmpty();
@@ -60,7 +69,7 @@ public class Path extends Cell {
 	
 	
 	/**
-	 * T�rli a param�terben kapott IPathPlaceable interf�sz� v�ltoz�t a Path-r�l. 
+	 * Torli a parameterben kapott IPathPlaceable interfeszu valtozot a Path-rol. 
 	 *
 	 * @param    e
 	**/
@@ -75,7 +84,7 @@ public class Path extends Cell {
 	}
 	
 	/**
-	 * Beregisztr�lja a param�terben kapott IPathPlaceable interf�sz� v�ltoz�t a Path-en. 
+	 * Beregisztralja a parameterben kapott IPathPlaceable interfeszi valtozot a Path-en. 
 	 *
 	 * @param    ipp
 	**/
@@ -85,7 +94,7 @@ public class Path extends Cell {
 	}
 	
 	/**
-	 * Beregisztr�lja a param�terben kapott IObstacle interf�sz� v�ltoz�t a Path-en. 
+	 * Beregisztralja a parameterben kapott IObstacle interfeszu valtozot a Path-en. 
 	 *
 	 * @param    io
 	**/
@@ -103,20 +112,20 @@ public class Path extends Cell {
 	}
 	
 	/**
-	 * Beregisztr�lja a param�terben kapott Enemy t�pus� v�ltoz�t a Path-en. 
+	 * Beregisztralja a parameterben kapott Enemy tipusu valtozot a Path-en. 
 	 *
 	 * @param    e
 	**/
 	public void registerEnemy(Enemy e) {
 		
-		if(myObstacle != null){
-			myObstacle.slow(e);
+		if(myIObstacle != null){
+			myIObstacle.slow(e);
 		}
 		enemies.add(e);
 	}
 	
 	/**
-	 * Visszat�r a Path-en l�v� ellens�g(ek)el.
+	 * Visszater a Path-en levo ellenseg(ek)el.
 	**/
 	public ArrayList<Enemy> getEnemies() {
 		return enemies;
@@ -128,7 +137,7 @@ public class Path extends Cell {
 	}
 	
 	/**
-	 * Visszat�r a nextPaths lista egy elem�vel, ahova az enemy majd l�phet.
+	 * Visszater a nextPaths lista egy elemevel, ahova az enemy majd lephet.
 	**/
 	public Path getNext() {
 

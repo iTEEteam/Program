@@ -1,6 +1,7 @@
 package proto;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -77,8 +78,12 @@ public class ProtoTester {
 			while(!(str = reader.readLine()).equals("exit")){
 				String[] words = str.split(" ");
 				if(words[0].equals("loadmap")){
-					game.initialize(words[1]);
-					System.out.println("map " + words[0] +" loaded");
+					try{
+						game.initialize(words[1]);
+						System.out.println("map " + words[0] +" loaded");
+					}catch (FileNotFoundException e) {
+						System.out.println("file not found");
+					}
 				} else if (words[0].equals("update")){
 					System.out.println(words[1]);
 					for(int i=0; i<Integer.parseInt(words[1]); ++i){

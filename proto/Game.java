@@ -1,4 +1,5 @@
 package proto;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 //
@@ -49,7 +50,7 @@ public class Game implements IGame {
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();
 		
-		map = new Map(null);
+		map = new Map();
 	}
 	
 	/**
@@ -65,7 +66,7 @@ public class Game implements IGame {
 	
 	}
 	
-	public void initialize(String name) {
+	public void initialize(String name) throws FileNotFoundException {
 		map.load(name);
 	}
 	
