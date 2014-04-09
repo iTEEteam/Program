@@ -2,11 +2,13 @@ package proto;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class Map {
@@ -43,11 +45,22 @@ public class Map {
 	 * @throws FileNotFoundException 
 	**/
 	public void load(String name) throws FileNotFoundException {
-		FileReader fr = new FileReader(name);
-		BufferedReader bfr = new BufferedReader(fr);
-		
+//		FileReader fr = new FileReader(name);
+//		BufferedReader bfr = new BufferedReader(fr);
+//		
+//		ArrayList<String> lines = new ArrayList<String>();
+//		
+//		
+		Scanner sc = new Scanner(new File(name));
 		ArrayList<String> lines = new ArrayList<String>();
-		 
+		while (sc.hasNextLine()) {
+		  lines.add(sc.nextLine());
+		}
+		
+		
+		//map kiuritese
+		grid = new ArrayList<ArrayList<Cell>>();
+		
 		//2-szer megyunk vegig a griden
 		//eloszor letrehozunk mindent
 		//masodszor beallitjuk a szomszedokat es path-ok eseten a nextPaths-t is
@@ -130,13 +143,13 @@ public class Map {
 		
 		
 		
-		
-		try {
-			bfr.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		
+//		try {
+//			bfr.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	public int getLevel() {
@@ -166,7 +179,10 @@ public class Map {
 
 	public ArrayList<ArrayList<Cell>> getGrid() {
 		return grid;
-	} 
+	}
+	public boolean isLoaded(){
+		return !grid.isEmpty();
+	}
 
 	int getHeight(){
 		return grid.size();

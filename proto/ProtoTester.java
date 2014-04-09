@@ -173,16 +173,27 @@ public class ProtoTester {
 		System.out.println("VEGE");		
 	}
 	public static void drawMap(Map map){
-		ArrayList<ArrayList<Cell>> grid = map.getGrid();
-
+//		ArrayList<ArrayList<Cell>> grid = map.getGrid();
+		
+		//megnezzuk, hogy van-e betoltve map
+		if (!map.isLoaded()){
+			System.out.println("No map loaded yet. Load a map!");
+			return;
+		}
+		
 		int height = map.getSize().height;
 		int width = map.getSize().width;
 		//felso keret
 		System.out.print("/");
-			for(int i = 0;i<width;++i){
-				System.out.print("--");
+		for(int i = 0;i<width;++i){
+			System.out.print("--");
+			//oszlophatar
+			if (i < width - 1){
+				System.out.print("-");
 			}
-			System.out.println("\\");
+		}
+		//sorveg
+		System.out.println("\\");
 		//kozepe
 		for(int i = 0;i<height;++i){
 			//elso sor
@@ -217,28 +228,48 @@ public class ProtoTester {
 					
 				}
 				//cella elvalaszto
-				System.out.println("|");
+				System.out.print("|");
 			}
 			//sor zaras
 			System.out.println("");
 			///////////////////////////////////////
 			//masodik sor
-			System.out.println("|");
+			System.out.print("|");
 
 			for(int j = 0;j<width;++j){
 				//egyelore semmi se megy a masodik sorba
 				System.out.print("  ");
 				System.out.print("|");
 			}
-			//sor zaras
-			System.out.println();
-			//vizszintes elvalaszto sor
-			System.out.print("|");
-			for(int k = 0;k<width;++){
-				System.out.print("--");
+			//utolso sort nem ugy zarjuk le mint a tobbit
+			if(i < height - 1){
+				//sor zaras
+				System.out.println();
+				//vizszintes elvalaszto sor
+				System.out.print("|");
+				for(int k = 0;k<width;++k){
+					System.out.print("--");
+					//oszlophatar
+					if (k < width - 1){
+						System.out.print("-");
+					}
+				}
+				
+				System.out.println("|");
 			}
-			System.out.println("|");
 		}
+		//also keret
+		System.out.println();
+		System.out.print("\\");
+		for(int i = 0;i<width;++i){
+			System.out.print("--");
+			//oszlophatar
+			if (i < width - 1){
+				System.out.print("-");
+			}
+		}
+		//sorveg
+		System.out.println("/");
 		
 		
 	}
