@@ -223,7 +223,7 @@ public class ProtoTester {
 						System.out.print("t ");
 					}else{
 						//ha nincs torony az elso sor elso es masodik betuje: space
-						System.out.print("  ");
+						System.out.print("xx");
 					}
 					
 				}
@@ -237,8 +237,38 @@ public class ProtoTester {
 			System.out.print("|");
 
 			for(int j = 0;j<width;++j){
-				//egyelore semmi se megy a masodik sorba
-				System.out.print("  ");
+//				//egyelore semmi se megy a masodik sorba
+//				System.out.print("  ");
+//				System.out.print("|");
+				if(map.getCell(i,j).isPath()){
+					//ha path
+					if (((Path) map.getCell(i, j)).hasEnemy()){
+//						//ha van enemy az elso sor elso betuje: e
+//						System.out.print("e");
+					}else{
+						//ha nincs enemy az elso sor elso betuje: space
+						System.out.print(" ");
+					}
+					//ha van akadaly
+					if (((Path) map.getCell(i, j)).hasObstacle()){
+//						//ha van akadaly az elso sor masodik betuje: o
+//						System.out.print("o");
+					}else{
+						//ha nincs akadaly az elso sor masodik betuje: space
+						System.out.print(" ");
+					}
+				}else{
+					//ha field
+					if (((Field) map.getCell(i, j)).hasTower()){
+//						//ha van torony az elso sor elso es masodik betuje: t
+//						System.out.print("t ");
+					}else{
+						//ha nincs torony az elso sor elso es masodik betuje: space
+						System.out.print("xx");
+					}
+				
+				}
+				//cella elvalaszto
 				System.out.print("|");
 			}
 			//utolso sort nem ugy zarjuk le mint a tobbit
@@ -251,7 +281,7 @@ public class ProtoTester {
 					System.out.print("--");
 					//oszlophatar
 					if (k < width - 1){
-						System.out.print("-");
+						System.out.print("+");
 					}
 				}
 				

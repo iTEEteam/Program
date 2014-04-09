@@ -1,0 +1,8 @@
+loadmap testmap3.txt
+make human 1-0
+make tower 2-3
+update 1
+haze on
+cut on
+update 2
+exit

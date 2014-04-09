@@ -17,9 +17,3 @@ rud	right, up, down
 rdl	right, down, left
 dul	down, up, left
 ex	exit point	
-q	
-r	
-s	
-t	
-u	
-v	

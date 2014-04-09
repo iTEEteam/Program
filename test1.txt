@@ -1,0 +1,13 @@
+loadmap testmap1.txt
+buy tower 2-1
+buy tower 2-5
+buy gem 2-1 speed
+buy gem 2-1 range
+buy gem 2-1 damage
+buy gem 2-5 enemy elf
+make hobbit 1-1
+update 2
+make elf 1-1
+update 2
+sell 2-1
+exit
