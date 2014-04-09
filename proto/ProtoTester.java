@@ -24,7 +24,7 @@ public class ProtoTester {
 	 *  	param str: kiirando szoveg  
 	 */
 
-	
+	 
 	public static HashMap<Object, String> objectCatalog = new HashMap<Object, String>();
 	public static void addToObjectCatalog(Object obj/*, String name*/){
 //		objectCatalog.put(obj, name);
