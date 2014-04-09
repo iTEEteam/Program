@@ -73,12 +73,16 @@ public class Path extends Cell {
 	 *
 	 * @param    e
 	**/
-	public boolean deleteEnemy(Enemy e) {		
-		return false;
+	public boolean deleteEnemy(Enemy e) {	
+		return enemies.remove(e);
 	
 	}
 	
 	public boolean deleteIObstacle(IObstacle io) {
+		if (myIObstacle==io){
+			myIObstacle = null;
+			return true;
+		}
 		return false;
 	
 	}
@@ -142,15 +146,15 @@ public class Path extends Cell {
 	public Path getNext() {
 
 		return nextPaths.get(0);
-	
+//ez fugg a randomtol
 	}
 
 	@Override
 	public boolean isPath() {
 		return true;
 	}
-	
-	public void addNext(Path p){
-		nextPaths.add(p);
-	}
+	//ez nem kell mashogy csinaltam meg a loadban
+//	public void addNext(Path p){
+//		nextPaths.add(p);
+//	}
 }

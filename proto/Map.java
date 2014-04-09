@@ -149,8 +149,14 @@ public class Map {
 	}
 	
 	public Path getFirstPath() {
+		for(ArrayList<Cell> i: grid){
+			if(i.get(0).isPath()==true){
+				return (Path) i.get(0);
+			}
+		}
+		
 		return null;
-		//TODO
+
 	}
 	
 	public Cell getCell(int i, int j){
