@@ -23,6 +23,7 @@ public class ProtoTester {
 	 *  	param b: printtabsnak adja at
 	 *  	param str: kiirando szoveg  
 	 */
+
 	
 	public static HashMap<Object, String> objectCatalog = new HashMap<Object, String>();
 	public static void addToObjectCatalog(Object obj/*, String name*/){
@@ -76,6 +77,8 @@ public class ProtoTester {
 		
 		try {
 			while(!(str = reader.readLine()).equals("exit")){
+//hasznos lehet
+//				str.toLowerCase();
 				String[] words = str.split(" ");
 				if(words[0].equals("loadmap")){
 					try{
@@ -91,7 +94,8 @@ public class ProtoTester {
 						game.update();
 					}
 				} else if(words[0].equals("drawMap")){
-					// kirajzolja a palyat 
+					// kirajzolja a palyat
+					drawMap(game.getMap());
 				} else if(words[0].equals("info")){
 					System.out.println("My mana: " + game.getMana());
 					System.out.println("Tower price: "+ 100);
@@ -145,6 +149,16 @@ public class ProtoTester {
 					} else{
 						System.out.println("Invalid input");
 					}
+				
+				} else if(words[0].equals("haze")){
+					if(words[1].equals("on")){
+						Game.bHaze = true;
+					} else if(words[1].equals("off")){
+						Game.bHaze = false;
+					} else{
+						System.out.println("Invalid input");
+					}
+				
 				} else if(words[0].equals("catalog")){
 					for(Entry<Object, String> entry : objectCatalog.entrySet()) {
 					    Object key = entry.getKey();
@@ -153,11 +167,85 @@ public class ProtoTester {
 					}
 				}				
 			}
-		} catch (IOException e) {
+		} catch (IOException e) {//ez igy eleg csunya, kulon kellene elkapni oket
 			e.printStackTrace();
 		}
 		System.out.println("VEGE");		
 	}
+	public static void drawMap(Map map){
+		ArrayList<ArrayList<Cell>> grid = map.getGrid();
+
+		int height = map.getSize().height;
+		int width = map.getSize().width;
+		//felso keret
+		System.out.print("/");
+			for(int i = 0;i<width;++i){
+				System.out.print("--");
+			}
+			System.out.println("\\");
+		//kozepe
+		for(int i = 0;i<height;++i){
+			//elso sor
+			System.out.print("|");
+			for(int j = 0;j<width;++j){
+				if(map.getCell(i,j).isPath()){
+					//ha path
+					if (((Path) map.getCell(i, j)).hasEnemy()){
+						//ha van enemy az elso sor elso betuje: e
+						System.out.print("e");
+					}else{
+						//ha nincs enemy az elso sor elso betuje: space
+						System.out.print(" ");
+					}
+					//ha van akadaly
+					if (((Path) map.getCell(i, j)).hasObstacle()){
+						//ha van akadaly az elso sor masodik betuje: o
+						System.out.print("o");
+					}else{
+						//ha nincs akadaly az elso sor masodik betuje: space
+						System.out.print(" ");
+					}
+				}else{
+					//ha field
+					if (((Field) map.getCell(i, j)).hasTower()){
+						//ha van torony az elso sor elso es masodik betuje: t
+						System.out.print("t ");
+					}else{
+						//ha nincs torony az elso sor elso es masodik betuje: space
+						System.out.print("  ");
+					}
+					
+				}
+				//cella elvalaszto
+				System.out.println("|");
+			}
+			//sor zaras
+			System.out.println("");
+			///////////////////////////////////////
+			//masodik sor
+			System.out.println("|");
+
+			for(int j = 0;j<width;++j){
+				//egyelore semmi se megy a masodik sorba
+				System.out.print("  ");
+				System.out.print("|");
+			}
+			//sor zaras
+			System.out.println();
+			//vizszintes elvalaszto sor
+			System.out.print("|");
+			for(int k = 0;k<width;++){
+				System.out.print("--");
+			}
+			System.out.println("|");
+		}
+		
+		
+	}
+	
+	
+	
+	
 }
 	/* VALTOZTATASOK:
 	 * Game-be proto teszteleshez public static boolean bRandom

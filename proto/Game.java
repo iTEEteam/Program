@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Game implements IGame {
 	public static boolean bRandom = false;
+	public static boolean bHaze = false;
 	/**
 	 * A terkep, amiben a cellak tarolodnak.
 	**/

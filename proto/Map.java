@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -161,5 +162,19 @@ public class Map {
 	
 	public Cell getCell(int i, int j){
 		return grid.get(i).get(j);
+	}
+
+	public ArrayList<ArrayList<Cell>> getGrid() {
+		return grid;
 	} 
+
+	int getHeight(){
+		return grid.size();
+	}
+	int getWidth(){
+		return grid.get(0).size();
+	}
+	Dimension getSize(){
+		return new Dimension(grid.get(0).size(), grid.size());
+	}
 }
