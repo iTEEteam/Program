@@ -109,12 +109,15 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void sell() {
-		int value = price/2;
+		int value = price;
 		
-		
+		// kristalyok arat hozzaadja
 		for(ITGem g:gems){
-			value = g.getValue();
+			value += g.getValue();
 		}
+		
+		// value eddig a teljes rakoltott mana, csak a felet kapja vissza
+		value /= 2;
 		
 		igame.changeMana(value);
 		
@@ -123,6 +126,5 @@ public class Tower implements ITower, IFieldPlaceable {
 		myField.deleteIFieldPlaceable(this);
 		
 		System.out.println(ProtoTester.objectCatalog.get(this) + " sold for "+ value + " mana");
-		
 	}
 }

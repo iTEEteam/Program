@@ -83,7 +83,7 @@ public class ProtoTester {
 				if(words[0].equals("loadmap")){
 					try{
 						game.initialize(words[1]);
-						System.out.println("map " + words[0] +" loaded");
+						System.out.println("map " + words[1] +" loaded");
 					}catch (FileNotFoundException e) {
 						System.out.println("file not found");
 					}
