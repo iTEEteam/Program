@@ -313,4 +313,5 @@ public class ProtoTester {
 	 * Game-be getMap
 	 * Map-ba getCell(int i, j)
 	 * ITower interfeszbe beraktam a public void sell() metodust
+	 * Enemy.eliminate, illetve IPathPlaceable.eliminate függvényeknek töröltem a paraméterét: felesleges, a myPath tárolja a helyét, és onnan vesszük le. - Seres
 	 */

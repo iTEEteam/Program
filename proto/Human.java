@@ -3,19 +3,50 @@ package proto;
 
 /**
  * Human tipusu Enemy.
+ * 
+ * @author Seres
 **/
 public class Human extends Enemy {
+	
+	/**
+	 * Az ember HP-ja.
+	 */
+	private static final int maxHP = 50;
+	
+	/**
+	 * Konstruktor.
+	 * 
+	 * @param 	game Az IGame interfész, amivel a Game-et eléri.
+	 * @param 	p A létrehozás helye. Felesleges, mert úgysem úton hozzuk létre.
+	**/
 	public Human(IGame game, Path p) {
 		super(game, p);
 		ProtoTester.addToObjectCatalog(this);
-		// TODO Auto-generated constructor stub
 	}
-	public void eliminate(Path p) {
+	
+	/**
+	 * Változtatja a manát, törli az Enemyt az útról és a Game-bõl.
+	 */
+	@Override
+	public void eliminate() {
+		
+		super.eliminate();
+		
+		igame.changeMana(maxHP);
 	}
-	public void registerPath(Path p) {
-	}
+	
+	/**
+	 * Sebzést végzõ függvény.
+	 */
 	@Override
 	public void hurt(Bullet b) {
-		b.getDamageHuman();
+		
+		int damage = b.getDamageHuman();
+		
+		health -= damage; 
+		
+		if(health <= 0) {
+			eliminate();
+		}
 	}
 }

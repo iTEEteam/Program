@@ -6,6 +6,6 @@ package proto;
 
 
 public interface IPathPlaceable {
-	public void eliminate(Path p);
+	public void eliminate();
 	public void registerPath(Path p);
 }

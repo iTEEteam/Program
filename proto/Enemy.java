@@ -1,23 +1,29 @@
 package proto;
 
+import java.security.InvalidParameterException;
 
 /**
  * A kulonbozo ellensegek (Hobbit, Dwarf, Elf, Human) absztrakt ososztalya.
+ * @author Seres
 **/
 public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az Enemy normal sebessege.
 	**/
 	private static final int speed = 10;
+	
+	/**
+	 * A maximális életerõ értéke.
+	 */
 	private static final int maxHP = 100;
 
 	/**
-	 * Az Enemy modositott sebessege, vagyis a lassitas mï¿½rtï¿½kovel megvaltoztatott ertek.
+	 * Az ellenség belsõ idõmérõje. A setModSpeed változtathatja – jellemzõen negatív irányba, akadályokon.
 	**/
 	private int modSpeed;
 	
 	/**
-	 * Az Enemy eletereje.
+	 * Életerejét tárolja ebben. Hurt függvényben csökkenti.
 	**/
 	protected int health;
 	
@@ -25,65 +31,99 @@ public abstract class Enemy implements IPathPlaceable {
 	 * A Path cime, amin az Enemy eppen tartozkodik.
 	**/
 	protected Path myPath;
+	
+	/**
+	 * A soron következõ path címe.
+	 * Nem csinál semmit, csak itt hagytam.
+	 */
 	private Path nextPath;
 	
+	/**
+	 * Ezen keresztül tudja módosítani a manát, amikor meghal, illetve ha elér a végzet hegyére módosítani a számlálót (Game.incSucceeded), hogy nõjön egyel.
+	 */
 	protected IGame igame;
 	
 	/**
 	 * Konstruktor.
 	 *
-	 * @param    sp
-	 * @param    msp
-	 * @param    h
-	 * @param    ig
+	 * @param 	game Az IGame interfész, amivel a Game-et eléri.
+	 * @param 	p A létrehozás helye. Felesleges, mert úgysem úton hozzuk létre.
 	**/
-	public Enemy(IGame game, Path p) {
-		ProtoTester.addToObjectCatalog(this);
+	public Enemy(IGame game, Path p) { //TODO Nem kell a p attribútum, nem úton hozzuk létre az Enemyt
+		//ez azért nem kell, mert absztrakt osztályt nem példányosítunk, viszont így két bejegyzésünk is lenne a leszármazottai miatt
+		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
-		myPath = p;
+		myPath = null; 
 	}
 	
 	/**
-	 * A kapott bullet alapjan megsebzi az Enemy-t. Minden Enemy-re mas a fuggvenytorzs.
+	 * Sebzõdést megvalósító metódus, abstract, minden Enemy-típusban máshogy implementálódik.
 	 *
-	 * @param    b
+	 * @param 	b A sebzõ Bullet objektum.
 	**/
 	public abstract void hurt(Bullet b);
 	
 	/**
-	 * Az Enemy mozgasat vegrehajto metodus.
+	 * Mozog, a következõ path-ra lép, cellát vált.
 	**/
 	public void move() {
 		
-		nextPath = myPath.getNext();
-		
-		if(nextPath== null){
-			igame.incSucceeded();
-			eliminate(myPath);
-		}else{		
-			nextPath.registerIPathPlaceable(this);
+		if(modSpeed < speed) {
+			modSpeed++;
+		} else {
+			Path nextPath = myPath.getNext();
+			
+			if(nextPath == null){
+				igame.incSucceeded();
+				eliminate();
+			}else{		
+				nextPath.registerIPathPlaceable(this);
+			}
 		}
 		
 	}
-	
+	 /**
+	  * A modSpeed változót változtatja. Lassítani lehet vele.
+	  * 
+	  * @param 	msp A lassítás mértéke.
+	  */
 	public void setModSpeed(int msp) {
-	
+		modSpeed -= msp;
 	}
 	
-	public void eliminate(Path p) {
-	}
-	
-	public void registerPath(Path p) {
-		
+	/**
+	 * Az Enemyt törli az útjáról és a Game-bõl.
+	 */
+	public void eliminate() {
+		igame.removeEnemy(this);
 		
 		myPath.deleteEnemy(this);
-		
-		nextPath.registerEnemy(this);
-		
 	}
 	
-	public void setHealth(int hp){
+	/**
+	 * Az Enemyt regisztrálja a paraméterben átadott útra. Nem csak a move függvényen keresztül mûködik, külön is hívható.
+	 * 
+	 * @param 	p Az út, ahova regisztrálni akarjuk az Enemyt.
+	 */
+	public void registerPath(Path p) {
+		
+		if(myPath != null) {
+			myPath.deleteEnemy(this);
+		}
+		
+		if(p != null) {
+			p.registerEnemy(this);
+		} else {
+			throw new InvalidParameterException();
+		}
+	}
+	
+	/**
+	 * Új életerõt állít be.
+	 * @param hp Az új életerõ értéke.
+	 */
+	public void setHealth(int hp) {
 		health = hp;		
 	}
 }
