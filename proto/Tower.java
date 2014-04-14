@@ -68,11 +68,16 @@ public class Tower implements ITower, IFieldPlaceable {
 		bullet.setDamage(dmg);
 	}
 	
+	// osszegyujti a hatosugaraban levo ellensegeket,
+	// kivalasztja a legelso
 	public Enemy chooseEnemy() {
-		Path path = paths.get(0);
-		ArrayList<Enemy> enemies;
-		if(!path.hasEnemy()) return null;
-		enemies = path.getEnemies();
+		ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+		for(Path p: paths){  			
+			// TODO, kell hozza ismerni a setPath()-t
+		}
+		
+		if(enemies.isEmpty()) return null;
+		
 		return enemies.get(0);
 	}
 	
@@ -91,8 +96,10 @@ public class Tower implements ITower, IFieldPlaceable {
 		paths.add(path);		
 	}
 	
+	
+	
 	public void setPaths() {
-
+		// TODO
 	}
 	
 	public void addITGem(ITGem g) {

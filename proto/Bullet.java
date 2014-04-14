@@ -29,16 +29,22 @@ public class Bullet {
 	public Bullet(){
 		ProtoTester.addToObjectCatalog(this);
 		setDamage(10);
-//TODO itt mi az enemytype?
-		setEnemy(null);
+//TODO itt mi az enemytype? ures string
+		setEnemy("");
 	}
 	
-//TODO enemyType szerint visszaadni a damage-t	
 	/**
 	 * Megadja, hogy mennyit sebez a Bullet egy Elf-en.
 	**/
 	public int getDamageElf() {
-	
+		
+		// 8% esellyel ketteszeli az ellenseget
+		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(enemyType.equals("Elf"))
+			return damage+20;
+		
 		return damage;
 	
 	}
@@ -47,27 +53,42 @@ public class Bullet {
 	 * Megadja, hogy mennyit sebez a Bullet egy Hobbit-on.
 	**/
 	public int getDamageHobbit() {
-
-		return damage;
-	
+		// 8% esellyel ketteszeli az ellenseget
+		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(enemyType.equals("Hobbit"))
+			return damage+20;
+		
+		return damage;	
 	}
 	
 	/**
 	 * Megadja, hogy mennyit sebez a Bullet egy Dwarf-on.
 	**/
 	public int getDamageDwarf() {
-;
-		return damage;
-	
+		// 8% esellyel ketteszeli az ellenseget
+		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(enemyType.equals("Dwarf"))
+			return damage+20;
+		
+		return damage;	
 	}
 	
 	/**
 	 * Megadja, hogy mennyit sebez a Bullet egy Human-en.
 	**/
 	public int getDamageHuman() {
-
+		// 8% esellyel ketteszeli az ellenseget
+		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(enemyType.equals("Human"))
+			return damage+20;
+		
 		return damage;
-	
 	}
 	
 	public void setEnemy(String e) {

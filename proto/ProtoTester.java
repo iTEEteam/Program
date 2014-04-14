@@ -75,6 +75,7 @@ public class ProtoTester {
 		Game game = new Game();
 		Controller controller = new Controller(game);
 		
+		
 		try {
 			while(!(str = reader.readLine()).equals("exit")){
 //hasznos lehet
@@ -313,5 +314,5 @@ public class ProtoTester {
 	 * Game-be getMap
 	 * Map-ba getCell(int i, j)
 	 * ITower interfeszbe beraktam a public void sell() metodust
-	 * Enemy.eliminate, illetve IPathPlaceable.eliminate függvényeknek töröltem a paraméterét: felesleges, a myPath tárolja a helyét, és onnan vesszük le. - Seres
+	 * Enemy.eliminate, illetve IPathPlaceable.eliminate fï¿½ggvï¿½nyeknek tï¿½rï¿½ltem a paramï¿½terï¿½t: felesleges, a myPath tï¿½rolja a helyï¿½t, ï¿½s onnan vesszï¿½k le. - Seres
 	 */

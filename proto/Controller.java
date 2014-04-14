@@ -11,12 +11,14 @@ public class Controller {
 		igame = game;
 	}
 	
+	// ha kivalaszt a jatekos egy mezot akkor a kivalasztott utat/ellenseget el kell felejtenie
 	public void setField(Field field){
 		choosenPath = null;
 		choosenEnemy = null;
 		choosenField = field;
 	}
 	
+	// ha kivalaszt a jatekos egy utat akkor a kivalasztott mezot/ellenseget el kell felejtenie
 	public void setPath(Path path){
 		choosenEnemy = null;
 		choosenField = null;
@@ -24,16 +26,24 @@ public class Controller {
 
 	}
 	
+	// ha kivalaszt a jatekos egy ellenseget akkor a kivalasztott utat/mezot el kell felejtenie
 	public void setEnemy(String e){
 		choosenPath = null;
 		choosenField = null;
 		choosenEnemy = e;
 	}
 	
-	
+	// torony vetele a kivalasztott mezore
 	public void buyTower(){
 		int value;
 				
+		// meg kell vizsgalni, hogy van e kivalasztott mezo
+		if(choosenField == null){
+			ProtoTester.safePrint("No choosen field", false);
+			return;
+		}
+		
+		// a mezon van e mar torony
 		if(choosenField.hasTower()){
 			ProtoTester.safePrint("Cell occupied", false);
 			return;
@@ -54,8 +64,14 @@ public class Controller {
 			ProtoTester.safePrint("Not enough mana", false);
 	}
 	
+	
+	
 	public void buyObstacle(){
 		int value;
+		
+		if(choosenPath == null){
+			ProtoTester.safePrint("No choosen path", false);
+		}
 		
 		if(choosenPath.hasObstacle()){
 			return;
@@ -76,11 +92,15 @@ public class Controller {
 		
 		
 	}
-	
+	/* kulonbozo kristalyok vetele
+	 * mindegyiknel vizsgalja, hogy jo tipusu cella van e kivalasztva, 
+	 * amin van e megfelelo fejlesztheto objektum
+	 * ha van eleg mana, akkor letrehoz, es rarak az objektumra a megfelelo kristalybol
+	 */
 	public void buySpeedGem(){
 		int value;
 
-		if(choosenField.hasTower()){
+		if(choosenField != null && choosenField.hasTower()){
 			value = SpeedGem.price;
 			
 			if(igame.getMana()>=value){
@@ -99,7 +119,7 @@ public class Controller {
 	public void buyRangeGem(){
 		int value;
 
-		if(choosenField.hasTower()){
+		if(choosenField != null && choosenField.hasTower()){
 			value = RangeGem.price;
 			
 			if(igame.getMana()>=value){
@@ -117,7 +137,7 @@ public class Controller {
 	public void buyDamageGem(){
 		int value;
 
-		if(choosenField.hasTower()){
+		if(choosenField != null && choosenField.hasTower()){
 			value = DamageGem.price;
 			
 			if(igame.getMana()>=value){
@@ -136,7 +156,7 @@ public class Controller {
 	public void buyEnemyTypeGem(){
 		int value;
 
-		if(choosenField.hasTower()){
+		if(choosenField != null && choosenField.hasTower()){
 			value = EnemyTypeGem.price;
 			
 			if(igame.getMana()>=value){
@@ -154,7 +174,7 @@ public class Controller {
 		int value;
 				
 		// ez tuti kell
-		if(choosenPath.hasObstacle()){
+		if(choosenPath != null && choosenPath.hasObstacle()){
 			value = IntensityGem.price;
 			
 			if(igame.getMana()>=value){
@@ -173,7 +193,7 @@ public class Controller {
 	public void buyRepairGem(){
 		int value;
 
-		if(choosenPath.hasObstacle()){
+		if(choosenPath != null && choosenPath.hasObstacle()){
 			value = RepairGem.price;
 			
 			if(igame.getMana()>=value){
