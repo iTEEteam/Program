@@ -167,6 +167,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		
 		myField.deleteIFieldPlaceable(this);
 		
-		System.out.println(ProtoTester.objectCatalog.get(this) + " sold for "+ value + " mana");
+		System.out.println(ProtoTester.getKeyByValue(this) + " sold for "+ value + " mana");
 	}
 }

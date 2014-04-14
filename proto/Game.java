@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Game implements IGame {
 	public static boolean bRandom = false;
 	public static boolean bHaze = false;
+        public static boolean bCut = false;
 	/**
 	 * A terkep, amiben a cellak tarolodnak.
 	**/
@@ -84,6 +85,18 @@ public class Game implements IGame {
 	
 	}
 	
+        public void addEnemy(String enemyType, Path p) {
+            if (enemyType.equals("elf")) {
+                enemiesIn.add(new Elf(this, p));
+            } else if (enemyType.equals("hobbit")) {
+                enemiesIn.add(new Hobbit(this, p));
+            } else if (enemyType.equals("dwarf")) {
+                enemiesIn.add(new Dwarf(this, p));
+            } else if (enemyType.equals("human")) {
+                enemiesIn.add(new Human(this, p));
+            }
+        }
+        
 	public void removeEnemy(Enemy e) {
 	
 	}

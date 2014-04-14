@@ -103,4 +103,9 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 		ProtoTester.safePrint("<-- Obstacle registerPath return", false);
 	
 	}
+
+    @Override
+    public void eliminate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

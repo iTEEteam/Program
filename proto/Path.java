@@ -148,6 +148,10 @@ public class Path extends Cell {
 		return nextPaths.get(0);
 //ez fugg a randomtol
 	}
+        
+        public void determineNext(int direction) {
+            
+        }
 
 	@Override
 	public boolean isPath() {
