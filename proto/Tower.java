@@ -1,4 +1,5 @@
 package proto;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 
@@ -68,17 +69,15 @@ public class Tower implements ITower, IFieldPlaceable {
 		bullet.setDamage(dmg);
 	}
 	
-	// osszegyujti a hatosugaraban levo ellensegeket,
-	// kivalasztja a legelso
+	// vegigmegy a tarolt utakon
+	// az elsorol, amin van ellenseg,visszaadja a 0. elemet
 	public Enemy chooseEnemy() {
-		ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 		for(Path p: paths){  			
-			// TODO, kell hozza ismerni a setPath()-t
+			if(p.hasEnemy()){
+				return p.getEnemies().get(0);
+			}
 		}
-		
-		if(enemies.isEmpty()) return null;
-		
-		return enemies.get(0);
+		return null;
 	}
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
@@ -99,7 +98,43 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	
 	public void setPaths() {
-		// TODO
+		Dimension dim = new Dimension(0,1);
+		
+	    int nLineLength = 1; // a fordulasok között eltel lepesek szama
+	    int nActLength = 0; // adott iranyba hany lepes volt mar meg
+	    boolean bEven = false; // csak minden parosnak kell novelni a sor hosszat
+
+	    Cell temp = null;
+	    
+	    for(int i=1; i<range*range; ++i){
+		    // itt elkeri a kovetkezo cellat
+		    if(dim.width == 1 && dim.height == 0){
+		    	temp = myField.neighbours.get(0);
+		    }else if(dim.width == 0 && dim.height == 1){
+		    	temp = myField.neighbours.get(1);
+		    } else if(dim.width == -1 && dim.height == 0){
+		    	temp = myField.neighbours.get(2);
+		    } else if(dim.width == 0 && dim.height == -1){
+		    	temp = myField.neighbours.get(3);
+		    }
+		    // eltarolja, ha ut
+			if(temp.isPath()){
+		    	paths.add((Path)temp);
+		    }
+			++nActLength;
+			
+			if(nActLength == nLineLength){
+				// forgatja az iranykoordinatat
+				int nTemp = -dim.height;
+				dim.height = dim.width;
+				dim.width = nTemp;
+				nActLength = 0;
+				
+				if(bEven == true)
+					++nLineLength;
+				bEven = !bEven;
+			}
+	    }
 	}
 	
 	public void addITGem(ITGem g) {

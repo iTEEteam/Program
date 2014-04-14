@@ -24,7 +24,7 @@ public class Game implements IGame {
 	 * A jatekos varazsereje, amibol akadalyokat, tornyokat vehet, 
 	 * ill. ami minden megolt ellenseg utan gyarapszik.
 	**/
-	private int mana;
+	private int mana = 1000;
 	
 	private Path firstP;
 	

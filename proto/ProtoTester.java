@@ -261,8 +261,8 @@ public class ProtoTester {
 				}else{
 					//ha field
 					if (((Field) map.getCell(i, j)).hasTower()){
-//						//ha van torony az elso sor elso es masodik betuje: t
-//						System.out.print("t ");
+						//ha van torony az elso sor elso es masodik betuje: t
+						System.out.print("  ");
 					}else{
 						//ha nincs torony az elso sor elso es masodik betuje: space
 						System.out.print("xx");
