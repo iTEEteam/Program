@@ -50,9 +50,9 @@ public class Game implements IGame {
 	 * Frissiti a GUI-t.
 	**/
 	public void update() {
-		ProtoTester.safePrint("update", true);
+		ProtoTester.safePrint("update");
 		
-		ProtoTester.safePrint("update return", false);
+		ProtoTester.safePrint("update return");
 	}
 	
 	public void makeEnemies() {

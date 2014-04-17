@@ -64,22 +64,10 @@ public class ProtoTester {
     private static int nrOfTabs = -1;
     public static boolean isPrinting = false;
 
-    private static void printTabs(boolean b) {
-        if (b == true) {
-            ++nrOfTabs;
-        }
-        for (int i = 0; i < nrOfTabs; ++i) {
-            System.out.print('\t');
-        }
-        if (b == false) {
-            --nrOfTabs;
-        }
-    }
 
-    public static void safePrint(String str, boolean b) {
+    public static void safePrint(String str) {
         if (isPrinting) {
-            printTabs(b);
-            System.out.println(str);
+        	System.out.println(str);
         }
     }
 
@@ -102,8 +90,12 @@ public class ProtoTester {
                         System.out.println("file not found");
                     }
                 } else if (words[0].equals("update")) {
-                    System.out.println(words[1]);
-                    for (int i = 0; i < Integer.parseInt(words[1]); ++i) {
+                	// ennyiszer fut le
+                	int count = 1;
+                	// ha van parameternek szam, annyiszor fut le
+                	if(words.length > 1)
+                		count = Integer.parseInt(words[1]);
+                	for (int i = 0; i < count; ++i) {
                         System.out.println("update");
                         game.update();
                     }

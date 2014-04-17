@@ -39,13 +39,13 @@ public class Controller {
 				
 		// meg kell vizsgalni, hogy van e kivalasztott mezo
 		if(choosenField == null){
-			ProtoTester.safePrint("No choosen field", false);
+			ProtoTester.safePrint("No choosen field");
 			return;
 		}
 		
 		// a mezon van e mar torony
 		if(choosenField.hasTower()){
-			ProtoTester.safePrint("Cell occupied", false);
+			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
@@ -63,7 +63,7 @@ public class Controller {
 			// ez a fv az sd_Torony_elhelyez_ures_mezore kepen rosszul van irva
 			choosenField.registerIFieldPlaceable(tower);
 		} else 
-			ProtoTester.safePrint("Not enough mana", false);
+			ProtoTester.safePrint("Not enough mana");
 	}
 	
 	
@@ -72,7 +72,7 @@ public class Controller {
 		int value;
 		
 		if(choosenPath == null){
-			ProtoTester.safePrint("No choosen path", false);
+			ProtoTester.safePrint("No choosen path");
 		}
 		
 		if(choosenPath.hasObstacle()){

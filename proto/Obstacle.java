@@ -38,16 +38,16 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	public Obstacle() {
 		ProtoTester.addToObjectCatalog(this);
 		
-		ProtoTester.safePrint("--> Obstacle konstruktor", true);
+		ProtoTester.safePrint("--> Obstacle konstruktor");
 		
 		gems = new ArrayList<IOGem>();
 		
-		ProtoTester.safePrint("<-- Obstacle konstruktor return", false);
+		ProtoTester.safePrint("<-- Obstacle konstruktor return");
 	
 	}
 	
 	public void slow(Enemy e) {
-		ProtoTester.safePrint("--> Obstacle slow", true);
+		ProtoTester.safePrint("--> Obstacle slow");
 		
 		e.setModSpeed(slowIntens);
 		
@@ -56,51 +56,51 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 		if(amort <= 0){
 			eliminate(myPath);
 		}
-		ProtoTester.safePrint("<-- Obstacle slow return", false);
+		ProtoTester.safePrint("<-- Obstacle slow return");
 	}
 	
 	public void amortization() {
-		ProtoTester.safePrint("--> Obstacle amortization", true);
+		ProtoTester.safePrint("--> Obstacle amortization");
 		
-		ProtoTester.safePrint("<-- Obstacle amortization return", false);
+		ProtoTester.safePrint("<-- Obstacle amortization return");
 	}
 	
 	public void increaseIntensity(int intens) {
-		ProtoTester.safePrint("--> Obstacle increaseIntensity", true);
+		ProtoTester.safePrint("--> Obstacle increaseIntensity");
 		
-		ProtoTester.safePrint("<-- Obstacle increaseIntensity return", false);
+		ProtoTester.safePrint("<-- Obstacle increaseIntensity return");
 	}
 	
 	public void addIOGem(IOGem g) {
-		ProtoTester.safePrint("--> Obstacle addIOGem", true);
+		ProtoTester.safePrint("--> Obstacle addIOGem");
 		
 		g.upgradeObstacle(this);
 		gems.add(g);
 		
-		ProtoTester.safePrint("<-- Obstacle addIOGem return", false);
+		ProtoTester.safePrint("<-- Obstacle addIOGem return");
 	}
 	
 	public void repair() {
-		ProtoTester.safePrint("--> Obstacle repair", true);
+		ProtoTester.safePrint("--> Obstacle repair");
 		
 		amort = 0;
 		
-		ProtoTester.safePrint("<-- Obstacle repair return", false);
+		ProtoTester.safePrint("<-- Obstacle repair return");
 	}
 	
 	public void eliminate(Path p) {
-		ProtoTester.safePrint("<-- Obstacle eliminate", true);
+		ProtoTester.safePrint("<-- Obstacle eliminate");
 		myPath.deleteIObstacle(this);
-		ProtoTester.safePrint("<-- Obstacle eliminate return", false);
+		ProtoTester.safePrint("<-- Obstacle eliminate return");
 	}
 	
 	public void registerPath(Path p) {
-		ProtoTester.safePrint("--> Obstacle registerPath", true);
+		ProtoTester.safePrint("--> Obstacle registerPath");
 		myPath = p;
 		
 		p.registerIObstacle(this);
 		
-		ProtoTester.safePrint("<-- Obstacle registerPath return", false);
+		ProtoTester.safePrint("<-- Obstacle registerPath return");
 	
 	}
 
