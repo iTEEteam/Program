@@ -96,45 +96,47 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	
-	
+	/*
+	 * algoritmus futasa:
+	 * megkeresi a hatosugar bal felso sarkat. mivel ez kiloghat a palyarol
+	 * ezert az utolso bal felso ervenyes cellat keresi meg
+	 * ekkor megvan a top sor. egyesevel lefele vegig megy a cellakon (range vagy fal-on belul)
+	 * beregisztralja a Path-okat
+	 */
 	public void setPaths() {
-		Dimension dim = new Dimension(0,1);
+		// eloszor a bal felso cella lesz, majd jobbra lepked.
+		Cell top;
+		// maximalis oldalhossz
+		int sideLength = 2*range+1;
+		// hanyadik oszlopnal tartunk
+		int columnCount = 0;
+		// hanyadik sornal tartunk
+		int rowCount = 0;
 		
-	    int nLineLength = 1; // a fordulasok között eltel lepesek szama
-	    int nActLength = 0; // adott iranyba hany lepes volt mar meg
-	    boolean bEven = false; // csak minden parosnak kell novelni a sor hosszat
-
-	    Cell temp = null;
-	    
-	    for(int i=1; i<range*range; ++i){
-		    // itt elkeri a kovetkezo cellat
-		    if(dim.width == 1 && dim.height == 0){
-		    	temp = myField.neighbours.get(0);
-		    }else if(dim.width == 0 && dim.height == 1){
-		    	temp = myField.neighbours.get(1);
-		    } else if(dim.width == -1 && dim.height == 0){
-		    	temp = myField.neighbours.get(2);
-		    } else if(dim.width == 0 && dim.height == -1){
-		    	temp = myField.neighbours.get(3);
-		    }
-		    // eltarolja, ha ut
-			if(temp.isPath()){
-		    	paths.add((Path)temp);
-		    }
-			++nActLength;
-			
-			if(nActLength == nLineLength){
-				// forgatja az iranykoordinatat
-				int nTemp = -dim.height;
-				dim.height = dim.width;
-				dim.width = nTemp;
-				nActLength = 0;
-				
-				if(bEven == true)
-					++nLineLength;
-				bEven = !bEven;
+		// bal felso sarok megkeresese
+		top = myField; // TODO ez ertek szerinti masolas?
+		// bal oldal megkeresese
+		for(int i = 0; i<range && top.neighbours.get(3)!=null; ++i){
+			top = top.neighbours.get(3);
+		}
+		// felso oldal megkeresese
+		for(int i = 0; i<range && top.neighbours.get(0)!=null; ++i){
+			top = top.neighbours.get(0);
+		}
+		
+		// felso soron viszi vegig a top-ot
+		while(columnCount<sideLength && top.neighbours.get(1)!=null){
+			Cell temp = top; // TODO szinten, ertek szerinti?
+			// lefele vegignezi a cellakat
+			for(int i = 0; i<range && top.neighbours.get(2)!=null; ++i){
+				if(temp.isPath()){
+					paths.add((Path)temp);
+				}
+				temp = temp.neighbours.get(2);
 			}
-	    }
+			++columnCount;
+			top = top.neighbours.get(1);
+		}
 	}
 	
 	public void addITGem(ITGem g) {
