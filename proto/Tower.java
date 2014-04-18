@@ -98,13 +98,13 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	/*
 	 * algoritmus futasa:
-	 * megkeresi a hatosugar bal felso sarkat. mivel ez kiloghat a palyarol
-	 * ezert az utolso bal felso ervenyes cellat keresi meg
+	 * megkeresi a hatosugar jobb felso sarkat. mivel ez kiloghat a palyarol
+	 * ezert az utolso jobb felso ervenyes cellat keresi meg
 	 * ekkor megvan a top sor. egyesevel lefele vegig megy a cellakon (range vagy fal-on belul)
 	 * beregisztralja a Path-okat
 	 */
 	public void setPaths() {
-		// eloszor a bal felso cella lesz, majd jobbra lepked.
+		// eloszor a jobb felso cella lesz, majd jobbra lepked.
 		Cell top;
 		// maximalis oldalhossz
 		int sideLength = 2*range+1;
@@ -113,11 +113,11 @@ public class Tower implements ITower, IFieldPlaceable {
 		// hanyadik sornal tartunk
 		int rowCount = 0;
 		
-		// bal felso sarok megkeresese
-		top = myField; // TODO ez ertek szerinti masolas?
-		// bal oldal megkeresese
-		for(int i = 0; i<range && top.neighbours.get(3)!=null; ++i){
-			top = top.neighbours.get(3);
+		// jobb felso sarok megkeresese
+		top = myField; 
+		// jobb oldal megkeresese
+		for(int i = 0; i<range && top.neighbours.get(1)!=null; ++i){
+			top = top.neighbours.get(1);
 		}
 		// felso oldal megkeresese
 		for(int i = 0; i<range && top.neighbours.get(0)!=null; ++i){
@@ -125,8 +125,8 @@ public class Tower implements ITower, IFieldPlaceable {
 		}
 		
 		// felso soron viszi vegig a top-ot
-		while(columnCount<sideLength && top.neighbours.get(1)!=null){
-			Cell temp = top; // TODO szinten, ertek szerinti?
+		while(columnCount<sideLength && top.neighbours.get(3)!=null){
+			Cell temp = top; 
 			// lefele vegignezi a cellakat
 			for(int i = 0; i<range && top.neighbours.get(2)!=null; ++i){
 				if(temp.isPath()){
@@ -135,7 +135,7 @@ public class Tower implements ITower, IFieldPlaceable {
 				temp = temp.neighbours.get(2);
 			}
 			++columnCount;
-			top = top.neighbours.get(1);
+			top = top.neighbours.get(3);
 		}
 	}
 	
