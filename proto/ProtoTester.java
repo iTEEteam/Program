@@ -175,7 +175,7 @@ public class ProtoTester {
                 } else if (words[0].equals("make")) {
                     String[] koords = words[2].split("-");
                     Cell location = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
-                    game.addEnemy(words[1], (Path)location);
+                    game.addEnemyIn(words[1], (Path)location);
                         
                 } else if (words[0].equals("route")) {
                     Enemy e = (Enemy)objectCatalog.get(words[1]);

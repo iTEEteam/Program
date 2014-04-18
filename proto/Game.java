@@ -33,6 +33,8 @@ public class Game implements IGame {
 	
 	private int succeededE;
 	
+	private int hazeTime;
+	
 	/**
 	 * Konstruktor
 	**/
@@ -44,19 +46,82 @@ public class Game implements IGame {
 		towers = new ArrayList<Tower>();
 		
 		map = new Map();
+		noEnemies=10;
+		hazeTime=0;
 	}
 	
 	/**
-	 * Frissiti a GUI-t.
+	 * Frissiti a GUI-t. 
+	 * Fletételek, ciklusok: 
+	 * Ha lejárt a köd, kitisztítjuk a pályát
+	 * Ha nem járt le, csökketntjük a hátralévõ idejét
+	 * Ha sem várakozó ellenség, sem pályán lévõ nincs, készítünk
+	 * Ha van várakozó ellenség, elindítjuk a pályán
+	 * Minden ellenséget léptetünk
+	 * Minden toronnyal lövünk
+	 * Ha random teljesül és épp nincs köd, generálunk
 	**/
 	public void update() {
 		ProtoTester.safePrint("update");
 		
+		if(hazeTime==0) {
+			for(Tower t : towers) {
+				t.clearUp();
+			}
+		}
+		
+		if(hazeTime!=0) {
+			hazeTime--;
+		}
+		
+		if (enemiesIn==null && enemiesOut==null) {
+			makeEnemies();
+		}
+		
+		if (enemiesOut!=null) {
+			firstP.registerIPathPlaceable(enemiesOut.get(enemiesOut.size()-1));
+			enemiesIn.add(enemiesOut.get(enemiesOut.size()-1));
+			enemiesOut.remove(enemiesOut.size()-1);
+		}
+		
+		for(Enemy e : enemiesIn) {
+			e.move();
+		}
+		
+		for(Tower t : towers) {
+			t.shoot();
+		}
+		
+		if(bHaze && hazeTime==0) {
+			for(Tower t : towers) {
+				hazeTime=20;
+				t.haze();
+			}
+		}
+		
+			
 		ProtoTester.safePrint("update return");
 	}
 	
 	public void makeEnemies() {
-	
+		Random generator=new Random();
+		for(int j=0; j<noEnemies; j++) {
+			int i=generator.nextInt(3);
+			switch(i) {
+				case 0:
+					Hobbit h=new Hobbit();
+					enemiesOut.add(h);
+				case 1:
+					Elf e=new Elf();
+					enemiesOut.add(e);
+				case 2:
+					Dwarf d=new Dwarf();
+					enemiesOut.add(d);
+				case 3:
+					Human hu=new Human();
+					enemiesOut.add(hu);
+			}
+		}
 	}
 	
 	public void initialize(String name) throws FileNotFoundException {
@@ -71,34 +136,43 @@ public class Game implements IGame {
 	}
 	
 	public void incSucceeded() {
+		succeededE++;
 	}
 	
-	public void addTower(Tower t) {
+	public void removeTower(Tower t) {
 		
 		if(towers != null){
-			towers.add(t);
+			towers.remove(t);
 		}
 		
 	}
 	
-	public void removeTower(Tower t) {
-	
+	public void addTower(Tower t) {
+		towers.add(t);
 	}
 	
-        public void addEnemy(String enemyType, Path p) {
-            if (enemyType.equals("elf")) {
-                enemiesIn.add(new Elf(this, p));
-            } else if (enemyType.equals("hobbit")) {
-                enemiesIn.add(new Hobbit(this, p));
-            } else if (enemyType.equals("dwarf")) {
-                enemiesIn.add(new Dwarf(this, p));
-            } else if (enemyType.equals("human")) {
-                enemiesIn.add(new Human(this, p));
-            }
+    public void addEnemyIn(String enemyType, Path p) {
+        if (enemyType.equals("elf")) {
+            enemiesIn.add(new Elf(this, p));
+        } else if (enemyType.equals("hobbit")) {
+            enemiesIn.add(new Hobbit(this, p));
+        } else if (enemyType.equals("dwarf")) {
+            enemiesIn.add(new Dwarf(this, p));
+        } else if (enemyType.equals("human")) {
+            enemiesIn.add(new Human(this, p));
         }
+    }
         
-	public void removeEnemy(Enemy e) {
+	public void removeEnemyIn(Enemy e) {
+		if(enemiesIn!=null) {
+			enemiesIn.remove(e);
+		}
+	}
 	
+	public removeEnemyOut(Enemy e) {
+		if(enemiesOut!=null) {
+			enemiesOut.remove(e);
+		}
 	}
 
 	@Override
