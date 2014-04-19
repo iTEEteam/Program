@@ -177,6 +177,8 @@ public class ProtoTester {
                     Cell location = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
                     if(location.isPath()){
                     	game.addEnemyIn(words[1], (Path)location);
+                    } else{
+                    	System.out.println("That cell is not Path.");
                     }
                         
                 } else if (words[0].equals("route")) {
@@ -212,6 +214,8 @@ public class ProtoTester {
                     System.out.println("haze on|off");
                     System.out.println("cut on|off");
                 }
+            } else {
+            	System.out.println("The input didnt match any of the keywords. Use help command.")
             }
         } catch (IOException e) {//ez igy eleg csunya, kulon kellene elkapni oket
             e.printStackTrace();

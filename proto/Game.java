@@ -1,6 +1,7 @@
 package proto;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Game implements IGame {
@@ -52,14 +53,14 @@ public class Game implements IGame {
 	
 	/**
 	 * Frissiti a GUI-t. 
-	 * Fletételek, ciklusok: 
-	 * Ha lejárt a köd, kitisztítjuk a pályát
-	 * Ha nem járt le, csökketntjük a hátralévõ idejét
-	 * Ha sem várakozó ellenség, sem pályán lévõ nincs, készítünk
-	 * Ha van várakozó ellenség, elindítjuk a pályán
-	 * Minden ellenséget léptetünk
-	 * Minden toronnyal lövünk
-	 * Ha random teljesül és épp nincs köd, generálunk
+	 * Fletï¿½telek, ciklusok: 
+	 * Ha lejï¿½rt a kï¿½d, kitisztï¿½tjuk a pï¿½lyï¿½t
+	 * Ha nem jï¿½rt le, csï¿½kketntjï¿½k a hï¿½tralï¿½vï¿½ idejï¿½t
+	 * Ha sem vï¿½rakozï¿½ ellensï¿½g, sem pï¿½lyï¿½n lï¿½vï¿½ nincs, kï¿½szï¿½tï¿½nk
+	 * Ha van vï¿½rakozï¿½ ellensï¿½g, elindï¿½tjuk a pï¿½lyï¿½n
+	 * Minden ellensï¿½get lï¿½ptetï¿½nk
+	 * Minden toronnyal lï¿½vï¿½nk
+	 * Ha random teljesï¿½l ï¿½s ï¿½pp nincs kï¿½d, generï¿½lunk
 	**/
 	public void update() {
 		ProtoTester.safePrint("update");
@@ -109,16 +110,16 @@ public class Game implements IGame {
 			int i=generator.nextInt(3);
 			switch(i) {
 				case 0:
-					Hobbit h=new Hobbit();
+					Hobbit h=new Hobbit(this, map.getFirstPath());
 					enemiesOut.add(h);
 				case 1:
-					Elf e=new Elf();
+					Elf e=new Elf(this, map.getFirstPath());
 					enemiesOut.add(e);
 				case 2:
-					Dwarf d=new Dwarf();
+					Dwarf d=new Dwarf(this, map.getFirstPath());
 					enemiesOut.add(d);
 				case 3:
-					Human hu=new Human();
+					Human hu=new Human(this, map.getFirstPath());
 					enemiesOut.add(hu);
 			}
 		}
@@ -172,7 +173,7 @@ public class Game implements IGame {
 		}
 	}
 	
-	public removeEnemyOut(Enemy e) {
+	public void removeEnemyOut(Enemy e) {
 		if(enemiesOut!=null) {
 			enemiesOut.remove(e);
 		}
