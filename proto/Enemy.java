@@ -96,7 +96,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az Enemyt törli az útjáról és a Game-bõl.
 	 */
 	public void eliminate() {
-		igame.removeEnemy(this);
+		igame.removeEnemyIn(this);
 		
 		myPath.deleteEnemy(this);
 	}
@@ -126,4 +126,6 @@ public abstract class Enemy implements IPathPlaceable {
 	public void setHealth(int hp) {
 		health = hp;		
 	}
+	
+	public abstract void cut();
 }

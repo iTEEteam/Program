@@ -44,11 +44,26 @@ public class Dwarf extends Enemy {
 			
 		int damage = b.getDamageDwarf();
 		
-		health -= damage; 
+		if(damage == 0) {
+			cut();
+		} else {
+			health -= damage;
+		} 
 		
 		if(health <= 0) {
 			eliminate();
 		}
+	}
+	
+	@Override
+	public void cut() {
+		health /= 2;
+		
+		Enemy enemy = new Dwarf(igame, myPath);
+		enemy.setHealth(health);
+		
+		igame.addEnemyIn(enemy);
+		myPath.registerIPathPlaceable(enemy);
 	}
 }
 
