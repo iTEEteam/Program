@@ -214,7 +214,7 @@ public class ProtoTester {
                     System.out.println("haze on|off");
                     System.out.println("cut on|off");
                 }else {
-                	System.out.println("The input didnt match any of the keywords. Use help command.")
+                	System.out.println("The input didnt match any of the keywords. Use help command.");
                 }
             } 
         } catch (IOException e) {//ez igy eleg csunya, kulon kellene elkapni oket
