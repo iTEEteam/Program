@@ -1,5 +1,4 @@
 package proto;
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 
@@ -110,8 +109,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		int sideLength = 2*range+1;
 		// hanyadik oszlopnal tartunk
 		int columnCount = 0;
-		// hanyadik sornal tartunk
-		int rowCount = 0;
 		
 		// bal felso sarok megkeresese
 		top = myField; // TODO ez ertek szerinti masolas?
@@ -170,5 +167,14 @@ public class Tower implements ITower, IFieldPlaceable {
 		myField.deleteIFieldPlaceable(this);
 		
 		System.out.println(ProtoTester.getKeyByValue(this) + " sold for "+ value + " mana");
+	}
+
+	/* kod leereszkedesekor a hatosugar a felere csokken */
+	public void haze() {
+		upgradeRange(range/2);
+	}
+	/* a kod kitisztulasakor a hatosugar visszaallitodik az eredeti allapotara */
+	public void clearUp() {
+		upgradeRange(range*2);	
 	}
 }
