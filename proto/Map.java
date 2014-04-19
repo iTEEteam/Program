@@ -121,18 +121,24 @@ public class Map {
 				grid.get(i).get(j).setNeighbours(neighbours);
 				//utak eseten szomszedos utak beallitasa
 				ArrayList<Path> nextPaths = new ArrayList<Path>();
+				// 4 allando mezo
+				nextPaths.add(null);
+				nextPaths.add(null);
+				nextPaths.add(null);
+				nextPaths.add(null);
+	
 				if(grid.get(i).get(j).isPath()){
 					if(cells.get(j).contains("u")){
-						nextPaths.add((Path) neighbours.get(0));
+						nextPaths.set(0,(Path) neighbours.get(0));
 					}
 					if(cells.get(j).contains("r")){
-						nextPaths.add((Path) neighbours.get(1));
+						nextPaths.set(1,(Path) neighbours.get(1));
 					}
 					if(cells.get(j).contains("d")){
-						nextPaths.add((Path) neighbours.get(2));
+						nextPaths.set(2,(Path) neighbours.get(2));
 					}
 					if(cells.get(j).contains("l")){
-						nextPaths.add((Path) neighbours.get(3));
+						nextPaths.set(3,(Path) neighbours.get(3));
 					}
 				((Path) grid.get(i).get(j)).setNextPaths(nextPaths);
 				}

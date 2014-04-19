@@ -17,6 +17,7 @@ public class Path extends Cell {
 	/**
 	 * Az egy lepesben kovetkezo Path cellak cimei.
 	**/
+// 4 elemu tomb. 0=u, 1=r, 2=d, 3=l ha az adott iranyba nincs path -> null
 	private ArrayList<Path> nextPaths;
 	
 	/**
@@ -144,9 +145,15 @@ public class Path extends Cell {
 	 * Visszater a nextPaths lista egy elemevel, ahova az enemy majd lephet.
 	**/
 	public Path getNext() {
+		if(igame.getRandom()==true){
+//TODO random valasztas
+			return null;
+		}else{
+//TODO nem random valasztas
+			return nextPaths.get(0);
+		}
+		
 
-		return nextPaths.get(0);
-//ez fugg a randomtol
 	}
         
         public void determineNext(int direction) {

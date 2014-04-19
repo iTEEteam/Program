@@ -17,4 +17,6 @@ public interface IGame {
 	public void removeTower(Tower t);
 	
 //	public void removeEnemy(Enemy e);
+	
+	public boolean getRandom();
 }

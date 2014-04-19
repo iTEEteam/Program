@@ -188,4 +188,9 @@ public class Game implements IGame {
 	public Map getMap(){
 		return map;
 	}
+
+	@Override
+	public boolean getRandom() {
+		return bRandom;
+	}
 }
