@@ -19,4 +19,10 @@ public interface IGame {
 //	public void removeEnemy(Enemy e);
 	
 	public boolean getRandom();
+	
+	public void removeEnemyIn(Enemy e);
+	
+	public void removeEnemyOut(Enemy e);
+	
+	public void addEnemyIn(Enemy e);
 }
