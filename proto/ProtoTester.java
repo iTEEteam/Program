@@ -24,10 +24,13 @@ public class ProtoTester {
      */
 
     private static HashMap<String, Object> objectCatalog = new HashMap<String, Object>();
+    private static int nrOfTabs = -1;
+    public static boolean isPrinting = true;
 
     public static void addToObjectCatalog(Object obj/*, String name*/) {
 //		objectCatalog.put(obj, name);
 //		ProtoTester.addToObjectCatalog(this);
+
 
         String type = obj.getClass().getName();
 
@@ -61,9 +64,7 @@ public class ProtoTester {
         return null;
     }
 
-    private static int nrOfTabs = -1;
-    public static boolean isPrinting = false;
-
+   
 
     public static void safePrint(String str) {
         if (isPrinting) {
@@ -76,8 +77,21 @@ public class ProtoTester {
         String str;
         Game game = new Game();
         Controller controller = new Controller(game);
-
+        
         try {
+        	
+	        System.out.println("Tesztelesnek betolti a testmap1-et, 2-2-re tornyot, 1-1-re hobbitot");
+	        game.initialize("testmap1.txt");
+	        // torony
+            Cell temp1 = game.getMap().getCell(2, 2);
+            controller.setField((Field) temp1);
+            controller.buyTower();
+            
+            //hobbit
+            temp1 = game.getMap().getCell(1, 1);
+        	game.addEnemyIn("hobbit", (Path)temp1);
+
+	        
             while (!(str = reader.readLine()).equals("exit")) {
 //hasznos lehet
 //				str.toLowerCase();

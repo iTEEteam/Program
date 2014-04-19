@@ -13,17 +13,17 @@ public abstract class Enemy implements IPathPlaceable {
 	private static final int speed = 10;
 	
 	/**
-	 * A maximális életerõ értéke.
+	 * A maximï¿½lis ï¿½leterï¿½ ï¿½rtï¿½ke.
 	 */
 	private static final int maxHP = 100;
 
 	/**
-	 * Az ellenség belsõ idõmérõje. A setModSpeed változtathatja – jellemzõen negatív irányba, akadályokon.
+	 * Az ellensï¿½g belsï¿½ idï¿½mï¿½rï¿½je. A setModSpeed vï¿½ltoztathatja ï¿½ jellemzï¿½en negatï¿½v irï¿½nyba, akadï¿½lyokon.
 	**/
-	private int modSpeed;
+	private int modSpeed = 100;
 	
 	/**
-	 * Életerejét tárolja ebben. Hurt függvényben csökkenti.
+	 * ï¿½leterejï¿½t tï¿½rolja ebben. Hurt fï¿½ggvï¿½nyben csï¿½kkenti.
 	**/
 	protected int health;
 	
@@ -33,24 +33,24 @@ public abstract class Enemy implements IPathPlaceable {
 	protected Path myPath;
 	
 	/**
-	 * A soron következõ path címe.
-	 * Nem csinál semmit, csak itt hagytam.
+	 * A soron kï¿½vetkezï¿½ path cï¿½me.
+	 * Nem csinï¿½l semmit, csak itt hagytam.
 	 */
 	private Path nextPath;
 	
 	/**
-	 * Ezen keresztül tudja módosítani a manát, amikor meghal, illetve ha elér a végzet hegyére módosítani a számlálót (Game.incSucceeded), hogy nõjön egyel.
+	 * Ezen keresztï¿½l tudja mï¿½dosï¿½tani a manï¿½t, amikor meghal, illetve ha elï¿½r a vï¿½gzet hegyï¿½re mï¿½dosï¿½tani a szï¿½mlï¿½lï¿½t (Game.incSucceeded), hogy nï¿½jï¿½n egyel.
 	 */
 	protected IGame igame;
 	
 	/**
 	 * Konstruktor.
 	 *
-	 * @param 	game Az IGame interfész, amivel a Game-et eléri.
-	 * @param 	p A létrehozás helye. Felesleges, mert úgysem úton hozzuk létre.
+	 * @param 	game Az IGame interfï¿½sz, amivel a Game-et elï¿½ri.
+	 * @param 	p A lï¿½trehozï¿½s helye. Felesleges, mert ï¿½gysem ï¿½ton hozzuk lï¿½tre.
 	**/
-	public Enemy(IGame game, Path p) { //TODO Nem kell a p attribútum, nem úton hozzuk létre az Enemyt
-		//ez azért nem kell, mert absztrakt osztályt nem példányosítunk, viszont így két bejegyzésünk is lenne a leszármazottai miatt
+	public Enemy(IGame game, Path p) { //TODO Nem kell a p attribï¿½tum, nem ï¿½ton hozzuk lï¿½tre az Enemyt
+		//ez azï¿½rt nem kell, mert absztrakt osztï¿½lyt nem pï¿½ldï¿½nyosï¿½tunk, viszont ï¿½gy kï¿½t bejegyzï¿½sï¿½nk is lenne a leszï¿½rmazottai miatt
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
@@ -58,14 +58,14 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	/**
-	 * Sebzõdést megvalósító metódus, abstract, minden Enemy-típusban máshogy implementálódik.
+	 * Sebzï¿½dï¿½st megvalï¿½sï¿½tï¿½ metï¿½dus, abstract, minden Enemy-tï¿½pusban mï¿½shogy implementï¿½lï¿½dik.
 	 *
-	 * @param 	b A sebzõ Bullet objektum.
+	 * @param 	b A sebzï¿½ Bullet objektum.
 	**/
 	public abstract void hurt(Bullet b);
 	
 	/**
-	 * Mozog, a következõ path-ra lép, cellát vált.
+	 * Mozog, a kï¿½vetkezï¿½ path-ra lï¿½p, cellï¿½t vï¿½lt.
 	**/
 	public void move() {
 		
@@ -84,16 +84,16 @@ public abstract class Enemy implements IPathPlaceable {
 		
 	}
 	 /**
-	  * A modSpeed változót változtatja. Lassítani lehet vele.
+	  * A modSpeed vï¿½ltozï¿½t vï¿½ltoztatja. Lassï¿½tani lehet vele.
 	  * 
-	  * @param 	msp A lassítás mértéke.
+	  * @param 	msp A lassï¿½tï¿½s mï¿½rtï¿½ke.
 	  */
 	public void setModSpeed(int msp) {
 		modSpeed -= msp;
 	}
 	
 	/**
-	 * Az Enemyt törli az útjáról és a Game-bõl.
+	 * Az Enemyt tï¿½rli az ï¿½tjï¿½rï¿½l ï¿½s a Game-bï¿½l.
 	 */
 	public void eliminate() {
 		igame.removeEnemyIn(this);
@@ -102,9 +102,9 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	/**
-	 * Az Enemyt regisztrálja a paraméterben átadott útra. Nem csak a move függvényen keresztül mûködik, külön is hívható.
+	 * Az Enemyt regisztrï¿½lja a paramï¿½terben ï¿½tadott ï¿½tra. Nem csak a move fï¿½ggvï¿½nyen keresztï¿½l mï¿½kï¿½dik, kï¿½lï¿½n is hï¿½vhatï¿½.
 	 * 
-	 * @param 	p Az út, ahova regisztrálni akarjuk az Enemyt.
+	 * @param 	p Az ï¿½t, ahova regisztrï¿½lni akarjuk az Enemyt.
 	 */
 	public void registerPath(Path p) {
 		
@@ -120,8 +120,8 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	/**
-	 * Új életerõt állít be.
-	 * @param hp Az új életerõ értéke.
+	 * ï¿½j ï¿½leterï¿½t ï¿½llï¿½t be.
+	 * @param hp Az ï¿½j ï¿½leterï¿½ ï¿½rtï¿½ke.
 	 */
 	public void setHealth(int hp) {
 		health = hp;		

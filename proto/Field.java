@@ -39,7 +39,6 @@ public class Field extends Cell {
 	 * @param    ifp
 	**/
 	public void registerIFieldPlaceable(IFieldPlaceable ifp) {
-		
 		ifp.registerField(this);
 	}
 	

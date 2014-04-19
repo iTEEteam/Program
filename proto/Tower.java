@@ -70,9 +70,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	// vegigmegy a tarolt utakon
 	// az elsorol, amin van ellenseg,visszaadja a 0. elemet
 	public Enemy chooseEnemy() {
-		if(paths == null){
-		//	System.out.println("asd wow");
-		}
 		for(Path p: paths){  			
 			if(p.hasEnemy()){
 				return p.getEnemies().get(0);
@@ -115,6 +112,7 @@ public class Tower implements ITower, IFieldPlaceable {
 		
 		// bal felso sarok megkeresese
 		top = myField; // TODO ez ertek szerinti masolas?
+
 		// bal oldal megkeresese
 		for(int i = 0; i<range && top.neighbours.get(3)!=null; ++i){
 			top = top.neighbours.get(3);
@@ -147,6 +145,8 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void registerField(Field field) {
+		System.out.println("aseWOR");
+
 		if(!field.hasTower()){
 			myField = field;
 			field.registerITower(this);

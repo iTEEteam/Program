@@ -36,7 +36,7 @@ public class Controller {
 	// torony vetele a kivalasztott mezore
 	public void buyTower(){
 		int value;
-				
+
 		// meg kell vizsgalni, hogy van e kivalasztott mezo
 		if(choosenField == null){
 			ProtoTester.safePrint("No choosen field");
@@ -61,6 +61,8 @@ public class Controller {
 			
 			// ez a fv az sd_Torony_elhelyez_ures_mezore kepen rosszul van irva
 			choosenField.registerIFieldPlaceable(tower);
+			tower.setPaths();
+
 		} else 
 			ProtoTester.safePrint("Not enough mana");
 	}
