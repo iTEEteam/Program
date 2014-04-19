@@ -152,15 +152,18 @@ public class Game implements IGame {
 	}
 	
     public void addEnemyIn(String enemyType, Path p) {
-        if (enemyType.equals("elf")) {
-            enemiesIn.add(new Elf(this, p));
+        Enemy e = null;
+    	if (enemyType.equals("elf")) {
+        	e = new Elf(this, p);         
         } else if (enemyType.equals("hobbit")) {
-            enemiesIn.add(new Hobbit(this, p));
+        	e = new Hobbit(this, p);        	
         } else if (enemyType.equals("dwarf")) {
-            enemiesIn.add(new Dwarf(this, p));
+        	e = new Dwarf(this, p);        	
         } else if (enemyType.equals("human")) {
-            enemiesIn.add(new Human(this, p));
+        	e = new Human(this, p);
         }
+    	enemiesIn.add(e);
+        p.registerEnemy(e);
     }
         
 	public void removeEnemyIn(Enemy e) {

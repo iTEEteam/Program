@@ -288,16 +288,16 @@ public class ProtoTester {
                 if (map.getCell(i, j).isPath()) {
                     //ha path
                     if (((Path) map.getCell(i, j)).hasEnemy()) {
-//						//ha van enemy az elso sor elso betuje: e
-//						System.out.print("e");
+						//ha van enemy az elso sor elso betuje: e
+						System.out.print(" ");
                     } else {
                         //ha nincs enemy az elso sor elso betuje: space
                         System.out.print(" ");
                     }
                     //ha van akadaly
                     if (((Path) map.getCell(i, j)).hasObstacle()) {
-//						//ha van akadaly az elso sor masodik betuje: o
-//						System.out.print("o");
+						//ha van akadaly az elso sor masodik betuje: o
+						System.out.print(" ");
                     } else {
                         //ha nincs akadaly az elso sor masodik betuje: space
                         System.out.print(" ");
