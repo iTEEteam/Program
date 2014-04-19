@@ -48,7 +48,7 @@ public class Game implements IGame {
 		
 		map = new Map();
 		noEnemies=10;
-		hazeTime=0;
+		hazeTime=-1;
 	}
 	
 	/**
@@ -69,9 +69,13 @@ public class Game implements IGame {
 			for(Tower t : towers) {
 				t.clearUp();
 			}
+			
+			// eddig, ha lement a hazeTime 0-ra, minden korben ujrahivta a clearUp-t, null exeptiont dobott
+			// lemegy -1-re amikor lefutott es varja hogy ujratoltsek
+			hazeTime = -1;
 		}
 		
-		if(hazeTime!=0) {
+		if(hazeTime>0) {
 			hazeTime--;
 		}
 		
@@ -79,7 +83,7 @@ public class Game implements IGame {
 			makeEnemies();
 		}
 		
-		if (enemiesOut!=null) {
+		if (enemiesOut.size() != 0) {
 			firstP.registerIPathPlaceable(enemiesOut.get(enemiesOut.size()-1));
 			enemiesIn.add(enemiesOut.get(enemiesOut.size()-1));
 			enemiesOut.remove(enemiesOut.size()-1);
@@ -93,15 +97,13 @@ public class Game implements IGame {
 			t.shoot();
 		}
 		
-		if(bHaze && hazeTime==0) {
+		if(bHaze && hazeTime<=0) {
 			for(Tower t : towers) {
 				hazeTime=20;
 				t.haze();
 			}
 		}
 		
-			
-		ProtoTester.safePrint("update return");
 	}
 	
 	public void makeEnemies() {
@@ -192,5 +194,10 @@ public class Game implements IGame {
 	@Override
 	public boolean getRandom() {
 		return bRandom;
+	}
+
+	@Override
+	public void addEnemyIn(Enemy e) {
+		enemiesIn.add(e);		
 	}
 }

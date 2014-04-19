@@ -12,9 +12,9 @@ public class Tower implements ITower, IFieldPlaceable {
 	/**
 	 * A torony hatosugara, hogy hany cellat er el a szomszedos cellak kozul.
 	**/
-	private int range;
-	private int speedCtr;
-	private int speed;
+	private int range = 1;
+	private int speedCtr = 2;
+	private int speed = 3;
 	/**
 	 * A lovedek amit a torony kilo.
 	**/
@@ -35,7 +35,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	**/
 	private ArrayList<Path> paths;
 	private IGame igame;
-	public Game towers;
 	
 	/**
 	 * Konstruktor
@@ -71,6 +70,9 @@ public class Tower implements ITower, IFieldPlaceable {
 	// vegigmegy a tarolt utakon
 	// az elsorol, amin van ellenseg,visszaadja a 0. elemet
 	public Enemy chooseEnemy() {
+		if(paths == null){
+		//	System.out.println("asd wow");
+		}
 		for(Path p: paths){  			
 			if(p.hasEnemy()){
 				return p.getEnemies().get(0);
@@ -86,6 +88,7 @@ public class Tower implements ITower, IFieldPlaceable {
 		if(target==null){
 			return;
 		}
+
 		target.hurt(bullet);
 	}
 	
@@ -129,6 +132,7 @@ public class Tower implements ITower, IFieldPlaceable {
 				if(temp.isPath()){
 					paths.add((Path)temp);
 				}
+				// lep egyet balra
 				temp = temp.neighbours.get(2);
 			}
 			++columnCount;

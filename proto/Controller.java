@@ -53,7 +53,6 @@ public class Controller {
 		
 		// ha van eleg mana akkor veszi meg
 		if(igame.getMana() >= value){
-			System.out.println("bah");
 
 			igame.changeMana(-value);
 			
