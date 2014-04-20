@@ -188,7 +188,7 @@ public class Game implements IGame {
         	e = new Human(this, p);
         }
     	enemiesIn.add(e);
-        p.registerEnemy(e);
+        p.registerIPathPlaceable(e);
     }
     
     
