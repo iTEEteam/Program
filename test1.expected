@@ -7,11 +7,27 @@ DamageGem0 created
 EnemyTypeGem0 created
 Hobbit0 created
 update
-Hobbit0 move
+Hobbit0 moves
 Tower0 shoots Hobbit0
 Hobbit0 damage 40
 update
-Hobbit0 move
+Hobbit0 moves
 Tower0 shoots Hobbit0
 Hobbit0 damage 40
 Tower1 shoots Hobbit0
+Hobbit0 damage 20
+Hobbit0 died
+Elf0 created
+update
+Elf0 move
+Tower0 shoots Elf0
+Elf0 damage 40
+update
+Elf0 move
+Tower0 shoots Elf0
+Elf0 damage 40
+Tower1 shoots Elf0
+Elf0 damage 60
+Elf0 died
+Tower0 sold 80 mana
+VEGE
