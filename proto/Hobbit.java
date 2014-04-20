@@ -16,8 +16,8 @@ public class Hobbit extends Enemy {
 	/**
 	 * Konstruktor.
 	 * 
-	 * @param 	game Az IGame interfész, amivel a Game-et eléri.
-	 * @param 	p A létrehozás helye. Felesleges, mert úgysem úton hozzuk létre.
+	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
+	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre.
 	**/
 	public Hobbit(IGame game, Path p) {
 		super(game, p);
@@ -25,7 +25,7 @@ public class Hobbit extends Enemy {
 	}
 	
 	/**
-	 * Változtatja a manát, törli az Enemyt az útról és a Game-bõl.
+	 * Valtoztatja a manat, torli az Enemyt az utrol es a Game-bol.
 	 */
 	@Override
 	public void eliminate() {
@@ -36,12 +36,14 @@ public class Hobbit extends Enemy {
 	}
 	
 	/**
-	 * Sebzést végzõ függvény.
+	 * Sebzest vegzo fuggveny.
 	 */
 	@Override
 	public void hurt(Bullet b) {
 		
 		int damage = b.getDamageHobbit();
+		
+		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " damage " + damage);
 		
 		if(damage == 0) {
 			cut();
@@ -50,12 +52,19 @@ public class Hobbit extends Enemy {
 		}
 		
 		if(health <= 0){
+			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " died");
 			eliminate();
 		}
 	}
 	
+	/**
+	 * A kettevagast vegzo fuggveny. 
+	 */
 	@Override
 	public void cut() {
+		/* A super.cut hivasra a kiiratas miatt van szukseg, igy valamivel egysegesebb.*/
+		super.cut();
+		
 		health /= 2;
 		
 		Enemy enemy = new Hobbit(igame, myPath);

@@ -18,12 +18,12 @@ public abstract class Enemy implements IPathPlaceable {
 	private static final int maxHP = 100;
 
 	/**
-	 * Az ellens�g bels� id�m�r�je. A setModSpeed v�ltoztathatja � jellemz�en negat�v ir�nyba, akad�lyokon.
+	 * Az ellenseg belso idomeroje. A setModSpeed valtoztathatja, jellemzoen negatav iranyba, akadalyokon.
 	**/
 	private int modSpeed = 0;
 	
 	/**
-	 * �leterej�t t�rolja ebben. Hurt f�ggv�nyben cs�kkenti.
+	 * Eleterejet tarolja ebben. Hurt fuggvenyben csokkenti.
 	**/
 	protected int health;
 	
@@ -33,24 +33,25 @@ public abstract class Enemy implements IPathPlaceable {
 	protected Path myPath;
 	
 	/**
-	 * A soron k�vetkez� path c�me.
-	 * Nem csin�l semmit, csak itt hagytam.
+	 * A soron kovetkezo path cime.
+	 * Nem csinal semmit, csak itt hagytam, mert benne van a dokumentacioban.
 	 */
+	@SuppressWarnings("unused")
 	private Path nextPath;
 	
 	/**
-	 * Ezen kereszt�l tudja m�dos�tani a man�t, amikor meghal, illetve ha el�r a v�gzet hegy�re m�dos�tani a sz�ml�l�t (Game.incSucceeded), hogy n�j�n egyel.
+	 * Ezen keresztul tudja modositani a manat, amikor meghal, illetve ha eler a vegzet hegyere, modosotani a szamlalot (Game.incSucceeded), hogy nojon egyel.
 	 */
 	protected IGame igame;
 	
 	/**
 	 * Konstruktor.
 	 *
-	 * @param 	game Az IGame interf�sz, amivel a Game-et el�ri.
-	 * @param 	p A l�trehoz�s helye. Felesleges, mert �gysem �ton hozzuk l�tre.
+	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
+	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre. Egyelore mukodik, de kesobb celszeru torolni.
 	**/
-	public Enemy(IGame game, Path p) { //TODO Nem kell a p attrib�tum, nem �ton hozzuk l�tre az Enemyt
-		//ez az�rt nem kell, mert absztrakt oszt�lyt nem p�ld�nyos�tunk, viszont �gy k�t bejegyz�s�nk is lenne a lesz�rmazottai miatt
+	public Enemy(IGame game, Path p) { //TODO Nem kell a p attributum, nem uton hozzuk letre az Enemyt
+		//ez azert nem kell, mert absztrakt osztalyt nem peldanyositunk, viszont igy ket bejegyzesunk is lenne a leszarmazottai miatt
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
@@ -58,24 +59,26 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	/**
-	 * Sebz�d�st megval�s�t� met�dus, abstract, minden Enemy-t�pusban m�shogy implement�l�dik.
+	 * Sebzodest megvalasito metodus, abstract, minden Enemy-tipusban mashogy implementalodik.
 	 *
-	 * @param 	b A sebz� Bullet objektum.
+	 * @param 	b A sebzo Bullet objektum.
 	**/
 	public abstract void hurt(Bullet b);
 	
 	/**
-	 * Mozog, a k�vetkez� path-ra l�p, cell�t v�lt.
+	 * Mozog, a kovetkezo path-ra lep, cellat valt.
 	**/
 	public void move() {
-		
 		
 		if(modSpeed < speed) {
 			modSpeed++;
 		} else {
+			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " moves");
+			
 			Path nextPath = myPath.getNext();
 			
 			if(nextPath == null){
+				ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " reached Mount Doom");
 				igame.incSucceeded();
 				eliminate();
 			}else{		
@@ -85,27 +88,28 @@ public abstract class Enemy implements IPathPlaceable {
 		
 	}
 	 /**
-	  * A modSpeed v�ltoz�t v�ltoztatja. Lass�tani lehet vele.
+	  * A modSpeed valtozot valtoztatja. Lassitani lehet vele. (vagy adott esetben gyorsitani)
 	  * 
-	  * @param 	msp A lass�t�s m�rt�ke.
+	  * @param 	msp A lassitas merteke.
 	  */
 	public void setModSpeed(int msp) {
 		modSpeed -= msp;
 	}
 	
 	/**
-	 * Az Enemyt t�rli az �tj�r�l �s a Game-b�l.
+	 * Az Enemyt torli az utjarol es a Game-bol.
 	 */
 	public void eliminate() {
-		igame.removeEnemyOut(this);
+		
+		igame.removeEnemyIn(this);
 		
 		myPath.deleteEnemy(this);
 	}
 	
 	/**
-	 * Az Enemyt regisztr�lja a param�terben �tadott �tra. Nem csak a move f�ggv�nyen kereszt�l m�k�dik, k�l�n is h�vhat�.
+	 * Az Enemyt regisztralja a parameterben atadott utra. Nem csak a move fuggvenyen keresztul mukodik, kulon is hivhato.
 	 * 
-	 * @param 	p Az �t, ahova regisztr�lni akarjuk az Enemyt.
+	 * @param 	p Az ut, ahova regisztralni akarjuk az Enemyt.
 	 */
 	public void registerPath(Path p) {
 		
@@ -122,12 +126,17 @@ public abstract class Enemy implements IPathPlaceable {
 	}
 	
 	/**
-	 * �j �leter�t �ll�t be.
-	 * @param hp Az �j �leter� �rt�ke.
+	 * Uj eleterot allit be.
+	 * @param hp Az uj eletero erteke.
 	 */
 	public void setHealth(int hp) {
 		health = hp;		
 	}
 	
-	public abstract void cut();
+	/**
+	 * Az ellenseg kettevagasat vegzo fuggveny. Az ososztalyban csak a kiiratast vegezzuk, a tobbit a leszarmazottakban kell implementalni.
+	 */
+	public void cut() {
+		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " cut in half");
+	}
 }
