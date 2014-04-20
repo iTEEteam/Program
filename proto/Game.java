@@ -92,8 +92,8 @@ public class Game implements IGame {
 			enemiesIn.get(i).move();
 		}
 		
-		for(Tower t : towers) {
-			t.shoot();
+		for(int i=0; i<towers.size(); i++) {
+			towers.get(i).shoot();
 		}
 		
 		if(bHaze && hazeTime<=0) {
