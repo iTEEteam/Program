@@ -69,6 +69,7 @@ public abstract class Enemy implements IPathPlaceable {
 	**/
 	public void move() {
 		
+		
 		if(modSpeed < speed) {
 			modSpeed++;
 		} else {
@@ -97,6 +98,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 */
 	public void eliminate() {
 		igame.removeEnemyIn(this);
+		igame.removeEnemyOut(this);
 		
 		myPath.deleteEnemy(this);
 	}

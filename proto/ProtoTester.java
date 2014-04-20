@@ -158,7 +158,7 @@ public class ProtoTester {
                         }
                     }
                 } else if (words[0].equals("sell")) {
-                    String[] koords = words[2].split("-");
+                    String[] koords = words[1].split("-");
                     Cell temp = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
                     ((Field) temp).getITower().sell();
                 } else if (words[0].equals("random")) {

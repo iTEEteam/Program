@@ -145,7 +145,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void registerField(Field field) {
-		System.out.println("aseWOR");
 
 		if(!field.hasTower()){
 			myField = field;
