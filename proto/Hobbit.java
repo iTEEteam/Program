@@ -19,8 +19,8 @@ public class Hobbit extends Enemy {
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre.
 	**/
-	public Hobbit(IGame game, Path p) {
-		super(game, p);
+	public Hobbit(IGame game) {
+		super(game);
 		ProtoTester.addToObjectCatalog(this);
 	}
 	
@@ -67,7 +67,7 @@ public class Hobbit extends Enemy {
 		
 		health /= 2;
 		
-		Enemy enemy = new Hobbit(igame, myPath);
+		Enemy enemy = new Hobbit(igame);
 		enemy.setHealth(health);
 		
 		igame.addEnemyIn(enemy);

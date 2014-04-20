@@ -19,8 +19,8 @@ public class Dwarf extends Enemy {
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre.
 	**/
-	public Dwarf(IGame game, Path p) {
-		super(game, p);
+	public Dwarf(IGame game) {
+		super(game);
 		ProtoTester.addToObjectCatalog(this);
 	}
 	
@@ -67,7 +67,7 @@ public class Dwarf extends Enemy {
 		
 		health /= 2;
 		
-		Enemy enemy = new Dwarf(igame, myPath);
+		Enemy enemy = new Dwarf(igame);
 		enemy.setHealth(health);
 		
 		igame.addEnemyIn(enemy);

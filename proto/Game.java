@@ -117,16 +117,16 @@ public class Game implements IGame {
 			int i=generator.nextInt(3);
 			switch(i) {
 				case 0:
-					Hobbit h=new Hobbit(this, map.getFirstPath());
+					Hobbit h=new Hobbit(this);
 					enemiesOut.add(h);
 				case 1:
-					Elf e=new Elf(this, map.getFirstPath());
+					Elf e=new Elf(this);
 					enemiesOut.add(e);
 				case 2:
-					Dwarf d=new Dwarf(this, map.getFirstPath());
+					Dwarf d=new Dwarf(this);
 					enemiesOut.add(d);
 				case 3:
-					Human hu=new Human(this, map.getFirstPath());
+					Human hu=new Human(this);
 					enemiesOut.add(hu);
 			}
 		}
@@ -179,13 +179,13 @@ public class Game implements IGame {
     public void addEnemyIn(String enemyType, Path p) {
         Enemy e = null;
     	if (enemyType.equals("elf")) {
-        	e = new Elf(this, p);         
+        	e = new Elf(this);         
         } else if (enemyType.equals("hobbit")) {
-        	e = new Hobbit(this, p);        	
+        	e = new Hobbit(this);        	
         } else if (enemyType.equals("dwarf")) {
-        	e = new Dwarf(this, p);        	
+        	e = new Dwarf(this);        	
         } else if (enemyType.equals("human")) {
-        	e = new Human(this, p);
+        	e = new Human(this);
         }
     	enemiesIn.add(e);
         p.registerIPathPlaceable(e);
