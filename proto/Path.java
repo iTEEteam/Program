@@ -41,7 +41,9 @@ public class Path extends Cell {
 	 * Konstruktor
 	**/
 	public Path(IGame game) {
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
+		ProtoTester.isPrinting = true;
 		igame = game;
 		
 		enemies = new ArrayList<Enemy>();
