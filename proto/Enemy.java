@@ -97,7 +97,6 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az Enemyt t�rli az �tj�r�l �s a Game-b�l.
 	 */
 	public void eliminate() {
-		igame.removeEnemyIn(this);
 		igame.removeEnemyOut(this);
 		
 		myPath.deleteEnemy(this);
