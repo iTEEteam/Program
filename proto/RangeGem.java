@@ -7,6 +7,7 @@ public class RangeGem extends Gem implements ITGem {
 
 	private int range;
 	public RangeGem() {
+		range=2;
 		ProtoTester.addToObjectCatalog(this);
 
 	}
