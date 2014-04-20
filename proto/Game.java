@@ -78,7 +78,7 @@ public class Game implements IGame {
 			hazeTime--;
 		}
 		
-		if (enemiesIn.isEmpty() && enemiesOut.isEmpty()) {
+		if (bRandom == true && enemiesIn.isEmpty() && enemiesOut.isEmpty()) {
 			makeEnemies();
 		}
 		
@@ -128,6 +128,7 @@ public class Game implements IGame {
 	
 	public void initialize(String name) throws FileNotFoundException {
 		map.load(name);
+		firstP = map.getFirstPath();
 	}
 	
 	/**
