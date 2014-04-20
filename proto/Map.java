@@ -143,6 +143,10 @@ public class Map {
 					if(cells.get(j).contains("l")){
 						nextPaths.set(3,(Path) neighbours.get(3));
 					}
+					if(cells.get(j).equals("en")){
+						nextPaths.set(1, (Path) neighbours.get(1));
+					}
+					
 				((Path) grid.get(i).get(j)).setNextPaths(nextPaths);
 				}
 				
