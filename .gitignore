@@ -6,3 +6,4 @@ skeleton*
 /bin
 /
 /skeleton.zip
+*.out
