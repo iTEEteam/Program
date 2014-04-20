@@ -34,6 +34,9 @@ public class ProtoTester {
 
         String type = obj.getClass().getName();
 
+        if(type.startsWith("proto."))
+        	type = type.substring(6);
+        
         ArrayList<Integer> numbersIn = new ArrayList<Integer>();
 
         for (Entry<String, Object> entry : objectCatalog.entrySet()) {
@@ -50,8 +53,7 @@ public class ProtoTester {
         } catch (NoSuchElementException e) {
             maxNumber = 0;
         }
-        if(type.startsWith("proto."))
-        	type = type.substring(6);
+        
         
         objectCatalog.put(type + (++maxNumber), obj);
         ProtoTester.safePrint(type + (maxNumber)+ " created");
