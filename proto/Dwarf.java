@@ -17,7 +17,6 @@ public class Dwarf extends Enemy {
 	 * Konstruktor.
 	 * 
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
-	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre.
 	**/
 	public Dwarf(IGame game) {
 		super(game);
