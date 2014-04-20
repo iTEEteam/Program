@@ -52,6 +52,7 @@ public class ProtoTester {
         }
         if(type.startsWith("proto."))
         	type = type.substring(6);
+        
         objectCatalog.put(type + (++maxNumber), obj);
         ProtoTester.safePrint(type + (maxNumber)+ " created");
     }
@@ -113,7 +114,7 @@ public class ProtoTester {
                 	for (int i = 0; i < count; ++i) {
                         game.update();
                     }
-                } else if (words[0].equals("drawMap")) {
+                } else if (words[0].equals("drawMap") || words[0].equals("drawmap")) {
                     // kirajzolja a palyat
                     drawMap(game.getMap());
                 } else if (words[0].equals("info")) {
@@ -172,8 +173,10 @@ public class ProtoTester {
                 } else if (words[0].equals("haze")) {
                     if (words[1].equals("on")) {
                         Game.bHaze = true;
+                        ProtoTester.safePrint("Haze is turned on");
                     } else if (words[1].equals("off")) {
                         Game.bHaze = false;
+                        ProtoTester.safePrint("Haze is turned off");
                     } else {
                         System.out.println("Invalid input");
                     }
@@ -203,8 +206,10 @@ public class ProtoTester {
                 } else if (words[0].equals("cut")) {
                     if (words[1].equals("on")) {
                         Game.bCut = true;
+                        ProtoTester.safePrint("Cut is turned on");
                     } else if (words[1].equals("off")) {
                         Game.bCut = false;
+                        ProtoTester.safePrint("Cut is turned off");
                     } else {
                         System.out.println("Invalid input");
                     }         

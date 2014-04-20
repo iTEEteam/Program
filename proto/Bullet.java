@@ -46,6 +46,9 @@ public class Bullet {
 		if(Game.bRandom && Math.random()<0.08)
 			return 0;
 		
+		if(Game.bCut)
+			return 0;
+		
 		if(enemyType.equals("Elf"))
 			return damage+20;
 		
@@ -59,6 +62,9 @@ public class Bullet {
 	public int getDamageHobbit() {
 		// 8% esellyel ketteszeli az ellenseget
 		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(Game.bCut)
 			return 0;
 		
 		if(enemyType.equals("Hobbit"))
@@ -75,6 +81,9 @@ public class Bullet {
 		if(Game.bRandom && Math.random()<0.08)
 			return 0;
 		
+		if(Game.bCut)
+			return 0;
+		
 		if(enemyType.equals("Dwarf"))
 			return damage+20;
 		
@@ -87,6 +96,9 @@ public class Bullet {
 	public int getDamageHuman() {
 		// 8% esellyel ketteszeli az ellenseget
 		if(Game.bRandom && Math.random()<0.08)
+			return 0;
+		
+		if(Game.bCut)
 			return 0;
 		
 		if(enemyType.equals("Human"))
