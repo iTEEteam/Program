@@ -55,7 +55,6 @@ public class Game implements IGame {
 	 * Frissiti a GUI-t. 
 	 * Flet�telek, ciklusok: 
 	 * Ha lej�rt a k�d, kitiszt�tjuk a p�ly�t
-	 * Ha nem j�rt le, cs�kketntj�k a h�tral�v� idej�t
 	 * Ha sem v�rakoz� ellens�g, sem p�ly�n l�v� nincs, k�sz�t�nk
 	 * Ha van v�rakoz� ellens�g, elind�tjuk a p�ly�n
 	 * Minden ellens�get l�ptet�nk

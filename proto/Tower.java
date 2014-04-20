@@ -80,7 +80,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-
+		
 		Enemy target = chooseEnemy();
 		if(target==null){
 			return;
@@ -103,19 +103,19 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * beregisztralja a Path-okat
 	 */
 	public void setPaths() {
-		// eloszor a bal felso cella lesz, majd jobbra lepked.
+		// eloszor a jobb felso cella lesz, majd balra lepked.
 		Cell top;
 		// maximalis oldalhossz
 		int sideLength = 2*range+1;
 		// hanyadik oszlopnal tartunk
 		int columnCount = 0;
 		
-		// bal felso sarok megkeresese
-		top = myField; // TODO ez ertek szerinti masolas?
+		// jobb felso sarok megkeresese
+		top = myField; 
 
-		// bal oldal megkeresese
-		for(int i = 0; i<range && top.neighbours.get(3)!=null; ++i){
-			top = top.neighbours.get(3);
+		// jobb oldal megkeresese
+		for(int i = 0; i<range && top.neighbours.get(1)!=null; ++i){
+			top = top.neighbours.get(1);
 		}
 		// felso oldal megkeresese
 		for(int i = 0; i<range && top.neighbours.get(0)!=null; ++i){
@@ -123,18 +123,19 @@ public class Tower implements ITower, IFieldPlaceable {
 		}
 		
 		// felso soron viszi vegig a top-ot
-		while(columnCount<sideLength && top.neighbours.get(1)!=null){
-			Cell temp = top; // TODO szinten, ertek szerinti?
+		while(columnCount<sideLength && top!=null){
+			Cell temp = top; 
 			// lefele vegignezi a cellakat
-			for(int i = 0; i<range && top.neighbours.get(2)!=null; ++i){
+			for(int i = 0; i<sideLength && temp!=null; ++i){
 				if(temp.isPath()){
 					paths.add((Path)temp);
 				}
-				// lep egyet balra
+				// lep egyet lefele
 				temp = temp.neighbours.get(2);
 			}
 			++columnCount;
-			top = top.neighbours.get(1);
+
+			top = top.neighbours.get(3);
 		}
 	}
 	

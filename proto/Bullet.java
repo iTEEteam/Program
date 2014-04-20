@@ -28,7 +28,7 @@ public class Bullet {
 	 */
 	public Bullet(){
 		ProtoTester.addToObjectCatalog(this);
-		setDamage(10);
+		setDamage(50);
 //TODO itt mi az enemytype? ures string
 		setEnemy("");
 	}
