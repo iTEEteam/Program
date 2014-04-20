@@ -66,9 +66,9 @@ public class TxtComparer {
 		}
 		
 		if(whosLonger == 1) {
-			System.out.println("Az elso fajl hosszabb.");
+			System.out.println("A(z) " + args[0] + " hosszabb.");
 		} else if(whosLonger == 2) {
-			System.out.println("Az masodik fajl hosszabb.");
+			System.out.println("A(z) " + args[1] + " hosszabb.");
 		} else if(equals && (whosLonger == 0)) {
 			System.out.println("A ket fajl tartalma megegyezik.");
 		} else {

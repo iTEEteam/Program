@@ -1,0 +1,17 @@
+map testmap1.txt loaded
+Tower0 created
+Tower1 created
+SpeedGem0 created
+RangeGem0 created
+DamageGem0 created
+EnemyTypeGem0 created
+Hobbit0 created
+update
+Hobbit0 move
+Tower0 shoots Hobbit0
+Hobbit0 damage 40
+update
+Hobbit0 move
+Tower0 shoots Hobbit0
+Hobbit0 damage 40
+Tower1 shoots Hobbit0

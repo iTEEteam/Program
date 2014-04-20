@@ -1,8 +1,11 @@
-loadmap testmap3.txt
-make human 1-0
-make tower 2-3
+loadmap testmap4.txt
+make elf 2-1
+make human 2-1
+make dwarf 2-1
 update 1
-haze on
-cut on
-update 2
+route Elf0 1
+route Human0 0
+route Dwarf0 3
+update 1
+drawMap
 exit

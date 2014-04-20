@@ -1,5 +1,5 @@
 @echo off
-title "Proto Test & Compare 1"
+title "Proto Test & Compare 4"
 
 echo "Deleting last release (bin dir)..."
 if exist bin rmdir bin /s /q
@@ -13,11 +13,11 @@ echo "Compiling TxtComparer..."
 javac -d ./bin/ txtComparer/TxtComparer.java
 echo "TxtComparer compiled succesfully."
 
-echo "Running Proto with test1.txt..."
-java -classpath .\bin\ proto.ProtoTester < test1.txt > test1.out
+echo "Running Proto with test4.txt..."
+java -classpath .\bin\ proto.ProtoTester < test4.txt > test4.out
 
 echo "Comparing output with expected output..."
-java -classpath .\bin\ txtComparer.TxtComparer test1.out test1_expected.out
+java -classpath .\bin\ txtComparer.TxtComparer test4.out test4_expected.out
 
 
 pause
