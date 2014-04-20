@@ -374,5 +374,6 @@ public class ProtoTester {
  * Game-be getMap
  * Map-ba getCell(int i, j)
  * ITower interfeszbe beraktam a public void sell() metodust
- * Enemy.eliminate, illetve IPathPlaceable.eliminate f�ggv�nyeknek t�r�ltem a param�ter�t: felesleges, a myPath t�rolja a hely�t, �s onnan vessz�k le. - Seres
+ * Enemy.eliminate, illetve IPathPlaceable.eliminate fuggvenyeknek toroltem a parameteret: felesleges, a myPath tarolja a helyet, es onnan vesszuk le. - Seres
+ * A map konstruktoraba raktam egy IGame parametert, hogy azzal tudja majd letrehozni a cellakat. - Seres
  */

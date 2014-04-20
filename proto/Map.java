@@ -27,14 +27,16 @@ public class Map {
 	**/
 	private ArrayList<ArrayList<Cell>> grid;
 	
+	private IGame igame;
 	
 	/**
 	 * Konstruktor
 	 *
 	 * @param    name
 	**/
-	public Map() {
+	public Map(IGame igame) {
 		ProtoTester.addToObjectCatalog(this);
+		this.igame = igame;
 		grid = new ArrayList<ArrayList<Cell>>();
 	}
 	
@@ -73,10 +75,10 @@ public class Map {
 			for (int j = 0;j<cells.size();++j){
 				if (cells.get(j).equals("x")){
 //TODO igame-t ker a field
-					grid.get(i).add(new Field(null));
+					grid.get(i).add(new Field(igame));
 				}else{
 //TODO igame-t ker a path
-					grid.get(i).add(new Path(null));
+					grid.get(i).add(new Path(igame));
 				}
 			}
 		}

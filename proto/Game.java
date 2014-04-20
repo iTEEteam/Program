@@ -46,7 +46,7 @@ public class Game implements IGame {
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();
 		
-		map = new Map();
+		map = new Map(this);
 		noEnemies=10;
 		hazeTime=-1;
 	}
