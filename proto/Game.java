@@ -143,7 +143,7 @@ public class Game implements IGame {
 	
 	public void removeTower(Tower t) {
 		
-		if(towers != null){
+		if(t != null){
 			towers.remove(t);
 		}
 		
@@ -169,13 +169,13 @@ public class Game implements IGame {
     }
         
 	public void removeEnemyIn(Enemy e) {
-		if(enemiesIn!=null) {
+		if(e!=null) {
 			enemiesIn.remove(e);
 		}
 	}
 	
 	public void removeEnemyOut(Enemy e) {
-		if(enemiesOut!=null) {
+		if(e!=null) {
 			enemiesOut.remove(e);
 		}
 	}
