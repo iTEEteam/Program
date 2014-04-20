@@ -79,7 +79,7 @@ public class Game implements IGame {
 			hazeTime--;
 		}
 		
-		if (enemiesIn==null && enemiesOut==null) {
+		if (enemiesIn.isEmpty() && enemiesOut.isEmpty()) {
 			makeEnemies();
 		}
 		
@@ -89,8 +89,8 @@ public class Game implements IGame {
 			enemiesOut.remove(enemiesOut.size()-1);
 		}
 		
-		for(Enemy e : enemiesIn) {
-			e.move();
+		for(int i=0; i<enemiesIn.size(); i++) {
+			enemiesIn.get(i).move();
 		}
 		
 		for(Tower t : towers) {
