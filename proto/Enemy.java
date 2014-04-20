@@ -10,10 +10,10 @@ public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az Enemy normal sebessege.
 	**/
-	private static final int speed = 10;
+	private static final int speed = 3;
 	
 	/**
-	 * A maxim�lis �leter� �rt�ke.
+	 * A maximalis eletero erteke.
 	 */
 	private static final int maxHP = 100;
 
@@ -54,7 +54,7 @@ public abstract class Enemy implements IPathPlaceable {
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
-		myPath = p; 
+		p.registerIPathPlaceable(this); 
 	}
 	
 	/**
@@ -115,7 +115,8 @@ public abstract class Enemy implements IPathPlaceable {
 		}
 		
 		if(p != null) {
-			p.registerEnemy(this);
+			myPath = p;
+			myPath.registerEnemy(this);
 		} else {
 			throw new InvalidParameterException();
 		}
