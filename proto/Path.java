@@ -32,6 +32,8 @@ public class Path extends Cell {
 	private ArrayList<Enemy> enemies;
 	
 	private IGame igame;
+
+//	private Path forcedNextPath;
 	
 	// ez is WTF?
 	//private Enemy myPath;
@@ -148,29 +150,59 @@ public class Path extends Cell {
 	 * Visszater a nextPaths lista egy elemevel, ahova az enemy majd lephet.
 	**/
 	public Path getNext() {
+		Path nextPath = null;
+//		if(forcedNextPath!=null){
+//			nextPath = forcedNextPath;
+//		}else 
+		
 		if(igame.getRandom()==true){
 			Random rand = new Random();
-			Path randomPath = null;
 			do{
-				randomPath = nextPaths.get(rand.nextInt(nextPaths.size()));
-			}while(randomPath==null);
+				nextPath = nextPaths.get(rand.nextInt(nextPaths.size()));
+			}while(nextPath==null);
 			
 			
-			return null;
 		}else{
 			for(Path p :nextPaths)
 				if(p!=null){
-					return p;
+					nextPath = p;
+					break;
 				}
-			return nextPaths.get(0);
+			
+			
 		}
-		
+//		forcedNextPath = null;
+		return nextPath;
 
 	}
         
-        public void determineNext(int direction) {
-            
-        }
+//        public void determineNext(int direction) {
+//            forcedNextPath = null;
+//            switch(direction){
+//            case 0:
+//            	if(neighbours.get(0).isPath()){
+//            		forcedNextPath = (Path) neighbours.get(0);
+//            	}
+//            	break;
+//            case 1:
+//            	if(neighbours.get(1).isPath()){
+//            		forcedNextPath = (Path) neighbours.get(1);
+//            	}
+//            	break;
+//            case 2:
+//            	if(neighbours.get(2).isPath()){
+//            		forcedNextPath = (Path) neighbours.get(2);
+//            	}
+//            	break;
+//            case 3:
+//            	if(neighbours.get(3).isPath()){
+//            		forcedNextPath = (Path) neighbours.get(3);
+//            	}
+//            	break;
+//            	
+//            	
+//            }
+//        }
 
 	@Override
 	public boolean isPath() {

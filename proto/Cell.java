@@ -15,7 +15,12 @@ public abstract class Cell {
 	protected ArrayList<Cell> neighbours;
 	
 
-//	/**
+public ArrayList<Cell> getNeighbours() {
+		return neighbours;
+	}
+
+
+	//	/**
 //	 * Konstruktor.
 //	 *
 //	 * @param    cells

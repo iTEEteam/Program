@@ -1,6 +1,7 @@
 package proto;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 /**
  * A kulonbozo ellensegek (Hobbit, Dwarf, Elf, Human) absztrakt ososztalya.
@@ -44,6 +45,41 @@ public abstract class Enemy implements IPathPlaceable {
 	 */
 	protected IGame igame;
 	
+	private Path forcedNextPath = null;
+	
+	public void setForcedNextPath(int direction) {
+		forcedNextPath = null;
+		ArrayList<Cell> neighbours = myPath.getNeighbours();
+		
+        switch(direction){
+        case 0:
+        	if(neighbours.get(0).isPath()){
+        		forcedNextPath = (Path) neighbours.get(0);
+        	}
+        	break;
+        case 1:
+        	if(neighbours.get(1).isPath()){
+        		forcedNextPath = (Path) neighbours.get(1);
+        	}
+        	break;
+        case 2:
+        	if(neighbours.get(2).isPath()){
+        		forcedNextPath = (Path) neighbours.get(2);
+        	}
+        	break;
+        case 3:
+        	if(neighbours.get(3).isPath()){
+        		forcedNextPath = (Path) neighbours.get(3);
+        	}
+        	break;
+        default:
+        	break;
+        	
+        }
+	
+	
+	}
+
 	/**
 	 * Konstruktor.
 	 *
@@ -73,7 +109,15 @@ public abstract class Enemy implements IPathPlaceable {
 		} else {
 			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " moves");
 			
-			Path nextPath = myPath.getNext();
+			Path nextPath = null;
+			
+			if(forcedNextPath != null){
+				nextPath = forcedNextPath;
+			}else{
+				nextPath = myPath.getNext();
+			}
+			
+			
 			
 			if(nextPath == null){
 				ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " reached Mount Doom");
@@ -83,7 +127,7 @@ public abstract class Enemy implements IPathPlaceable {
 				nextPath.registerIPathPlaceable(this);
 			}
 		}
-		
+		forcedNextPath = null;
 	}
 	 /**
 	  * A modSpeed valtozot valtoztatja. Lassitani lehet vele. (vagy adott esetben gyorsitani)
