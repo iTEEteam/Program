@@ -17,7 +17,7 @@ echo "Running Proto with test3.txt..."
 java -classpath .\bin\ proto.ProtoTester < test3.txt > test3.out
 
 echo "Comparing output with expected output..."
-java -classpath .\bin\ txtComparer.TxtComparer test3.out test3_expected.out
+java -classpath .\bin\ txtComparer.TxtComparer test3.out test3.expected
 
 
 pause
