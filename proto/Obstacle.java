@@ -39,7 +39,8 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 		ProtoTester.addToObjectCatalog(this);
 		
 		ProtoTester.safePrint("--> Obstacle konstruktor");
-		
+		amort = 10;
+		slowIntens = 5;
 		gems = new ArrayList<IOGem>();
 		
 		ProtoTester.safePrint("<-- Obstacle konstruktor return");
@@ -61,12 +62,14 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	
 	public void amortization() {
 		ProtoTester.safePrint("--> Obstacle amortization");
+		amort--;
 		
 		ProtoTester.safePrint("<-- Obstacle amortization return");
 	}
 	
 	public void increaseIntensity(int intens) {
 		ProtoTester.safePrint("--> Obstacle increaseIntensity");
+		slowIntens+=intens;
 		
 		ProtoTester.safePrint("<-- Obstacle increaseIntensity return");
 	}
