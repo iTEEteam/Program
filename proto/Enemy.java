@@ -48,14 +48,12 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Konstruktor.
 	 *
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
-	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre. Egyelore mukodik, de kesobb celszeru torolni.
 	**/
-	public Enemy(IGame game) { //TODO Nem kell a p attributum, nem uton hozzuk letre az Enemyt
+	public Enemy(IGame game) { 
 		//ez azert nem kell, mert absztrakt osztalyt nem peldanyositunk, viszont igy ket bejegyzesunk is lenne a leszarmazottai miatt
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
-		//p.registerIPathPlaceable(this); 
 	}
 	
 	/**
