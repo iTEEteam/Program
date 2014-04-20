@@ -51,7 +51,7 @@ public class ProtoTester {
         try {
             maxNumber = Collections.max(numbersIn);
         } catch (NoSuchElementException e) {
-            maxNumber = 0;
+            maxNumber = -1;
         }
         
         
