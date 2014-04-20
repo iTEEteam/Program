@@ -20,7 +20,7 @@ public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az ellens�g bels� id�m�r�je. A setModSpeed v�ltoztathatja � jellemz�en negat�v ir�nyba, akad�lyokon.
 	**/
-	private int modSpeed = 100;
+	private int modSpeed = 0;
 	
 	/**
 	 * �leterej�t t�rolja ebben. Hurt f�ggv�nyben cs�kkenti.
@@ -54,7 +54,7 @@ public abstract class Enemy implements IPathPlaceable {
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
 		health = maxHP;
-		myPath = null; 
+		myPath = p; 
 	}
 	
 	/**
