@@ -10,11 +10,17 @@ public class EnemyTypeGem extends Gem implements ITGem {
 		eType = enemyType;
 	}
 	
+	/**
+	 * Enemy tipusra fejlesztjuk a tornyot.
+	 */
 	public void upgradeTower(Tower t) {
 		t.upgradeEnemy(eType);
 	}
 	
+	/**
+	 * Mana jovairasahoz, torony eladasakor szamitando ertekhez.
+	 */
 	public int getValue() {
-		return 0;
+		return price;
 	}
 }

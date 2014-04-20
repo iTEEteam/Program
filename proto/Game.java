@@ -104,7 +104,11 @@ public class Game implements IGame {
 		}
 		
 	}
-	
+	/**
+	 * Enemy-ket keszit. Random modon választunk tipust. A metodus ellenseghullamot general,
+	 * vagyis csak idonkent hivjuk, ha elfogytak az ellensegek. Minden ujabb hivaskor egyre
+	 * többet general, amig vege nincs a jateknak, vagy elertuk az adott szamu ellenseghullamot.
+	 */
 	public void makeEnemies() {
 		Random generator=new Random();
 		for(int j=0; j<noEnemies; j++) {
@@ -124,8 +128,12 @@ public class Game implements IGame {
 					enemiesOut.add(hu);
 			}
 		}
+		noEnemies++;
 	}
 	
+	/**
+	 * Inicializalo metodus. Betoltjuk a name nevu palyat, megadjuk az elso ut cimet.
+	 */
 	public void initialize(String name) throws FileNotFoundException {
 		map.load(name);
 		firstP = map.getFirstPath();
@@ -138,10 +146,16 @@ public class Game implements IGame {
 		mana += value;
 	}
 	
+	/**
+	 * Noveli a succeededE erteket. Akkor kell, ha egy ellenseg bejut a vegzet hegyere. 
+	 */
 	public void incSucceeded() {
 		succeededE++;
 	}
 	
+	/**
+	 * Toroljuk t-t a towersbol. Pl eladtak egy tornyot.
+	 */
 	public void removeTower(Tower t) {
 		
 		if(t != null){
@@ -150,10 +164,16 @@ public class Game implements IGame {
 		
 	}
 	
+	/**
+	 * Hozzaadjuk t-t a towers-hez. Akkor kell, ha tornyot vettek.
+	 */
 	public void addTower(Tower t) {
 		towers.add(t);
 	}
 	
+	/**
+	 * Make parancs miatt kell.
+	 */
     public void addEnemyIn(String enemyType, Path p) {
         Enemy e = null;
     	if (enemyType.equals("elf")) {
@@ -168,7 +188,11 @@ public class Game implements IGame {
     	enemiesIn.add(e);
         p.registerEnemy(e);
     }
-        
+    
+    
+	/**
+	 * Toroljuk e-t az enemiesIn-bol, alatta enemiesOut-bol
+	 */
 	public void removeEnemyIn(Enemy e) {
 		if(e!=null) {
 			enemiesIn.remove(e);
@@ -180,22 +204,34 @@ public class Game implements IGame {
 			enemiesOut.remove(e);
 		}
 	}
-
+	
+	/**
+	 * Mana valtoztatasa
+	 */
 	@Override
 	public int getMana() {
 		
 		return mana;
 	}
-
+	
+	/**
+	 * Map lekerese.
+	 */
 	public Map getMap(){
 		return map;
 	}
-
+	
+	/**
+	 * bRandom lekerese. Teszteles miatt.
+	 */
 	@Override
 	public boolean getRandom() {
 		return bRandom;
 	}
-
+	
+	/**
+	 * Hozaadjuk e-t az enemiesIn-hez.
+	 */
 	@Override
 	public void addEnemyIn(Enemy e) {
 		enemiesIn.add(e);		

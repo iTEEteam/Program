@@ -11,11 +11,17 @@ public class SpeedGem extends Gem implements ITGem {
 		ProtoTester.addToObjectCatalog(this);
 	}
 	
+	/**
+	 * Fejlesztjuk a tornyot.
+	 */
 	public void upgradeTower(Tower t) {
 		t.upgradeSpeed(speed);
 	}
 	
+	/**
+	 * Torony eladasakor kalkulalt osszeghez kell az ar. Ezt adja.
+	 */
 	public int getValue() {
-		return 0;
+		return price;
 	}
 }

@@ -8,13 +8,19 @@ public class DamageGem extends Gem implements ITGem {
 		ProtoTester.addToObjectCatalog(this);
 	}
 	
+	/**
+	 * Fejlesztjuk a tuzeles erosseget.
+	 */
 	public void upgradeTower(Tower t) {
 		t.upgradeDamage(damage);
 				
 	}
 	
+	/**
+	 * Eladashoz kalkulalt jovairando ertekhez.
+	 */
 	public int getValue() {
 
-		return 0;
+		return price;
 	}
 }

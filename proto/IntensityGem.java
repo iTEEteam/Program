@@ -12,6 +12,9 @@ public class IntensityGem extends Gem implements IOGem {
 
 	}
 	
+	/**
+	 * Megnoveljuk a lassitas merteket az akadalyon.
+	 */
 	public void upgradeObstacle(Obstacle o) {
 		
 		// sd_akadaly_fejlesztese szekvenciadiagrammon el van irva

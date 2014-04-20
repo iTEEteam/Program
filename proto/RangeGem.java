@@ -10,12 +10,18 @@ public class RangeGem extends Gem implements ITGem {
 		ProtoTester.addToObjectCatalog(this);
 
 	}
+	
+	/**
+	 * Fejlesztjuk a tornyot.
+	 */
 	public void upgradeTower(Tower t) {
 		t.upgradeRange(range);
 	}
 	
+	/**
+	 * Visszaasjuk az arat.
+	 */
 	public int getValue() {
-
-		return 0;
+		return price;
 	}
 }

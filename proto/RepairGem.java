@@ -9,6 +9,9 @@ public class RepairGem extends Gem implements IOGem {
 		ProtoTester.addToObjectCatalog(this);
 	}
 	
+	/**
+	 * Megjavitjuk o-t.
+	 */
 	public void upgradeObstacle(Obstacle o) {
 		
 		o.repair();
