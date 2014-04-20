@@ -65,8 +65,8 @@ public class Game implements IGame {
 		ProtoTester.safePrint("update");
 		
 		if(hazeTime==0) {
-			for(Tower t : towers) {
-				t.clearUp();
+			for(int i=0; i<towers.size(); i++) {
+				towers.get(i).clearUp();
 			}
 			
 			// eddig, ha lement a hazeTime 0-ra, minden korben ujrahivta a clearUp-t, null exeptiont dobott
@@ -97,9 +97,9 @@ public class Game implements IGame {
 		}
 		
 		if(bHaze && hazeTime<=0) {
-			for(Tower t : towers) {
+			for(int i=0; i<towers.size(); i++) {
 				hazeTime=20;
-				t.haze();
+				towers.get(i).haze();
 			}
 		}
 		
