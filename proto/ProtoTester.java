@@ -136,7 +136,6 @@ public class ProtoTester {
                         if (words[3].equals("speed")) {
                             controller.setField((Field) temp);
                             controller.buySpeedGem();
-                            new SpeedGem();
                         } else if (words[3].equals("damage")) {
                             controller.setField((Field) temp);
                             controller.buyDamageGem();
