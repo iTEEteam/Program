@@ -113,17 +113,19 @@ public class Tower implements ITower, IFieldPlaceable {
 		// jobb felso sarok megkeresese
 		top = myField; 
 
+		// l-bol azt szamolja majd ki, hogy mennyit kell balra mennie(max)
+		int l, m;
 		// jobb oldal megkeresese
-		for(int i = 0; i<range && top.neighbours.get(1)!=null; ++i){
+		for(l = 0; l<range && top.neighbours.get(1)!=null; ++l){
 			top = top.neighbours.get(1);
 		}
 		// felso oldal megkeresese
-		for(int i = 0; i<range && top.neighbours.get(0)!=null; ++i){
+		for(m = 0; m<range && top.neighbours.get(0)!=null; ++m){
 			top = top.neighbours.get(0);
 		}
 		
 		// felso soron viszi vegig a top-ot
-		while(columnCount<sideLength && top!=null){
+		while(columnCount<l+range+1 && top!=null){
 			Cell temp = top; 
 			// lefele vegignezi a cellakat
 			for(int i = 0; i<sideLength && temp!=null; ++i){
