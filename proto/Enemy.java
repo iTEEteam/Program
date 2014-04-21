@@ -113,11 +113,9 @@ public abstract class Enemy implements IPathPlaceable {
 			
 			if(forcedNextPath != null){
 				nextPath = forcedNextPath;
+				ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " crossroad");
 			}else{
 				nextPath = myPath.getNext();
-				if(nextPath.getNextPaths().size()>1) {
-					ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " crossroad");
-				}
 			}
 			
 			
