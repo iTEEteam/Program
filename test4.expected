@@ -13,10 +13,20 @@ Human0 moves
 Human0 crossroad
 Dwarf0 moves
 Dwarf0 crossroad
-	0	1	2	3	4	5
-0	x	x	x	x	x	x
-1	x	x	ho	r	r	x
-2	en	r	r	hu	r	ex
-3	x	x	el	r	r	x
-4	x	x	x	x	x	x
+/-----------------\
+|xx|xx|xx|xx|xx|xx|
+|xx|xx|xx|xx|xx|xx|
+|--+--+--+--+--+--|
+|xx|xx|e |  |  |xx|
+|xx|xx|  |  |  |xx|
+|--+--+--+--+--+--|
+|  |  |  |e |  |  |
+|  |  |  |  |  |  |
+|--+--+--+--+--+--|
+|xx|xx|e |  |  |xx|
+|xx|xx|  |  |  |xx|
+|--+--+--+--+--+--|
+|xx|xx|xx|xx|xx|xx|
+|xx|xx|xx|xx|xx|xx|
+\-----------------/
 VEGE
