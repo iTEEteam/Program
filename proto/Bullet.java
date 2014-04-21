@@ -50,7 +50,7 @@ public class Bullet {
 			return 0;
 		
 		if(enemyType.equals("elf"))
-			return damage+20;
+			return damage+40;
 		
 		return damage;
 	
@@ -68,7 +68,7 @@ public class Bullet {
 			return 0;
 		
 		if(enemyType.equals("hobbit"))
-			return damage+20;
+			return damage+40;
 		
 		return damage;	
 	}
@@ -85,7 +85,7 @@ public class Bullet {
 			return 0;
 		
 		if(enemyType.equals("dwarf"))
-			return damage+20;
+			return damage+40;
 		
 		return damage;	
 	}
@@ -102,7 +102,7 @@ public class Bullet {
 			return 0;
 		
 		if(enemyType.equals("human"))
-			return damage+20;
+			return damage+40;
 		
 		return damage;
 	}
