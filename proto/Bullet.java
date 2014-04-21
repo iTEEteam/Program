@@ -49,7 +49,7 @@ public class Bullet {
 		if(Game.bCut)
 			return 0;
 		
-		if(enemyType.equals("Elf"))
+		if(enemyType.equals("elf"))
 			return damage+20;
 		
 		return damage;
@@ -67,7 +67,7 @@ public class Bullet {
 		if(Game.bCut)
 			return 0;
 		
-		if(enemyType.equals("Hobbit"))
+		if(enemyType.equals("hobbit"))
 			return damage+20;
 		
 		return damage;	
@@ -84,7 +84,7 @@ public class Bullet {
 		if(Game.bCut)
 			return 0;
 		
-		if(enemyType.equals("Dwarf"))
+		if(enemyType.equals("dwarf"))
 			return damage+20;
 		
 		return damage;	
@@ -101,7 +101,7 @@ public class Bullet {
 		if(Game.bCut)
 			return 0;
 		
-		if(enemyType.equals("Human"))
+		if(enemyType.equals("human"))
 			return damage+20;
 		
 		return damage;
