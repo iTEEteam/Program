@@ -28,7 +28,7 @@ public class Bullet {
 	 */
 	public Bullet(){
 		ProtoTester.addToObjectCatalog(this);
-		setDamage(50);
+		setDamage(40);
 		setEnemy("");
 	}
 	

@@ -150,6 +150,10 @@ public class Path extends Cell {
 			return null;
 		}else{
 //TODO nem random valasztas
+			for(Path p :nextPaths)
+				if(p!=null){
+					return p;
+				}
 			return nextPaths.get(0);
 		}
 		
