@@ -5,7 +5,7 @@ make dwarf 2-1
 update 1
 route Elf0 1
 route Human0 0
-route Dwarf0 3
+route Dwarf0 2
 update 1
 drawMap
 exit
