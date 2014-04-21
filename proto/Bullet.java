@@ -5,7 +5,7 @@ public class Bullet {
 	/**
 	 * Megadja, hogy mennyivel kell csokkenteni sebzeskor az Enemy health valtozojat.
 	**/
-	private int damage;
+	private int damage = 40;
 	
 	/**
 	 * Megadja annak az ellensegnek a tipusat, amire nagyobb a sebzes, fejlesztettek a bulletet. 
@@ -95,6 +95,6 @@ public class Bullet {
 	}
 	
 	public void setDamage(int dmg) {
-		damage = dmg;
+		damage += dmg;
 	}
 }
