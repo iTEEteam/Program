@@ -1,5 +1,8 @@
 /.project
 /.classpath
-
+/.gitignore
+/t
+skeleton*
 /bin
 /
+/skeleton.zip

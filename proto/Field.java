@@ -13,7 +13,9 @@ public class Field extends Cell {
 	 * Konstruktor
 	**/
 	public Field(IGame game) {
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
+		ProtoTester.isPrinting = true;
 		igame = game;
 	}
 	
