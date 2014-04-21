@@ -52,7 +52,7 @@ public class ProtoTester {
         }
 
         objectCatalog.put(type + (maxNumber + 1), obj);
-        System.out.println(type + (maxNumber));
+        ProtoTester.safePrint(type.substring(6) + (maxNumber)+ " created");
     }
     
     public static String getKeyByValue(Object o) {
@@ -80,16 +80,16 @@ public class ProtoTester {
         
         try {
         	
-	        System.out.println("Tesztelesnek betolti a testmap1-et, 2-2-re tornyot, 1-1-re hobbitot");
-	        game.initialize("testmap1.txt");
-	        // torony
-            Cell temp1 = game.getMap().getCell(2, 2);
-            controller.setField((Field) temp1);
-            controller.buyTower();
-            
-            //hobbit
-            temp1 = game.getMap().getCell(1, 1);
-        	game.addEnemyIn("hobbit", (Path)temp1);
+//	        System.out.println("Tesztelesnek betolti a testmap1-et, 2-2-re tornyot, 1-1-re hobbitot");
+//	        game.initialize("testmap1.txt");
+//	        // torony
+//            Cell temp1 = game.getMap().getCell(2, 2);
+//            controller.setField((Field) temp1);
+//            controller.buyTower();
+//            
+//            //hobbit
+//            temp1 = game.getMap().getCell(1, 1);
+//        	game.addEnemyIn("hobbit", (Path)temp1);
 
 	        
             while (!(str = reader.readLine()).equals("exit")) {
@@ -110,7 +110,6 @@ public class ProtoTester {
                 	if(words.length > 1)
                 		count = Integer.parseInt(words[1]);
                 	for (int i = 0; i < count; ++i) {
-                        System.out.println("update");
                         game.update();
                     }
                 } else if (words[0].equals("drawMap")) {

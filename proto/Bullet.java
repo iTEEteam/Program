@@ -5,7 +5,7 @@ public class Bullet {
 	/**
 	 * Megadja, hogy mennyivel kell csokkenteni sebzeskor az Enemy health valtozojat.
 	**/
-	private int damage = 40;
+	private int damage = 20;
 	
 	/**
 	 * Megadja annak az ellensegnek a tipusat, amire nagyobb a sebzes, fejlesztettek a bulletet. 
@@ -19,7 +19,10 @@ public class Bullet {
 	 * @param    et
 	**/
 	public Bullet(int dmg, String et) {
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
+		ProtoTester.isPrinting = true;
+
 		setDamage(dmg);
 		setEnemy(et);
 	}
@@ -27,8 +30,10 @@ public class Bullet {
 	 * default constructor
 	 */
 	public Bullet(){
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
-		setDamage(40);
+		ProtoTester.isPrinting = true;
+
 		setEnemy("");
 	}
 	
