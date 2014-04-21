@@ -1,6 +1,7 @@
 package proto;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 //
 //
@@ -148,10 +149,15 @@ public class Path extends Cell {
 	**/
 	public Path getNext() {
 		if(igame.getRandom()==true){
-//TODO random valasztas
+			Random rand = new Random();
+			Path randomPath = null;
+			do{
+				randomPath = nextPaths.get(rand.nextInt(nextPaths.size()));
+			}while(randomPath==null);
+			
+			
 			return null;
 		}else{
-//TODO nem random valasztas
 			for(Path p :nextPaths)
 				if(p!=null){
 					return p;

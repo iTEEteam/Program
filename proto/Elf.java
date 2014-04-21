@@ -17,7 +17,6 @@ public class Elf extends Enemy {
 	 * Konstruktor.
 	 * 
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
-	 * @param 	p A letrehozas helye. Felesleges, mert ugysem uton hozzuk letre.
 	**/
 	public Elf(IGame game) {
 		super(game);
