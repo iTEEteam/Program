@@ -7,7 +7,9 @@ public class Controller {
 	private String choosenEnemy;
 
 	public Controller(IGame game){
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
+		ProtoTester.isPrinting = true;
 		igame = game;
 	}
 	
@@ -28,8 +30,6 @@ public class Controller {
 	
 	// ha kivalaszt a jatekos egy ellenseget akkor a kivalasztott utat/mezot el kell felejtenie
 	public void setEnemy(String e){
-		choosenPath = null;
-		choosenField = null;
 		choosenEnemy = e;
 	}
 	

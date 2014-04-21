@@ -50,9 +50,10 @@ public class ProtoTester {
         } catch (NoSuchElementException e) {
             maxNumber = 0;
         }
-
-        objectCatalog.put(type + (maxNumber + 1), obj);
-        ProtoTester.safePrint(type.substring(6) + (maxNumber)+ " created");
+        if(type.startsWith("proto."))
+        	type = type.substring(6);
+        objectCatalog.put(type + (++maxNumber), obj);
+        ProtoTester.safePrint(type + (maxNumber)+ " created");
     }
     
     public static String getKeyByValue(Object o) {
@@ -68,8 +69,6 @@ public class ProtoTester {
 
     public static void safePrint(String str) {
         if (isPrinting) {
-        	if(str.contains("proto."))
-        		str = str.substring(6);
         	System.out.println(str);
         }
     }

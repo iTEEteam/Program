@@ -40,8 +40,10 @@ public class Game implements IGame {
 	 * Konstruktor
 	**/
 	public Game() {		
+		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
-
+		ProtoTester.isPrinting = true;
+		
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
 		towers = new ArrayList<Tower>();
@@ -105,9 +107,9 @@ public class Game implements IGame {
 		
 	}
 	/**
-	 * Enemy-ket keszit. Random modon választunk tipust. A metodus ellenseghullamot general,
+	 * Enemy-ket keszit. Random modon vï¿½lasztunk tipust. A metodus ellenseghullamot general,
 	 * vagyis csak idonkent hivjuk, ha elfogytak az ellensegek. Minden ujabb hivaskor egyre
-	 * többet general, amig vege nincs a jateknak, vagy elertuk az adott szamu ellenseghullamot.
+	 * tï¿½bbet general, amig vege nincs a jateknak, vagy elertuk az adott szamu ellenseghullamot.
 	 */
 	public void makeEnemies() {
 		Random generator=new Random();
