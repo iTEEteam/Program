@@ -81,7 +81,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-		
+		System.out.println("Range:::" +range);
 		Enemy target = chooseEnemy();
 		if(target==null){
 			return;
