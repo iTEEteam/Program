@@ -186,8 +186,10 @@ public class Controller {
 				IOGem intensityGem = new IntensityGem();
 				
 				IObstacle iObstacle = choosenPath.getIObstacle();
-				
-				iObstacle.addIOGem(intensityGem);
+				if(iObstacle == null) 
+					ProtoTester.safePrint("No obstacle on road");
+				else
+					iObstacle.addIOGem(intensityGem);
 
 			}
 		}

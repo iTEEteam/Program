@@ -68,6 +68,8 @@ public class ProtoTester {
 
     public static void safePrint(String str) {
         if (isPrinting) {
+        	if(str.contains("proto."))
+        		str = str.substring(6);
         	System.out.println(str);
         }
     }
