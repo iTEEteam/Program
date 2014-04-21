@@ -212,4 +212,8 @@ public class Path extends Cell {
 //	public void addNext(Path p){
 //		nextPaths.add(p);
 //	}
+	
+	public ArrayList<Path> getNextPaths() {
+		return nextPaths;
+	}
 }
