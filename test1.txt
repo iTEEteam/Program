@@ -1,6 +1,6 @@
 loadmap testmap1.txt
 buy tower 2-1
-buy tower 2-5
+buy tower 2-4
 buy gem 2-1 speed
 buy gem 2-1 range
 buy gem 2-1 damage

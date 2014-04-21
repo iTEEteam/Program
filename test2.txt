@@ -2,5 +2,5 @@ loadmap testmap2.txt
 buy obstacle 1-1
 buy gem 1-1 intensity
 make hobbit 1-0
-update 4
+update 14
 exit

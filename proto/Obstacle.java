@@ -14,7 +14,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
      * A lassitas merteke.
 	*
      */
-    private int slowIntens;
+    private int slowIntens = 0;
 
     /**
      * Az amortizacio merteke.
@@ -43,7 +43,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
     public Obstacle() {
         ProtoTester.addToObjectCatalog(this);
         gems = new ArrayList<IOGem>();
-        amort = 100;
+        amort = 30;
     }
 
     public void slow(Enemy e) {
@@ -75,7 +75,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
     }
 
     public void repair() {
-        amort = 0;
+        amort = 30;
     }
 
     public void registerPath(Path p) {
