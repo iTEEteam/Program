@@ -1,6 +1,7 @@
 loadmap testmap3.txt
 make human 1-0
-buy tower 2-3
+buy tower 2-4
+buy gem 2-4 range
 update 1
 haze on
 cut on
