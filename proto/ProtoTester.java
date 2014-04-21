@@ -201,9 +201,10 @@ public class ProtoTester {
                         
                 } else if (words[0].equals("route")) {
                     Enemy e = (Enemy)objectCatalog.get(words[1]);
-                    Path p = e.myPath;
+ //                   Path p = e.myPath;
                     int direction = Integer.parseInt(words[2]);
-                    p.determineNext(direction);
+                    
+                    e.setForcedNextPath(direction);
                     
                 } else if (words[0].equals("cut")) {
                     if (words[1].equals("on")) {
