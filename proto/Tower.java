@@ -81,7 +81,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-		System.out.println("Range:::" +range);
 		Enemy target = chooseEnemy();
 		if(target==null){
 			return;
@@ -182,11 +181,11 @@ public class Tower implements ITower, IFieldPlaceable {
 	/* kod leereszkedesekor a hatosugar a felere csokken */
 	public void haze() {
 		range -= 2;
-		upgradeRange(range);
+		setPaths();
 	}
 	/* a kod kitisztulasakor a hatosugar visszaallitodik az eredeti allapotara */
 	public void clearUp() {
 		range += 2;
-		upgradeRange(range);	
+		setPaths();	
 	}
 }
