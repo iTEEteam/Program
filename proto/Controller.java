@@ -175,7 +175,7 @@ public class Controller {
 	
 	public void buyIntensityGem(){
 		int value;
-				
+		
 		// ez tuti kell
 		if(choosenPath != null && choosenPath.hasObstacle()){
 			value = IntensityGem.price;

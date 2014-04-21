@@ -85,7 +85,7 @@ public class Tower implements ITower, IFieldPlaceable {
 		if(target==null){
 			return;
 		}
-
+		ProtoTester.safePrint(ProtoTester.getKeyByValue(this)+ " shoots "+ ProtoTester.getKeyByValue(target));
 		target.hurt(bullet);
 	}
 	
