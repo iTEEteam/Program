@@ -48,6 +48,7 @@ public class Tower implements ITower, IFieldPlaceable {
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();
 		bullet = new Bullet();
+
 	}
 	
 	public void upgradeSpeed(int sp) {
@@ -109,6 +110,9 @@ public class Tower implements ITower, IFieldPlaceable {
 		int sideLength = 2*range+1;
 		// hanyadik oszlopnal tartunk
 		int columnCount = 0;
+		
+		// legeloszor a path tombot ki kell uriteni
+		paths = new ArrayList<Path>();
 		
 		// jobb felso sarok megkeresese
 		top = myField; 
@@ -177,10 +181,12 @@ public class Tower implements ITower, IFieldPlaceable {
 
 	/* kod leereszkedesekor a hatosugar a felere csokken */
 	public void haze() {
-		upgradeRange(range/2);
+		range -= 2;
+		upgradeRange(range);
 	}
 	/* a kod kitisztulasakor a hatosugar visszaallitodik az eredeti allapotara */
 	public void clearUp() {
-		upgradeRange(range*2);	
+		range += 2;
+		upgradeRange(range);	
 	}
 }

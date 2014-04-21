@@ -66,6 +66,14 @@ public class Game implements IGame {
 	public void update() {
 		ProtoTester.safePrint("update");
 		
+		if(bHaze && hazeTime<=0) {
+			for(int i=0; i<towers.size(); i++) {
+				hazeTime=20;
+				towers.get(i).haze();
+			}
+			bHaze = false; 
+		}
+		
 		if(hazeTime==0) {
 			for(int i=0; i<towers.size(); i++) {
 				towers.get(i).clearUp();
@@ -96,15 +104,7 @@ public class Game implements IGame {
 		
 		for(int i=0; i<towers.size(); i++) {
 			towers.get(i).shoot();
-		}
-		
-		if(bHaze && hazeTime<=0) {
-			for(int i=0; i<towers.size(); i++) {
-				hazeTime=20;
-				towers.get(i).haze();
-			}
-		}
-		
+		}		
 	}
 	/**
 	 * Enemy-ket keszit. Random modon v�lasztunk tipust. A metodus ellenseghullamot general,
