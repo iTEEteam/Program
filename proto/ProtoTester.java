@@ -128,35 +128,49 @@ public class ProtoTester {
                     String[] koords = words[2].split("-");
                     Cell temp = game.getMap().getCell(Integer.parseInt(koords[0]), Integer.parseInt(koords[1]));
                     if (words[1].equals("tower")) {
-                        controller.setField((Field) temp);
-                        controller.buyTower();
+                    	if(!temp.isPath()){
+		                        controller.setField((Field) temp);
+		                        controller.buyTower();
+                    	} else
+                    		System.out.println("Thats not a Field");
                     } else if (words[1].equals("obstacle")) {
-                        controller.setPath((Path) temp);
-                        controller.buyObstacle();
+                    	if(temp.isPath()){
+	                        controller.setPath((Path) temp);
+	                        controller.buyObstacle();
+                    	} else
+                    		System.out.println("Thats not a Path");
                         // ha kristalyt venne
                     } else if (words[1].equals("gem")) {
-                        // ha speed/damage/range, akkor Field-re (torony) akarja rakni
-                        if (words[3].equals("speed")) {
-                            controller.setField((Field) temp);
-                            controller.buySpeedGem();
-                        } else if (words[3].equals("damage")) {
-                            controller.setField((Field) temp);
-                            controller.buyDamageGem();
-                        } else if (words[3].equals("range")) {
-                            controller.setField((Field) temp);
-                            controller.buyRangeGem();
-                            // ha ellenseg tipusut, akkor a 4. parametert beallitja a kontrollernek
-                        } else if (words[3].equals("enemy")) {
-                            controller.setField((Field) temp);
-                            controller.setEnemy(words[4]);
-                            controller.buyEnemyTypeGem();
+                    	// azt vizsgalja jo helyre akarja e rakni
+                    	if(words[3].equals("speed") || words[3].equals("damage") || words[3].equals("range") || words[3].equals("enemy")){
+                    		if(temp.isPath()){ 
+                    			System.out.println("Thats not a Field");
+                    		} else if (words[3].equals("speed")) {
+	                            controller.setField((Field) temp);
+	                            controller.buySpeedGem();
+	                        } else if (words[3].equals("damage")) {
+	                            controller.setField((Field) temp);
+	                            controller.buyDamageGem();
+	                        } else if (words[3].equals("range")) {
+	                            controller.setField((Field) temp);
+	                            controller.buyRangeGem();
+	                            // ha ellenseg tipusut, akkor a 4. parametert beallitja a kontrollernek
+	                        }else if (words[3].equals("enemy")) {
+	                            controller.setField((Field) temp);
+	                            controller.setEnemy(words[4]);
+	                            controller.buyEnemyTypeGem();
+	                        } 
                             // ha akadalyra, akkor Path-ra rakja
                         } else if (words[3].equals("intensity")) {
-                            controller.setPath((Path) temp);
-                            controller.buyIntensityGem();
+                        	if(temp.isPath()){
+	                            controller.setPath((Path) temp);
+	                            controller.buyIntensityGem();
+                        	} else System.out.println("Thats not a Path");
                         } else if (words[3].equals("repair")) {
-                            controller.setPath((Path) temp);
-                            controller.buyRepairGem();
+                        	if(temp.isPath()){
+	                            controller.setPath((Path) temp);
+	                            controller.buyRepairGem();
+                        	} else System.out.println("Thats not a Path");
                         }
                     }
                 } else if (words[0].equals("sell")) {
