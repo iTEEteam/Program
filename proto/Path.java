@@ -31,8 +31,6 @@ public class Path extends Cell {
 	**/
 	private ArrayList<Enemy> enemies;
 	
-	private IGame igame;
-
 //	private Path forcedNextPath;
 	
 	// ez is WTF?
@@ -43,11 +41,11 @@ public class Path extends Cell {
 	/**
 	 * Konstruktor
 	**/
-	public Path(IGame game) {
+	public Path(IGame igame) {
+		super(igame);
 		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
 		ProtoTester.isPrinting = true;
-		igame = game;
 		
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();

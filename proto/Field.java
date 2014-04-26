@@ -6,17 +6,15 @@ public class Field extends Cell {
 	 * A mezon levo, torony interfesze valtozo referenciaja.
 	**/
 	private ITower itower;
-	
-	private IGame igame;
-		
+			
 	/**
 	 * Konstruktor
 	**/
-	public Field(IGame game) {
+	public Field(IGame igame) {
+		super(igame);
 		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
 		ProtoTester.isPrinting = true;
-		igame = game;
 	}
 	
 	/**

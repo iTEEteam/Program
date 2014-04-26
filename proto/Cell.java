@@ -14,22 +14,27 @@ public abstract class Cell {
 		 */
 	protected ArrayList<Cell> neighbours;
 	
-
+	protected IGame igame;
+	
 public ArrayList<Cell> getNeighbours() {
 		return neighbours;
 	}
 
 
-	//	/**
-//	 * Konstruktor.
-//	 *
-//	 * @param    cells
-//	**/
-//	
-//	public void Cell(ArrayList<Cell> cells) {
-//	
-//	}
-//	
+		/**
+	 * Konstruktor.
+	 *
+	 * @param    cells
+	*/
+	
+//
+//public Cell(ArrayList<Cell> cells) {
+//}
+ 
+	public Cell(IGame _igame) {
+		igame = _igame;
+	}
+	 
 	public void setNeighbours(ArrayList<Cell> neighbours_){
 		
 		neighbours = neighbours_;
