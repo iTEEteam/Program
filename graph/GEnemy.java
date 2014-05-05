@@ -25,5 +25,5 @@ public abstract class GEnemy {
 	 * Ez a metodus gondoskodik arrol, hogy a megfelelo tipusú Enemy kirajzolasa tortenjen
 	 * meg a Path-on.
 	 */
-	public abstract void drawMe();
+	public abstract void drawMe(GPath gp);
 }

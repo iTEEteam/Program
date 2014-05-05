@@ -28,3 +28,13 @@
 /RepairGem.class
 /SpeedGem.class
 /Tower.class
+/Graphic.class
+/IView.class
+/GEnemy.class
+/GDwarf.class
+/GHuman.class
+/GElf.class
+/GHobbit.class
+/GPath.class
+/GGame.class
+
