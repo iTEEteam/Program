@@ -5,12 +5,14 @@ public class Controller {
 	private Field choosenField;
 	private Path choosenPath;
 	private String choosenEnemy;
+	private IView iview;
 
 	public Controller(IGame game){
 		ProtoTester.isPrinting = false;
 		ProtoTester.addToObjectCatalog(this);
 		ProtoTester.isPrinting = true;
 		igame = game;
+		iview = null;
 	}
 	
 	// ha kivalaszt a jatekos egy mezot akkor a kivalasztott utat/ellenseget el kell felejtenie
@@ -213,4 +215,24 @@ public class Controller {
 			}
 		}
 	}
+	
+	/**
+	 * Az ertesiteseket fogado objektumot allitja be. 
+	 * 
+	 * @param iview A grafikus jellegu esemenyek eseten ertesitendo objektum.
+	 */
+	public void setIView(IView iview) {
+		this.iview = iview;
+	}
+	
+	/**
+	 * Az ertesiteseket fogado objektumot adja vissza. 
+	 * 
+	 * @return A grafikus jellegu esemenyek eseten ertesitendo objektum.
+	 */
+	public IView getIView() {
+		return iview;
+	}
+	
+	
 }

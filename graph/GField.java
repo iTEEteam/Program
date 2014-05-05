@@ -1,19 +1,18 @@
 package graph;
 
 /**
- * A GGame felel a Game osztaly megjeleniteseert. Elsosorban a felso savert, vagyis a Game azon attributumainak
- * megjeleneseert, amiket a jatekosnak celszeru latnia: mana, bejutott ellensegek szama, palya
- * szintje stb.
+ * A GField felel a Field osztaly megjeleniteseert, kirajzolasaert. Minden Field-hez tartozik egy, es mindegyikhez
+ * egy Field tartozik.
  * 
  * @author Seres
  *
  */
-public class GGame extends Graphic implements IView {
+public class GField extends Graphic implements IView {
 
 	/**
 	 * Az Eclipse ragaszkodott hozza. :(
 	 */
-	private static final long serialVersionUID = 4315392664606420956L;
+	private static final long serialVersionUID = 8151525822402323058L;
 
 	@Override
 	public void gNotify() {

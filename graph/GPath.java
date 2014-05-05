@@ -10,7 +10,7 @@ package graph;
 public class GPath extends Graphic implements IView {
 
 	/**
-	 * Az Eclipse ragaszkodott hozzá. :(
+	 * Az Eclipse ragaszkodott hozza. :(
 	 */
 	private static final long serialVersionUID = 6584228015160996554L;
 

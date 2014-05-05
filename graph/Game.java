@@ -36,6 +36,8 @@ public class Game implements IGame {
 	
 	private int hazeTime;
 	
+	private IView iview;
+	
 	/**
 	 * Konstruktor
 	**/
@@ -51,6 +53,8 @@ public class Game implements IGame {
 		map = new Map(this);
 		noEnemies=10;
 		hazeTime=-1;
+		
+		iview = null;
 	}
 	
 	/**
@@ -237,5 +241,23 @@ public class Game implements IGame {
 	@Override
 	public void addEnemyIn(Enemy e) {
 		enemiesIn.add(e);		
+	}
+	
+	/**
+	 * Az ertesiteseket fogado objektumot allitja be. 
+	 * 
+	 * @param iview A grafikus jellegu esemenyek eseten ertesitendo objektum.
+	 */
+	public void setIView(IView iview) {
+		this.iview = iview;
+	}
+	
+	/**
+	 * Az ertesiteseket fogado objektumot adja vissza. 
+	 * 
+	 * @return A grafikus jellegu esemenyek eseten ertesitendo objektum.
+	 */
+	public IView getIView() {
+		return iview;
 	}
 }
