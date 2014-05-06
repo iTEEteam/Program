@@ -75,11 +75,13 @@ public class Map {
 			ArrayList<String> cells = new ArrayList<String>(Arrays.asList(cells_));
 			for (int j = 0;j<cells.size();++j){
 				if (cells.get(j).equals("x")){
-//TODO igame-t ker a field
-					grid.get(i).add(new Field(igame));
+					Field tmpField = new Field(igame);
+					tmpField.setIView(new GField(tmpField));
+					grid.get(i).add(tmpField);
 				}else{
-//TODO igame-t ker a path
-					grid.get(i).add(new Path(igame));
+					Path tmpPath = new Path(igame);
+					tmpPath.setIView(new GPath(tmpPath));
+					grid.get(i).add(tmpPath);
 				}
 			}
 		}

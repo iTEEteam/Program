@@ -76,7 +76,7 @@ public class ProtoTester {
         }
     }
 
-    public static void main(String[] args) {
+    public static void notReallyMain(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
         Game game = new Game();
