@@ -1,8 +1,17 @@
 package graph;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.imageio.ImageIO;
 
 /**
  * A GPath felel a Path osztaly megjeleniteseert, kirajzolasaert. Minden Path-hoz tartozik egy, es mindegyikhez
@@ -29,6 +38,17 @@ public class GPath extends GCell {
 	 */
 	ArrayList<GEnemy> genemies;
 	
+	private static final File fElf = new File("gameImages/elf.png");
+	private static final File fHuman = new File("gameImages/human.png");
+	private static final File fDwarf = new File("gameImages/dwarf.png");
+	private static final File fHobbit = new File("gameImages/hobbit.png");
+	
+	private static final File fPath = new File("gameImages/path.jpg");
+	
+	private int enemyCounter;
+	
+	private BufferedImage image;
+	
 	/**
 	 * Konstruktor.
 	 * 
@@ -39,6 +59,12 @@ public class GPath extends GCell {
 		this.path = path;
 		
 		genemies = new ArrayList<>();
+		
+		image = new BufferedImage(cellSize.width, cellSize.height, BufferedImage.TYPE_INT_ARGB);
+		
+		genemies.add(new GHobbit(null));
+		genemies.add(new GHuman(null));
+		genemies.add(new GHuman(null));
 	}
 	
 	/**
@@ -51,42 +77,101 @@ public class GPath extends GCell {
 	}
 	
 	/**
+	 * Az ut kirajzolasat vegzo fuggveny.
+	 */
+	@Override
+	protected void draw() {
+		enemyCounter = 0;
+		
+		Graphics2D g = image.createGraphics();
+		
+		Image bgImg = null;
+		try {
+			bgImg = ImageIO.read(fPath);
+		} catch(IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
+		
+		if(highlighted) {
+			g.setColor(Color.RED);
+			g.fillRect(0, 0, getWidth(), getHeight());
+			
+			int clipping = (int) ((5d / getWidth()) * bgImg.getHeight(null));
+			g.drawImage(bgImg, 5, 5, getWidth() - 5, getHeight() - 5, clipping, clipping, bgImg.getWidth(null) - clipping, 
+					bgImg.getHeight(null) - clipping, null);
+		} else {
+			g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), null);
+		}
+		
+		for(GEnemy ge : genemies) {
+			ge.drawMe(this);
+		}
+		
+		
+		super.draw();
+	}
+	
+	/**
+	 * Egy parameterkent kapott ellenseg kepet rahelyezi az utra.
+	 * @param img Az ellenseg kepe.
+	 */
+	private void drawPicture(Image img) {
+		int sideLength = (int) Math.ceil(Math.sqrt(genemies.size()));
+
+		image.createGraphics().drawImage(img, 10 + ((enemyCounter % sideLength) * ((cellSize.width - 20) / sideLength)), 10 + ((enemyCounter / sideLength) * ((cellSize.width - 20) / sideLength)), 
+				(cellSize.width - 20) / sideLength, (cellSize.height - 20) / sideLength, null);
+		
+		enemyCounter++;
+	}
+	
+	/**
 	 * A Humanhoz tartozo rajzolofuggveny.
+	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGHuman() {
-		// TODO Auto-generated method stub
+		try {
+			drawPicture(ImageIO.read(fHuman));
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
 	}
 	
 	/**
 	 * A Dwarfhoz tartozo rajzolofuggveny.
+	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGDwarf() {
-		// TODO Auto-generated method stub
+		try {
+			drawPicture(ImageIO.read(fDwarf));
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
 	}
 	
 	/**
 	 * Az Elfhez tartozo rajzolofuggveny.
+	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGElf() {
-		// TODO Auto-generated method stub
+		try {
+			drawPicture(ImageIO.read(fElf));
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
 	}
 	
 	/**
 	 * A Hobbithoz tartozo rajzolofuggveny.
+	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGHobbit() {
-		// TODO Auto-generated method stub
+		try {
+			drawPicture(ImageIO.read(fHobbit));
+		} catch (IOException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
 	}
-	
-	/**
-	 * A GPath-t ertesiti a grafikus jellegu valtozasokrol.
-	 */
-	@Override
-	public void gNotify() {
-		// TODO Auto-generated method stub
 		
-	}
-	
 	/**
 	 * A Path-re lepo ellenseghez tartozo GEnemy-t tarolja el.
 	 * 
@@ -94,8 +179,7 @@ public class GPath extends GCell {
 	 */
 	@Override
 	public void addGEnemy(GEnemy ge) {
-		// TODO Auto-generated method stub
-		
+		genemies.add(ge);
 	}
 	
 	/**
@@ -106,8 +190,15 @@ public class GPath extends GCell {
 	 */
 	@Override
 	public GEnemy getGEnemy(Enemy e) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		GEnemy genemy = null;
+		
+		for(GEnemy ge : genemies) {
+			if(ge.getEnemy().equals(e)) {
+				genemy = ge;
+			}
+		}
+		return genemy;
 	}
 	
 	/**
@@ -117,35 +208,16 @@ public class GPath extends GCell {
 	 */
 	@Override
 	public void deleteGEnemy(Enemy e) {
-		// TODO Auto-generated method stub
 		
-	}
-	
-	/**
-	 * Az Path kirajzolasat vegzo fuggveny.
-	 */
-	@Override
-	protected void draw() {
-		// TODO Auto-generated method stub
+		Iterator<GEnemy> iter = genemies.iterator();
 		
-	}
-	
-	/**
-	 * Az ut kijeloleset vegzo fuggveny.
-	 */
-	@Override
-	public void highlight() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/**
-	 * A highlight inverze.
-	 */
-	@Override
-	public void deHighlight() {
-		// TODO Auto-generated method stub
-		
+		while(iter.hasNext()) {
+			GEnemy genemy = iter.next();
+			
+			if(genemy.getEnemy().equals(e)) {
+				iter.remove();
+			}
+		}
 	}
 	
 	/**
@@ -153,16 +225,7 @@ public class GPath extends GCell {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		if(highlighted) {
-			g.setColor(Color.RED);
-			g.fillRect(0, 0, getWidth(), getHeight());
-			
-			g.setColor(Color.GRAY);
-			g.fillRect(5, 5, getWidth() - 5, getHeight() - 5);
-		} else {
-			g.setColor(Color.GRAY);
-			g.fillRect(0, 0, getWidth(), getHeight());
-		}
+		g.drawImage(image, 0, 0, null);
 	}
 	
 	/**

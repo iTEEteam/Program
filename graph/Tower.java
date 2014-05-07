@@ -188,4 +188,8 @@ public class Tower implements ITower, IFieldPlaceable {
 		range += 2;
 		setPaths();	
 	}
+	
+	public String getEnemyType() {
+		return bullet.getEnemyType();
+	}
 }

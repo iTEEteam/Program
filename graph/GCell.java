@@ -23,7 +23,39 @@ public abstract class GCell extends Graphic implements IView {
 	 */
 	public GCell() {
 		this.setPreferredSize(cellSize);
-		this.setMinimumSize(cellSize);
+		this.setSize(cellSize);
+	}
+	
+	/**
+	 * Az cella kijeloleset vegzo fuggveny.
+	 */
+	@Override
+	public void highlight() {
+		highlighted = true;
+	}
+
+	/**
+	 * A highlight inverze.
+	 */
+	@Override
+	public void deHighlight() {
+		highlighted = false;
+	}
+	
+	/**
+	 * Ertesiti a cellat a valtozasrol.
+	 */
+	@Override
+	public void gNotify() {
+		this.draw();
+	}
+	
+	/**
+	 * Az GCell kirajzolasat vegzo fuggveny.
+	 */
+	@Override
+	protected void draw() {
+		this.repaint();
 	}
 	
 	/**

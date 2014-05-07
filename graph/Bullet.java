@@ -114,4 +114,8 @@ public class Bullet {
 	public void setDamage(int dmg) {
 		damage += dmg;
 	}
+	
+	public String getEnemyType() {
+		return enemyType;
+	}
 }

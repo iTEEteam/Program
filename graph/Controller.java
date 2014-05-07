@@ -18,16 +18,13 @@ public class Controller {
 	// ha kivalaszt a jatekos egy mezot akkor a kivalasztott utat/ellenseget el kell felejtenie
 	public void setField(Field field){
 		choosenPath = null;
-		choosenEnemy = null;
 		choosenField = field;
 	}
 	
 	// ha kivalaszt a jatekos egy utat akkor a kivalasztott mezot/ellenseget el kell felejtenie
 	public void setPath(Path path){
-		choosenEnemy = null;
 		choosenField = null;
 		choosenPath = path;
-
 	}
 	
 	// ha kivalaszt a jatekos egy ellenseget akkor a kivalasztott utat/mezot el kell felejtenie
@@ -76,13 +73,16 @@ public class Controller {
 		
 		if(choosenPath == null){
 			ProtoTester.safePrint("No choosen path");
+			return;
 		}
 		
 		if(choosenPath.hasObstacle()){
+			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
 		if(choosenPath.hasEnemy()){
+			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
@@ -93,6 +93,8 @@ public class Controller {
 			
 			choosenPath.registerIPathPlaceable(new Obstacle());
 
+		} else {
+			ProtoTester.safePrint("Not enough mana.");
 		}
 		
 		
@@ -117,6 +119,8 @@ public class Controller {
 				
 				itower.addITGem(speedGem);
 
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -136,6 +140,8 @@ public class Controller {
 				
 				itower.addITGem(rangeGem);
 
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -153,6 +159,8 @@ public class Controller {
 				ITower itower = choosenField.getITower();
 				
 				itower.addITGem(damageGem);
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 
@@ -171,6 +179,8 @@ public class Controller {
 						
 				
 				itower.addITGem(new EnemyTypeGem(choosenEnemy));
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -193,6 +203,8 @@ public class Controller {
 				else
 					iObstacle.addIOGem(intensityGem);
 
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -212,6 +224,8 @@ public class Controller {
 				
 				iObstacle.addIOGem(repairGem);
 
+			} else {
+				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}

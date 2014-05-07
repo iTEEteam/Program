@@ -8,7 +8,9 @@ import java.awt.Insets;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 /**
@@ -26,7 +28,7 @@ public class Application extends JFrame {
 
 	private Game game;
 	
-	private GGame ggame;
+	private Controller controller;
 	
 	ArrayList<ArrayList<GCell>> cellGrid;
 	
@@ -35,10 +37,10 @@ public class Application extends JFrame {
 	 */
 	public Application(){
 		//JFrame beallitasa
-		this.setLayout(new GridBagLayout());
+		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setResizable(false);
+		//this.setResizable(false);
 		
 		GridBagConstraints tmpConstraints;
 		
@@ -52,12 +54,16 @@ public class Application extends JFrame {
 			System.exit(-1);
 		}
 		
-		ggame = new GGame(game);
-		game.setIView(ggame);
+		game.setIView(new GGame(game));
 		
-		ArrayList<ArrayList<Cell>> tmpGrid = game.getMap().getGrid();
+		//Controller létrehozása
+		controller = new Controller(game);
+		controller.setIView(new GController(controller, this));
+		
 		
 		//cellGrid felepitese
+		ArrayList<ArrayList<Cell>> tmpGrid = game.getMap().getGrid();
+		
 		cellGrid = new ArrayList<ArrayList<GCell>>();
 		
 		for(int i = 0; i < tmpGrid.size(); i++) {
@@ -65,33 +71,50 @@ public class Application extends JFrame {
 			ArrayList<GCell> gRow = new ArrayList<GCell>();
 			
 			for(int j = 0; j < tmpGrid.get(0).size(); j++) {
-				gRow.add( (GCell) tmpGrid.get(i).get(j).getIView() );
+				
+				GCell tmpGcell = (GCell) tmpGrid.get(i).get(j).getIView();
+				tmpGcell.addMouseListener((GController)controller.getIView());
+				
+				gRow.add(tmpGcell);
 			}
 			
 			cellGrid.add(gRow);
 		}
 		
-		tmpConstraints = new GridBagConstraints(0, 0, cellGrid.size() + 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
-				new Insets(0, 0, 0, 0), 0, 0);
 		
-		this.add(ggame, tmpConstraints);
+		//GGame elhelyezese
+		//tmpConstraints = new GridBagConstraints(0, 0, cellGrid.get(0).size() + 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
+				//new Insets(0, 0, 0, 0), 0, 0);
 		
+		this.add((GGame)game.getIView());
+		
+		((GGame)game.getIView()).setPreferredSize(new Dimension(cellGrid.get(0).size() * GCell.cellSize.width, 50));
+		
+		
+		//Cellak elhelyezese
+		JPanel gamePanel = new JPanel(new GridBagLayout());
 		for(int i = 0; i < cellGrid.size(); i++) {
 			
 			for(int j = 0; j < cellGrid.get(0).size(); j++) {
 				
-				tmpConstraints = new GridBagConstraints(j, i + 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
+				GCell gcell = cellGrid.get(i).get(j);
+				gcell.gNotify();
+				
+				tmpConstraints = new GridBagConstraints(j, i, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
 						new Insets(0, 0, 0, 0), 0, 0);
 				
-				this.add(cellGrid.get(i).get(j), tmpConstraints);
+				gamePanel.add(gcell, tmpConstraints);
 			}
 		}
+		this.add(gamePanel);
 		
-		this.setSize(getMapSize());
-	}
-	
-	private Dimension getMapSize() {
-		return new Dimension(cellGrid.get(0).size() * GCell.cellSize.width, cellGrid.size() * GCell.cellSize.height);
+		
+		//GController elhelyezese
+		//tmpConstraints = new GridBagConstraints(0, cellGrid.size() + 1, cellGrid.get(0).size(), 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
+				//new Insets(0, 0, 0, 0), 0, 0);
+		this.add((GController)controller.getIView());
+		
+		this.pack();
 	}
 	
 	/**
@@ -109,5 +132,14 @@ public class Application extends JFrame {
 	public static void main(String[] args) {
 		(new Application()).setVisible(true);
 	}
-
+	
+	
+	public void highlight(GCell gcell) {
+		for(ArrayList<GCell> gRow : cellGrid) {
+			for(GCell cell : gRow) {
+				cell.deHighlight();
+			}
+		}
+		gcell.highlight();
+	}
 }

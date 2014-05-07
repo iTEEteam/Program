@@ -26,4 +26,8 @@ public abstract class GEnemy {
 	 * meg a Path-on.
 	 */
 	public abstract void drawMe(GPath gp);
+	
+	public Enemy getEnemy() {
+		return enemy;
+	}
 }

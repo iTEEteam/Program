@@ -14,8 +14,7 @@ public class GDwarf extends GEnemy  {
 
 	@Override
 	public void drawMe(GPath gp) {
-		// TODO Auto-generated method stub
-		
+		gp.drawGDwarf();
 	}
 
 }

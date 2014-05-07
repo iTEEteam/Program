@@ -11,4 +11,5 @@ public interface ITower {
 	public void sell();
 	public void haze();
 	public void clearUp();
+	public String getEnemyType();
 }
