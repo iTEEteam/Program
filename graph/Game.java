@@ -3,6 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import sun.java2d.loops.DrawGlyphListAA.General;
+
 
 public class Game implements IGame {
 	public static boolean bRandom = false;
@@ -119,20 +121,32 @@ public class Game implements IGame {
 		Random generator=new Random();
 		for(int j=0; j<noEnemies; j++) {
 			int i=generator.nextInt(3);
+			
+			Enemy e = null;
+			GEnemy ge = null;
+			
 			switch(i) {
 				case 0:
-					Hobbit h=new Hobbit(this);
-					enemiesOut.add(h);
+					e=new Hobbit(this);
+					ge = new GHobbit(e);
+					break;
 				case 1:
-					Elf e=new Elf(this);
-					enemiesOut.add(e);
+					e=new Elf(this);
+					ge = new GElf(e);
+					break;
 				case 2:
-					Dwarf d=new Dwarf(this);
-					enemiesOut.add(d);
+					e=new Dwarf(this);
+					ge = new GDwarf(e);
+					break;
 				case 3:
-					Human hu=new Human(this);
-					enemiesOut.add(hu);
+					e=new Human(this);
+					ge = new GHuman(e);
+					break;
 			}
+			
+			e.addGEnemy(ge);
+			enemiesOut.add(e);
+			
 		}
 		noEnemies++;
 	}
@@ -150,6 +164,7 @@ public class Game implements IGame {
 	**/
 	public void changeMana(int value) {
 		mana += value;
+		iview.gNotify();
 	}
 	
 	/**
@@ -157,6 +172,7 @@ public class Game implements IGame {
 	 */
 	public void incSucceeded() {
 		succeededE++;
+		iview.gNotify();
 	}
 	
 	/**
@@ -260,4 +276,9 @@ public class Game implements IGame {
 	public IView getIView() {
 		return iview;
 	}
+
+	public int getSucceededE() {
+		return succeededE;
+	}
+
 }

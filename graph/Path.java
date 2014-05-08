@@ -77,7 +77,9 @@ public class Path extends Cell {
 	 *
 	 * @param    e
 	**/
-	public boolean deleteEnemy(Enemy e) {	
+	public boolean deleteEnemy(Enemy e) {
+		((GPath)iview).deleteGEnemy(e);
+		iview.gNotify();
 		return enemies.remove(e);
 	
 	}
@@ -130,6 +132,8 @@ public class Path extends Cell {
 			myIObstacle.slow(e);
 		}
 		enemies.add(e);
+		((GPath)iview).addGEnemy(e.getGEnemy());
+		iview.gNotify();
 	}
 	
 	/**

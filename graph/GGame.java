@@ -1,7 +1,10 @@
 package graph;
 
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A GGame felel a Game osztaly megjeleniteseert. Elsosorban a felso savert, vagyis a Game azon attributumainak
@@ -47,8 +50,7 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	public void gNotify() {
-		// TODO Auto-generated method stub
-		
+		this.draw();
 	}
 	
 	/**
@@ -58,8 +60,7 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	public void addGEnemy(GEnemy ge) {
-		// TODO Auto-generated method stub
-		
+		genemies.add(ge);
 	}
 	
 	/**
@@ -70,8 +71,14 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	public GEnemy getGEnemy(Enemy e) {
-		// TODO Auto-generated method stub
-		return null;
+		GEnemy genemy = null;
+		
+		for(GEnemy ge : genemies) {
+			if(ge.getEnemy().equals(e)) {
+				genemy = ge;
+			}
+		}
+		return genemy;
 	}
 	
 	/**
@@ -81,8 +88,16 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	public void deleteGEnemy(Enemy e) {
-		// TODO Auto-generated method stub
 		
+		Iterator<GEnemy> iter = genemies.iterator();
+		
+		while(iter.hasNext()) {
+			GEnemy genemy = iter.next();
+			
+			if(genemy.getEnemy().equals(e)) {
+				iter.remove();
+			}
+		}
 	}
 	
 	/**
@@ -90,8 +105,7 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	protected void draw() {
-		// TODO Auto-generated method stub
-		
+		this.repaint();		
 	}
 	
 	/**
@@ -111,7 +125,15 @@ public class GGame extends Graphic implements IView {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		//TODO
+		int mana = game.getMana();
+		int enemies = game.getSucceededE();
+		
+		Font font = getFont().deriveFont(Font.PLAIN, this.getSize().height - 15);
+		g.setFont(font);
+		g.drawString("Mana: " + mana, 10, 35);
+		
+		int lineLength = g.getFontMetrics().stringWidth("Bejutott: XXX");
+		g.drawString("Bejutott: " + enemies, this.getSize().width - lineLength, 35);
 	}
 	
 

@@ -44,6 +44,7 @@ public class GPath extends GCell {
 	private static final File fHobbit = new File("gameImages/hobbit.png");
 	
 	private static final File fPath = new File("gameImages/path.jpg");
+	private static final File fObstacle = new File("gameImages/obstacle.png");
 	
 	private int enemyCounter;
 	
@@ -61,10 +62,6 @@ public class GPath extends GCell {
 		genemies = new ArrayList<>();
 		
 		image = new BufferedImage(cellSize.width, cellSize.height, BufferedImage.TYPE_INT_ARGB);
-		
-		genemies.add(new GHobbit(null));
-		genemies.add(new GHuman(null));
-		genemies.add(new GHuman(null));
 	}
 	
 	/**
@@ -101,6 +98,14 @@ public class GPath extends GCell {
 					bgImg.getHeight(null) - clipping, null);
 		} else {
 			g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), null);
+		}
+		
+		if(path.hasObstacle()) {
+			try {
+				g.drawImage(ImageIO.read(fObstacle), 20, 20, this.getSize().width - 40, this.getSize().height - 40, null);
+			} catch (IOException e) {
+				System.err.println(e.getLocalizedMessage());
+			}
 		}
 		
 		for(GEnemy ge : genemies) {

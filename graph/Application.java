@@ -5,10 +5,15 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -40,7 +45,7 @@ public class Application extends JFrame {
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//this.setResizable(false);
+		this.setResizable(false);
 		
 		GridBagConstraints tmpConstraints;
 		
@@ -113,6 +118,30 @@ public class Application extends JFrame {
 		//tmpConstraints = new GridBagConstraints(0, cellGrid.size() + 1, cellGrid.get(0).size(), 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
 				//new Insets(0, 0, 0, 0), 0, 0);
 		this.add((GController)controller.getIView());
+		
+		
+		JPanel test = new JPanel();
+		JButton testbutt = new JButton("Make enemies.");
+		testbutt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				game.makeEnemies();
+			}
+		});
+		test.add(testbutt);
+		
+		testbutt = new JButton("Update.");
+		testbutt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				game.update();
+			}
+		});
+		test.add(testbutt);
+		
+		this.add(test);
 		
 		this.pack();
 	}

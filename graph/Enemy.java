@@ -45,6 +45,8 @@ public abstract class Enemy implements IPathPlaceable {
 	 */
 	protected IGame igame;
 	
+	private GEnemy genemy;
+	
 	private Path forcedNextPath = null;
 	
 	public void setForcedNextPath(int direction) {
@@ -181,5 +183,13 @@ public abstract class Enemy implements IPathPlaceable {
 	 */
 	public void cut() {
 		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " cut in half");
+	}
+
+	public GEnemy getGEnemy() {
+		return genemy;
+	}
+
+	public void addGEnemy(GEnemy genemy) {
+		this.genemy = genemy;
 	}
 }
