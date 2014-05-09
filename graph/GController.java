@@ -73,40 +73,40 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		JPanel tmpPanel;
 		JPanel tmpPanel2;
 		
-		btnBuyTower = new JButton("Torony");
+		btnBuyTower = new JButton("<html>Torony<br />" + Tower.price + " mana</html>");
 		btnBuyTower.setActionCommand("tower");
 		btnBuyTower.addActionListener(this);
-		btnBuyObstacle = new JButton("Akadály");
+		btnBuyObstacle = new JButton("<html>Akadály<br />" + Obstacle.price + " mana</html>");
 		btnBuyObstacle.setActionCommand("obstacle");
 		btnBuyObstacle.addActionListener(this);
 		
-		btnBuySpeedGem = new JButton("Sebesség");
+		btnBuySpeedGem = new JButton("<html>Sebesség<br />" + SpeedGem.price + " mana</html>");
 		btnBuySpeedGem.setActionCommand("speed");
 		btnBuySpeedGem.addActionListener(this);
-		btnBuyRangeGem = new JButton("Távolság");
+		btnBuyRangeGem = new JButton("<html>Távolság<br />" + RangeGem.price + " mana</html>");
 		btnBuyRangeGem.setActionCommand("range");
 		btnBuyRangeGem.addActionListener(this);
-		btnBuyDamageGem = new JButton("Sebzés");
+		btnBuyDamageGem = new JButton("<html>Sebzés<br />" + DamageGem.price + " mana</html>");
 		btnBuyDamageGem.setActionCommand("damage");
 		btnBuyDamageGem.addActionListener(this);
 		
-		btnBuyEnemyTypeGemHuman = new JButton("Ember");
+		btnBuyEnemyTypeGemHuman = new JButton("<html>Ember<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemHuman.setActionCommand("human");
 		btnBuyEnemyTypeGemHuman.addActionListener(this);
-		btnBuyEnemyTypeGemDwarf = new JButton("Törp");
+		btnBuyEnemyTypeGemDwarf = new JButton("<html>Törp<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemDwarf.setActionCommand("dwarf");
 		btnBuyEnemyTypeGemDwarf.addActionListener(this);
-		btnBuyEnemyTypeGemHobbit = new JButton("Hobbit");
+		btnBuyEnemyTypeGemHobbit = new JButton("<html>Hobbit<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemHobbit.setActionCommand("hobbit");
 		btnBuyEnemyTypeGemHobbit.addActionListener(this);
-		btnBuyEnemyTypeGemElf = new JButton("Elf");
+		btnBuyEnemyTypeGemElf = new JButton("<html>Elf<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemElf.setActionCommand("elf");
 		btnBuyEnemyTypeGemElf.addActionListener(this);
 		
-		btnBuyIntensityGem = new JButton("Intenzitás");
+		btnBuyIntensityGem = new JButton("<html>Intenzitás<br />" + IntensityGem.price + " mana</html>");
 		btnBuyIntensityGem.setActionCommand("intensity");
 		btnBuyIntensityGem.addActionListener(this);
-		btnBuyRepairGem = new JButton("Javítás");
+		btnBuyRepairGem = new JButton("<html>Javítás<br />" + RepairGem.price + " mana</html>");
 		btnBuyRepairGem.setActionCommand("repair");
 		btnBuyRepairGem.addActionListener(this);
 		

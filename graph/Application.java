@@ -9,11 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -45,8 +48,6 @@ public class Application extends JFrame {
 	public Application(){
 		ResourcesCache.loadResources();
 		
-		currentMap = "testmap5.txt";
-		
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
@@ -60,6 +61,17 @@ public class Application extends JFrame {
 	 * Inicializalast vegezne, de nem tudom, mennyire kell ez.
 	 */
 	public void Initialize(){
+		JFileChooser fc = new JFileChooser(new File("."));
+		File fCurrentMap = null;
+		
+		if(fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			fCurrentMap = fc.getSelectedFile();
+		} else {
+			System.exit(-1);
+		}
+		
+		currentMap = fCurrentMap.getName();
+		
 		GridBagConstraints tmpConstraints;
 		
 		//game letrehozasa, inicializalasa
@@ -158,7 +170,7 @@ public class Application extends JFrame {
 		
 		this.pack();
 	}
-	
+
 	/**
 	 * A program belepesi pontja.
 	 * 
