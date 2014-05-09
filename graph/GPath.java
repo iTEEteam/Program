@@ -1,17 +1,13 @@
 package graph;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import javax.imageio.ImageIO;
 
 /**
  * A GPath felel a Path osztaly megjeleniteseert, kirajzolasaert. Minden Path-hoz tartozik egy, es mindegyikhez
@@ -37,14 +33,6 @@ public class GPath extends GCell {
 	 * Az path enemies-hez tartozó GEnemy-k listaja.
 	 */
 	ArrayList<GEnemy> genemies;
-	
-	private static final File fElf = new File("gameImages/elf.png");
-	private static final File fHuman = new File("gameImages/human.png");
-	private static final File fDwarf = new File("gameImages/dwarf.png");
-	private static final File fHobbit = new File("gameImages/hobbit.png");
-	
-	private static final File fPath = new File("gameImages/path.jpg");
-	private static final File fObstacle = new File("gameImages/obstacle.png");
 	
 	private int enemyCounter;
 	
@@ -82,12 +70,7 @@ public class GPath extends GCell {
 		
 		Graphics2D g = image.createGraphics();
 		
-		Image bgImg = null;
-		try {
-			bgImg = ImageIO.read(fPath);
-		} catch(IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+		Image bgImg = ResourcesCache.imgPath;
 		
 		if(highlighted) {
 			g.setColor(Color.RED);
@@ -101,11 +84,7 @@ public class GPath extends GCell {
 		}
 		
 		if(path.hasObstacle()) {
-			try {
-				g.drawImage(ImageIO.read(fObstacle), 20, 20, this.getSize().width - 40, this.getSize().height - 40, null);
-			} catch (IOException e) {
-				System.err.println(e.getLocalizedMessage());
-			}
+			g.drawImage(ResourcesCache.imgObstacle, 20, 20, this.getSize().width - 40, this.getSize().height - 40, null);
 		}
 		
 		for(GEnemy ge : genemies) {
@@ -134,11 +113,7 @@ public class GPath extends GCell {
 	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGHuman() {
-		try {
-			drawPicture(ImageIO.read(fHuman));
-		} catch (IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+			drawPicture(ResourcesCache.imgHuman);
 	}
 	
 	/**
@@ -146,11 +121,7 @@ public class GPath extends GCell {
 	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGDwarf() {
-		try {
-			drawPicture(ImageIO.read(fDwarf));
-		} catch (IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+		drawPicture(ResourcesCache.imgDwarf);
 	}
 	
 	/**
@@ -158,11 +129,7 @@ public class GPath extends GCell {
 	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGElf() {
-		try {
-			drawPicture(ImageIO.read(fElf));
-		} catch (IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+		drawPicture(ResourcesCache.imgElf);
 	}
 	
 	/**
@@ -170,11 +137,7 @@ public class GPath extends GCell {
 	 * @throws IOException Ha a kep beolvasasa kozben hiba lep fel.
 	 */
 	public void drawGHobbit() {
-		try {
-			drawPicture(ImageIO.read(fHobbit));
-		} catch (IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+		drawPicture(ResourcesCache.imgHobbit);
 	}
 		
 	/**

@@ -3,11 +3,6 @@ package graph;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 /**
  * A GField felel a Field osztaly megjeleniteseert, kirajzolasaert. Minden Field-hez tartozik egy, es mindegyikhez
@@ -28,14 +23,6 @@ public class GField extends GCell {
 	 * a modellbol.
 	 */
 	private Field field;
-	
-	private static final File fNormalTower = new File("gameImages/tower1.png");
-	private static final File fElfTower = new File("gameImages/tower2.png");
-	private static final File fDwarfTower = new File("gameImages/tower3.png");
-	private static final File fHumanTower = new File("gameImages/tower4.png");
-	private static final File fHobbitTower = new File("gameImages/tower5.png");
-	
-	private static final File fField = new File("gameImages/field.jpg");
 	
 	/**
 	 * Konstruktor. 
@@ -81,12 +68,7 @@ public class GField extends GCell {
 	 */
 	@Override
 	public void paint(Graphics g) {
-		Image bgImg = null;
-		try {
-			bgImg = ImageIO.read(fField);
-		} catch(IOException e) {
-			System.err.println(e.getLocalizedMessage());
-		}
+		Image bgImg = ResourcesCache.imgField;
 		
 		if(highlighted) {
 			g.setColor(Color.RED);
@@ -103,24 +85,18 @@ public class GField extends GCell {
 		if(field.hasTower()) {
 			String enemyType = field.getITower().getEnemyType();
 			
-			BufferedImage img = null;
+			Image img = null;
 			
-			
-			try {
-				if((enemyType == null) || enemyType.equals("")) {
-					img = ImageIO.read(fNormalTower);
-				} else if(enemyType.equals("human")) {
-					img = ImageIO.read(fHumanTower);
-				} else if(enemyType.equals("hobbit")) {
-					img = ImageIO.read(fHobbitTower);
-				} else if(enemyType.equals("elf")) {
-					img = ImageIO.read(fElfTower);
-				} else if(enemyType.equals("dwarf")) {
-					img = ImageIO.read(fDwarfTower);
-				}
-			} catch(IOException e) {
-				System.err.println(e.getLocalizedMessage());
-				System.exit(-1);
+			if((enemyType == null) || enemyType.equals("")) {
+				img = ResourcesCache.imgNormalTower;
+			} else if(enemyType.equals("human")) {
+				img = ResourcesCache.imgHumanTower;
+			} else if(enemyType.equals("hobbit")) {
+				img = ResourcesCache.imgHobbitTower;
+			} else if(enemyType.equals("elf")) {
+				img = ResourcesCache.imgElfTower;
+			} else if(enemyType.equals("dwarf")) {
+				img = ResourcesCache.imgDwarfTower;
 			}
 			
 			g.drawImage(img, 10, 10, 80, 80, null);

@@ -41,6 +41,8 @@ public class Application extends JFrame {
 	 * Konstruktor
 	 */
 	public Application(){
+		ResourcesCache.loadResources();
+		
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
