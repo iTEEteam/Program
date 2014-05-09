@@ -37,11 +37,15 @@ public class Application extends JFrame {
 	
 	ArrayList<ArrayList<GCell>> cellGrid;
 	
+	private String currentMap = null;
+	
 	/**
 	 * Konstruktor
 	 */
 	public Application(){
 		ResourcesCache.loadResources();
+		
+		currentMap = "testmap5.txt";
 		
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
@@ -49,13 +53,20 @@ public class Application extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
+		Initialize();
+	}
+	
+	/**
+	 * Inicializalast vegezne, de nem tudom, mennyire kell ez.
+	 */
+	public void Initialize(){
 		GridBagConstraints tmpConstraints;
 		
 		//game letrehozasa, inicializalasa
 		game = new Game();
 		
 		try {
-			game.initialize("testmap4.txt");
+			game.initialize(currentMap);
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getLocalizedMessage());
 			System.exit(-1);
@@ -146,13 +157,6 @@ public class Application extends JFrame {
 		this.add(test);
 		
 		this.pack();
-	}
-	
-	/**
-	 * Inicializalast vegezne, de nem tudom, mennyire kell ez.
-	 */
-	public void Initialize(){
-		//TODO kell ez?
 	}
 	
 	/**

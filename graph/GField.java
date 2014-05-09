@@ -99,7 +99,7 @@ public class GField extends GCell {
 				img = ResourcesCache.imgDwarfTower;
 			}
 			
-			g.drawImage(img, 10, 10, 80, 80, null);
+			g.drawImage(img, (int)(this.getSize().width * 0.1), (int)(this.getSize().height * 0.1), (int)(this.getSize().width * 0.8), (int)(this.getSize().height * 0.8), null);
 		}
 	}
 	

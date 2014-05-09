@@ -16,7 +16,7 @@ public abstract class GCell extends Graphic implements IView {
 	/**
 	 * A cellak merete.
 	 */	
-	public static Dimension cellSize = new Dimension(100, 100);
+	public static Dimension cellSize = new Dimension(60, 60);
 	
 	/**
 	 * Konstruktor.
