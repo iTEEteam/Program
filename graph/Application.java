@@ -19,6 +19,8 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /**
@@ -62,6 +64,25 @@ public class Application extends JFrame {
 	 */
 	public void Initialize(){
 		JFileChooser fc = new JFileChooser(new File("."));
+		
+		FileFilter mapFilter = new FileFilter() {
+			
+			@Override
+			public boolean accept(File pathname) {
+				if(pathname.isFile() && pathname.getName().matches(".*map.*")) {
+					return true;
+				} 
+				return false;
+			}
+
+			@Override
+			public String getDescription() {
+				return "Map files";
+			}
+		};
+		
+		fc.setFileFilter(mapFilter);
+		
 		File fCurrentMap = null;
 		
 		if(fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
