@@ -96,10 +96,11 @@ public class Game implements IGame {
 			enemiesIn.add(enemiesOut.get(enemiesOut.size()-1));
 			enemiesOut.remove(enemiesOut.size()-1);
 		}
-		
+
 		for(int i=0; i<enemiesIn.size(); i++) {
 			enemiesIn.get(i).move();
 		}
+
 		
 		for(int i=0; i<towers.size(); i++) {
 			towers.get(i).shoot();

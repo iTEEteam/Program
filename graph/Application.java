@@ -203,10 +203,10 @@ public class Application extends JFrame {
 		app.setVisible(true);
 		while(app.game.getSucceededE()<10){
 			app.game.update();
+			
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

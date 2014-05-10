@@ -154,22 +154,29 @@ public class Path extends Cell {
 //			nextPath = forcedNextPath;
 //		}else 
 		
-		if(igame.getRandom()==true){
-			Random rand = new Random();
-			do{
-				nextPath = nextPaths.get(rand.nextInt(nextPaths.size()));
-			}while(nextPath==null);
-			
-			
-		}else{
-			for(Path p :nextPaths)
-				if(p!=null){
-					nextPath = p;
-					break;
-				}
-			
-			
+		// ha minden iranyba null, akkor adja vissza h null
+		boolean bLastPath = false; // ha marad hamis, akkor ez a vegzet hegye
+		boolean tb[] = new boolean[nextPaths.size()]; // ez tarolja, hogy egyes helyeken null van-e
+		for(int i = 0; i<nextPaths.size(); ++i){
+			// ha null, akkor hamis van a helyen
+			tb[i] = (nextPaths.get(i)!=null);
+			System.out.println(tb[i]);
+			if(tb[i]==true) {
+				bLastPath = true;
+			}
 		}
+		// ha mind hamis volt, ez a vegzet hegye
+		if(!bLastPath)
+			return null;
+		
+		Random rand = new Random();
+		int ind = rand.nextInt(nextPaths.size());
+		for(int i=0; nextPath==null; ++i){
+			if(tb[(ind+i)%nextPaths.size()]==true){
+				nextPath = nextPaths.get((ind+i)%nextPaths.size());
+			}
+		}
+
 //		forcedNextPath = null;
 		return nextPath;
 
