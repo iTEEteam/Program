@@ -12,9 +12,6 @@ public class Field extends Cell {
 	**/
 	public Field(IGame igame) {
 		super(igame);
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
 	}
 	
 	/**

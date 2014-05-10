@@ -35,9 +35,7 @@ public class Map {
 	 * @param    name
 	**/
 	public Map(IGame igame) {
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = false;		this.igame = igame;
+		this.igame = igame;
 		grid = new ArrayList<ArrayList<Cell>>();
 	}
 	

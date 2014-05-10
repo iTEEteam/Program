@@ -8,9 +8,6 @@ public class Controller {
 	private IView iview;
 
 	public Controller(IGame game){
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
 		igame = game;
 		iview = null;
 	}
@@ -38,13 +35,11 @@ public class Controller {
 
 		// meg kell vizsgalni, hogy van e kivalasztott mezo
 		if(choosenField == null){
-			ProtoTester.safePrint("No choosen field");
 			return;
 		}
 		
 		// a mezon van e mar torony
 		if(choosenField.hasTower()){
-			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
@@ -62,8 +57,7 @@ public class Controller {
 			choosenField.registerIFieldPlaceable(tower);
 			tower.setPaths();
 
-		} else 
-			ProtoTester.safePrint("Not enough mana");
+		} 
 	}
 	
 	
@@ -72,17 +66,14 @@ public class Controller {
 		int value;
 		
 		if(choosenPath == null){
-			ProtoTester.safePrint("No choosen path");
 			return;
 		}
 		
 		if(choosenPath.hasObstacle()){
-			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
 		if(choosenPath.hasEnemy()){
-			ProtoTester.safePrint("Cell occupied");
 			return;
 		}
 		
@@ -94,7 +85,6 @@ public class Controller {
 			choosenPath.registerIPathPlaceable(new Obstacle());
 
 		} else {
-			ProtoTester.safePrint("Not enough mana.");
 		}
 		
 		
@@ -120,7 +110,6 @@ public class Controller {
 				itower.addITGem(speedGem);
 
 			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -141,7 +130,6 @@ public class Controller {
 				itower.addITGem(rangeGem);
 
 			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -160,7 +148,6 @@ public class Controller {
 				
 				itower.addITGem(damageGem);
 			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 
@@ -180,7 +167,6 @@ public class Controller {
 				
 				itower.addITGem(new EnemyTypeGem(choosenEnemy));
 			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -198,13 +184,8 @@ public class Controller {
 				IOGem intensityGem = new IntensityGem();
 				
 				IObstacle iObstacle = choosenPath.getIObstacle();
-				if(iObstacle == null) 
-					ProtoTester.safePrint("No obstacle on road");
-				else
-					iObstacle.addIOGem(intensityGem);
+				iObstacle.addIOGem(intensityGem);
 
-			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}
@@ -224,8 +205,6 @@ public class Controller {
 				
 				iObstacle.addIOGem(repairGem);
 
-			} else {
-				ProtoTester.safePrint("Not enough mana");
 			}
 		}
 	}

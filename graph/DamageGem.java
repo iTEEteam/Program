@@ -6,7 +6,6 @@ public class DamageGem extends Gem implements ITGem {
 	private int damage;
 	public DamageGem() {
 		damage=20;
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**

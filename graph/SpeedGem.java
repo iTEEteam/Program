@@ -9,7 +9,6 @@ public class SpeedGem extends Gem implements ITGem {
 	
 	public SpeedGem() {
 		speed=10;
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**

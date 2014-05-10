@@ -41,23 +41,18 @@ public class Obstacle implements IObstacle, IPathPlaceable {
 	*
      */
     public Obstacle() {
-        ProtoTester.addToObjectCatalog(this);
         gems = new ArrayList<IOGem>();
         amort = 30;
     }
 
-    public void slow(Enemy e) {
-        String obstacleName = ProtoTester.getKeyByValue(this);
-        String enemyName = ProtoTester.getKeyByValue(e);        
+    public void slow(Enemy e) {     
         
         e.setModSpeed(slowIntens);
-        ProtoTester.safePrint(obstacleName + " slows " + enemyName + " by "  + slowIntens);
         
         amortization();
 
         if (amort <= 0) {
             eliminate();
-            ProtoTester.safePrint(obstacleName + " worn out");
         }         
     }
 

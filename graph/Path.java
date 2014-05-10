@@ -43,9 +43,6 @@ public class Path extends Cell {
 	**/
 	public Path(IGame igame) {
 		super(igame);
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
 		
 		enemies = new ArrayList<Enemy>();
 		nextPaths = new ArrayList<Path>();

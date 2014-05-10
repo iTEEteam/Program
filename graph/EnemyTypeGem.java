@@ -6,7 +6,6 @@ public class EnemyTypeGem extends Gem implements ITGem {
 
 	private String eType;
 	public EnemyTypeGem(String enemyType) {
-		ProtoTester.addToObjectCatalog(this);
 		eType = enemyType;
 	}
 	

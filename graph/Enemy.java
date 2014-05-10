@@ -109,13 +109,11 @@ public abstract class Enemy implements IPathPlaceable {
 		if(modSpeed < speed) {
 			modSpeed++;
 		} else {
-			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " moves");
 			
 			Path nextPath = null;
 			
 			if(forcedNextPath != null){
 				nextPath = forcedNextPath;
-				ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " crossroad");
 			}else{
 				nextPath = myPath.getNext();
 			}
@@ -123,7 +121,6 @@ public abstract class Enemy implements IPathPlaceable {
 			
 			
 			if(nextPath == null){
-				ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " reached Mount Doom");
 				igame.incSucceeded();
 				eliminate();
 			}else{		
@@ -182,7 +179,7 @@ public abstract class Enemy implements IPathPlaceable {
 	 * Az ellenseg kettevagasat vegzo fuggveny. Az ososztalyban csak a kiiratast vegezzuk, a tobbit a leszarmazottakban kell implementalni.
 	 */
 	public void cut() {
-		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " cut in half");
+
 	}
 
 	public GEnemy getGEnemy() {

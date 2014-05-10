@@ -20,7 +20,6 @@ public class Hobbit extends Enemy {
 	**/
 	public Hobbit(IGame game) {
 		super(game);
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**
@@ -41,9 +40,7 @@ public class Hobbit extends Enemy {
 	public void hurt(Bullet b) {
 		
 		int damage = b.getDamageHobbit();
-		
-		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " damage " + damage);
-		
+				
 		if(damage == 0) {
 			cut();
 		} else {
@@ -51,7 +48,6 @@ public class Hobbit extends Enemy {
 		}
 		
 		if(health <= 0){
-			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " died");
 			eliminate();
 		}
 	}

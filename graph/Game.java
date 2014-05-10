@@ -7,9 +7,6 @@ import sun.java2d.loops.DrawGlyphListAA.General;
 
 
 public class Game implements IGame {
-	public static boolean bRandom = false;
-	public static boolean bHaze = false;
-        public static boolean bCut = false;
 	/**
 	 * A terkep, amiben a cellak tarolodnak.
 	**/
@@ -44,9 +41,7 @@ public class Game implements IGame {
 	 * Konstruktor
 	**/
 	public Game() {		
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
+
 		
 		enemiesIn = new ArrayList<Enemy>();
 		enemiesOut = new ArrayList<Enemy>();
@@ -70,14 +65,12 @@ public class Game implements IGame {
 	 * Ha random teljes�l �s �pp nincs k�d, gener�lunk
 	**/
 	public void update() {
-		ProtoTester.safePrint("update");
 		
-		if(bHaze && hazeTime<=0) {
+		if(hazeTime<=0) {
 			for(int i=0; i<towers.size(); i++) {
 				hazeTime=20;
 				towers.get(i).haze();
 			}
-			bHaze = false; 
 		}
 		
 		if(hazeTime==0) {
@@ -94,7 +87,7 @@ public class Game implements IGame {
 			hazeTime--;
 		}
 		
-		if (bRandom == true && enemiesIn.isEmpty() && enemiesOut.isEmpty()) {
+		if (enemiesIn.isEmpty() && enemiesOut.isEmpty()) {
 			makeEnemies();
 		}
 		
@@ -248,7 +241,7 @@ public class Game implements IGame {
 	 */
 	@Override
 	public boolean getRandom() {
-		return bRandom;
+		return true;
 	}
 	
 	/**

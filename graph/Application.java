@@ -36,7 +36,7 @@ public class Application extends JFrame {
 	 */
 	private static final long serialVersionUID = 1388781381443801946L;
 
-	private Game game;
+	public Game game;
 	
 	private Controller controller;
 	
@@ -48,6 +48,7 @@ public class Application extends JFrame {
 	 * Konstruktor
 	 */
 	public Application(){
+		super("Rise of the Great Towers");
 		ResourcesCache.loadResources();
 		
 		//JFrame beallitasa
@@ -107,7 +108,7 @@ public class Application extends JFrame {
 		
 		game.setIView(new GGame(game));
 		
-		//Controller létrehozása
+		//Controller lï¿½trehozï¿½sa
 		controller = new Controller(game);
 		controller.setIView(new GController(controller, this));
 		
@@ -198,7 +199,17 @@ public class Application extends JFrame {
 	 * @param args Parancssori argumentumok. 
 	 */
 	public static void main(String[] args) {
-		(new Application()).setVisible(true);
+		Application app = (new Application());
+		app.setVisible(true);
+		while(app.game.getSucceededE()<10){
+			app.game.update();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	

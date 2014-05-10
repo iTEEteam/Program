@@ -19,9 +19,7 @@ public class Bullet {
 	 * @param    et
 	**/
 	public Bullet(int dmg, String et) {
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
+	
 
 		setDamage(dmg);
 		setEnemy(et);
@@ -30,10 +28,6 @@ public class Bullet {
 	 * default constructor
 	 */
 	public Bullet(){
-		ProtoTester.isPrinting = false;
-		ProtoTester.addToObjectCatalog(this);
-		ProtoTester.isPrinting = true;
-
 		setEnemy("");
 	}
 	
@@ -43,11 +37,10 @@ public class Bullet {
 	public int getDamageElf() {
 		
 		// 8% esellyel ketteszeli az ellenseget
-		if(Game.bRandom && Math.random()<0.08)
+		if(Math.random()<0.08)
 			return 0;
 		
-		if(Game.bCut)
-			return 0;
+
 		
 		if(enemyType.equals("elf"))
 			return damage+40;
@@ -61,11 +54,9 @@ public class Bullet {
 	**/
 	public int getDamageHobbit() {
 		// 8% esellyel ketteszeli az ellenseget
-		if(Game.bRandom && Math.random()<0.08)
+		if(Math.random()<0.08)
 			return 0;
 		
-		if(Game.bCut)
-			return 0;
 		
 		if(enemyType.equals("hobbit"))
 			return damage+40;
@@ -78,11 +69,10 @@ public class Bullet {
 	**/
 	public int getDamageDwarf() {
 		// 8% esellyel ketteszeli az ellenseget
-		if(Game.bRandom && Math.random()<0.08)
+		if(Math.random()<0.08)
 			return 0;
 		
-		if(Game.bCut)
-			return 0;
+	
 		
 		if(enemyType.equals("dwarf"))
 			return damage+40;
@@ -95,11 +85,10 @@ public class Bullet {
 	**/
 	public int getDamageHuman() {
 		// 8% esellyel ketteszeli az ellenseget
-		if(Game.bRandom && Math.random()<0.08)
+		if(Math.random()<0.08)
 			return 0;
 		
-		if(Game.bCut)
-			return 0;
+	
 		
 		if(enemyType.equals("human"))
 			return damage+40;

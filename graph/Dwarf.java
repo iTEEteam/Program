@@ -20,7 +20,6 @@ public class Dwarf extends Enemy {
 	**/
 	public Dwarf(IGame game) {
 		super(game);
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**
@@ -42,7 +41,6 @@ public class Dwarf extends Enemy {
 			
 		int damage = b.getDamageDwarf();
 		
-		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " damage " + damage);
 		
 		if(damage == 0) {
 			cut();
@@ -51,7 +49,6 @@ public class Dwarf extends Enemy {
 		} 
 		
 		if(health <= 0) {
-			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " died");
 			eliminate();
 		}
 	}

@@ -20,7 +20,6 @@ public class Elf extends Enemy {
 	**/
 	public Elf(IGame game) {
 		super(game);
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**
@@ -42,7 +41,6 @@ public class Elf extends Enemy {
 		
 		int damage = b.getDamageElf();
 		
-		ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " damage " + damage);
 		
 		if(damage == 0) {
 			cut();
@@ -51,7 +49,6 @@ public class Elf extends Enemy {
 		}
 		
 		if(health <= 0){
-			ProtoTester.safePrint(ProtoTester.getKeyByValue(this) + " died");
 			eliminate();
 		}
 	}

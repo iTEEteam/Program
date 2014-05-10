@@ -43,7 +43,6 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * @param    pr
 	**/
 	public Tower(IGame game) {
-		ProtoTester.addToObjectCatalog(this);
 		igame = game;
 		gems = new ArrayList<ITGem>();
 		paths = new ArrayList<Path>();
@@ -85,7 +84,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		if(target==null){
 			return;
 		}
-		ProtoTester.safePrint(ProtoTester.getKeyByValue(this)+ " shoots "+ ProtoTester.getKeyByValue(target));
 		target.hurt(bullet);
 	}
 	
@@ -175,7 +173,6 @@ public class Tower implements ITower, IFieldPlaceable {
 		
 		myField.deleteIFieldPlaceable(this);
 		
-		System.out.println(ProtoTester.getKeyByValue(this) + " sold for "+ value + " mana");
 	}
 
 	/* kod leereszkedesekor a hatosugar a felere csokken */

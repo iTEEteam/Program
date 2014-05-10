@@ -15,6 +15,8 @@ public class Application {
 		Game game = new Game();
 		try {
 			game.initialize("MapName");
+			game.makeEnemies();
+			game.update();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

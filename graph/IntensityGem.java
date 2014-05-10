@@ -10,7 +10,6 @@ public class IntensityGem extends Gem implements IOGem {
 	
 	public IntensityGem() {
 		intensity=10;
-		ProtoTester.addToObjectCatalog(this);
 	}
 	
 	/**
