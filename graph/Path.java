@@ -169,6 +169,13 @@ public class Path extends Cell {
 		if(!bLastPath)
 			return null;
 		
+		
+		/*
+		 * ha van merre tovabbmenni kivalaszt egy random indexet a nextPaths-tombre,
+		 * elkezd egy iteraciot amiben addig megy vegig a tombon, a random indextol,  
+		 * amig nem talal utat amire lephet
+		 * az index a tomb meretevel modulo, szoval ha kierne a tombbol az elso helyen folytatja
+		 */
 		Random rand = new Random();
 		int ind = rand.nextInt(nextPaths.size());
 		for(int i=0; nextPath==null; ++i){
