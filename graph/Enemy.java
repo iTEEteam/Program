@@ -11,7 +11,7 @@ public abstract class Enemy implements IPathPlaceable {
 	/**
 	 * Az Enemy normal sebessege.
 	**/
-	private static final int speed = 0;
+	protected static int speed = 0;
 	
 	/**
 	 * A maximalis eletero erteke.

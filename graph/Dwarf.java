@@ -11,7 +11,7 @@ public class Dwarf extends Enemy {
 	/**
 	 * A torp hp-ja.
 	 */
-	private static final int maxHP = 50;
+	private static final int maxHP = 80;
 	
 	/**
 	 * Konstruktor.
@@ -20,6 +20,7 @@ public class Dwarf extends Enemy {
 	**/
 	public Dwarf(IGame game) {
 		super(game);
+		speed = 10;
 	}
 	
 	/**

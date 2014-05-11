@@ -11,7 +11,7 @@ public class Hobbit extends Enemy {
 	/**
 	 * A hobbit hp-ja.
 	 */
-	private static final int maxHP = 50;
+	private static final int maxHP = 30;
 	
 	/**
 	 * Konstruktor.
@@ -20,6 +20,7 @@ public class Hobbit extends Enemy {
 	**/
 	public Hobbit(IGame game) {
 		super(game);
+		speed = 10;
 	}
 	
 	/**

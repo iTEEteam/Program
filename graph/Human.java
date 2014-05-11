@@ -20,6 +20,7 @@ public class Human extends Enemy {
 	**/
 	public Human(IGame game) {
 		super(game);
+		speed = 5;
 	}
 	
 	/**

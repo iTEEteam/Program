@@ -11,7 +11,7 @@ public class Elf extends Enemy {
 	/**
 	 * A tunde hp-ja.
 	 */
-	private static final int maxHP = 50;
+	private static final int maxHP = 100;
 	
 	/**
 	 * Konstruktor.
@@ -20,6 +20,7 @@ public class Elf extends Enemy {
 	**/
 	public Elf(IGame game) {
 		super(game);
+		speed = 1;
 	}
 	
 	/**
