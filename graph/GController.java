@@ -43,6 +43,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 	
 	JButton btnBuyTower;
 	JButton btnBuyObstacle;
+	JButton btnSellTower;
 	JButton btnBuySpeedGem;
 	JButton btnBuyRangeGem;
 	JButton btnBuyDamageGem;
@@ -79,6 +80,9 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyObstacle = new JButton("<html>Akad�ly<br />" + Obstacle.price + " mana</html>");
 		btnBuyObstacle.setActionCommand("obstacle");
 		btnBuyObstacle.addActionListener(this);
+		btnSellTower = new JButton("Torony eladas");
+		btnSellTower.setActionCommand("sell");
+		btnSellTower.addActionListener(this);
 		
 		btnBuySpeedGem = new JButton("<html>Sebess�g<br />" + SpeedGem.price + " mana</html>");
 		btnBuySpeedGem.setActionCommand("speed");
@@ -116,6 +120,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyTower);
 		tmpPanel.add(btnBuyObstacle);
+		tmpPanel.add(btnSellTower);
 		this.add(tmpPanel);
 		
 		//Torony fejlesztes panel hozzadasa
@@ -156,6 +161,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setEnabled(false);
 		btnBuyEnemyTypeGemHobbit.setEnabled(false);
 		btnBuyEnemyTypeGemDwarf.setEnabled(false);
+		btnSellTower.setEnabled(false);
 	}
 	
 	private void enableFieldRelated() {
@@ -167,6 +173,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setEnabled(true);
 		btnBuyEnemyTypeGemHobbit.setEnabled(true);
 		btnBuyEnemyTypeGemDwarf.setEnabled(true);
+		btnSellTower.setEnabled(true);
 	}
 	
 	private void disablePathRelated() {
@@ -319,6 +326,10 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		controller.buyRepairGem();
 	}
 	
+	public void sellTower() {
+		controller.sellTower();
+	}
+	
 	private void deHighlightSelected() {
 		if(chosenGField != null) {
 			chosenGField.deHighlight();
@@ -419,6 +430,8 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 			buyGIntensityGem();
 		} else if(actionCommand.equals("repair")) {
 			buyGRepairGem();
-		} 
+		} else if(actionCommand.equals("sell")) {
+			sellTower();
+		}
 	}
 }

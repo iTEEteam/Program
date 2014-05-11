@@ -65,9 +65,7 @@ public class Application extends JFrame {
 			
 			@Override
 			public boolean accept(File pathname) {
-				if (pathname.isDirectory()) {
-                    return true;
-                } else if(pathname.isFile() && pathname.getName().matches(".*map.*")) {
+				if(pathname.isDirectory() || pathname.getName().matches(".*map.*")) {
 					return true;
 				} else {
                     return false;
