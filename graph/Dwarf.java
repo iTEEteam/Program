@@ -12,15 +12,14 @@ public class Dwarf extends Enemy {
 	 * A torp hp-ja.
 	 */
 	private static final int maxHP = 80;
-	
+
 	/**
 	 * Konstruktor.
 	 * 
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	**/
 	public Dwarf(IGame game) {
-		super(game);
-		speed = 10;
+		super(game, 13, 100);
 	}
 	
 	/**

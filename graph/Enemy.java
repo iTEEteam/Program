@@ -8,16 +8,17 @@ import java.util.ArrayList;
  * @author Seres
 **/
 public abstract class Enemy implements IPathPlaceable {
-	/**
-	 * Az Enemy normal sebessege.
-	**/
-	protected static int speed = 0;
+
 	
 	/**
 	 * A maximalis eletero erteke.
 	 */
-	private static final int maxHP = 100;
-
+	protected int maxHP;
+	
+	/**
+	 * Az Enemy normal sebessege.
+	**/
+	protected int speed;
 	/**
 	 * Az ellenseg belso idomeroje. A setModSpeed valtoztathatja, jellemzoen negatav iranyba, akadalyokon.
 	**/
@@ -87,11 +88,13 @@ public abstract class Enemy implements IPathPlaceable {
 	 *
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	**/
-	public Enemy(IGame game) { 
+	public Enemy(IGame game, int spd, int hp) { 
 		//ez azert nem kell, mert absztrakt osztalyt nem peldanyositunk, viszont igy ket bejegyzesunk is lenne a leszarmazottai miatt
 		//ProtoTester.addToObjectCatalog(this); 
 		igame = game;
+		maxHP = hp;
 		health = maxHP;
+		speed = spd;
 	}
 	
 	/**
@@ -106,6 +109,7 @@ public abstract class Enemy implements IPathPlaceable {
 	**/
 	public void move() {
 		
+		System.out.println(speed);
 		if(modSpeed < speed) {
 			modSpeed++;
 		} else {
@@ -118,14 +122,13 @@ public abstract class Enemy implements IPathPlaceable {
 				nextPath = myPath.getNext();
 			}
 			
-			
-			
 			if(nextPath == null){
 				igame.incSucceeded();
 				eliminate();
 			}else{		
 				nextPath.registerIPathPlaceable(this);
 			}
+			modSpeed = 0;
 		}
 		forcedNextPath = null;
 	}

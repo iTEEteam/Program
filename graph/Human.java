@@ -19,8 +19,7 @@ public class Human extends Enemy {
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	**/
 	public Human(IGame game) {
-		super(game);
-		speed = 5;
+		super(game, 4, 80);
 	}
 	
 	/**

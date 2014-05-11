@@ -13,14 +13,14 @@ public class Hobbit extends Enemy {
 	 */
 	private static final int maxHP = 30;
 	
+	
 	/**
 	 * Konstruktor.
 	 * 
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	**/
 	public Hobbit(IGame game) {
-		super(game);
-		speed = 10;
+		super(game, 10, 50);
 	}
 	
 	/**

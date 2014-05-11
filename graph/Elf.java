@@ -7,20 +7,14 @@ package graph;
  * @author Seres
 **/
 public class Elf extends Enemy {
-	
-	/**
-	 * A tunde hp-ja.
-	 */
-	private static final int maxHP = 100;
-	
+
 	/**
 	 * Konstruktor.
 	 * 
 	 * @param 	game Az IGame interfesz, amivel a Game-et eleri.
 	**/
 	public Elf(IGame game) {
-		super(game);
-		speed = 1;
+		super(game, 1, 120);
 	}
 	
 	/**
