@@ -1,26 +1,21 @@
 package graph;
 
-
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /**
@@ -70,10 +65,13 @@ public class Application extends JFrame {
 			
 			@Override
 			public boolean accept(File pathname) {
-				if(pathname.isFile() && pathname.getName().matches(".*map.*")) {
+				if (pathname.isDirectory()) {
+                    return true;
+                } else if(pathname.isFile() && pathname.getName().matches(".*map.*")) {
 					return true;
-				} 
-				return false;
+				} else {
+                    return false;
+                }
 			}
 
 			@Override
@@ -100,7 +98,7 @@ public class Application extends JFrame {
 		game = new Game();
 		
 		try {
-			game.initialize(currentMap);
+			game.initialize(fCurrentMap.getPath());
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getLocalizedMessage());
 			System.exit(-1);
@@ -205,7 +203,7 @@ public class Application extends JFrame {
 			app.game.update();
 			
 			try {
-				Thread.sleep(100);
+        		Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
