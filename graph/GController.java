@@ -77,27 +77,27 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyTower = new JButton("<html>Torony<br />" + Tower.price + " mana</html>");
 		btnBuyTower.setActionCommand("tower");
 		btnBuyTower.addActionListener(this);
-		btnBuyObstacle = new JButton("<html>Akad�ly<br />" + Obstacle.price + " mana</html>");
+		btnBuyObstacle = new JButton("<html>Akadaly<br />" + Obstacle.price + " mana</html>");
 		btnBuyObstacle.setActionCommand("obstacle");
 		btnBuyObstacle.addActionListener(this);
 		btnSellTower = new JButton("Torony eladas");
 		btnSellTower.setActionCommand("sell");
 		btnSellTower.addActionListener(this);
 		
-		btnBuySpeedGem = new JButton("<html>Sebess�g<br />" + SpeedGem.price + " mana</html>");
+		btnBuySpeedGem = new JButton("<html>Sebesseg<br />" + SpeedGem.price + " mana</html>");
 		btnBuySpeedGem.setActionCommand("speed");
 		btnBuySpeedGem.addActionListener(this);
-		btnBuyRangeGem = new JButton("<html>T�vols�g<br />" + RangeGem.price + " mana</html>");
+		btnBuyRangeGem = new JButton("<html>Tavolsag<br />" + RangeGem.price + " mana</html>");
 		btnBuyRangeGem.setActionCommand("range");
 		btnBuyRangeGem.addActionListener(this);
-		btnBuyDamageGem = new JButton("<html>Sebz�s<br />" + DamageGem.price + " mana</html>");
+		btnBuyDamageGem = new JButton("<html>Sebzes<br />" + DamageGem.price + " mana</html>");
 		btnBuyDamageGem.setActionCommand("damage");
 		btnBuyDamageGem.addActionListener(this);
 		
 		btnBuyEnemyTypeGemHuman = new JButton("<html>Ember<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemHuman.setActionCommand("human");
 		btnBuyEnemyTypeGemHuman.addActionListener(this);
-		btnBuyEnemyTypeGemDwarf = new JButton("<html>T�rp<br />" + EnemyTypeGem.price + " mana</html>");
+		btnBuyEnemyTypeGemDwarf = new JButton("<html>Torp<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemDwarf.setActionCommand("dwarf");
 		btnBuyEnemyTypeGemDwarf.addActionListener(this);
 		btnBuyEnemyTypeGemHobbit = new JButton("<html>Hobbit<br />" + EnemyTypeGem.price + " mana</html>");
@@ -107,15 +107,15 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setActionCommand("elf");
 		btnBuyEnemyTypeGemElf.addActionListener(this);
 		
-		btnBuyIntensityGem = new JButton("<html>Intenzit�s<br />" + IntensityGem.price + " mana</html>");
+		btnBuyIntensityGem = new JButton("<html>Intenzitas<br />" + IntensityGem.price + " mana</html>");
 		btnBuyIntensityGem.setActionCommand("intensity");
 		btnBuyIntensityGem.addActionListener(this);
-		btnBuyRepairGem = new JButton("<html>Jav�t�s<br />" + RepairGem.price + " mana</html>");
+		btnBuyRepairGem = new JButton("<html>Javitas<br />" + RepairGem.price + " mana</html>");
 		btnBuyRepairGem.setActionCommand("repair");
 		btnBuyRepairGem.addActionListener(this);
 		
 		//Epites panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("�p�t�s");
+		tmpTitle = BorderFactory.createTitledBorder("Epites");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyTower);
@@ -124,14 +124,14 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		this.add(tmpPanel);
 		
 		//Torony fejlesztes panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("Torony fejleszt�s");
+		tmpTitle = BorderFactory.createTitledBorder("Torony fejlesztes");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyRangeGem);
 		tmpPanel.add(btnBuySpeedGem);
 		tmpPanel.add(btnBuyDamageGem);
 		//Torony fejlesztesen beluli ellensegtipusra fejlesztes panel hozzaadasa
-		tmpTitle = BorderFactory.createTitledBorder("Ellens�g t�pus");
+		tmpTitle = BorderFactory.createTitledBorder("Ellenseg tipus");
 		tmpPanel2 = new JPanel();
 		tmpPanel2.setBorder(tmpTitle);
 		tmpPanel2.add(btnBuyEnemyTypeGemHuman);
@@ -142,7 +142,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		this.add(tmpPanel);
 		
 		//Akadaly fejlesztes panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("Akad�ly fejleszt�s");
+		tmpTitle = BorderFactory.createTitledBorder("Akadaly fejlesztes");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyIntensityGem);
@@ -152,8 +152,8 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		disableAll();
 	}
 	
-	private void disableFieldRelated() {
-		btnBuyTower.setEnabled(false);
+	private void disableTowerRelated() {
+		btnSellTower.setEnabled(false);
 		btnBuySpeedGem.setEnabled(false);
 		btnBuyRangeGem.setEnabled(false);
 		btnBuyDamageGem.setEnabled(false);
@@ -161,11 +161,10 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setEnabled(false);
 		btnBuyEnemyTypeGemHobbit.setEnabled(false);
 		btnBuyEnemyTypeGemDwarf.setEnabled(false);
-		btnSellTower.setEnabled(false);
 	}
 	
-	private void enableFieldRelated() {
-		btnBuyTower.setEnabled(true);
+	private void enableTowerRelated() {
+		btnSellTower.setEnabled(true);
 		btnBuySpeedGem.setEnabled(true);
 		btnBuyRangeGem.setEnabled(true);
 		btnBuyDamageGem.setEnabled(true);
@@ -173,7 +172,14 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setEnabled(true);
 		btnBuyEnemyTypeGemHobbit.setEnabled(true);
 		btnBuyEnemyTypeGemDwarf.setEnabled(true);
-		btnSellTower.setEnabled(true);
+	}
+	
+	private void disableFieldRelated() {
+		btnBuyTower.setEnabled(false);
+	}
+	
+	private void enableFieldRelated() {
+		btnBuyTower.setEnabled(true);
 	}
 	
 	private void disablePathRelated() {
@@ -191,6 +197,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 	private void disableAll() {
 		disableFieldRelated();
 		disablePathRelated();
+		disableTowerRelated();
 	}
 	
 	
@@ -231,6 +238,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 			controller.setPath(chosenGPath.getPath());
 			
 			disableFieldRelated();
+			disableTowerRelated();
 			enablePathRelated();
 		}
 	}
@@ -253,6 +261,9 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		
 		disablePathRelated();
 		enableFieldRelated();
+		if(chosenGField != null && chosenGField.getField().hasTower()) {
+			enableTowerRelated();
+		}
 	}
 	
 	/**
