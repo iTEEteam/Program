@@ -56,6 +56,8 @@ public class Application extends JFrame implements ActionListener {
 	private BufferedImage stopPicture;
 	private JLabel stopPicLabel;
 	
+	private UpdateThread updateThread;
+	
 	
 	/**
 	 * Konstruktor
@@ -63,7 +65,8 @@ public class Application extends JFrame implements ActionListener {
 	public Application(){
 		super("Rise of the Great Towers");
 		ResourcesCache.loadResources();
-				
+		
+		updateThread = null;
 		
 		// jatek vege kep
 		try {
@@ -216,6 +219,17 @@ public class Application extends JFrame implements ActionListener {
 		this.add(downPanel);
 		
 		this.pack();
+		
+		if(updateThread != null) {
+			updateThread.setStopFlag();
+			
+			try {
+				updateThread.join();
+			} catch (InterruptedException e) {}
+		}
+		
+		updateThread = new UpdateThread(this);
+		updateThread.start();
 	}
 
 	private void setGameEnd(){
@@ -229,6 +243,37 @@ public class Application extends JFrame implements ActionListener {
 		
 	}
 	
+	private class UpdateThread extends Thread {
+		
+		private Application app;
+		
+		private volatile boolean stopFlag;
+		
+		public UpdateThread(Application app) {
+			this.app = app;
+			
+			stopFlag = false;
+		}
+		
+		public void setStopFlag() {
+			stopFlag = true;
+		}
+		
+		@Override
+		public void run() {
+			while(!stopFlag && app.game.getSucceededE()<10){
+				app.game.update();
+				try {
+	        		Thread.sleep(10);
+				} catch (InterruptedException e) {}
+			}
+			
+			if(app.game.getSucceededE()>=10) {
+				app.setGameEnd();
+			}
+		}
+	}
+	
 	/**
 	 * A program belepesi pontja.
 	 * 
@@ -237,19 +282,6 @@ public class Application extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		Application app = new Application();
 		app.setVisible(true);
-		while(true){
-		
-			while(app.game.getSucceededE()<10){
-				app.game.update();
-				try {
-	        		Thread.sleep(10);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			app.setGameEnd();
-
-		}
 	}
 
 	@Override
