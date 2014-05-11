@@ -64,9 +64,14 @@ public class Controller {
 		if(choosenField==null){
 			return;
 		}
-		
+	
 		ITower tower = choosenField.getITower();
-		tower.sell();
+		if(tower!=null){
+			choosenField.getIView().gNotify();
+			tower.sell();
+			
+		}
+		return;
 	}
 	
 	public void buyObstacle(){
