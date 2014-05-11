@@ -127,13 +127,11 @@ public class GGame extends Graphic implements IView {
 	public void paint(Graphics g) {
 		int mana = game.getMana();
 		int enemies = game.getSucceededE();
+		int wave = game.getWaveCounter();
 		
 		Font font = getFont().deriveFont(Font.PLAIN, this.getSize().height - 15);
 		g.setFont(font);
-		g.drawString("Mana: " + mana, 10, 35);
-		
-		int lineLength = g.getFontMetrics().stringWidth("Bejutott: XXX");
-		g.drawString("Bejutott: " + enemies, this.getSize().width - lineLength, 35);
+		g.drawString("Mana: " + mana + "   Bejutott: " + enemies + "   Hullam: " + wave + "/5", 10, 35);
 	}
 	
 

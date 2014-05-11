@@ -1,8 +1,10 @@
 package graph;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,8 +47,6 @@ public class Application extends JFrame implements ActionListener {
 	
 	ArrayList<ArrayList<GCell>> cellGrid;
 	
-	private String currentMap = null;
-	
 	private JPanel gamePanel;
 	private JComponent topPanel;
 	private JPanel downPanel;
@@ -55,6 +55,8 @@ public class Application extends JFrame implements ActionListener {
 	private JPanel stopPanel;
 	private BufferedImage stopPicture;
 	private JLabel stopPicLabel;
+	
+	private JPanel winPanel;
 	
 	private UpdateThread updateThread;
 	
@@ -74,9 +76,9 @@ public class Application extends JFrame implements ActionListener {
 			stopPicLabel = new JLabel(new ImageIcon(stopPicture));
 			stopPanel = new JPanel();
 			stopPanel.add(stopPicLabel);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) {}
+		
+		winPanel = null;
 		
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
@@ -105,11 +107,7 @@ public class Application extends JFrame implements ActionListener {
 	 * Inicializalast vegezne, de nem tudom, mennyire kell ez.
 	 */
 	public void Initialize(){
-		if(gamePanel!=null){
-			this.remove(gamePanel);
-			this.remove(topPanel);
-			this.remove(downPanel);
-		}
+		removePanels();
 		
 		JFileChooser fc = new JFileChooser(new File("."));
 		
@@ -139,8 +137,6 @@ public class Application extends JFrame implements ActionListener {
 		} else {
 			System.exit(-1);
 		}
-		
-		currentMap = fCurrentMap.getName();
 		
 		GridBagConstraints tmpConstraints;
 		
@@ -185,8 +181,6 @@ public class Application extends JFrame implements ActionListener {
 		
 		
 		//GGame elhelyezese
-		//tmpConstraints = new GridBagConstraints(0, 0, cellGrid.get(0).size() + 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
-				//new Insets(0, 0, 0, 0), 0, 0);
 		topPanel = (GGame)game.getIView();
 		this.add(topPanel);
 		
@@ -212,14 +206,34 @@ public class Application extends JFrame implements ActionListener {
 		
 		
 		//GController elhelyezese
-		//tmpConstraints = new GridBagConstraints(0, cellGrid.size() + 1, cellGrid.get(0).size(), 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
-				//new Insets(0, 0, 0, 0), 0, 0);
 		downPanel = new JPanel();
 		downPanel.add((GController)controller.getIView());
 		this.add(downPanel);
 		
 		this.pack();
 		
+		startUpdateThread();
+	}
+
+	private void removePanels() {
+		if(gamePanel!=null){
+			this.remove(gamePanel);
+		}
+		if(topPanel!=null){
+			this.remove(topPanel);
+		}
+		if(downPanel!=null){
+			this.remove(downPanel);
+		}
+		if(stopPanel!=null){
+			this.remove(stopPanel);
+		}
+		if(winPanel!=null){
+			this.remove(winPanel);
+		}
+	}
+
+	private void startUpdateThread() {
 		if(updateThread != null) {
 			updateThread.setStopFlag();
 			
@@ -233,14 +247,25 @@ public class Application extends JFrame implements ActionListener {
 	}
 
 	private void setGameEnd(){
-		this.remove(topPanel);
-		this.remove(gamePanel);
-		this.remove(downPanel);
+		removePanels();
 		
 		this.add(stopPanel);
 		this.pack();
 		this.repaint();
 		
+	}
+	
+	public void setGameWin() {
+		removePanels();
+		
+		winPanel = new JPanel();
+		JLabel winLabel = new JLabel("You win!");
+		winLabel.setFont(this.getFont().deriveFont(300));
+		winPanel.add(winLabel);
+		
+		this.add(winPanel);
+		this.pack();
+		this.repaint();
 	}
 	
 	private class UpdateThread extends Thread {
@@ -261,16 +286,20 @@ public class Application extends JFrame implements ActionListener {
 		
 		@Override
 		public void run() {
-			while(!stopFlag && app.game.getSucceededE()<10){
+			while(!stopFlag && (app.game.getWaveCounter() <= 5) && (app.game.getSucceededE() < 10)) {
 				app.game.update();
 				try {
-	        		Thread.sleep(10);
+	        		Thread.sleep(60);
 				} catch (InterruptedException e) {}
 			}
 			
-			if(app.game.getSucceededE()>=10) {
+			if(app.game.getSucceededE() >= 10) {
 				app.setGameEnd();
+			} else if(app.game.getWaveCounter() > 5) {
+				app.setGameWin();
 			}
+			
+			
 		}
 	}
 	
@@ -290,7 +319,6 @@ public class Application extends JFrame implements ActionListener {
 		
 		if(actionCommand.equals("newGame")) {
 			Initialize();
-			this.remove(stopPanel);
 		}
 	}
 }

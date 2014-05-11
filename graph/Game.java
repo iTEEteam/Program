@@ -37,6 +37,8 @@ public class Game implements IGame {
 	
 	private IView iview;
 	
+	private int waveCounter;
+	
 	/**
 	 * Konstruktor
 	**/
@@ -52,6 +54,7 @@ public class Game implements IGame {
 		hazeTime=-1;
 		
 		iview = null;
+		waveCounter = 0;
 	}
 	
 	/**
@@ -143,6 +146,7 @@ public class Game implements IGame {
 			
 		}
 		noEnemies++;
+		waveCounter++;
 	}
 	
 	/**
@@ -273,6 +277,10 @@ public class Game implements IGame {
 
 	public int getSucceededE() {
 		return succeededE;
+	}
+
+	public int getWaveCounter() {
+		return waveCounter;
 	}
 
 }
