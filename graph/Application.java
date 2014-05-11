@@ -14,6 +14,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 
@@ -24,7 +27,7 @@ import javax.swing.filechooser.FileFilter;
  * @author Seres
  *
  */
-public class Application extends JFrame {
+public class Application extends JFrame implements ActionListener {
 	
 	/**
 	 * Az Eclipse ragaszkodott hozza. :(
@@ -51,6 +54,20 @@ public class Application extends JFrame {
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
+		
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menu;
+		JMenuItem menuItem;
+		
+		menu = new JMenu("Jatek");
+		menuItem = new JMenuItem("Uj jatek");
+		menuItem.setActionCommand("newGame");
+		menuItem.addActionListener(this);
+		
+		menu.add(menuItem);
+		menuBar.add(menu);
+		
+		this.setJMenuBar(menuBar);
 		
 		Initialize();
 	}
@@ -216,5 +233,14 @@ public class Application extends JFrame {
 			}
 		}
 		gcell.highlight();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String actionCommand = e.getActionCommand();
+		
+		if(actionCommand.equals("newGame")) {
+			Initialize();
+		}
 	}
 }
