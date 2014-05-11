@@ -160,7 +160,6 @@ public class Path extends Cell {
 		for(int i = 0; i<nextPaths.size(); ++i){
 			// ha null, akkor hamis van a helyen
 			tb[i] = (nextPaths.get(i)!=null);
-			System.out.println(tb[i]);
 			if(tb[i]==true) {
 				bLastPath = true;
 			}
