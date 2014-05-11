@@ -60,7 +60,14 @@ public class Controller {
 		} 
 	}
 	
-	
+	public void sellTower(){
+		if(choosenField==null){
+			return;
+		}
+		
+		ITower tower = choosenField.getITower();
+		tower.sell();
+	}
 	
 	public void buyObstacle(){
 		int value;
