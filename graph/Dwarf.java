@@ -66,6 +66,9 @@ public class Dwarf extends Enemy {
 		Enemy enemy = new Dwarf(igame);
 		enemy.setHealth(health);
 		
+		GEnemy ge = new GDwarf(enemy);
+		enemy.addGEnemy(ge);
+		
 		igame.addEnemyIn(enemy);
 		myPath.registerIPathPlaceable(enemy);
 	}

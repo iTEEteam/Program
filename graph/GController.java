@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * A GController irányítja a grafikus elemeket, végzi a felhasználói interakciók érvényre jutásának a felületre
- * vonatkozó részeit, illetve kezdeményezi a modell megváltoztatását.
+ * A GController irï¿½nyï¿½tja a grafikus elemeket, vï¿½gzi a felhasznï¿½lï¿½i interakciï¿½k ï¿½rvï¿½nyre jutï¿½sï¿½nak a felï¿½letre
+ * vonatkozï¿½ rï¿½szeit, illetve kezdemï¿½nyezi a modell megvï¿½ltoztatï¿½sï¿½t.
  * 
  * @author Seres
  */
@@ -76,24 +76,24 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyTower = new JButton("<html>Torony<br />" + Tower.price + " mana</html>");
 		btnBuyTower.setActionCommand("tower");
 		btnBuyTower.addActionListener(this);
-		btnBuyObstacle = new JButton("<html>Akadály<br />" + Obstacle.price + " mana</html>");
+		btnBuyObstacle = new JButton("<html>Akadï¿½ly<br />" + Obstacle.price + " mana</html>");
 		btnBuyObstacle.setActionCommand("obstacle");
 		btnBuyObstacle.addActionListener(this);
 		
-		btnBuySpeedGem = new JButton("<html>Sebesség<br />" + SpeedGem.price + " mana</html>");
+		btnBuySpeedGem = new JButton("<html>Sebessï¿½g<br />" + SpeedGem.price + " mana</html>");
 		btnBuySpeedGem.setActionCommand("speed");
 		btnBuySpeedGem.addActionListener(this);
-		btnBuyRangeGem = new JButton("<html>Távolság<br />" + RangeGem.price + " mana</html>");
+		btnBuyRangeGem = new JButton("<html>Tï¿½volsï¿½g<br />" + RangeGem.price + " mana</html>");
 		btnBuyRangeGem.setActionCommand("range");
 		btnBuyRangeGem.addActionListener(this);
-		btnBuyDamageGem = new JButton("<html>Sebzés<br />" + DamageGem.price + " mana</html>");
+		btnBuyDamageGem = new JButton("<html>Sebzï¿½s<br />" + DamageGem.price + " mana</html>");
 		btnBuyDamageGem.setActionCommand("damage");
 		btnBuyDamageGem.addActionListener(this);
 		
 		btnBuyEnemyTypeGemHuman = new JButton("<html>Ember<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemHuman.setActionCommand("human");
 		btnBuyEnemyTypeGemHuman.addActionListener(this);
-		btnBuyEnemyTypeGemDwarf = new JButton("<html>Törp<br />" + EnemyTypeGem.price + " mana</html>");
+		btnBuyEnemyTypeGemDwarf = new JButton("<html>Tï¿½rp<br />" + EnemyTypeGem.price + " mana</html>");
 		btnBuyEnemyTypeGemDwarf.setActionCommand("dwarf");
 		btnBuyEnemyTypeGemDwarf.addActionListener(this);
 		btnBuyEnemyTypeGemHobbit = new JButton("<html>Hobbit<br />" + EnemyTypeGem.price + " mana</html>");
@@ -103,15 +103,15 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		btnBuyEnemyTypeGemElf.setActionCommand("elf");
 		btnBuyEnemyTypeGemElf.addActionListener(this);
 		
-		btnBuyIntensityGem = new JButton("<html>Intenzitás<br />" + IntensityGem.price + " mana</html>");
+		btnBuyIntensityGem = new JButton("<html>Intenzitï¿½s<br />" + IntensityGem.price + " mana</html>");
 		btnBuyIntensityGem.setActionCommand("intensity");
 		btnBuyIntensityGem.addActionListener(this);
-		btnBuyRepairGem = new JButton("<html>Javítás<br />" + RepairGem.price + " mana</html>");
+		btnBuyRepairGem = new JButton("<html>Javï¿½tï¿½s<br />" + RepairGem.price + " mana</html>");
 		btnBuyRepairGem.setActionCommand("repair");
 		btnBuyRepairGem.addActionListener(this);
 		
 		//Epites panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("Építés");
+		tmpTitle = BorderFactory.createTitledBorder("ï¿½pï¿½tï¿½s");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyTower);
@@ -119,14 +119,14 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		this.add(tmpPanel);
 		
 		//Torony fejlesztes panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("Torony fejlesztés");
+		tmpTitle = BorderFactory.createTitledBorder("Torony fejlesztï¿½s");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyRangeGem);
 		tmpPanel.add(btnBuySpeedGem);
 		tmpPanel.add(btnBuyDamageGem);
 		//Torony fejlesztesen beluli ellensegtipusra fejlesztes panel hozzaadasa
-		tmpTitle = BorderFactory.createTitledBorder("Ellenség típus");
+		tmpTitle = BorderFactory.createTitledBorder("Ellensï¿½g tï¿½pus");
 		tmpPanel2 = new JPanel();
 		tmpPanel2.setBorder(tmpTitle);
 		tmpPanel2.add(btnBuyEnemyTypeGemHuman);
@@ -137,7 +137,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		this.add(tmpPanel);
 		
 		//Akadaly fejlesztes panel hozzadasa
-		tmpTitle = BorderFactory.createTitledBorder("Akadály fejlesztés");
+		tmpTitle = BorderFactory.createTitledBorder("Akadï¿½ly fejlesztï¿½s");
 		tmpPanel = new JPanel();
 		tmpPanel.setBorder(tmpTitle);
 		tmpPanel.add(btnBuyIntensityGem);
@@ -212,18 +212,20 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 	 * @param gp A chosenGPath.
 	 */
 	public void setChosenGPath(GPath gp) {
-		deHighlightSelected();
-		
-		chosenGPath = gp;
-		chosenGField = null;
-		
-		chosenGPath.highlight();
-		chosenGPath.draw();
-		
-		controller.setPath(chosenGPath.getPath());
-		
-		disableFieldRelated();
-		enablePathRelated();
+		if(gp!=null){
+			deHighlightSelected();
+			
+			chosenGPath = gp;
+			chosenGField = null;
+			
+			chosenGPath.highlight();
+			chosenGPath.draw();
+			
+			controller.setPath(chosenGPath.getPath());
+			
+			disableFieldRelated();
+			enablePathRelated();
+		}
 	}
 	
 	/**

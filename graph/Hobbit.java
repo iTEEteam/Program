@@ -66,6 +66,9 @@ public class Hobbit extends Enemy {
 		Enemy enemy = new Hobbit(igame);
 		enemy.setHealth(health);
 		
+		GEnemy ge = new GHobbit(enemy);
+		enemy.addGEnemy(ge);
+		
 		igame.addEnemyIn(enemy);
 		myPath.registerIPathPlaceable(enemy);
 	}

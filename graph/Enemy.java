@@ -109,7 +109,6 @@ public abstract class Enemy implements IPathPlaceable {
 	**/
 	public void move() {
 		
-		System.out.println(speed);
 		if(modSpeed < speed) {
 			modSpeed++;
 		} else {

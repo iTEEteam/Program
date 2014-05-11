@@ -66,6 +66,9 @@ public class Human extends Enemy {
 		Enemy enemy = new Human(igame);
 		enemy.setHealth(health);
 		
+		GEnemy ge = new GHuman(enemy);
+		enemy.addGEnemy(ge);
+		
 		igame.addEnemyIn(enemy);
 		myPath.registerIPathPlaceable(enemy);
 	}

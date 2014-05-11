@@ -36,7 +36,6 @@ public class Elf extends Enemy {
 		
 		int damage = b.getDamageElf();
 		
-		
 		if(damage == 0) {
 			cut();
 		} else {
@@ -60,6 +59,9 @@ public class Elf extends Enemy {
 		
 		Enemy enemy = new Elf(igame);
 		enemy.setHealth(health);
+		
+		GEnemy ge = new GElf(enemy);
+		enemy.addGEnemy(ge);
 		
 		igame.addEnemyIn(enemy);
 		myPath.registerIPathPlaceable(enemy);
