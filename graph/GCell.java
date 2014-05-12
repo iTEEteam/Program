@@ -24,6 +24,7 @@ public abstract class GCell extends Graphic implements IView {
 	public GCell() {
 		this.setPreferredSize(cellSize);
 		this.setSize(cellSize);
+		this.setMinimumSize(cellSize);
 	}
 	
 	/**
