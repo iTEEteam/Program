@@ -6,15 +6,19 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -43,9 +47,14 @@ public class Application extends JFrame implements ActionListener {
 	
 	private String currentMap = null;
 	
-	JPanel gamePanel;
-	JComponent topPanel;
-	JPanel downPanel;
+	private JPanel gamePanel;
+	private JComponent topPanel;
+	private JPanel downPanel;
+	
+	
+	private JPanel stopPanel;
+	private BufferedImage stopPicture;
+	private JLabel stopPicLabel;
 	
 	
 	/**
@@ -55,6 +64,17 @@ public class Application extends JFrame implements ActionListener {
 		super("Rise of the Great Towers");
 		ResourcesCache.loadResources();
 				
+		
+		// jatek vege kep
+		try {
+			stopPicture = ImageIO.read(new File("start.jpg"));
+			stopPicLabel = new JLabel(new ImageIcon(stopPicture));
+			stopPanel = new JPanel();
+			stopPanel.add(stopPicLabel);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
@@ -87,6 +107,7 @@ public class Application extends JFrame implements ActionListener {
 			this.remove(topPanel);
 			this.remove(downPanel);
 		}
+		
 		JFileChooser fc = new JFileChooser(new File("."));
 		
 		FileFilter mapFilter = new FileFilter() {
@@ -194,49 +215,39 @@ public class Application extends JFrame implements ActionListener {
 		downPanel.add((GController)controller.getIView());
 		this.add(downPanel);
 		
-		
-//		JPanel test = new JPanel();
-//		JButton testbutt = new JButton("Make enemies.");
-//		testbutt.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				game.makeEnemies();
-//			}
-//		});
-//		test.add(testbutt);
-//		
-//		testbutt = new JButton("Update.");
-//		testbutt.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				game.update();
-//			}
-//		});
-//		test.add(testbutt);
-//		
-//		this.add(test);
-		
 		this.pack();
 	}
 
+	private void setGameEnd(){
+		this.remove(topPanel);
+		this.remove(gamePanel);
+		this.remove(downPanel);
+		
+		this.add(stopPanel);
+		this.pack();
+		
+	}
+	
 	/**
 	 * A program belepesi pontja.
 	 * 
 	 * @param args Parancssori argumentumok. 
 	 */
 	public static void main(String[] args) {
-		Application app = (new Application());
+		Application app = new Application();
 		app.setVisible(true);
-		while(app.game.getSucceededE()<10){
-			app.game.update();
-			
-			try {
-        		Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		while(true){
+		
+			while(app.game.getSucceededE()<10){
+				app.game.update();
+				try {
+	        		Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
+			app.setGameEnd();
+
 		}
 	}
 
@@ -246,6 +257,7 @@ public class Application extends JFrame implements ActionListener {
 		
 		if(actionCommand.equals("newGame")) {
 			Initialize();
+			this.remove(stopPanel);
 		}
 	}
 }
