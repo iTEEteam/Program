@@ -1,10 +1,8 @@
 package graph;
 
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -289,7 +287,7 @@ public class Application extends JFrame implements ActionListener {
 			while(!stopFlag && (app.game.getWaveCounter() <= 5) && (app.game.getSucceededE() < 10)) {
 				app.game.update();
 				try {
-	        		Thread.sleep(60);
+	        		Thread.sleep(100);
 				} catch (InterruptedException e) {}
 			}
 			

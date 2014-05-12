@@ -275,6 +275,8 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		if(chosenGField != null) {
 			chosenGField.gNotify();
 		}
+		
+		enableTowerRelated();
 	}
 	
 	/**

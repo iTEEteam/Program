@@ -3,9 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sun.java2d.loops.DrawGlyphListAA.General;
-
-
 public class Game implements IGame {
 	/**
 	 * A terkep, amiben a cellak tarolodnak.
