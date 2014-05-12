@@ -67,7 +67,7 @@ public class Application extends JFrame implements ActionListener {
 		
 		// jatek vege kep
 		try {
-			stopPicture = ImageIO.read(new File("start.jpg"));
+			stopPicture = ImageIO.read(new File("gameImages/game_over.jpeg"));
 			stopPicLabel = new JLabel(new ImageIcon(stopPicture));
 			stopPanel = new JPanel();
 			stopPanel.add(stopPicLabel);
