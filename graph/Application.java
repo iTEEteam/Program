@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -43,7 +44,7 @@ public class Application extends JFrame implements ActionListener {
 	private String currentMap = null;
 	
 	JPanel gamePanel;
-	JPanel topPanel;
+	JComponent topPanel;
 	JPanel downPanel;
 	
 	
@@ -162,8 +163,7 @@ public class Application extends JFrame implements ActionListener {
 		//GGame elhelyezese
 		//tmpConstraints = new GridBagConstraints(0, 0, cellGrid.get(0).size() + 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
 				//new Insets(0, 0, 0, 0), 0, 0);
-		topPanel= new JPanel();
-		topPanel.add((GGame)game.getIView());
+		topPanel = (GGame)game.getIView();
 		this.add(topPanel);
 		
 		((GGame)game.getIView()).setPreferredSize(new Dimension(cellGrid.get(0).size() * GCell.cellSize.width, 50));
@@ -238,16 +238,6 @@ public class Application extends JFrame implements ActionListener {
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	
-	public void highlight(GCell gcell) {
-		for(ArrayList<GCell> gRow : cellGrid) {
-			for(GCell cell : gRow) {
-				cell.deHighlight();
-			}
-		}
-		gcell.highlight();
 	}
 
 	@Override
