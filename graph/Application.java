@@ -225,6 +225,7 @@ public class Application extends JFrame implements ActionListener {
 		
 		this.add(stopPanel);
 		this.pack();
+		this.repaint();
 		
 	}
 	
