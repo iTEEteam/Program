@@ -261,8 +261,12 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 		
 		disablePathRelated();
 		enableFieldRelated();
-		if(chosenGField != null && chosenGField.getField().hasTower()) {
-			enableTowerRelated();
+		if(chosenGField != null) {
+			if(chosenGField.getField().hasTower()) {
+				enableTowerRelated();
+			} else {
+				disableTowerRelated();
+			}
 		}
 	}
 	
@@ -341,6 +345,7 @@ public class GController extends JPanel implements IView, MouseListener, ActionL
 	
 	public void sellTower() {
 		controller.sellTower();
+		disableTowerRelated();
 	}
 	
 	private void deHighlightSelected() {
