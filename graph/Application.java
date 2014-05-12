@@ -42,13 +42,18 @@ public class Application extends JFrame implements ActionListener {
 	
 	private String currentMap = null;
 	
+	JPanel gamePanel;
+	JPanel topPanel;
+	JPanel downPanel;
+	
+	
 	/**
 	 * Konstruktor
 	 */
 	public Application(){
 		super("Rise of the Great Towers");
 		ResourcesCache.loadResources();
-		
+				
 		//JFrame beallitasa
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 		
@@ -57,14 +62,14 @@ public class Application extends JFrame implements ActionListener {
 		
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu;
-		JMenuItem menuItem;
+		JMenuItem ujJatek;;
 		
 		menu = new JMenu("Jatek");
-		menuItem = new JMenuItem("Uj jatek");
-		menuItem.setActionCommand("newGame");
-		menuItem.addActionListener(this);
+		ujJatek = new JMenuItem("Uj jatek");
+		ujJatek.setActionCommand("newGame");
+		ujJatek.addActionListener(this);
 		
-		menu.add(menuItem);
+		menu.add(ujJatek);
 		menuBar.add(menu);
 		
 		this.setJMenuBar(menuBar);
@@ -76,6 +81,11 @@ public class Application extends JFrame implements ActionListener {
 	 * Inicializalast vegezne, de nem tudom, mennyire kell ez.
 	 */
 	public void Initialize(){
+		if(gamePanel!=null){
+			this.remove(gamePanel);
+			this.remove(topPanel);
+			this.remove(downPanel);
+		}
 		JFileChooser fc = new JFileChooser(new File("."));
 		
 		FileFilter mapFilter = new FileFilter() {
@@ -147,17 +157,20 @@ public class Application extends JFrame implements ActionListener {
 		}
 		
 		
+		
+		
 		//GGame elhelyezese
 		//tmpConstraints = new GridBagConstraints(0, 0, cellGrid.get(0).size() + 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
 				//new Insets(0, 0, 0, 0), 0, 0);
-		
-		this.add((GGame)game.getIView());
+		topPanel= new JPanel();
+		topPanel.add((GGame)game.getIView());
+		this.add(topPanel);
 		
 		((GGame)game.getIView()).setPreferredSize(new Dimension(cellGrid.get(0).size() * GCell.cellSize.width, 50));
 		
 		
 		//Cellak elhelyezese
-		JPanel gamePanel = new JPanel(new GridBagLayout());
+		gamePanel = new JPanel(new GridBagLayout());
 		for(int i = 0; i < cellGrid.size(); i++) {
 			
 			for(int j = 0; j < cellGrid.get(0).size(); j++) {
@@ -177,31 +190,33 @@ public class Application extends JFrame implements ActionListener {
 		//GController elhelyezese
 		//tmpConstraints = new GridBagConstraints(0, cellGrid.size() + 1, cellGrid.get(0).size(), 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 
 				//new Insets(0, 0, 0, 0), 0, 0);
-		this.add((GController)controller.getIView());
+		downPanel = new JPanel();
+		downPanel.add((GController)controller.getIView());
+		this.add(downPanel);
 		
 		
-		JPanel test = new JPanel();
-		JButton testbutt = new JButton("Make enemies.");
-		testbutt.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				game.makeEnemies();
-			}
-		});
-		test.add(testbutt);
-		
-		testbutt = new JButton("Update.");
-		testbutt.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				game.update();
-			}
-		});
-		test.add(testbutt);
-		
-		this.add(test);
+//		JPanel test = new JPanel();
+//		JButton testbutt = new JButton("Make enemies.");
+//		testbutt.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				game.makeEnemies();
+//			}
+//		});
+//		test.add(testbutt);
+//		
+//		testbutt = new JButton("Update.");
+//		testbutt.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				game.update();
+//			}
+//		});
+//		test.add(testbutt);
+//		
+//		this.add(test);
 		
 		this.pack();
 	}
