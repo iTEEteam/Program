@@ -1,3 +1,10 @@
-x	x	x	x
-en	r	r	ex
-x	x	x	x
+x	x	x	x	x	x	x	x	x	x
+en	rd	r	r	r	rd	r	r	d	x
+x	d	x	x	x	d	x	x	d	x
+x	d	x	x	x	d	x	x	d	x
+x	d	x	x	x	d	x	x	d	x
+x	rd	r	r	rd	r	r	d	l	x
+x	d	x	x	d	x	x	d	x	x
+x	d	x	x	d	x	x	d	x	x
+x	r	r	r	r	r	r	r	r	ex
+x	x	x	x	x	x	x	x	x	x
