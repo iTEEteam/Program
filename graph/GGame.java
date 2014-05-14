@@ -33,7 +33,7 @@ public class GGame extends Graphic implements IView {
 	public GGame(Game game) {
 		this.game = game;
 		
-		genemies = new ArrayList<>();
+		genemies = new ArrayList<GEnemy>();
 	}
 	
 	/**
