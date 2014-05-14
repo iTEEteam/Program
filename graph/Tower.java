@@ -13,8 +13,8 @@ public class Tower implements ITower, IFieldPlaceable {
 	 * A torony hatosugara, hogy hany cellat er el a szomszedos cellak kozul.
 	**/
 	private int range = 1;
-	private int speedCtr = 2;
-	private int speed = 3;
+	private int speedCtr = 0;
+	private int speed = 2;
 	/**
 	 * A lovedek amit a torony kilo.
 	**/
@@ -51,7 +51,7 @@ public class Tower implements ITower, IFieldPlaceable {
 	}
 	
 	public void upgradeSpeed(int sp) {
-		speed += sp;
+		speed -= sp;
 	}
 	
 	public void upgradeRange(int rng) {
@@ -78,13 +78,19 @@ public class Tower implements ITower, IFieldPlaceable {
 		return null;
 	}
 	
+	// ha a loves moduloja is ott tart
 	// kivalaszt egy ellenseget es megsebzi a bullet-tel
 	public void shoot() {
-		Enemy target = chooseEnemy();
-		if(target==null){
-			return;
+		if(speedCtr < speed){
+			++speedCtr;
+		}else{
+			Enemy target = chooseEnemy();
+			if(target==null){
+				return;
+			}
+			target.hurt(bullet);
+			speedCtr = 0;
 		}
-		target.hurt(bullet);
 	}
 	
 	// ez a fv csak teszteleshez kell

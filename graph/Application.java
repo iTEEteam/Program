@@ -45,8 +45,12 @@ public class Application extends JFrame implements ActionListener {
 	
 	ArrayList<ArrayList<GCell>> cellGrid;
 	
+	// jatek futasa kozben lathato panelek
+	//palya, jatek elemek
 	private JPanel gamePanel;
+	// jatekos informacioi (mana, bejutott ellensegek, hullamok szama)
 	private JComponent topPanel;
+	// jatek interakciokhoz gombok vannak rajta
 	private JPanel downPanel;
 	
 	
@@ -68,7 +72,7 @@ public class Application extends JFrame implements ActionListener {
 		
 		updateThread = null;
 		
-		// jatek vege kep
+		// jatek vege kep betoltese
 		try {
 			stopPicture = ImageIO.read(new File("gameImages/game_over.jpeg"));
 			stopPicLabel = new JLabel(new ImageIcon(stopPicture));
@@ -213,6 +217,8 @@ public class Application extends JFrame implements ActionListener {
 		startUpdateThread();
 	}
 
+	// egyes jatek allapotoknal a paneleket le kell cserelni
+	// jellemzoen allapotvaltaskor erdemes mindent kitisztitani
 	private void removePanels() {
 		if(gamePanel!=null){
 			this.remove(gamePanel);
@@ -244,6 +250,7 @@ public class Application extends JFrame implements ActionListener {
 		updateThread.start();
 	}
 
+	// kirajzol egy game over kepet
 	private void setGameEnd(){
 		removePanels();
 		
@@ -253,6 +260,7 @@ public class Application extends JFrame implements ActionListener {
 		
 	}
 	
+	// kirajzolja hogy you win
 	public void setGameWin() {
 		removePanels();
 		
@@ -266,6 +274,9 @@ public class Application extends JFrame implements ActionListener {
 		this.repaint();
 	}
 	
+	/*
+	 * azert, hogy szalbiztos legyen a fo ciklus egy flaget allit, ha valaki belepett
+	 */
 	private class UpdateThread extends Thread {
 		
 		private Application app;
@@ -287,10 +298,11 @@ public class Application extends JFrame implements ActionListener {
 			while(!stopFlag && (app.game.getWaveCounter() <= 5) && (app.game.getSucceededE() < 10)) {
 				app.game.update();
 				try {
-	        		Thread.sleep(100);
+	        		Thread.sleep(420);
 				} catch (InterruptedException e) {}
 			}
 			
+			// jatek kimenetetol fuggoen kulonbozo kepet rajzol ki
 			if(app.game.getSucceededE() >= 10) {
 				app.setGameEnd();
 			} else if(app.game.getWaveCounter() > 5) {

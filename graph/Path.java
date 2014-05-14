@@ -31,13 +31,6 @@ public class Path extends Cell {
 	**/
 	private ArrayList<Enemy> enemies;
 	
-//	private Path forcedNextPath;
-	
-	// ez is WTF?
-	//private Enemy myPath;
-	
-	//private Tower paths;
-	
 	/**
 	 * Konstruktor
 	**/
@@ -49,12 +42,45 @@ public class Path extends Cell {
 		neighbours = new ArrayList<Cell>();
 	}
 	
+	/**
+	 * Visszater a nextPaths lista egy elemevel, ahova az enemy majd lephet.
+	**/
+	public Path getNext() {
+		Path nextPath = null;
+		
+		// ha minden iranyba null, akkor adja vissza h null
+		boolean bLastPath = false; // ha marad hamis, akkor ez a vegzet hegye
+		boolean tb[] = new boolean[nextPaths.size()]; // ez tarolja, hogy egyes helyeken null van-e
+		for(int i = 0; i<nextPaths.size(); ++i){
+			// ha null, akkor hamis van a helyen
+			tb[i] = (nextPaths.get(i)!=null);
+			if(tb[i]==true) {
+				bLastPath = true;
+			}
+		}
+		// ha mind hamis volt, ez a vegzet hegye
+		if(!bLastPath)
+			return null;
+		
+		/*
+		 * ha van merre tovabbmenni kivalaszt egy random indexet a nextPaths-tombre,
+		 * elkezd egy iteraciot amiben addig megy vegig a tombon, a random indextol,  
+		 * amig nem talal utat amire lephet
+		 * az index a tomb meretevel modulo, szoval ha kierne a tombbol az elso helyen folytatja
+		 */
+		Random rand = new Random();
+		int ind = rand.nextInt(nextPaths.size());
+		for(int i=0; nextPath==null; ++i){
+			if(tb[(ind+i)%nextPaths.size()]==true){
+				nextPath = nextPaths.get((ind+i)%nextPaths.size());
+			}
+		}
+		return nextPath;
+	}
+	
 	public void setNextPaths(ArrayList<Path> nextPaths_){
 		nextPaths = nextPaths_;
 	}
-	
-	
-	
 	
 	/**
 	 * A bool tipusu visszateresi ertekben megmondja, hogy van-e ellenseg a Path-en. 
@@ -63,6 +89,7 @@ public class Path extends Cell {
 		return !enemies.isEmpty();
 	}
 	
+	// visszaadja hogy van e rajta 	akadaly
 	public boolean hasObstacle() {
 
 		return !(myIObstacle==null);
@@ -145,85 +172,11 @@ public class Path extends Cell {
 		return myIObstacle;
 	}
 	
-	/**
-	 * Visszater a nextPaths lista egy elemevel, ahova az enemy majd lephet.
-	**/
-	public Path getNext() {
-		Path nextPath = null;
-//		if(forcedNextPath!=null){
-//			nextPath = forcedNextPath;
-//		}else 
-		
-		// ha minden iranyba null, akkor adja vissza h null
-		boolean bLastPath = false; // ha marad hamis, akkor ez a vegzet hegye
-		boolean tb[] = new boolean[nextPaths.size()]; // ez tarolja, hogy egyes helyeken null van-e
-		for(int i = 0; i<nextPaths.size(); ++i){
-			// ha null, akkor hamis van a helyen
-			tb[i] = (nextPaths.get(i)!=null);
-			if(tb[i]==true) {
-				bLastPath = true;
-			}
-		}
-		// ha mind hamis volt, ez a vegzet hegye
-		if(!bLastPath)
-			return null;
-		
-		
-		/*
-		 * ha van merre tovabbmenni kivalaszt egy random indexet a nextPaths-tombre,
-		 * elkezd egy iteraciot amiben addig megy vegig a tombon, a random indextol,  
-		 * amig nem talal utat amire lephet
-		 * az index a tomb meretevel modulo, szoval ha kierne a tombbol az elso helyen folytatja
-		 */
-		Random rand = new Random();
-		int ind = rand.nextInt(nextPaths.size());
-		for(int i=0; nextPath==null; ++i){
-			if(tb[(ind+i)%nextPaths.size()]==true){
-				nextPath = nextPaths.get((ind+i)%nextPaths.size());
-			}
-		}
-
-//		forcedNextPath = null;
-		return nextPath;
-
-	}
-        
-//        public void determineNext(int direction) {
-//            forcedNextPath = null;
-//            switch(direction){
-//            case 0:
-//            	if(neighbours.get(0).isPath()){
-//            		forcedNextPath = (Path) neighbours.get(0);
-//            	}
-//            	break;
-//            case 1:
-//            	if(neighbours.get(1).isPath()){
-//            		forcedNextPath = (Path) neighbours.get(1);
-//            	}
-//            	break;
-//            case 2:
-//            	if(neighbours.get(2).isPath()){
-//            		forcedNextPath = (Path) neighbours.get(2);
-//            	}
-//            	break;
-//            case 3:
-//            	if(neighbours.get(3).isPath()){
-//            		forcedNextPath = (Path) neighbours.get(3);
-//            	}
-//            	break;
-//            	
-//            	
-//            }
-//        }
-
 	@Override
 	public boolean isPath() {
 		return true;
 	}
-	//ez nem kell mashogy csinaltam meg a loadban
-//	public void addNext(Path p){
-//		nextPaths.add(p);
-//	}
+
 	
 	public ArrayList<Path> getNextPaths() {
 		return nextPaths;

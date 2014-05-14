@@ -8,7 +8,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
      * Az akadaly ara. Statikus, mert minden akadalyra ugyanannyi.
 	*
      */
-    public static final int price = 10;
+    public static final int price = 50;
 
     /**
      * A lassitas merteke.
@@ -42,7 +42,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
      */
     public Obstacle() {
         gems = new ArrayList<IOGem>();
-        amort = 200;
+        amort = 100;
     }
 
     public void slow(Enemy e) {     
@@ -57,7 +57,7 @@ public class Obstacle implements IObstacle, IPathPlaceable {
     }
 
     public void amortization() {
-        amort -= 10;
+        amort -= 5;
     }
 
     public void increaseIntensity(int intens) {

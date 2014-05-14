@@ -5,7 +5,7 @@ public class Bullet {
 	/**
 	 * Megadja, hogy mennyivel kell csokkenteni sebzeskor az Enemy health valtozojat.
 	**/
-	private int damage = 20;
+	private int damage = 25;
 	
 	/**
 	 * Megadja annak az ellensegnek a tipusat, amire nagyobb a sebzes, fejlesztettek a bulletet. 
@@ -19,8 +19,6 @@ public class Bullet {
 	 * @param    et
 	**/
 	public Bullet(int dmg, String et) {
-	
-
 		setDamage(dmg);
 		setEnemy(et);
 	}
@@ -39,9 +37,7 @@ public class Bullet {
 		// 8% esellyel ketteszeli az ellenseget
 		if(Math.random()<0.08)
 			return 0;
-		
-
-		
+				
 		if(enemyType.equals("elf"))
 			return damage+40;
 		
