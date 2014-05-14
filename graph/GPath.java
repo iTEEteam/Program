@@ -30,7 +30,7 @@ public class GPath extends GCell {
 	private Path path;
 	
 	/**
-	 * Az path enemies-hez tartozó GEnemy-k listaja.
+	 * Az path enemies-hez tartozï¿½ GEnemy-k listaja.
 	 */
 	ArrayList<GEnemy> genemies;
 	
@@ -47,7 +47,7 @@ public class GPath extends GCell {
 		super();
 		this.path = path;
 		
-		genemies = new ArrayList<>();
+		genemies = new ArrayList<GEnemy>();
 		
 		image = new BufferedImage(cellSize.width, cellSize.height, BufferedImage.TYPE_INT_ARGB);
 	}
